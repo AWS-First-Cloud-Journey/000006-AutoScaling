@@ -29,7 +29,7 @@ Hãy chắc chắn rằng bạn đã xem qua tài liệu [Triển khai Ứng d�
 
 **Target Group** (nhóm mục tiêu) là một nhóm những thành phần tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và truyền tải bởi Load Balancer.
 
-![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
+![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=40pc)
 
 #### Nội dung
 
