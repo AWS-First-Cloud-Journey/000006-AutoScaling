@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>/vi/1-introduce/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/1-introduce/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/1-introduce/"
+                />
+  </url><url>
+    <loc>/vi/2-prerequiste/2.1-createvpc/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prerequiste/2.1-createvpc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prerequiste/2.1-createvpc/"
+                />
+  </url><url>
     <loc>/vi/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,219 +37,199 @@
                 hreflang="vi"
                 href="/vi/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/"
+                href="/2-prerequiste/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/"
+                href="/vi/2-prerequiste/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.2-createsecuritygroup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/"
+                href="/2-prerequiste/2.2-createsecuritygroup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/"
+                href="/vi/2-prerequiste/2.2-createsecuritygroup/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/1-security-group/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/3-launchtemplate/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/1-security-group/"
+                href="/3-launchtemplate/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/1-security-group/"
+                href="/vi/3-launchtemplate/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/2-launch-template/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.3-createsgdb/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-launch-template/"
+                href="/2-prerequiste/2.3-createsgdb/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-launch-template/"
+                href="/vi/2-prerequiste/2.3-createsgdb/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/4-launchtargetgroup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/"
+                href="/4-launchtargetgroup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/"
+                href="/vi/4-launchtargetgroup/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/2-database/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.4-createdbsubnetgroup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/2-database/"
+                href="/2-prerequiste/2.4-createdbsubnetgroup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/2-database/"
+                href="/vi/2-prerequiste/2.4-createdbsubnetgroup/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/3-target-group/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+  </url><url>
+    <loc>/vi/5-launchloadbalancer/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-target-group/"
+                href="/5-launchloadbalancer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-target-group/"
+                href="/vi/5-launchloadbalancer/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.5-createdbinstance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/"
+                href="/2-prerequiste/2.5-createdbinstance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/"
+                href="/vi/2-prerequiste/2.5-createdbinstance/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/3-deploy-sharenote/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/6-launchautoscalinggroup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/3-deploy-sharenote/"
+                href="/6-launchautoscalinggroup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/3-deploy-sharenote/"
+                href="/vi/6-launchautoscalinggroup/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/1-prerequisite/4-create-ami/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.6-createec2/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-prerequisite/4-create-ami/"
+                href="/2-prerequiste/2.6-createec2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-prerequisite/4-create-ami/"
+                href="/vi/2-prerequiste/2.6-createec2/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/4-load-balance/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.7-connectec2/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-load-balance/"
+                href="/2-prerequiste/2.7-connectec2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-load-balance/"
+                href="/vi/2-prerequiste/2.7-connectec2/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/5-asg/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/7-result/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-asg/"
+                href="/7-result/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-asg/"
+                href="/vi/7-result/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/6-testing/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+  </url><url>
+    <loc>/vi/8-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/6-testing/"
+                href="/8-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/6-testing/"
+                href="/vi/8-cleanup/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/7-clean-up/</loc>
-    <lastmod>2021-06-08T18:57:03+07:00</lastmod>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.8-connectdbinstance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/7-clean-up/"
+                href="/2-prerequiste/2.8-connectdbinstance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/7-clean-up/"
+                href="/vi/2-prerequiste/2.8-connectdbinstance/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/2-prerequiste/2.9-deployapp/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prerequiste/2.9-deployapp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prerequiste/2.9-deployapp/"
+                />
+  </url><url>
+    <loc>/vi/2-prerequiste/2.10-createami/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prerequiste/2.10-createami/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prerequiste/2.10-createami/"
+                />
+  </url><url>
     <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -239,9 +241,7 @@
                 hreflang="vi"
                 href="/vi/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -254,5 +254,4 @@
                 href="/vi/tags/"
                 />
   </url>
-  
 </urlset>
