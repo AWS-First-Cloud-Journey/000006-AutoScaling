@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo DB instance :: Deploying FCJ Management application with Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1653801792" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653801792" rel="stylesheet">
-    <link href="/css/hybrid.css?1653801792" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653801792" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653801792" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653801792" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653801792" rel="stylesheet">
-    <link href="/css/theme.css?1653801792" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653801792" rel="stylesheet">
+    <link href="/css/nucleus.css?1672822840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672822840" rel="stylesheet">
+    <link href="/css/hybrid.css?1672822840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672822840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672822840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672822840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672822840" rel="stylesheet">
+    <link href="/css/theme.css?1672822840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672822840" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1653801792" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1672822840" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653801792"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672822840"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653801792"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653801792"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672822840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672822840"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653801792"></script>
+<script type="text/javascript" src="/js/search.js?1672822840"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
       <left>
     
      <b> Workshop</b> <br>
-    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
      <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
@@ -661,7 +661,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>28-05-2022</font></i>
+        <i><font color=orange>04-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -759,56 +759,68 @@
 
 	<h4 id="tạo-db-instance">Tạo DB instance</h4>
 <ol>
-<li>Truy cập vào <strong>AWS Management Console</strong></li>
-</ol>
+<li>
+<p>Truy cập vào <strong>AWS Management Console</strong></p>
 <ul>
 <li>Tìm <strong>RDS</strong></li>
 <li>Chọn <strong>RDS</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0001-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="2">
-<li>Trong giao diện <strong>RDS</strong></li>
+</li>
 </ol>
+<p><img src="/images/5/0001.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="2">
+<li>
+<p>Trong giao diện <strong>RDS</strong></p>
 <ul>
 <li>Chọn  <strong>Databases</strong></li>
 <li>CHọn <strong>Create database</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0002-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="3">
-<li>Chọn phương thức tạo <strong>database</strong></li>
+</li>
 </ol>
+<p><img src="/images/5/0002.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="3">
+<li>
+<p>Chọn phương thức tạo <strong>database</strong></p>
 <ul>
 <li>Chọn <strong>Standard create</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0003-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="4">
-<li>Cấu hình <strong>Engine</strong> database</li>
+</li>
 </ol>
+<p><img src="/images/5/0003.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="4">
+<li>
+<p>Cấu hình <strong>Engine</strong> database</p>
 <ul>
 <li>Chọn <strong>MySQL</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0004-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="5">
-<li>Cấu hình <strong>Template</strong></li>
+</li>
 </ol>
+<p><img src="/images/5/0004.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="5">
+<li>
+<p>Cấu hình <strong>Template</strong></p>
 <ul>
 <li>Chọn <strong>Production</strong></li>
 <li>Đối với <strong>Availability and durability</strong>, chọn <strong>Mutil-AZ DB  instance</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0005-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="6">
-<li>Tiếp theo, thực hiện cài đặt chi tiết</li>
+</li>
 </ol>
+<p><img src="/images/5/0005.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="6">
+<li>
+<p>Tiếp theo, thực hiện cài đặt chi tiết</p>
 <ul>
 <li><strong>DB instance identifier</strong>, nhập <strong><code>fcj-management-db-instance</code></strong></li>
 <li><strong>Master user</strong>, nhập <strong>admin</strong></li>
 <li><strong>Master password</strong>, nhập tùy ý của bạn ( trong bài lab, nhập <strong><code>123Vodanhphai</code></strong>)</li>
 <li><strong>Confirm password</strong>, nhập lại password 1 lần nữa.</li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0006-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="7">
-<li>Thực hiện cấu hình network cho db instance</li>
+</li>
 </ol>
+<p><img src="/images/5/0006.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="7">
+<li>
+<p>Thực hiện cấu hình network cho db instance</p>
 <ul>
 <li><strong>Network type</strong>, chọn <strong>IPv4</strong></li>
 <li><strong>VPC</strong>, chọn <strong>asg-vpc</strong> đã tạo</li>
@@ -816,30 +828,37 @@
 <li><strong>VPC security group</strong>, Chọn <strong>Choose existing</strong></li>
 <li><strong>Security Group</strong>, chọn <strong>FCJ-Management-DB-SG</strong> (tránh nhầm lẫn với SG của web).</li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0007-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+</li>
+</ol>
+<p><img src="/images/5/0007.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
 <ol start="8">
 <li>Khởi tạo Database với tên <strong>awsuer</strong>, còn lại để mặc định.</li>
 </ol>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0008-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<p><img src="/images/5/0008.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
 <ol start="9">
 <li>Kiểm tra lại và chọn <strong>Create database</strong></li>
 </ol>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/0009-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<p><img src="/images/5/0009.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
 <ol start="10">
-<li>Khởi tạo DB instance trong 10 phút. Khi <strong>Status</strong> chuyển sang <strong>Available</strong> là hoàn thành.</li>
-</ol>
+<li>
+<p>Khởi tạo DB instance trong 10 phút. Khi <strong>Status</strong> chuyển sang <strong>Available</strong> là hoàn thành.</p>
 <ul>
 <li>Chọn vào <strong>db instance</strong> vừa tạo.</li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/00010-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
-<ol start="11">
-<li>Trong giao diện <strong>Connectivity &amp; security</strong></li>
+</li>
 </ol>
+<p><img src="/images/5/00010.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<ol start="11">
+<li>
+<p>Trong giao diện <strong>Connectivity &amp; security</strong></p>
 <ul>
 <li>Lưu trữ giá trị <strong>Endpoint</strong></li>
 <li>Kiểm tra port <strong>3306</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.5-CreateDBinstance/00011-createdbinstance.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+</li>
+</ol>
+<p><img src="/images/5/00011.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
+<p><img src="/images/5/00012.png?featherlight=false&amp;width=90pc" alt="Create DB instance"></p>
 
 
 
@@ -1198,19 +1217,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653801792"></script>
-    <script src="/js/jquery.sticky.js?1653801792"></script>
-    <script src="/js/featherlight.min.js?1653801792"></script>
-    <script src="/js/highlight.pack.js?1653801792"></script>
+    <script src="/js/clipboard.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672822840"></script>
+    <script src="/js/jquery.sticky.js?1672822840"></script>
+    <script src="/js/featherlight.min.js?1672822840"></script>
+    <script src="/js/highlight.pack.js?1672822840"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653801792"></script>
-    <script src="/js/learn.js?1653801792"></script>
-    <script src="/js/hugo-learn.js?1653801792"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672822840"></script>
+    <script src="/js/learn.js?1672822840"></script>
+    <script src="/js/hugo-learn.js?1672822840"></script>
 
-    <link href="/mermaid/mermaid.css?1653801792" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1653801792"></script>
+    <link href="/mermaid/mermaid.css?1672822840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1672822840"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

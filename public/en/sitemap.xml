@@ -134,18 +134,6 @@
                 href="/5-launchloadbalancer/"
                 />
   </url><url>
-    <loc>/2-prerequiste/2.6-createec2/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-prerequiste/2.6-createec2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-prerequiste/2.6-createec2/"
-                />
-  </url><url>
     <loc>/6-launchautoscalinggroup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -156,6 +144,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="/6-launchautoscalinggroup/"
+                />
+  </url><url>
+    <loc>/2-prerequiste/2.6-createec2/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prerequiste/2.6-createec2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prerequiste/2.6-createec2/"
                 />
   </url><url>
     <loc>/7-result/</loc>

@@ -12,49 +12,49 @@ pre : " <b> 3.  </b> "
 
 1. Truy cập vào **EC2**
 
-- Chọn **Launch Templates**
-- Chọn **Create launch template**
+   - Chọn **Launch Templates**
+   - Chọn **Create launch template**
 
-![Deploy app](/images/3-LaunchTemplate/0001-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0001.png?featherlight=false&width=90pc)
 
 2. Trong giao diện **Create launch template**
 
-- **Launch template name**, nhập **```FCJ-Management-template```**
-- **Template version description**, nhập **```Template for FCJ Management```**
+    - **Launch template name**, nhập **```FCJ-Management-template```**
+    - **Template version description**, nhập **```Template for FCJ Management```**
 
-![Deploy app](/images/3-LaunchTemplate/0002-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0002.png?featherlight=false&width=90pc)
 
 3. Thực hiện chọn **AMI**
 
-- Chọn **My AMIs**
-- Chọn **Owned by me**
-- Chọn **FCJ-Management-AMI**
+   - Chọn **My AMIs**
+   - Chọn **Owned by me**
+   - Chọn **FCJ-Management-AMI**
 
-![Deploy app](/images/3-LaunchTemplate/0003-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0003.png?featherlight=false&width=90pc)
 
 4. Thực hiện chọn **Instance type**
 
-- Chọn **t2.micro**
-- **Key pair**, chọn **asg-keypair** đã tạo lúc tạo **EC2** instance.
+   - Chọn **t2.micro**
+   - **Key pair**, chọn **asg-keypair** đã tạo lúc tạo **EC2** instance.
 
-![Deploy app](/images/3-LaunchTemplate/0004-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0004.png?featherlight=false&width=90pc)
 
 5. Thực hiện cấu hình **Network**
 
-- **Subnet**, chọn **public subnet**
-- **Firewall ( Security Group)**, chọn **Select existing security group**
-- Chọn **FCJ-Management-SG**
+   - **Subnet**, chọn **public subnet**
+   - **Firewall ( Security Group)**, chọn **Select existing security group**
+   - Chọn **FCJ-Management-SG**
 
-![Deploy app](/images/3-LaunchTemplate/0005-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0005.png?featherlight=false&width=90pc)
 
 6. Kiểm tra lại và thực hiện **Create launch template**
 
-![Deploy app](/images/3-LaunchTemplate/0006-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0006.png?featherlight=false&width=90pc)
 
 7. Thực hiện thành công và chọn **View launch templates**
 
-![Deploy app](/images/3-LaunchTemplate/0007-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0007.png?featherlight=false&width=90pc)
 
 8. Xem template vừa khởi tạo.
 
-![Deploy app](/images/3-LaunchTemplate/0008-launchtemplate.png?featherlight=false&width=90pc)
+![Deploy app](/images/13/0008.png?featherlight=false&width=90pc)

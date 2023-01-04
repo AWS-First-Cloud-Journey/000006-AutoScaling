@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Security Group DB :: Deploying FCJ Management application with Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1653801792" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653801792" rel="stylesheet">
-    <link href="/css/hybrid.css?1653801792" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653801792" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653801792" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653801792" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653801792" rel="stylesheet">
-    <link href="/css/theme.css?1653801792" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653801792" rel="stylesheet">
+    <link href="/css/nucleus.css?1672822840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672822840" rel="stylesheet">
+    <link href="/css/hybrid.css?1672822840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672822840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672822840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672822840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672822840" rel="stylesheet">
+    <link href="/css/theme.css?1672822840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672822840" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1653801792" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1672822840" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653801792"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672822840"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653801792"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653801792"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672822840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672822840"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653801792"></script>
+<script type="text/javascript" src="/js/search.js?1672822840"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
       <left>
     
      <b> Workshop</b> <br>
-    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
      <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
@@ -661,7 +661,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>28-05-2022</font></i>
+        <i><font color=orange>04-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -759,36 +759,43 @@
 
 	<h4 id="tạo-security-group-cho-database-instance">Tạo security group cho Database instance.</h4>
 <ol>
-<li>Chúng ta tạo Security group cho Database instance. Để đảm bảo bảo mật nên không cấu hình chung Security group của ứng dụng.</li>
-</ol>
+<li>
+<p>Chúng ta tạo Security group cho Database instance. Để đảm bảo bảo mật nên không cấu hình chung Security group của ứng dụng.</p>
 <ul>
 <li>Chọn <strong>Security Group</strong></li>
 <li>Chọn <strong>Create security group</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.3-CreateSGDB/0001-createsgdb.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
-<ol start="2">
-<li>Thực hành cấu hình <strong>security group</strong></li>
+</li>
 </ol>
+<p><img src="/images/3/0001.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
+<ol start="2">
+<li>
+<p>Thực hành cấu hình <strong>security group</strong></p>
 <ul>
 <li><strong>Security Group name</strong>, nhập <strong><code>FCJ-Mangement-DB-SG</code></strong></li>
 <li><strong>Description</strong>, nhập <code>Security Group for DB instance</code></li>
 <li>Chọn vpc vừa tạo</li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.3-CreateSGDB/0002-createsgdb.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
-<ol start="3">
-<li>Cấu hình <strong>Inbound rules</strong></li>
+</li>
 </ol>
+<p><img src="/images/3/0002.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
+<ol start="3">
+<li>
+<p>Cấu hình <strong>Inbound rules</strong></p>
 <ul>
 <li>Chọn <strong>Add rule</strong></li>
 <li>Chọn <strong>MYSQL/Aurora</strong> port 3306</li>
 <li>Sau đó chọn Soure là <strong>FCJ-Management-SG</strong></li>
 <li>Chọn <strong>Create security group</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.3-CreateSGDB/0003-createsgdb.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
+</li>
+</ol>
+<p><img src="/images/3/0003.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
+<p><img src="/images/3/0004.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 <ol start="4">
 <li>Hoàn thành tạo <strong>Security group</strong> cho database.</li>
 </ol>
-<p><img src="/images/2-Prerequiste/2.3-CreateSGDB/0004-createsgdb.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
+<p><img src="/images/3/0005.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 
 
 
@@ -1147,19 +1154,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653801792"></script>
-    <script src="/js/jquery.sticky.js?1653801792"></script>
-    <script src="/js/featherlight.min.js?1653801792"></script>
-    <script src="/js/highlight.pack.js?1653801792"></script>
+    <script src="/js/clipboard.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672822840"></script>
+    <script src="/js/jquery.sticky.js?1672822840"></script>
+    <script src="/js/featherlight.min.js?1672822840"></script>
+    <script src="/js/highlight.pack.js?1672822840"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653801792"></script>
-    <script src="/js/learn.js?1653801792"></script>
-    <script src="/js/hugo-learn.js?1653801792"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672822840"></script>
+    <script src="/js/learn.js?1672822840"></script>
+    <script src="/js/hugo-learn.js?1672822840"></script>
 
-    <link href="/mermaid/mermaid.css?1653801792" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1653801792"></script>
+    <link href="/mermaid/mermaid.css?1672822840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1672822840"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

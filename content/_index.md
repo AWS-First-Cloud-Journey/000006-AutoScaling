@@ -29,7 +29,7 @@ Make sure you go through the [Deploying FCJ Management Application on a Windows/
 
 **Target Group** is a group of AWS resource elements that will receive data traffic delivered and transported by the Load Balancer.
 
-![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=40pc)
+![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
 
 #### Content
 

@@ -10,44 +10,44 @@ pre : " <b> 4.  </b> "
 
 1. Truy cập giao diện **EC2**
 
-- Chọn **Target Groups**
-- Chọn **Create target group**
+   - Chọn **Target Groups**
+   - Chọn **Create target group**
 
-![Deploy app](/images/4-LaunchTargetgroup/0001-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0001.png?featherlight=false&width=90pc)
 
 2. Thực hiện cấu hình
 
-- Chọn **Instances**
+   - Chọn **Instances**
 
-![Deploy app](/images/4-LaunchTargetgroup/0002-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0002.png?featherlight=false&width=90pc)
 
 3. Ở trang **Specify group details**, thiết lập các thông số như sau cho **target group**:
 
-- **Target group name**: Nhập tên của target group (VD: **FCJ-Management-TG**).
-- **Protocol**: HTTP.
-- **Port**: **5000** (Port sử dụng bởi FCJ Management).
-- Các mục còn lại để mặc định.
+   - **Target group name**: Nhập tên của target group (VD: **FCJ-Management-TG**).
+   - **Protocol**: HTTP.
+   - **Port**: **5000** (Port sử dụng bởi FCJ Management).
+   - Các mục còn lại để mặc định.
 
-![Deploy app](/images/4-LaunchTargetgroup/0003-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0003.png?featherlight=false&width=90pc)
 
 4. Chọn **Next**
 
-![Deploy app](/images/4-LaunchTargetgroup/0004-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0004.png?featherlight=false&width=90pc)
 
 5. Trong giao diện **Available instances**
 
-- Chọn **FCJ-Management** instance
-- Chọn port **5000**
-- Chọn **Include as pending below** ( nếu không chọn lúc truy cập bằng DNS Load Balancer sẽ gặp lỗi **HTTP 503: Service unavailable**)
-- Kiểm tra lại
-- Chọn **Create target group**
+   - Chọn **FCJ-Management** instance
+   - Chọn port **5000**
+   - Chọn **Include as pending below** ( nếu không chọn lúc truy cập bằng DNS Load Balancer sẽ gặp lỗi **HTTP 503: Service unavailable**)
+   - Kiểm tra lại
+   - Chọn **Create target group**
 
-![Deploy app](/images/4-LaunchTargetgroup/0005-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0005.png?featherlight=false&width=90pc)
 
 6. Trong giao diện **Register pending targets only**, chọn **Continue**
 
-![Deploy app](/images/4-LaunchTargetgroup/0006-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0006.png?featherlight=false&width=90pc)
 
 7. Hoàn thành tạo **Target group**
 
-![Deploy app](/images/4-LaunchTargetgroup/0007-createtg.png?featherlight=false&width=90pc)
+![Deploy app](/images/14/0007.png?featherlight=false&width=90pc)

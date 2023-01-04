@@ -10,27 +10,30 @@ pre : " <b> 2.7 </b> "
 
 1. Use **MobaXterm** to SSH into the instance via port 22.
 
-- Select **Session**
+   - Select **Session**
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0001-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0001.png?featherlight=false&width=90pc)
 
 2. In the **Session settings** section,
 
-- **Remote host**, enter **Public IPv4 address** of the instance
-- **Specify username**, enter **ec2-user**
-- Check port 22
-- Select **Advanced SSH settings**
-- Select **Use private key** and select **keypair** of the instance.
-- Select **OK**
+   - **Remote host**, enter **Public IPv4 address** of the instance
+   - **Specify username**, enter **ec2-user**
+   - Check port 22
+   - Select **Advanced SSH settings**
+   - Select **Use private key** and select **keypair** of the instance.
+   - Select **OK**
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0002-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0002.png?featherlight=false&width=90pc)
 
-3. EC2 instance connection is successful.
+3. Follow the instructions in the figure. EC2 instance connection was successful.
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0003-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0003.png?featherlight=false&width=90pc)
 
 
-You can refer to [How to install Nodejs on EC2](https://000004.awsstudygroup.com/en/6-awsfcjmanagement-linux/6.2-setupnodejsonec2linux/)
+![Connect EC2 instance](/images/7/0004.png?featherlight=false&width=90pc)
+
+
+![Connect EC2 instance](/images/7/0005.png?featherlight=false&width=90pc)
 
 4. Install node version manager (nvm) ) by typing the following in the following command line:
 
@@ -39,7 +42,7 @@ You can refer to [How to install Nodejs on EC2](https://000004.awsstudygroup.com
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0004-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0006.png?featherlight=false&width=90pc)
 
 5. Enable nvm by typing the following in the command line and Use nvm to install the latest version of Node.js by typing the following in the command line.
 
@@ -48,13 +51,13 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 nvm install 16
 ```
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0005-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0007.png?featherlight=false&width=90pc)
 
-6. Test installed nodejs successfully
+6. Check nodejs is installed successfully
 
 ```
 node -v
 npm -v
 ```
 
-![Connect EC2 instance](/images/2-Prerequiste/2.7-Connectec2/0006-connectec2.png?featherlight=false&width=90pc)
+![Connect EC2 instance](/images/7/0008.png?featherlight=false&width=90pc)

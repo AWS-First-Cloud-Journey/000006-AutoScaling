@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Khởi tạo Load Balancer :: Deploying FCJ Management application with Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1653801792" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653801792" rel="stylesheet">
-    <link href="/css/hybrid.css?1653801792" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653801792" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653801792" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653801792" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653801792" rel="stylesheet">
-    <link href="/css/theme.css?1653801792" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653801792" rel="stylesheet">
+    <link href="/css/nucleus.css?1672822840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672822840" rel="stylesheet">
+    <link href="/css/hybrid.css?1672822840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672822840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672822840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672822840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672822840" rel="stylesheet">
+    <link href="/css/theme.css?1672822840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672822840" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1653801792" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1672822840" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653801792"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672822840"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653801792"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653801792"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672822840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672822840"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653801792"></script>
+<script type="text/javascript" src="/js/search.js?1672822840"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
       <left>
     
      <b> Workshop</b> <br>
-    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
      <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
@@ -661,7 +661,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>28-05-2022</font></i>
+        <i><font color=orange>04-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -753,66 +753,78 @@
 
 	<h4 id="khởi-tạo-load-balancer">Khởi tạo Load Balancer</h4>
 <ol>
-<li>Truy cập vào <strong>EC2</strong></li>
-</ol>
+<li>
+<p>Truy cập vào <strong>EC2</strong></p>
 <ul>
 <li>Chọn <strong>Load Balancers</strong></li>
 <li>Chọn <strong>Creare Load Balancer</strong></li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0001-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
-<ol start="2">
-<li>Phần <strong>Load balancer types</strong></li>
+</li>
 </ol>
+<p><img src="/images/15/0001.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<ol start="2">
+<li>
+<p>Phần <strong>Load balancer types</strong></p>
 <ul>
 <li>Chọn <strong>HTTP/HTTPS</strong></li>
 <li>Chọn <strong>Create</strong></li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0002-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
-<ol start="3">
-<li>Trong giao diện <strong>Create Application Load Balancer</strong></li>
+</li>
 </ol>
+<p><img src="/images/15/0002.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<ol start="3">
+<li>
+<p>Trong giao diện <strong>Create Application Load Balancer</strong></p>
 <ul>
 <li><strong>Load balancer name</strong>, nhập <strong><code>FCJ-Management-LB</code></strong></li>
 <li><strong>Scheme</strong>, chọn <strong>Internet-facing</strong></li>
 <li><strong>IP address type</strong>, chọn <strong>IPv4</strong></li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0003-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
-<ol start="4">
-<li>Thực hiện cấu hình <strong>Network mapping</strong></li>
+</li>
 </ol>
+<p><img src="/images/15/0003.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<ol start="4">
+<li>
+<p>Thực hiện cấu hình <strong>Network mapping</strong></p>
 <ul>
-<li><strong>VPC</strong>, chọn <strong>asg-vpc</strong></li>
+<li><strong>VPC</strong>, chọn VPC đã tạo trong bài lab.</li>
 <li><strong>Mapping</strong>, chọn <strong>ap-southeast-1a</strong> và <strong>ap-southeast-1b</strong></li>
 <li>Chọn <strong>subnet</strong></li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0004-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
-<ol start="5">
-<li>Cấu hình <strong>security group</strong>, chọn <strong>FCJ-Management-SG</strong>.</li>
+</li>
 </ol>
+<p><img src="/images/15/0004.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<ol start="5">
+<li>
+<p>Cấu hình <strong>security group</strong>, chọn <strong>FCJ-Management-SG</strong>.</p>
 <ul>
 <li>Phần <strong>Listeners and routing</strong>, trong <strong>Default actions</strong> chọn <strong>FCJ-Management-TG</strong></li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0005-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+</li>
+</ol>
+<p><img src="/images/15/0005.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
 <ol start="6">
 <li>Kiểm tra lại và chọn <strong>Create load balancer</strong></li>
 </ol>
-<p><img src="/images/5-LaunchLoadBalancer/0006-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<p><img src="/images/15/0006.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
 <ol start="7">
 <li>Tạo <strong>Application Load Balancer</strong> thành công và chọn <strong>View load balancer</strong></li>
 </ol>
-<p><img src="/images/5-LaunchLoadBalancer/0007-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<p><img src="/images/15/0007.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
 <ol start="8">
-<li>Trong giao diện <strong>Load Balancer</strong>. Quá trình tạo Load Balancer sẽ mất khoảng 5-10 phút để hoàn thành. Bạn có thể kiểm tra sự thay đổi trạng thái từ provisioning sang active ở danh sách Load Balancer.</li>
-</ol>
+<li>
+<p>Trong giao diện <strong>Load Balancer</strong>. Quá trình tạo Load Balancer sẽ mất khoảng 5-10 phút để hoàn thành. Bạn có thể kiểm tra sự thay đổi trạng thái từ provisioning sang active ở danh sách Load Balancer.</p>
 <ul>
 <li>Chọn <strong>FCJ-Management-LB</strong></li>
 <li>Sao chép <strong>DNS name</strong> của Load Balancer.</li>
 </ul>
-<p><img src="/images/5-LaunchLoadBalancer/0008-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+</li>
+</ol>
+<p><img src="/images/15/0008.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
 <ol start="9">
 <li>Truy cập bằng cách dán <strong>DNS name</strong> vào trình duyệt.  Tuy nhiên lúc này chúng ta chỉ có 1 máy chủ EC2 duy nhất.</li>
 </ol>
-<p><img src="/images/5-LaunchLoadBalancer/0009-createloadbalancer.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
+<p><img src="/images/15/0009.png?featherlight=false&amp;width=90pc" alt="Load Balancer"></p>
 <p>Tiếp theo chúng ta sẽ tiến hành cấu hình tính năng Auto Scaling Group, giúp tự động tăng số lượng EC2 instance của chúng ta khi lượng truy cập tăng cao.</p>
 
 
@@ -1168,19 +1180,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653801792"></script>
-    <script src="/js/jquery.sticky.js?1653801792"></script>
-    <script src="/js/featherlight.min.js?1653801792"></script>
-    <script src="/js/highlight.pack.js?1653801792"></script>
+    <script src="/js/clipboard.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672822840"></script>
+    <script src="/js/jquery.sticky.js?1672822840"></script>
+    <script src="/js/featherlight.min.js?1672822840"></script>
+    <script src="/js/highlight.pack.js?1672822840"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653801792"></script>
-    <script src="/js/learn.js?1653801792"></script>
-    <script src="/js/hugo-learn.js?1653801792"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672822840"></script>
+    <script src="/js/learn.js?1672822840"></script>
+    <script src="/js/hugo-learn.js?1672822840"></script>
 
-    <link href="/mermaid/mermaid.css?1653801792" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1653801792"></script>
+    <link href="/mermaid/mermaid.css?1672822840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1672822840"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

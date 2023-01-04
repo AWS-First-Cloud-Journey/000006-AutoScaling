@@ -14,7 +14,7 @@ pre : " <b> 2.8 </b> "
 sudo su
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0001-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0001.png?featherlight=false&width=90pc)
 
 2. Install MySQL command-line client
 
@@ -22,7 +22,9 @@ sudo su
 yum install mariadb
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0002-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0002.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0003.png?featherlight=false&width=90pc)
 
 3. Check the installation is successful
 
@@ -30,19 +32,24 @@ yum install mariadb
 mysql --version
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0003-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0004.png?featherlight=false&width=90pc)
 
 4. Connect from MySQL command-line client (unencrypted)
-- For the -h parameter, replace the DNS name (endpoint) for the DB instance
-- For the -P parameter, substitute the port for the DB instance. (3306)
-- For the -u parameter, replace it with the master user
-- Enter the master user password
+
+   - For the -h parameter, replace the DNS name (endpoint) for the DB instance
+   - For the -P parameter, substitute the port for the DB instance. (3306)
+   - For the -u parameter, replace it with master user
+   - Enter master user password
 
 ```
 mysql -h db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0004-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0005.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0006.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0007.png?featherlight=false&width=90pc)
 
 5. DB instance connection successful. Check the databases in the instance with the command that will print out a list of all the databases.
 
@@ -50,23 +57,23 @@ mysql -h db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com -P 3306 -u admin -
 SHOW DATABASES;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0005-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0008.png?featherlight=false&width=90pc)
+
 
 6. Select the database to make changes to using USE.
 
 ```
-USE awsuser;
+USE <created database>;
 ```
+![Connect DB instance](/images/8/0009.png?featherlight=false&width=90pc)
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0006-connectdb.png?featherlight=false&width=90pc)
 
 7. Create a table in the awsuser database with the CREATE TABLE command.
 
 ```
 CREATE TABLE `awsuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(45) NOT NULL , `last_name` VARCHAR(45) NOT NULL , `email` VARCHAR(45) NOT NULL , `phone ` VARCHAR(45) NOT NULL , `comments` TEXT NOT NULL , `status` VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
-
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0007-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/00010.png?featherlight=false&width=90pc)
 
 8. Verify that the table is created with the DESCRIBE . command
 
@@ -74,10 +81,9 @@ CREATE TABLE `awsuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` 
 DESCRIBE user;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0008-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/00011.png?featherlight=false&width=90pc)
 
-9. Insert information into the data table with the INSERT INTO . command
-
+9. Insert information into the data table with the INSERT INTO command
 
 ```
 INSERT INTO `user` 
@@ -102,7 +108,8 @@ INSERT INTO `user`
 (NULL, 'Joanna',      'Jedrzejczyk ', 'jjedrzejczyk@ufc.com',  '012345 678910', '',          'active');
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0009-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00012.png?featherlight=false&width=90pc)
 
 10. Use the SELECT command to display the table:
 
@@ -110,8 +117,10 @@ INSERT INTO `user`
 SELECT * FROM user;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/00010-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00013.png?featherlight=false&width=90pc)
 
 11. Use **exit** to leave.
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/00011-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00014.png?featherlight=false&width=90pc)

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai ứng dụng FCJ Management :: Deploying FCJ Management application with Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1653801792" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653801792" rel="stylesheet">
-    <link href="/css/hybrid.css?1653801792" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653801792" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653801792" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653801792" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653801792" rel="stylesheet">
-    <link href="/css/theme.css?1653801792" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653801792" rel="stylesheet">
+    <link href="/css/nucleus.css?1672822840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672822840" rel="stylesheet">
+    <link href="/css/hybrid.css?1672822840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672822840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672822840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672822840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672822840" rel="stylesheet">
+    <link href="/css/theme.css?1672822840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672822840" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1653801792" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1672822840" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653801792"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672822840"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653801792"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653801792"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672822840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672822840"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653801792"></script>
+<script type="text/javascript" src="/js/search.js?1672822840"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
       <left>
     
      <b> Workshop</b> <br>
-    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
      <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
@@ -661,7 +661,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>28-05-2022</font></i>
+        <i><font color=orange>04-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -762,22 +762,23 @@
 <li>Chúng ta sử dụng git để clone source code. Trước hết, cài đặt git bằng lệnh sau:</li>
 </ol>
 <pre tabindex="0"><code>sudo yum install git
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0001-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/0001.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/0002.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="2">
 <li>Sử dụng lệnh git init được sử dụng để tạo, khởi tạo một kho chứa Git mới (Git Repo) ở local.</li>
 </ol>
 <pre tabindex="0"><code>git init
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0002-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/0003.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="3">
 <li>Thực hiện clone repository code ứng dụng</li>
 </ol>
 <pre tabindex="0"><code>git clone https://github.com/First-Cloud-Journey/000004-EC2.git
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0003-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/0004.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="4">
 <li>Đến thư mục của bài lab 000004-EC2</li>
 </ol>
 <pre tabindex="0"><code>cd 000004-EC2
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0004-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/0004.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="5">
 <li>NPM là viết tắt của Node package manager là một công cụ tạo và quản lý các thư viện lập trình Javascript cho Node.js. Sử dụng npm init khởi tạo project sẽ tạo ra file package.json mẫu.</li>
 </ol>
@@ -785,10 +786,10 @@
 </code></pre><ul>
 <li>Nếu trường hợp chưa cài đặt Nodejs bạn có thể tham khảo <a href="https://000004.awsstudygroup.com/vi/6-awsfcjmanagement-linux/6.2-setupnodejsonec2linux/">Cài đặt Nodejs trên Amazon Linux</a></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.9-Deployapp/0005-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/0005.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="6">
-<li>Tiếp theo chúng ta thực hiện dependencies installation</li>
-</ol>
+<li>
+<p>Tiếp theo chúng ta thực hiện dependencies installation</p>
 <ul>
 <li>express</li>
 <li>Dotenv</li>
@@ -796,12 +797,16 @@
 <li>body-parser</li>
 <li>mysqs</li>
 </ul>
+</li>
+</ol>
 <pre tabindex="0"><code>npm install express dotenv express-handlebars body-parser mysql
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0006-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/0006.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/0007.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="7">
 <li>Thực hiện kiểm tra và tạo một file <strong>.env</strong> sử dụng <strong>vi</strong> để cấu hình database.</li>
 </ol>
-<p><img src="/images/2-Prerequiste/2.9-Deployapp/0007-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/0008.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/0009.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="8">
 <li>Thực hiện cấu hình database</li>
 </ol>
@@ -815,17 +820,17 @@ DB_PASS = &#39;123Vodanhphai&#39;
 <li>DB_USER là tên người dùng database đã được tạo trong DB instance</li>
 <li>DB_PASS là mật khẩu database đã được tạo trong DB instance</li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.9-Deployapp/0008-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/00010.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="9">
 <li>Khởi động lại Express server. Sử dụng Nodemon để tiết kiệm thời gian</li>
 </ol>
 <pre tabindex="0"><code>npm install --save-dev nodemon
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/0009-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/00012.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="10">
 <li>Khởi động local server</li>
 </ol>
 <pre tabindex="0"><code>npm start
-</code></pre><p><img src="/images/2-Prerequiste/2.9-Deployapp/00010-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+</code></pre><p><img src="/images/9/00013.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="11">
 <li>Truy cập vào <strong>EC2</strong></li>
 </ol>
@@ -834,11 +839,10 @@ DB_PASS = &#39;123Vodanhphai&#39;
 <li>Chọn <strong>FCJ-Management</strong> instance</li>
 <li>Sao chép <strong>Public IPv4 address</strong></li>
 </ul>
-<p><img src="/images/2-Prerequiste/2.9-Deployapp/00011-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="12">
 <li>Sử dụng trình duyệt và dán <strong>Public IPv4 address</strong> để kiểm tra ứng dụng.</li>
 </ol>
-<p><img src="/images/2-Prerequiste/2.9-Deployapp/00012-deployapp.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
+<p><img src="/images/9/00014.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 
 
 
@@ -1197,19 +1201,19 @@ DB_PASS = &#39;123Vodanhphai&#39;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653801792"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653801792"></script>
-    <script src="/js/jquery.sticky.js?1653801792"></script>
-    <script src="/js/featherlight.min.js?1653801792"></script>
-    <script src="/js/highlight.pack.js?1653801792"></script>
+    <script src="/js/clipboard.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672822840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672822840"></script>
+    <script src="/js/jquery.sticky.js?1672822840"></script>
+    <script src="/js/featherlight.min.js?1672822840"></script>
+    <script src="/js/highlight.pack.js?1672822840"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653801792"></script>
-    <script src="/js/learn.js?1653801792"></script>
-    <script src="/js/hugo-learn.js?1653801792"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672822840"></script>
+    <script src="/js/learn.js?1672822840"></script>
+    <script src="/js/hugo-learn.js?1672822840"></script>
 
-    <link href="/mermaid/mermaid.css?1653801792" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1653801792"></script>
+    <link href="/mermaid/mermaid.css?1672822840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1672822840"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

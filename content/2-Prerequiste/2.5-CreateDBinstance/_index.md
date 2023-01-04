@@ -10,73 +10,75 @@ pre : " <b> 2.5</b> "
 
 1. Go to **AWS Management Console**
 
-- Find **RDS**
-- Select **RDS**
+   - Find **RDS**
+   - Select **RDS**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0001-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0001.png?featherlight=false&width=90pc)
 
-2. In the **RDS** interface
+2. In **RDS** interface
 
-- Select **Databases**
-- Select **Create database**
+    - Select **Databases**
+    - Select **Create database**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0002-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0002.png?featherlight=false&width=90pc)
 
 3. Choose the method to create **database**
 
-- Select **Standard create**
+   - Select **Standard create**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0003-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0003.png?featherlight=false&width=90pc)
 
 4. Configure **Engine** database
 
-- Select **MySQL**
+   - Select **MySQL**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0004-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0004.png?featherlight=false&width=90pc)
 
 5. Configure **Template**
 
-- Select **Production**
-- For **Availability and durability**, select **Mutil-AZ DB instance**
+   - Select **Production**
+   - For **Availability and durability**, select **Mutil-AZ DB instance**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0005-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0005.png?featherlight=false&width=90pc)
 
 6. Next, make detailed settings
 
-- **DB instance identifier**, enter **```fcj-management-db-instance```**
-- **Master user**, enter **admin**
-- **Master password**, enter your choice (in the lab, enter **```123Vodanhphai```**)
-- **Confirm password**, enter the password again.
+   - **DB instance identifier**, enter **```fcj-management-db-instance```**
+   - **Master user**, enter **admin**
+   - **Master password**, enter your choice (in the lab, enter **```123Vodanhphai```**)
+   - **Confirm password**, enter the password again.
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0006-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0006.png?featherlight=false&width=90pc)
 
 7. Perform network configuration for db instance
 
-- **Network type**, select **IPv4**
-- **VPC**, select the created **asg-vpc**
-- **Subnet group**, select the created subnet group.
-- **VPC security group**, Select **Choose existing**
-- **Security Group**, select **FCJ-Management-DB-SG** (to avoid confusion with web SG).
+   - **Network type**, select **IPv4**
+   - **VPC**, select **asg-vpc** created
+   - **Subnet group**, select the created subnet group.
+   - **VPC security group**, Select **Choose existing**
+   - **Security Group**, select **FCJ-Management-DB-SG** (to avoid confusion with web SG).
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0007-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0007.png?featherlight=false&width=90pc)
 
-8. Initialize the Database with the name **awsuer**, and leave the rest to default.
+8. Initialize Database with the name **awsuer**, leave the rest to default.
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0008-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0008.png?featherlight=false&width=90pc)
 
 9. Check again and select **Create database**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/0009-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/0009.png?featherlight=false&width=90pc)
 
 10. Initialize DB instance in 10 minutes. When **Status** changes to **Available**, it's done.
 
-- Select **db instance** just created.
+    - Select **db instance** just created.
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/00010-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/00010.png?featherlight=false&width=90pc)
 
 11. In the **Connectivity & security** interface
 
-- Store value **Endpoint**
-- Check port **3306**
+    - Store value **Endpoint**
+    - Check port **3306**
 
-![Create DB instance](/images/2-Prerequiste/2.5-CreateDBinstance/00011-createdbinstance.png?featherlight=false&width=90pc)
+![Create DB instance](/images/5/00011.png?featherlight=false&width=90pc)
+
+![Create DB instance](/images/5/00012.png?featherlight=false&width=90pc)

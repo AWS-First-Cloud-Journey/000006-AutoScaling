@@ -12,26 +12,28 @@ pre : " <b> 2.10  </b> "
 
 1. Truy cập vào **EC2**
 
-- Chọn **Instances**
-- Chọn **FCJ-Management** instance
-- Chọn **Actions**
-- Chọn **Image and templates**
-- Chọn **Create image**
+   - Chọn **Instances**
+   - Chọn **FCJ-Management** instance
+   - Chọn **Actions**
+   - Chọn **Image and templates**
+   - Chọn **Create image**
 
-![Deploy app](/images/2-Prerequiste/2.10-CreateAMI/0001-createAMI.png?featherlight=false&width=90pc)
+![Deploy app](/images/12/0001.png?featherlight=false&width=90pc)
 
 2. Cấu hình **Template**
 
-- **Image name**, nhập **```FCJ-Management-AMI```**
-- **Image description**, nhập **```AMI for FCJ-Management```**
-- Chọn **Create image**
+   - **Image name**, nhập **```FCJ-Management-AMI```**
+   - **Image description**, nhập **```AMI for FCJ-Management```**
+   - Chọn **Create image**
 
-![Deploy app](/images/2-Prerequiste/2.10-CreateAMI/0002-createAMI.png?featherlight=false&width=90pc)
+![Deploy app](/images/12/0002.png?featherlight=false&width=90pc)
 
 3.  Quá trình khởi tạo AMI mất khoảng 5 phút. Sau 5 phút, chúng ta thấy **Status** chuyển sang **Available**
 
-![Deploy app](/images/2-Prerequiste/2.10-CreateAMI/0003-createAMI.png?featherlight=false&width=90pc)
+![Deploy app](/images/12/0003.png?featherlight=false&width=90pc)
 
 Chúng ta đã hoàn thành các bước chuẩn bị cho việc triển khai FCJ Management với Auto Scaling Group.
+
+![Deploy app](/images/12/0004.png?featherlight=false&width=90pc)
 
 Ở phần kế tiếp, chúng ta sẽ bắt đầu khởi tạo và triển khai nội dung chính của bài thực hành này.

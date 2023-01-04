@@ -14,7 +14,7 @@ pre : " <b> 2.8  </b> "
 sudo su
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0001-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0001.png?featherlight=false&width=90pc)
 
 2. Cài đặt MySQL command-line client
 
@@ -22,7 +22,9 @@ sudo su
 yum install mariadb
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0002-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0002.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0003.png?featherlight=false&width=90pc)
 
 3. Kiểm tra cài đặt thành công
 
@@ -30,19 +32,24 @@ yum install mariadb
 mysql --version
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0003-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0004.png?featherlight=false&width=90pc)
 
 4. Kết nối từ MySQL command-line client (unencrypted)
-- Đối với tham số -h, hãy thay thế DNS name (endpoint) cho DB instance
-- Đối với tham số -P, hãy thay thế cổng cho DB instance. (3306)
-- Đối với tham số -u, thay bằng master user
-- Nhập master user password
+
+   - Đối với tham số -h, hãy thay thế DNS name (endpoint) cho DB instance
+   - Đối với tham số -P, hãy thay thế cổng cho DB instance. (3306)
+   - Đối với tham số -u, thay bằng master user
+   - Nhập master user password
 
 ```
 mysql -h db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0004-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0005.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0006.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/0007.png?featherlight=false&width=90pc)
 
 5. Kết nối DB instance thành công. Tiến hành kiểm tra các database trong instance bằng lệnh sẽ in ra danh sách tất cả các cơ sở dữ liệu.
 
@@ -50,23 +57,23 @@ mysql -h db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com -P 3306 -u admin -
 SHOW DATABASES;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0005-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/0008.png?featherlight=false&width=90pc)
+
 
 6. Chọn cơ sở dữ liệu để thực hiện các thay đổi đối với nó bằng cách sử dụng USE.
 
 ```
-USE awsuser;
+USE <database đã tạo>;
 ```
+![Connect DB instance](/images/8/0009.png?featherlight=false&width=90pc)
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0006-connectdb.png?featherlight=false&width=90pc)
 
 7. Thực hiện tạo bảng trong database awsuser bằng lệnh CREATE TABLE.
 
 ```
 CREATE TABLE `awsuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(45) NOT NULL , `last_name` VARCHAR(45) NOT NULL , `email` VARCHAR(45) NOT NULL , `phone` VARCHAR(45) NOT NULL , `comments` TEXT NOT NULL , `status` VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
-
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0007-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/00010.png?featherlight=false&width=90pc)
 
 8. Xác minh rằng bảng được tạo bằng lệnh DESCRIBE
 
@@ -74,7 +81,7 @@ CREATE TABLE `awsuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` 
 DESCRIBE user;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0008-connectdb.png?featherlight=false&width=90pc)
+![Connect DB instance](/images/8/00011.png?featherlight=false&width=90pc)
 
 9. Chèn thông tin vào trong bảng dữ liệu bằng lệnh INSERT INTO
 
@@ -101,7 +108,8 @@ INSERT INTO `user`
 (NULL, 'Joanna',      'Jedrzejczyk ', 'jjedrzejczyk@ufc.com',  '012345 678910', '',          'active');
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/0009-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00012.png?featherlight=false&width=90pc)
 
 10. Sử dụng lệnh SELECT để hiển thị bảng:
 
@@ -109,10 +117,12 @@ INSERT INTO `user`
 SELECT * FROM user;
 ```
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/00010-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00013.png?featherlight=false&width=90pc)
 
 11. Sử dụng **exit** đề rời khỏi. 
 
-![Connect DB instance](/images/2-Prerequiste/2.8-ConnectDBinstance/00011-connectdb.png?featherlight=false&width=90pc)
+
+![Connect DB instance](/images/8/00014.png?featherlight=false&width=90pc)
 
 
