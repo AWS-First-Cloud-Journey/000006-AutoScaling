@@ -53,6 +53,7 @@ pre : " <b> 2.6 </b> "
    - **VPC**, chọn VPC đã tạo.
    - **Subnet**, chọn **Public subnet**
    - Kiểm tra đã **Auto-assign public IP** chưa?. Nếu chưa xem lại bước cấp phát public IP ở bước tạo VPC.
+   - Chọn Select existing security group rồi chọn FCJ-Management-SG
 
 ![Create EC2 instance](/images/6/0008.png?featherlight=false&width=90pc)
 

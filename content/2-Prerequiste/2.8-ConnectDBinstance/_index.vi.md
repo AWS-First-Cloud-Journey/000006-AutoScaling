@@ -71,7 +71,7 @@ USE <database đã tạo>;
 7. Thực hiện tạo bảng trong database awsuser bằng lệnh CREATE TABLE.
 
 ```
-CREATE TABLE `awsuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(45) NOT NULL , `last_name` VARCHAR(45) NOT NULL , `email` VARCHAR(45) NOT NULL , `phone` VARCHAR(45) NOT NULL , `comments` TEXT NOT NULL , `status` VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `awsfcjuser`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `first_name` VARCHAR(45) NOT NULL , `last_name` VARCHAR(45) NOT NULL , `email` VARCHAR(45) NOT NULL , `phone` VARCHAR(45) NOT NULL , `comments` TEXT NOT NULL , `status` VARCHAR(10) NOT NULL DEFAULT 'active' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 ![Connect DB instance](/images/8/00010.png?featherlight=false&width=90pc)
 
@@ -120,7 +120,7 @@ SELECT * FROM user;
 
 ![Connect DB instance](/images/8/00013.png?featherlight=false&width=90pc)
 
-11. Sử dụng **exit** đề rời khỏi. 
+11. Sử dụng **exit** đề rời khỏi. Nếu không thể ngắt kết nối với DB instance, hãy dùng tổ hợp phím Ctrl+C 
 
 
 ![Connect DB instance](/images/8/00014.png?featherlight=false&width=90pc)

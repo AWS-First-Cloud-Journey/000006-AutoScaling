@@ -69,7 +69,7 @@ npm install express dotenv express-handlebars body-parser mysql
 
 ![Deploy app](/images/9/0007.png?featherlight=false&width=90pc)
 
-7. Do the test and create a **.env** file using **vi** to configure the database.
+7. Do the test and create a .env file that uses vi to configure the database. Create .env file using touch .env command Use **vi** to open configuration.
 
 
 ![Deploy app](/images/9/0008.png?featherlight=false&width=90pc)
@@ -81,7 +81,7 @@ npm install express dotenv express-handlebars body-parser mysql
 
 ```
 DB_HOST = 'db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com'
-DB_NAME = 'awsuser'
+DB_NAME = 'awsfcjuser'
 DB_USER = 'admin'
 DB_PASS = '123Vodanhphai'
 ```
@@ -116,7 +116,13 @@ npm start
 - Copy **Public IPv4 address**
 
 
-12. Use a browser and paste **Public IPv4 address** to test the application.
+12. Use the browser and paste the Public IPv4 address and port to test the application. Syntax
+
+```
+ <Public IPv4 address>:5000
+```
+
+- Example: 3.91.32.39:5000
 
 
 ![Deploy app](/images/9/00014.png?featherlight=false&width=90pc)

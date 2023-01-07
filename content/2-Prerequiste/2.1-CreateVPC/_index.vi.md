@@ -25,8 +25,8 @@ pre : " <b> 2.1 </b> "
 
 3. Trong giao diện **Create VPC**
 
-   - Chọn **VPC, subnets, etc,**
-   - **Name**, nhập tên VPC của bạn.
+   - Chọn **VPC and more**
+   - **Name**, nhập tên VPC của bạn. Trong bài lab này, ta đặt tên là aws-lab
    - **IPv4 CIDR block**, nhập **10.0.0.0/16**
 
 ![Create VPC](/images/1/0003.png?featherlight=false&width=90pc)

@@ -69,8 +69,7 @@ npm install express dotenv express-handlebars body-parser mysql
 
 ![Deploy app](/images/9/0007.png?featherlight=false&width=90pc)
 
-7. Thực hiện kiểm tra và tạo một file **.env** sử dụng **vi** để cấu hình database.
-
+7. Thực hiện kiểm tra và tạo một file .env sử dụng vi để cấu hình database. Tạo file .env bằng cách sử dụng câu lệnh touch .env  Dùng **vi** để mở cấu hình.
 
 ![Deploy app](/images/9/0008.png?featherlight=false&width=90pc)
 
@@ -81,7 +80,7 @@ npm install express dotenv express-handlebars body-parser mysql
 
 ```
 DB_HOST = 'db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com'
-DB_NAME = 'awsuser'
+DB_NAME = 'awsfcjuser'
 DB_USER = 'admin'
 DB_PASS = '123Vodanhphai'
 ```
@@ -116,7 +115,14 @@ npm start
 - Sao chép **Public IPv4 address**
 
 
-12.  Sử dụng trình duyệt và dán **Public IPv4 address** để kiểm tra ứng dụng.   
+12.  Sử dụng trình duyệt và dán Public IPv4 address và port để kiểm tra ứng dụng. Cú pháp
+
+```
+ <Public IPv4 address>:5000
+```
+
+- Ví dụ: 3.91.32.39:5000
+
 
 
 ![Deploy app](/images/9/00014.png?featherlight=false&width=90pc)

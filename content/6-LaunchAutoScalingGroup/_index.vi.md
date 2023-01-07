@@ -66,7 +66,7 @@ pre : " <b> 6.   </b> "
    - Chọn **Taget tracking scaling policy**
    - **Scaling policy name**, nhập **```Target Tracking Policy```**
    - **Metric type**, chọn **Application Load Balancer request count per target**.
-   - **Target group**, nhập **```FCJ-Management```**
+   - **Target group**, chọn **FCJ-Management-TG**
    - **Target value**, nhập 30
 
 ![Auto Scaling Group](/images/16/0009.png?featherlight=false&width=90pc)

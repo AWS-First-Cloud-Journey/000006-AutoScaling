@@ -35,7 +35,7 @@ In this section, you will create a Launch Template using the AMI you created fro
 4. Make **Instance type** selection
 
    - Select **t2.micro**
-   - **Key pair**, select **asg-keypair** created when creating **EC2** instance.
+   - **Key pair**, select **aws-fcj-key** created when creating **EC2** instance.
 
 ![Deploy app](/images/13/0004.png?featherlight=false&width=90pc)
 

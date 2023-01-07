@@ -64,6 +64,8 @@ pre : " <b> 2.5</b> "
 
 ![Create DB instance](/images/5/0008.png?featherlight=false&width=90pc)
 
+- Lưu ý: Ở tùy chọn Deletion protection, giá trị mặc định là Enable giúp bảo vệ cơ sở dữ liệu khỏi bị vô tình xóa (Protects the database from being deleted accidentally). Tuy nhiên, trong bài lab này, ta Disable Deletion protection để dễ dọn dẹp tài nguyên vào cuối bài lab.
+
 9. Check again and select **Create database**
 
 ![Create DB instance](/images/5/0009.png?featherlight=false&width=90pc)

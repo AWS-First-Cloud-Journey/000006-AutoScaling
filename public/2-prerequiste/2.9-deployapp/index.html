@@ -12,21 +12,21 @@
     <title>Deploying FCJ Management Application :: Deploying FCJ Management application with Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1672822840" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672822840" rel="stylesheet">
-    <link href="/css/hybrid.css?1672822840" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672822840" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672822840" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672822840" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672822840" rel="stylesheet">
-    <link href="/css/theme.css?1672822840" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672822840" rel="stylesheet">
+    <link href="/css/nucleus.css?1673065908" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673065908" rel="stylesheet">
+    <link href="/css/hybrid.css?1673065908" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673065908" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673065908" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673065908" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673065908" rel="stylesheet">
+    <link href="/css/theme.css?1673065908" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673065908" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1672822840" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673065908" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1672822840"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673065908"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672822840"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672822840"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673065908"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673065908"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672822840"></script>
+<script type="text/javascript" src="/js/search.js?1673065908"></script>
 
     
   </div>
@@ -803,7 +803,7 @@
 </code></pre><p><img src="/images/9/0006.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <p><img src="/images/9/0007.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="7">
-<li>Do the test and create a <strong>.env</strong> file using <strong>vi</strong> to configure the database.</li>
+<li>Do the test and create a .env file that uses vi to configure the database. Create .env file using touch .env command Use <strong>vi</strong> to open configuration.</li>
 </ol>
 <p><img src="/images/9/0008.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <p><img src="/images/9/0009.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
@@ -811,7 +811,7 @@
 <li>Perform database configuration</li>
 </ol>
 <pre tabindex="0"><code>DB_HOST = &#39;db-instance.crmmitoajvxx.us-east-1.rds.amazonaws.com&#39;
-DB_NAME = &#39;awsuser&#39;
+DB_NAME = &#39;awsfcjuser&#39;
 DB_USER = &#39;admin&#39;
 DB_PASS = &#39;123Vodanhphai&#39;
 </code></pre><ul>
@@ -840,8 +840,12 @@ DB_PASS = &#39;123Vodanhphai&#39;
 <li>Copy <strong>Public IPv4 address</strong></li>
 </ul>
 <ol start="12">
-<li>Use a browser and paste <strong>Public IPv4 address</strong> to test the application.</li>
+<li>Use the browser and paste the Public IPv4 address and port to test the application. Syntax</li>
 </ol>
+<pre tabindex="0"><code> &lt;Public IPv4 address&gt;:5000
+</code></pre><ul>
+<li>Example: 3.91.32.39:5000</li>
+</ul>
 <p><img src="/images/9/00014.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 
 
@@ -1201,19 +1205,19 @@ DB_PASS = &#39;123Vodanhphai&#39;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672822840"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672822840"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672822840"></script>
-    <script src="/js/jquery.sticky.js?1672822840"></script>
-    <script src="/js/featherlight.min.js?1672822840"></script>
-    <script src="/js/highlight.pack.js?1672822840"></script>
+    <script src="/js/clipboard.min.js?1673065908"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673065908"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673065908"></script>
+    <script src="/js/jquery.sticky.js?1673065908"></script>
+    <script src="/js/featherlight.min.js?1673065908"></script>
+    <script src="/js/highlight.pack.js?1673065908"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672822840"></script>
-    <script src="/js/learn.js?1672822840"></script>
-    <script src="/js/hugo-learn.js?1672822840"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673065908"></script>
+    <script src="/js/learn.js?1673065908"></script>
+    <script src="/js/hugo-learn.js?1673065908"></script>
 
-    <link href="/mermaid/mermaid.css?1672822840" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1672822840"></script>
+    <link href="/mermaid/mermaid.css?1673065908" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673065908"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

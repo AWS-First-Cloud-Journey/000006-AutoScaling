@@ -36,7 +36,7 @@ pre : " <b> 2.5</b> "
 
 5. Cấu hình **Template**
 
-   - Chọn **Production**
+   - Chọn **Dev/Test**
    - Đối với **Availability and durability**, chọn **Mutil-AZ DB  instance**
 
 ![Create DB instance](/images/5/0005.png?featherlight=false&width=90pc)

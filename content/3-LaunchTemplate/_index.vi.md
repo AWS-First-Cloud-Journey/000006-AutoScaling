@@ -35,7 +35,7 @@ pre : " <b> 3.  </b> "
 4. Thực hiện chọn **Instance type**
 
    - Chọn **t2.micro**
-   - **Key pair**, chọn **asg-keypair** đã tạo lúc tạo **EC2** instance.
+   - **Key pair**, chọn **aws-fcj-key** đã tạo lúc tạo **EC2** instance.
 
 ![Deploy app](/images/13/0004.png?featherlight=false&width=90pc)
 
@@ -58,3 +58,14 @@ pre : " <b> 3.  </b> "
 8. Xem template vừa khởi tạo.
 
 ![Deploy app](/images/13/0008.png?featherlight=false&width=90pc)
+
+9. Kết nối lại EC2 instance (xem hướng dẫn https://000006.awsstudygroup.com/vi/2-prerequiste/2.7-connectec2/)
+- Lần lượt dùng các câu lệnh:
+
+```
+sudo su
+cd 000004-EC2
+npm start
+```
+
+- Sau đó truy cập lại ứng dụng. 
