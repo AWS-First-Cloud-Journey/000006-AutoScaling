@@ -10,8 +10,7 @@ pre : " <b> 2. </b> "
 
 In this exercise, we need to prepare some services to be able to deploy the FCJ Management application using Auto Scaling Group with Elastic Load Balancer. In general, we will deploy the ShareNote application according to the following architecture:
 
-
-![Create VPC](/images/2-Prerequiste/0.png?featherlight=false&width=55pc)
+![Create VPC](/images/2-Prerequisite/0.png?featherlight=false&width=55pc)
 
 #### Content
 

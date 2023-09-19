@@ -6,9 +6,7 @@ chapter : false
 pre : " <b> 2.3  </b> "
 ---
 
-
 #### Tạo security group cho Database instance.
-
 
 1. Chúng ta tạo Security group cho Database instance. Để đảm bảo bảo mật nên không cấu hình chung Security group của ứng dụng.
 
@@ -19,8 +17,8 @@ pre : " <b> 2.3  </b> "
 
 2. Thực hành cấu hình **security group**
 
-   - **Security Group name**, nhập **```FCJ-Mangement-DB-SG```**
-   - **Description**, nhập ```Security Group for DB instance```
+   - **Security Group name**, nhập **\`FCJ-Mangement-DB-SG\`**
+   - **Description**, nhập \`Security Group for DB instance\`
    - Chọn vpc vừa tạo
 
 ![Create SG](/images/3/0002.png?featherlight=false&width=90pc)

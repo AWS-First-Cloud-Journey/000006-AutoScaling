@@ -8,8 +8,7 @@ pre : " <b> 2.4 </b> "
 
 #### Create DB Subnet Group
 
-
-1. Go to **[RDS](https://ap-southeast-1.console.aws.amazon.com/rds/home?region=ap-southeast-1)**
+1. Go to [**RDS**](https://ap-southeast-1.console.aws.amazon.com/rds/home?region=ap-southeast-1)
 
    - Select **Subnet groups**
    - Select **Create DB subnet group**
@@ -18,8 +17,8 @@ pre : " <b> 2.4 </b> "
 
 2. In the **Create DB subnet group** interface
 
-   - **Name**, enter **```FCJ-Management-Subnet-Group```**
-   - **Description**, enter ```Subnet Group for FCJ Management```
+   - **Name**, enter **`FCJ-Management-Subnet-Group`**
+   - **Description**, enter `Subnet Group for FCJ Management`
    - Select the created VPC.
 
 ![Create SG](/images/4/0002.png?featherlight=false&width=90pc)

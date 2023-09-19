@@ -8,21 +8,18 @@ pre : " <b> 4.  </b> "
 
 #### Khởi tạo Target Group
 
-1. Truy cập giao diện **EC2**
-
+1. Truy cập giao diện **EC2**:
    - Chọn **Target Groups**
    - Chọn **Create target group**
 
 ![Deploy app](/images/14/0001.png?featherlight=false&width=90pc)
 
-2. Thực hiện cấu hình
-
+2. Thực hiện cấu hình:
    - Chọn **Instances**
 
 ![Deploy app](/images/14/0002.png?featherlight=false&width=90pc)
 
-3. Ở trang **Specify group details**, thiết lập các thông số như sau cho **target group**:
-
+3. Trong trang **Specify group details**, thiết lập các thông số sau cho **target group**:
    - **Target group name**: Nhập tên của target group (VD: **FCJ-Management-TG**).
    - **Protocol**: HTTP.
    - **Port**: **5000** (Port sử dụng bởi FCJ Management).
@@ -34,11 +31,10 @@ pre : " <b> 4.  </b> "
 
 ![Deploy app](/images/14/0004.png?featherlight=false&width=90pc)
 
-5. Trong giao diện **Available instances**
-
-   - Chọn **FCJ-Management** instance
+5. Trong giao diện **Available instances**:
+   - Chọn instance **FCJ-Management**
    - Chọn port **5000**
-   - Chọn **Include as pending below** ( nếu không chọn lúc truy cập bằng DNS Load Balancer sẽ gặp lỗi **HTTP 503: Service unavailable**)
+   - Chọn **Include as pending below** (nếu không chọn, khi truy cập bằng DNS Load Balancer có thể gặp lỗi **HTTP 503: Service unavailable**)
    - Kiểm tra lại
    - Chọn **Create target group**
 

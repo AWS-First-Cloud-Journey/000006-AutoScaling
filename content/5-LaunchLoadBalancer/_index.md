@@ -13,7 +13,6 @@ pre : " <b> 5. </b> "
    - Select **Load Balancers**
    - Select **Create Load Balancer**
 
-
 ![Load Balancer](/images/15/0001.png?featherlight=false&width=90pc)
 
 2. Section **Load balancer types**
@@ -25,7 +24,7 @@ pre : " <b> 5. </b> "
 
 3. In the **Create Application Load Balancer** interface
 
-   - **Load balancer name**, enter **```FCJ-Management-LB```**
+   - **Load balancer name**, enter **`FCJ-Management-LB`**
    - **Scheme**, select **Internet-facing**
    - **IP address type**, select **IPv4**
 

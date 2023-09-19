@@ -12,21 +12,21 @@
     <title>Giới thiệu :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098439" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098439" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098439" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098439" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098439" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098439" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098439" rel="stylesheet">
+    <link href="/css/theme.css?1695098439" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098439" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098439" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098439"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098439"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098439"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098439"></script>
 
     
   </div>
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -725,11 +725,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#auto-scaling-group">Auto Scaling Group</a></li>
+    <li><a href="#launch-template">Launch Template</a></li>
+    <li><a href="#load-balancer">Load Balancer</a></li>
+    <li><a href="#target-group">Target Group</a></li>
   </ul>
 </nav>
     </div>
@@ -755,20 +754,20 @@
 
 
 
-	<h4 id="giới-thiệu">Giới thiệu</h4>
-<p>Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.</p>
-<p>Hãy chắc chắn rằng bạn đã xem qua tài liệu <a href="https://000004.awsstudygroup.com/">Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux</a> và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai <strong>FCJ Management</strong> cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.</p>
-<h4 id="auto-scaling-group">Auto Scaling Group</h4>
-<p><strong>Auto Scaling Group</strong> (nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng của các EC2 Instance thành viên theo chính sách co giãn (scaling policy) mà bạn đặt ra.</p>
-<h4 id="launch-template">Launch Template</h4>
-<p><strong>Launch Template</strong> (khuôn mẫu khởi tạo) là một tính năng giúp bạn tạo khuôn mẫu cho việc khởi tạo các EC2 Instance. Nhờ thế, bạn có thể quy trình hóa và đơn giản hóa công tác khởi tạo các EC2 Instance cho dịch vụ Auto Scaling (co giãn tự động).</p>
-<h4 id="load-balancer">Load Balancer</h4>
-<p><strong>Load Balancer</strong> (máy cân bằng tải) là một công cụ có thể phân phối lưu lượng dữ liệu được trao đổi tới các tài nguyên AWS (cụ thể trong bài lab này là các EC2 Instances) trong Target Group.</p>
-<h4 id="target-group">Target Group</h4>
-<p><strong>Target Group</strong> (nhóm mục tiêu) là một nhóm những thành phần tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và truyền tải bởi Load Balancer.</p>
-<p>Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.</p>
-<p>Hãy chắc chắn rằng bạn đã xem qua tài liệu Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai FCJ Management cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.</p>
-<p><img src="/images/2-Prerequiste/0.png?featherlight=false&amp;width=50pc" alt="ASG"></p>
+	<h1 id="giới-thiệu">Giới thiệu</h1>
+<p>Trong bài thực hành này, chúng ta sẽ tiến hành triển khai ứng dụng sử dụng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người dùng. Chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu truy cập từ người dùng đến Application Tier.</p>
+<p>Hãy đảm bảo bạn đã tham khảo tài liệu <a href="https://000004.awsstudygroup.com/">Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux</a> và hiểu cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ sử dụng máy ảo <strong>FCJ Management</strong> đã triển khai để thực hiện việc triển khai và mở rộng trong Auto Scaling Group.</p>
+<h2 id="auto-scaling-group">Auto Scaling Group</h2>
+<p><strong>Auto Scaling Group</strong> (Nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có khả năng co giãn số lượng các EC2 Instance thành viên dựa trên các chính sách co giãn mà bạn thiết lập.</p>
+<h2 id="launch-template">Launch Template</h2>
+<p><strong>Launch Template</strong> (Khuôn mẫu khởi tạo) là một tính năng giúp bạn tạo mẫu cho việc khởi tạo các EC2 Instance. Điều này giúp tự động hóa và đơn giản hóa việc khởi tạo các EC2 Instance cho dịch vụ Auto Scaling.</p>
+<h2 id="load-balancer">Load Balancer</h2>
+<p><strong>Load Balancer</strong> (Máy cân bằng tải) là một công cụ giúp phân phối lưu lượng dữ liệu đến các tài nguyên AWS (trong trường hợp này là các EC2 Instance) trong Target Group.</p>
+<h2 id="target-group">Target Group</h2>
+<p><strong>Target Group</strong> (Nhóm mục tiêu) là một nhóm các tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và chuyển tiếp bởi Load Balancer.</p>
+<p>Trong bài thực hành này, chúng ta sẽ thực hiện triển khai ứng dụng bằng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người dùng. Đồng thời, chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.</p>
+<p>Hãy đảm bảo bạn đã tham khảo tài liệu Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux và đã nắm vững cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo <strong>FCJ Management</strong> đã triển khai để thực hiện việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.</p>
+<p><img src="/images/2-Prerequiste/0.png?featherlight=false&amp;width=50pc" alt="Auto Scaling Group"></p>
 
 
 
@@ -1120,19 +1119,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098440"></script>
+    <script src="/js/jquery.sticky.js?1695098440"></script>
+    <script src="/js/featherlight.min.js?1695098440"></script>
+    <script src="/js/highlight.pack.js?1695098440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098440"></script>
+    <script src="/js/learn.js?1695098440"></script>
+    <script src="/js/hugo-learn.js?1695098440"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098440" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

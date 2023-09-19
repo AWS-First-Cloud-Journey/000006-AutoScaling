@@ -8,7 +8,6 @@ pre : " <b> 2.1 </b> "
 
 #### Create VPC
 
-
 1. Go to the [AWS Management Console](https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/)
 
    - Find **VPC**

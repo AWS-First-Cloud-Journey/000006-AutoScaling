@@ -12,21 +12,21 @@
     <title>Khởi tạo Auto Scaling Group :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098440" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098440" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098440" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098440" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098440" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098440" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098440" rel="stylesheet">
+    <link href="/css/theme.css?1695098440" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098440" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098440" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098440"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098440"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098440"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098440"></script>
 
     
   </div>
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -756,10 +756,9 @@
 
 
 	<h4 id="khởi-tạo-auto-scaling-group">Khởi tạo Auto Scaling Group</h4>
-<p>Ở phần này, chúng ta sẽ triển khai một Auto Scaling Group cho ứng dụng FCJ Management để đảm bảo ứng dụng của chúng ta sẽ được triển khai với tính sẵn sàng cao, và có khả năng tăng số lượng EC2 instance khi người dùng truy cập vào hệ thống tăng.</p>
+<p>Trong phần này, chúng ta sẽ thực hiện triển khai một Auto Scaling Group cho ứng dụng FCJ Management. Điều này đảm bảo rằng ứng dụng của chúng ta sẽ luôn sẵn sàng với tính độ tin cậy cao và khả năng tăng số lượng EC2 instance khi có nhu cầu.</p>
 <ol>
-<li>
-<p>Truy cập vào <strong>EC2</strong></p>
+<li>Truy cập vào <strong>EC2</strong>:
 <ul>
 <li>Chọn <strong>Auto Scaling Groups</strong></li>
 <li>Chọn <strong>Create Auto Scaling group</strong></li>
@@ -768,24 +767,22 @@
 </ol>
 <p><img src="/images/16/0001.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="2">
-<li><strong>Auto Scaling Group name</strong>, nhập <strong><code>FCJ-Management-ASG</code></strong></li>
+<li>Nhập tên cho <strong>Auto Scaling Group</strong>: <strong><code>FCJ-Management-ASG</code></strong></li>
 </ol>
 <p><img src="/images/16/0002.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="3">
-<li>
-<p>Cấu hình template</p>
+<li>Cấu hình template:
 <ul>
-<li><strong>Launch template</strong>. chọn <strong>FCJ-Management-template</strong></li>
+<li>Chọn <strong>Launch template</strong> và chọn <strong>FCJ-Management-template</strong></li>
 <li>Chọn <strong>Next</strong></li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/16/0003.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="4">
-<li>
-<p>Tiến hành cấu hình <strong>Network</strong></p>
+<li>Cấu hình <strong>Network</strong>:
 <ul>
-<li><strong>VPC</strong>, chọn đã tạo.</li>
+<li>Chọn <strong>VPC</strong> đã tạo</li>
 <li>Chọn <strong>AZ và subnet</strong></li>
 </ul>
 </li>
@@ -796,8 +793,7 @@
 </ol>
 <p><img src="/images/16/0005.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="6">
-<li>
-<p>Thực hiện cấu hình <strong>Load balancing</strong></p>
+<li>Cấu hình <strong>Load balancing</strong>:
 <ul>
 <li>Chọn <strong>Attach to an existing load balancer</strong></li>
 <li>Chọn <strong>Choose from your load balancer target groups</strong></li>
@@ -811,25 +807,22 @@
 </ol>
 <p><img src="/images/16/0007.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="8">
-<li>
-<p>Thực hiện cấu hình group size vè scaling policy.</p>
+<li>Cấu hình kích thước nhóm và chính sách scaling:
 <ul>
-<li>Desired capacity: Nhập 1. (Default)</li>
-<li>Minimum capacity: Nhập 1. (Default)</li>
-<li>Maximum capacity: Nhập 3.</li>
+<li>Desired capacity: Nhập 1 (Mặc định)</li>
+<li>Minimum capacity: Nhập 1 (Mặc định)</li>
+<li>Maximum capacity: Nhập 3</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/16/0008.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="9">
-<li>
-<p>Tại mục <strong>Scaling policies</strong> - optional: Lựa chọn trong bài thực hành này nhằm tạo điều kiện dễ dàng hơn cho bước kiểm tra được thực hiện tiếp theo. Bạn hoàn toàn có thể thiết lập chính sách scale tài nguyên theo nhu cầu của bạn.</p>
+<li>Tại mục <strong>Scaling policies</strong> - tùy chọn: Trong bài thực hành này, chọn <strong>Target tracking scaling policy</strong> để đơn giản hóa cho bước kiểm tra tiếp theo. Bạn có thể thiết lập chính sách scale tài nguyên theo nhu cầu của bạn.
 <ul>
-<li>Chọn <strong>Taget tracking scaling policy</strong></li>
-<li><strong>Scaling policy name</strong>, nhập <strong><code>Target Tracking Policy</code></strong></li>
-<li><strong>Metric type</strong>, chọn <strong>Application Load Balancer request count per target</strong>.</li>
-<li><strong>Target group</strong>, chọn <strong>FCJ-Management-TG</strong></li>
-<li><strong>Target value</strong>, nhập 30</li>
+<li><strong>Scaling policy name</strong>: <strong><code>Target Tracking Policy</code></strong></li>
+<li><strong>Metric type</strong>: Chọn <strong>Application Load Balancer request count per target</strong></li>
+<li><strong>Target group</strong>: Chọn <strong>FCJ-Management-TG</strong></li>
+<li><strong>Target value</strong>: Nhập 30</li>
 </ul>
 </li>
 </ol>
@@ -839,15 +832,15 @@
 </ol>
 <p><img src="/images/16/00010.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="11">
-<li>Chọn <strong>Create a topic</strong>.</li>
+<li>Chọn <strong>Create a topic</strong></li>
 </ol>
 <p><img src="/images/16/00011.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="12">
-<li>Cấu hình <strong>Add notifications</strong>. Chọn <strong>Next</strong></li>
+<li>Cấu hình <strong>Add notifications</strong> và chọn <strong>Next</strong></li>
 </ol>
 <p><img src="/images/16/00012.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ul>
-<li>Kiểm tra mail và <strong>Confirm subscription</strong></li>
+<li>Kiểm tra email và thực hiện <strong>Confirm subscription</strong></li>
 </ul>
 <p><img src="/images/17/00011.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/17/00012.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
@@ -858,17 +851,15 @@
 <p><img src="/images/16/00014.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/16/00015.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="14">
-<li>Hòan thành tạo <strong>Auto Scaling groups</strong></li>
+<li>Hoàn thành việc tạo <strong>Auto Scaling groups</strong></li>
 </ol>
 <p><img src="/images/16/00016.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="15">
-<li>
-<p>Quá trình khởi tạo Auto Scaling Group sẽ được thực hiện, Auto Scaling Group vừa được tạo sẽ hiển thị trong danh sách, và bạn có thể chọn vào nó để xem thông tin chi tiết.</p>
-<ul>
-<li>Chúng ta có thể theo dõi các EC2 instance hiện có trong Auto Scaling Group ở trang <strong>Instance management</strong>. Các instance có tình trạng InService là các instance đã sẵn sàng hoạt động.</li>
-</ul>
-</li>
+<li>Quá trình khởi tạo Auto Scaling Group sẽ được thực hiện. Auto Scaling Group vừa tạo sẽ hiển thị trong danh sách, bạn có thể chọn để xem thông tin chi tiết.</li>
 </ol>
+<ul>
+<li>Để theo dõi các EC2 instance hiện có trong Auto Scaling Group, truy cập trang <strong>Instance management</strong>. Các instance có trạng thái <strong>InService</strong> là các instance đã sẵn sàng hoạt động.</li>
+</ul>
 <p><img src="/images/16/00017.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/16/00018.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/16/00019.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
@@ -1226,19 +1217,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098440"></script>
+    <script src="/js/jquery.sticky.js?1695098440"></script>
+    <script src="/js/featherlight.min.js?1695098440"></script>
+    <script src="/js/highlight.pack.js?1695098440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098440"></script>
+    <script src="/js/learn.js?1695098440"></script>
+    <script src="/js/hugo-learn.js?1695098440"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098440" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

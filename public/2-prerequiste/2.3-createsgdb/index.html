@@ -12,21 +12,21 @@
     <title>Create Security Group DB :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098438" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098438" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098438" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098438" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098438" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098438" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098438" rel="stylesheet">
+    <link href="/css/theme.css?1695098438" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098438" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098438" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098438"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098438"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098438"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098438"></script>
 
     
   </div>
@@ -530,13 +530,13 @@
  
   
     
-    <li data-nav-id="/7-result/" title="Check Result" class="dd-item 
+    <li data-nav-id="/7-result/" title="Check the result" class="dd-item 
         
         
         
         ">
       <a href="/7-result/">
-           <b> 7. </b> Check Result
+           <b> 7. </b> Check the result
           
             <i class="fas fa-check read-icon"></i>
           
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -761,10 +761,10 @@
 
 
 
-	<h4 id="create-a-security-group-for-the-database-instance">Create a security group for the Database instance.</h4>
+	<h4 id="create-a-security-group-for-the-database-instance">Create a Security Group for the Database Instance</h4>
 <ol>
 <li>
-<p>We create a Security group for the Database instance. To ensure security, do not configure the application&rsquo;s Security group together.</p>
+<p>Create a Security Group for the Database instance. To ensure security, avoid configuring the application&rsquo;s Security Group together.</p>
 <ul>
 <li>Select <strong>Security Group</strong></li>
 <li>Select <strong>Create security group</strong></li>
@@ -774,22 +774,22 @@
 <p><img src="/images/3/0001.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 <ol start="2">
 <li>
-<p>Practice configuration <strong>security group</strong></p>
+<p>Configure the Security Group settings:</p>
 <ul>
-<li><strong>Security Group name</strong>, enter <strong><code>FCJ-Management-DB-SG</code></strong></li>
-<li><strong>Description</strong>, enter <code>Security Group for DB instance</code></li>
-<li>Select the newly created vpc</li>
+<li><strong>Security Group name:</strong> Enter <strong><code>FCJ-Management-DB-SG</code></strong></li>
+<li><strong>Description:</strong> Enter <code>Security Group for DB instance</code></li>
+<li>Select the newly created VPC</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/3/0002.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 <ol start="3">
 <li>
-<p>Configure <strong>Inbound rules</strong></p>
+<p>Set up <strong>Inbound rules</strong>:</p>
 <ul>
 <li>Select <strong>Add rule</strong></li>
 <li>Select <strong>MYSQL/Aurora</strong> port 3306</li>
-<li>Then select Source as <strong>FCJ-Management-SG</strong></li>
+<li>Set Source as <strong>FCJ-Management-SG</strong></li>
 <li>Select <strong>Create security group</strong></li>
 </ul>
 </li>
@@ -797,7 +797,7 @@
 <p><img src="/images/3/0003.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 <p><img src="/images/3/0004.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 <ol start="4">
-<li>Finish creating <strong>Security group</strong> for the database.</li>
+<li>Complete the creation of the <strong>Security Group</strong> for the database.</li>
 </ol>
 <p><img src="/images/3/0005.png?featherlight=false&amp;width=90pc" alt="Create SG"></p>
 
@@ -1158,19 +1158,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098439"></script>
+    <script src="/js/jquery.sticky.js?1695098439"></script>
+    <script src="/js/featherlight.min.js?1695098439"></script>
+    <script src="/js/highlight.pack.js?1695098439"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098439"></script>
+    <script src="/js/learn.js?1695098439"></script>
+    <script src="/js/hugo-learn.js?1695098439"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098439" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098439"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

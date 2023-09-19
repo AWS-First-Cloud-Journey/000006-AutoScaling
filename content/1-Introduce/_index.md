@@ -8,29 +8,28 @@ pre : " <b> 1. </b> "
 
 #### Introduce
 
-In this exercise, we will deploy the application with Auto Scaling Group to ensure the scalability of the application according to the needs of the user. In addition, we will also implement a Load Balancer to balance the load and coordinate user access requests to our Application Tier.
+In this exercise, we will be deploying the application using an Auto Scaling Group to ensure the application's scalability based on user demand. Additionally, we will implement a Load Balancer to distribute the load and manage user access requests to our Application Tier.
 
-Make sure you go through the [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] document and understand how to deploy the application on the virtual machine. We will need to use the virtual machine deployed **FCJ Management** for mass deployment and scaling in the Auto Scaling Group.
+Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] to understand how to deploy the application on a virtual machine. We will utilize the virtual machine where **FCJ Management** is deployed for the purpose of mass deployment and scaling within the Auto Scaling Group.
 
 #### Auto Scaling Group
 
-**Auto Scaling Group** is a group of EC2 Instances. This group can scale the number of EC2 Instance members according to the scaling policy you set.
+An **Auto Scaling Group** is a collection of EC2 Instances that can dynamically adjust the number of its members according to the defined scaling policy.
 
 #### Launch Template
 
-**Launch Template** is a feature that helps you create a template for the initialization of EC2 Instances. As a result, you can streamline and simplify the creation of EC2 Instances for the Auto Scaling service.
+A **Launch Template** is a feature that allows you to create a template for initializing EC2 Instances. This simplifies and streamlines the process of creating EC2 Instances for use within the Auto Scaling service.
 
 #### Load Balancer
 
-**Load Balancer** is a tool that can distribute exchanged data traffic to AWS resources (specifically, EC2 Instances in this lab) in the Target Group.
+A **Load Balancer** is a tool used to evenly distribute incoming data traffic to AWS resources, specifically EC2 Instances in this lab, within the Target Group.
 
 #### Target Group
 
-**Target Group** is a group of AWS resource elements that will receive data traffic delivered and transported by the Load Balancer.
+A **Target Group** refers to a collection of AWS resource components that will receive and process data traffic routed through the Load Balancer.
 
-In this exercise, we will deploy the application with Auto Scaling Group to ensure the scalability of the application according to the needs of the user. In addition, we will also implement a Load Balancer to balance the load and coordinate user access requests to our Application Tier.
+In this exercise, our focus is on deploying the application through the Auto Scaling Group to ensure scalability as per user requirements. We will also implement a Load Balancer to efficiently manage load distribution and coordinate user access to our Application Tier.
 
-Make sure you go through the documentation Deploying FCJ Management Applications on Windows/AmazonLinux Virtual Machines and understand how to deploy the application on the virtual machine. We will need to use FCJ Management deployed virtual machine for mass deployment and scaling in Auto Scaling Group.
+Prior to proceeding, it is recommended that you thoroughly review the documentation titled "Deploying FCJ Management Applications on Windows/AmazonLinux Virtual Machines" to gain a clear understanding of deploying the application on a virtual machine. The FCJ Management deployed virtual machine will be utilized for extensive deployment and scaling within the Auto Scaling Group.
 
-
-![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
+![Auto Scaling Group](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)

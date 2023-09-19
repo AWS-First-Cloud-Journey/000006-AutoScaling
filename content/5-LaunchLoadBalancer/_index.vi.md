@@ -9,10 +9,9 @@ pre : " <b> 5.  </b> "
 #### Khởi tạo Load Balancer
 
 1. Truy cập vào **EC2**
-
+   
    - Chọn **Load Balancers**
-   - Chọn **Creare Load Balancer**
-
+   - Chọn **Create Load Balancer**
 
 ![Load Balancer](/images/15/0001.png?featherlight=false&width=90pc)
 
@@ -65,8 +64,3 @@ pre : " <b> 5.  </b> "
 ![Load Balancer](/images/15/0009.png?featherlight=false&width=90pc)
 
 Tiếp theo chúng ta sẽ tiến hành cấu hình tính năng Auto Scaling Group, giúp tự động tăng số lượng EC2 instance của chúng ta khi lượng truy cập tăng cao.
-
-
-
-
-

@@ -6,19 +6,19 @@ chapter : false
 pre : " <b> 2.2  </b> "
 ---
 
-#### Tạo Security Group cho FCJ Management 
+#### Tạo Security Group cho FCJ Management
 
-1. Chúng ta sẽ tạo Security group cho ứng dụng.
+1. Chúng ta sẽ tạo **Security group** cho ứng dụng.
 
    - Trong giao diện VPC, chọn **Security Group**
    - Chọn **Create security group**
 
 ![Create SG](/images/2/0001.png?featherlight=false&width=90pc)
 
-2. Thực hiện cấu hình Security Group
+2. Thực hiện cấu hình **Security Group**
 
-   - **Security group name**, nhập **```FCJ-Management-SG```**
-   - **Description**, nhập **```Security Group for FCJ Management```**
+   - **Security group name**, nhập **`FCJ-Management-SG`**
+   - **Description**, nhập **`Security Group for FCJ Management`**
    - **VPC**, chọn VPC vừa tạo.
 
 ![Create SG](/images/2/0002.png?featherlight=false&width=90pc)
@@ -32,7 +32,7 @@ pre : " <b> 2.2  </b> "
 
 ![Create SG](/images/2/0003.png?featherlight=false&width=90pc)
 
-4. Kiểm tra **Outbound rules**và chọn **Create security group**
+4. Kiểm tra **Outbound rules** và chọn **Create security group**
 
 ![Create SG](/images/2/0004.png?featherlight=false&width=90pc)
 

@@ -12,21 +12,21 @@
     <title>Khởi tạo Launch Template :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098440" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098440" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098440" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098440" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098440" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098440" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098440" rel="stylesheet">
+    <link href="/css/theme.css?1695098440" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098440" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098440" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098440"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098440"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098440"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098440"></script>
 
     
   </div>
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -756,10 +756,9 @@
 
 
 	<h4 id="khởi-tạo-launch-template">Khởi tạo Launch Template</h4>
-<p>Ở phần này, bạn sẽ tạo một Launch Template sử dụng AMI bạn đã tạo từ Amazon Linux 2 Instance ở bước trước.</p>
+<p>Ở phần này, bạn sẽ tạo một <strong>Launch Template</strong> sử dụng AMI bạn đã tạo từ Amazon Linux 2 Instance ở bước trước.</p>
 <ol>
-<li>
-<p>Truy cập vào <strong>EC2</strong></p>
+<li>Truy cập vào <strong>EC2</strong>
 <ul>
 <li>Chọn <strong>Launch Templates</strong></li>
 <li>Chọn <strong>Create launch template</strong></li>
@@ -768,8 +767,7 @@
 </ol>
 <p><img src="/images/13/0001.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="2">
-<li>
-<p>Trong giao diện <strong>Create launch template</strong></p>
+<li>Trong giao diện <strong>Create launch template</strong>
 <ul>
 <li><strong>Launch template name</strong>, nhập <strong><code>FCJ-Management-template</code></strong></li>
 <li><strong>Template version description</strong>, nhập <strong><code>Template for FCJ Management</code></strong></li>
@@ -778,8 +776,7 @@
 </ol>
 <p><img src="/images/13/0002.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="3">
-<li>
-<p>Thực hiện chọn <strong>AMI</strong></p>
+<li>Thực hiện chọn <strong>AMI</strong>
 <ul>
 <li>Chọn <strong>My AMIs</strong></li>
 <li>Chọn <strong>Owned by me</strong></li>
@@ -789,21 +786,19 @@
 </ol>
 <p><img src="/images/13/0003.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="4">
-<li>
-<p>Thực hiện chọn <strong>Instance type</strong></p>
+<li>Thực hiện chọn <strong>Instance type</strong>
 <ul>
 <li>Chọn <strong>t2.micro</strong></li>
-<li><strong>Key pair</strong>, chọn <strong>aws-fcj-key</strong> đã tạo lúc tạo <strong>EC2</strong> instance.</li>
+<li><strong>Key pair</strong>, chọn <strong><code>aws-fcj-key</code></strong> đã tạo lúc tạo <strong>EC2</strong> instance.</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/13/0004.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="5">
-<li>
-<p>Thực hiện cấu hình <strong>Network</strong></p>
+<li>Thực hiện cấu hình <strong>Network</strong>
 <ul>
 <li><strong>Subnet</strong>, chọn <strong>public subnet</strong></li>
-<li><strong>Firewall ( Security Group)</strong>, chọn <strong>Select existing security group</strong></li>
+<li><strong>Firewall (Security Group)</strong>, chọn <strong>Select existing security group</strong></li>
 <li>Chọn <strong>FCJ-Management-SG</strong></li>
 </ul>
 </li>
@@ -822,11 +817,12 @@
 </ol>
 <p><img src="/images/13/0008.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="9">
-<li>Kết nối lại EC2 instance (xem hướng dẫn <a href="https://000006.awsstudygroup.com/vi/2-prerequiste/2.7-connectec2/">https://000006.awsstudygroup.com/vi/2-prerequiste/2.7-connectec2/</a>)</li>
-</ol>
+<li>Kết nối lại EC2 instance (xem hướng dẫn <a href="https://000006.awsstudygroup.com/vi/2-prerequiste/2.7-connectec2/">tại đây</a>)
 <ul>
 <li>Lần lượt dùng các câu lệnh:</li>
 </ul>
+</li>
+</ol>
 <pre tabindex="0"><code>sudo su
 cd 000004-EC2
 npm start
@@ -1187,19 +1183,19 @@ npm start
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098440"></script>
+    <script src="/js/jquery.sticky.js?1695098440"></script>
+    <script src="/js/featherlight.min.js?1695098440"></script>
+    <script src="/js/highlight.pack.js?1695098440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098440"></script>
+    <script src="/js/learn.js?1695098440"></script>
+    <script src="/js/hugo-learn.js?1695098440"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098440" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

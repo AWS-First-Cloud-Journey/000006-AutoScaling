@@ -17,8 +17,8 @@ pre : " <b> 2.2 </b> "
 
 2. Perform Security Group configuration
 
-   - **Security group name**, enter **```FCJ-Management-SG```**
-   - **Description**, enter **```Security Group for FCJ Management```**
+   - **Security group name**, enter **`FCJ-Management-SG`**
+   - **Description**, enter **`Security Group for FCJ Management`**
    - **VPC**, select the newly created VPC.
 
 ![Create SG](/images/2/0002.png?featherlight=false&width=90pc)

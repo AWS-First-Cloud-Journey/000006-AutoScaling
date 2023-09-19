@@ -6,31 +6,31 @@ chapter : false
 pre : " <b> 1. </b> "
 ---
 
-#### Giới thiệu 
+# Giới thiệu
 
-Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.
+Trong bài thực hành này, chúng ta sẽ tiến hành triển khai ứng dụng sử dụng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người dùng. Chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu truy cập từ người dùng đến Application Tier.
 
-Hãy chắc chắn rằng bạn đã xem qua tài liệu [Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux](https://000004.awsstudygroup.com/) và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai **FCJ Management** cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
+Hãy đảm bảo bạn đã tham khảo tài liệu [Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux](https://000004.awsstudygroup.com/) và hiểu cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ sử dụng máy ảo **FCJ Management** đã triển khai để thực hiện việc triển khai và mở rộng trong Auto Scaling Group.
 
-#### Auto Scaling Group
+## Auto Scaling Group
 
-**Auto Scaling Group** (nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng của các EC2 Instance thành viên theo chính sách co giãn (scaling policy) mà bạn đặt ra.
+**Auto Scaling Group** (Nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có khả năng co giãn số lượng các EC2 Instance thành viên dựa trên các chính sách co giãn mà bạn thiết lập.
 
-#### Launch Template
+## Launch Template
 
-**Launch Template** (khuôn mẫu khởi tạo) là một tính năng giúp bạn tạo khuôn mẫu cho việc khởi tạo các EC2 Instance. Nhờ thế, bạn có thể quy trình hóa và đơn giản hóa công tác khởi tạo các EC2 Instance cho dịch vụ Auto Scaling (co giãn tự động).
+**Launch Template** (Khuôn mẫu khởi tạo) là một tính năng giúp bạn tạo mẫu cho việc khởi tạo các EC2 Instance. Điều này giúp tự động hóa và đơn giản hóa việc khởi tạo các EC2 Instance cho dịch vụ Auto Scaling.
 
-#### Load Balancer
+## Load Balancer
 
-**Load Balancer** (máy cân bằng tải) là một công cụ có thể phân phối lưu lượng dữ liệu được trao đổi tới các tài nguyên AWS (cụ thể trong bài lab này là các EC2 Instances) trong Target Group.
+**Load Balancer** (Máy cân bằng tải) là một công cụ giúp phân phối lưu lượng dữ liệu đến các tài nguyên AWS (trong trường hợp này là các EC2 Instance) trong Target Group.
 
-#### Target Group
+## Target Group
 
-**Target Group** (nhóm mục tiêu) là một nhóm những thành phần tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và truyền tải bởi Load Balancer.
+**Target Group** (Nhóm mục tiêu) là một nhóm các tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và chuyển tiếp bởi Load Balancer.
 
-Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.
+Trong bài thực hành này, chúng ta sẽ thực hiện triển khai ứng dụng bằng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người dùng. Đồng thời, chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.
 
-Hãy chắc chắn rằng bạn đã xem qua tài liệu Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai FCJ Management cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
+Hãy đảm bảo bạn đã tham khảo tài liệu Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux và đã nắm vững cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo **FCJ Management** đã triển khai để thực hiện việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
 
+![Auto Scaling Group](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
 
-![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)

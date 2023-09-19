@@ -6,15 +6,14 @@ chapter : false
 pre : " <b> 2.7 </b> "
 ---
 
-#### Kết nối EC2 instance
+## Kết nối EC2 instance
 
 1. Sử dụng **MobaXterm** để kết nối SSH vào instance qua cổng 22.
 
    - Chọn **Session**
+   ![Connect EC2 instance](/images/7/0001.png?featherlight=false&width=90pc)
 
-![Connect EC2 instance](/images/7/0001.png?featherlight=false&width=90pc)
-
-2. Trong phần **Session settings**, 
+2. Trong phần **Session settings**,
 
    - **Remote host**, nhập **Public IPv4 address** của instance
    - **Specify username**, nhập **ec2-user**
@@ -22,20 +21,17 @@ pre : " <b> 2.7 </b> "
    - Chọn **Advanced SSH settings**
    - Chọn **Use private key** và chọn **keypair** của instance.
    - Chọn **OK**
+   
+   ![Connect EC2 instance](/images/7/0002.png?featherlight=false&width=90pc)
 
-![Connect EC2 instance](/images/7/0002.png?featherlight=false&width=90pc)
+3. Thực hiện theo hướng dẫn các hình. Kết nối EC2 instance thành công.
 
-3. Thực hiện theo hướng dẫn các hình. Kết nối EC2 instance thành công. 
+   ![Connect EC2 instance](/images/7/0003.png?featherlight=false&width=90pc)
+   ![Connect EC2 instance](/images/7/0004.png?featherlight=false&width=90pc)
+   ![Connect EC2 instance](/images/7/0005.png?featherlight=false&width=90pc)
 
-![Connect EC2 instance](/images/7/0003.png?featherlight=false&width=90pc)
+4. Cài đặt node version manager (nvm) bằng cách nhập nội dung sau vào dòng lệnh sau:
 
-
-![Connect EC2 instance](/images/7/0004.png?featherlight=false&width=90pc)
-
-
-![Connect EC2 instance](/images/7/0005.png?featherlight=false&width=90pc)
-
-4. Cài đặt node version manager (nvm) ) bằng cách nhập nội dung sau vào dòng lệnh sau:
 
 
 ```

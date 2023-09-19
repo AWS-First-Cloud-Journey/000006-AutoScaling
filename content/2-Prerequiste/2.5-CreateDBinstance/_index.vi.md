@@ -45,7 +45,7 @@ pre : " <b> 2.5</b> "
 
    - **DB instance identifier**, nhập **```fcj-management-db-instance```**
    - **Master user**, nhập **admin** 
-   - **Master password**, nhập tùy ý của bạn ( trong bài lab, nhập **```123Vodanhphai```**)
+   - **Master password**, nhập tùy ý của bạn (trong bài lab, nhập **```123Vodanhphai```**)
    - **Confirm password**, nhập lại password 1 lần nữa.
 
 ![Create DB instance](/images/5/0006.png?featherlight=false&width=90pc)

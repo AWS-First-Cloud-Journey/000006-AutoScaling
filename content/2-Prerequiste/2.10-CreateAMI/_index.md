@@ -6,6 +6,7 @@ chapter : false
 pre : " <b> 2.10 </b> "
 ---
 
+
 #### Launch AMI from Virtual Machine
 
 In this step, you will initialize an Amazon Machine Image (AMI) for the Amazon Linux Instance that was set up in the previous step. An AMI is a configuration snapshot of an EC2 Instance that allows you to deploy multiple EC2 Instances with the same configuration as the original EC2 Instance. AMI is commonly used inside Launch Template to template EC2 Instances.
@@ -22,17 +23,17 @@ In this step, you will initialize an Amazon Machine Image (AMI) for the Amazon L
 
 2. Configure **Template**
 
-   - **Image name**, enter **```FCJ-Management-AMI```**
-   - **Image description**, enter **```AMI for FCJ-Management```**
+   - **Image name**, enter **`FCJ-Management-AMI`**
+   - **Image description**, enter **`AMI for FCJ-Management`**
    - Select **Create image**
 
 ![Deploy app](/images/12/0002.png?featherlight=false&width=90pc)
 
-3. AMI initialization takes about 5 minutes. After 5 minutes we see **Status** switch to **Available**
+3. AMI initialization takes about 5 minutes. After 5 minutes, we see **Status** switch to **Available**
 
 ![Deploy app](/images/12/0003.png?featherlight=false&width=90pc)
 
-We have completed the preparation steps for deploying FCJ Management with Auto Scaling Group.
+We have completed the preparation steps for deploying FCJ Management with the Auto Scaling Group.
 
 ![Deploy app](/images/12/0004.png?featherlight=false&width=90pc)
 

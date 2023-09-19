@@ -16,7 +16,7 @@ We will clean up resources in the following order:
 - On the left navigation bar, select **Auto Scaling Groups**
 - Select **Auto Scaling Group** related to the lab.
 - Click **Delete**
-- Type delete in the empty box and press delete
+- Type `delete` in the empty box and press `delete`
 
 #### Remove Load Balancer:
 
@@ -28,7 +28,7 @@ We will clean up resources in the following order:
 
 #### Remove Target Group:
 
-- Access **EC2 Management **Console**
+- Access **EC2 Management Console**
 - On the left navigation bar, select **Target Groups**
 - Select **Target Group** related to the lab.
 - Click **Actions**.
@@ -42,7 +42,7 @@ We will clean up resources in the following order:
 - Select **Launch Template** related to the lab.
 - Click **Actions**.
 - Click **Delete template**
-- Type delete in the empty box and press **delete**
+- Type `delete` in the empty box and press **delete**
 
 #### Delete AMI:
 
@@ -56,22 +56,21 @@ We will clean up resources in the following order:
 #### Terminate EC2 instance
 
 - Access **EC2 Management Console**
-- On the left navigation bar, select **Intances**
-- Select all **EC2 Instance** related to the lab.
+- On the left navigation bar, select **Instances**
+- Select all **EC2 Instances** related to the lab.
 - Click **Actions**.
 - Click **Manage Instance State**.
 - Select **Terminate**.
-- Click **Change State**
-
+- Click **Change State**.
 
 #### Delete DB Instance
 
 - Access the RDS Management Console
 - On the left navigation bar, select **Databases**
-- Select all **DB Instance** related to the lab.
+- Select all **DB Instances** related to the lab.
 - Click **Actions**.
 - Click **Delete**
-- Uncheck **Create final snapshot? and select I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available**
+- Uncheck **Create final snapshot? and select "I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available"**
 - Type **delete me** in the empty box.
 - Click **Delete**
 

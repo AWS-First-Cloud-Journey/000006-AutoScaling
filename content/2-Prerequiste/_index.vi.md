@@ -8,8 +8,7 @@ pre : " <b> 2. </b> "
 
 #### Các bước chuẩn bị
 
-Trong bài thực hành này, chúng ta cần chuẩn bị một số dịch vụ để có thể tiến hành triển khai ứng dụng FCJ Management sử dụng Auto Scaling Group cùng với Elastic Load Balancer. Một cách tổng quan, chúng ta sẽ triển khai ứng dụng ShareNote theo kiến trúc như sau:
-
+Trong bài thực hành này, chúng ta cần chuẩn bị một số dịch vụ để có thể tiến hành triển khai ứng dụng FCJ Management sử dụng Auto Scaling Group cùng với Elastic Load Balancer. Một cách tổng quan, chúng ta sẽ triển khai ứng dụng FCJ Management theo kiến trúc như sau:
 
 ![Create VPC](/images/2-Prerequiste/0.png?featherlight=false&width=55pc)
 

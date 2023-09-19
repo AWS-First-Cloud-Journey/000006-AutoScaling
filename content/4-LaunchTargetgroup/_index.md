@@ -8,25 +8,22 @@ pre : " <b> 4. </b> "
 
 #### Create Target Group
 
-1. Access **EC2** interface
-
+1. Access **EC2** interface:
    - Select **Target Groups**
    - Select **Create target group**
 
 ![Deploy app](/images/14/0001.png?featherlight=false&width=90pc)
 
-2. Make a configuration
-
+2. Make a configuration:
    - Select **Instances**
 
 ![Deploy app](/images/14/0002.png?featherlight=false&width=90pc)
 
 3. On the **Specify group details** page, set the following parameters for **target group**:
-
-   - **Target group name**: Enter the name of the target group (eg **FCJ-Management-TG**).
+   - **Target group name**: Enter the name of the target group (e.g., **FCJ-Management-TG**).
    - **Protocol**: HTTP.
    - **Port**: **5000** (Port used by FCJ Management).
-   - The remaining items leave the default.
+   - Leave the remaining items as default.
 
 ![Deploy app](/images/14/0003.png?featherlight=false&width=90pc)
 
@@ -34,11 +31,10 @@ pre : " <b> 4. </b> "
 
 ![Deploy app](/images/14/0004.png?featherlight=false&width=90pc)
 
-5. In the **Available instances** interface
-
+5. In the **Available instances** interface:
    - Select **FCJ-Management** instance
    - Select port **5000**
-   - Select **Include as pending below** (if not selected when accessing with DNS Load Balancer will get an error **HTTP 503: Service unavailable**)
+   - Select **Include as pending below** (if not selected, accessing with DNS Load Balancer may result in an **HTTP 503: Service unavailable** error)
    - Review
    - Select **Create target group**
 
@@ -48,6 +44,6 @@ pre : " <b> 4. </b> "
 
 ![Deploy app](/images/14/0006.png?featherlight=false&width=90pc)
 
-7. Finish creating **Target group**
+7. Finish creating the **Target group**
 
 ![Deploy app](/images/14/0007.png?featherlight=false&width=90pc)

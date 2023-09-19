@@ -6,8 +6,7 @@ chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-####  Tạo VPC
-
+#### Tạo VPC
 
 1. Truy cập vào [AWS Management Console](https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/)
 

@@ -12,21 +12,21 @@
     <title>Khởi tạo Target Group :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098440" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098440" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098440" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098440" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098440" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098440" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098440" rel="stylesheet">
+    <link href="/css/theme.css?1695098440" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098440" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098440" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098440"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098440"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098440"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098440"></script>
 
     
   </div>
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -757,8 +757,7 @@
 
 	<h4 id="khởi-tạo-target-group">Khởi tạo Target Group</h4>
 <ol>
-<li>
-<p>Truy cập giao diện <strong>EC2</strong></p>
+<li>Truy cập giao diện <strong>EC2</strong>:
 <ul>
 <li>Chọn <strong>Target Groups</strong></li>
 <li>Chọn <strong>Create target group</strong></li>
@@ -767,8 +766,7 @@
 </ol>
 <p><img src="/images/14/0001.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="2">
-<li>
-<p>Thực hiện cấu hình</p>
+<li>Thực hiện cấu hình:
 <ul>
 <li>Chọn <strong>Instances</strong></li>
 </ul>
@@ -776,8 +774,7 @@
 </ol>
 <p><img src="/images/14/0002.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="3">
-<li>
-<p>Ở trang <strong>Specify group details</strong>, thiết lập các thông số như sau cho <strong>target group</strong>:</p>
+<li>Trong trang <strong>Specify group details</strong>, thiết lập các thông số sau cho <strong>target group</strong>:
 <ul>
 <li><strong>Target group name</strong>: Nhập tên của target group (VD: <strong>FCJ-Management-TG</strong>).</li>
 <li><strong>Protocol</strong>: HTTP.</li>
@@ -792,12 +789,11 @@
 </ol>
 <p><img src="/images/14/0004.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="5">
-<li>
-<p>Trong giao diện <strong>Available instances</strong></p>
+<li>Trong giao diện <strong>Available instances</strong>:
 <ul>
-<li>Chọn <strong>FCJ-Management</strong> instance</li>
+<li>Chọn instance <strong>FCJ-Management</strong></li>
 <li>Chọn port <strong>5000</strong></li>
-<li>Chọn <strong>Include as pending below</strong> ( nếu không chọn lúc truy cập bằng DNS Load Balancer sẽ gặp lỗi <strong>HTTP 503: Service unavailable</strong>)</li>
+<li>Chọn <strong>Include as pending below</strong> (nếu không chọn, khi truy cập bằng DNS Load Balancer có thể gặp lỗi <strong>HTTP 503: Service unavailable</strong>)</li>
 <li>Kiểm tra lại</li>
 <li>Chọn <strong>Create target group</strong></li>
 </ul>
@@ -1166,19 +1162,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098440"></script>
+    <script src="/js/jquery.sticky.js?1695098440"></script>
+    <script src="/js/featherlight.min.js?1695098440"></script>
+    <script src="/js/highlight.pack.js?1695098440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098440"></script>
+    <script src="/js/learn.js?1695098440"></script>
+    <script src="/js/hugo-learn.js?1695098440"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098440" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

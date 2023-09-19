@@ -12,21 +12,21 @@
     <title>Clean up resources :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098439" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098439" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098439" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098439" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098439" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098439" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098439" rel="stylesheet">
+    <link href="/css/theme.css?1695098439" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098439" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098439" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098439"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098439"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098439"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098439"></script>
 
     
   </div>
@@ -530,13 +530,13 @@
  
   
     
-    <li data-nav-id="/7-result/" title="Check Result" class="dd-item 
+    <li data-nav-id="/7-result/" title="Check the result" class="dd-item 
         
         
         
         ">
       <a href="/7-result/">
-           <b> 7. </b> Check Result
+           <b> 7. </b> Check the result
           
             <i class="fas fa-check read-icon"></i>
           
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -763,7 +763,7 @@
 <li>On the left navigation bar, select <strong>Auto Scaling Groups</strong></li>
 <li>Select <strong>Auto Scaling Group</strong> related to the lab.</li>
 <li>Click <strong>Delete</strong></li>
-<li>Type delete in the empty box and press delete</li>
+<li>Type <code>delete</code> in the empty box and press <code>delete</code></li>
 </ul>
 <h4 id="remove-load-balancer">Remove Load Balancer:</h4>
 <ul>
@@ -775,7 +775,7 @@
 </ul>
 <h4 id="remove-target-group">Remove Target Group:</h4>
 <ul>
-<li>Access **EC2 Management <strong>Console</strong></li>
+<li>Access <strong>EC2 Management Console</strong></li>
 <li>On the left navigation bar, select <strong>Target Groups</strong></li>
 <li>Select <strong>Target Group</strong> related to the lab.</li>
 <li>Click <strong>Actions</strong>.</li>
@@ -789,7 +789,7 @@
 <li>Select <strong>Launch Template</strong> related to the lab.</li>
 <li>Click <strong>Actions</strong>.</li>
 <li>Click <strong>Delete template</strong></li>
-<li>Type delete in the empty box and press <strong>delete</strong></li>
+<li>Type <code>delete</code> in the empty box and press <strong>delete</strong></li>
 </ul>
 <h4 id="delete-ami">Delete AMI:</h4>
 <ul>
@@ -803,21 +803,21 @@
 <h4 id="terminate-ec2-instance">Terminate EC2 instance</h4>
 <ul>
 <li>Access <strong>EC2 Management Console</strong></li>
-<li>On the left navigation bar, select <strong>Intances</strong></li>
-<li>Select all <strong>EC2 Instance</strong> related to the lab.</li>
+<li>On the left navigation bar, select <strong>Instances</strong></li>
+<li>Select all <strong>EC2 Instances</strong> related to the lab.</li>
 <li>Click <strong>Actions</strong>.</li>
 <li>Click <strong>Manage Instance State</strong>.</li>
 <li>Select <strong>Terminate</strong>.</li>
-<li>Click <strong>Change State</strong></li>
+<li>Click <strong>Change State</strong>.</li>
 </ul>
 <h4 id="delete-db-instance">Delete DB Instance</h4>
 <ul>
 <li>Access the RDS Management Console</li>
 <li>On the left navigation bar, select <strong>Databases</strong></li>
-<li>Select all <strong>DB Instance</strong> related to the lab.</li>
+<li>Select all <strong>DB Instances</strong> related to the lab.</li>
 <li>Click <strong>Actions</strong>.</li>
 <li>Click <strong>Delete</strong></li>
-<li>Uncheck <strong>Create final snapshot? and select I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available</strong></li>
+<li>Uncheck <strong>Create final snapshot? and select &ldquo;I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available&rdquo;</strong></li>
 <li>Type <strong>delete me</strong> in the empty box.</li>
 <li>Click <strong>Delete</strong></li>
 </ul>
@@ -1168,7 +1168,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/7-result/" title="Check Result"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/7-result/" title="Check the result"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/1-introduce/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1181,19 +1181,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098439"></script>
+    <script src="/js/jquery.sticky.js?1695098439"></script>
+    <script src="/js/featherlight.min.js?1695098439"></script>
+    <script src="/js/highlight.pack.js?1695098439"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098439"></script>
+    <script src="/js/learn.js?1695098439"></script>
+    <script src="/js/hugo-learn.js?1695098439"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098439" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098439"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -37,15 +37,15 @@ pre : " <b> 2.5</b> "
 5. Configure **Template**
 
    - Select **Production**
-   - For **Availability and durability**, select **Mutil-AZ DB instance**
+   - For **Availability and durability**, select **Multi-AZ DB instance**
 
 ![Create DB instance](/images/5/0005.png?featherlight=false&width=90pc)
 
 6. Next, make detailed settings
 
-   - **DB instance identifier**, enter **```fcj-management-db-instance```**
+   - **DB instance identifier**, enter **`fcj-management-db-instance`**
    - **Master user**, enter **admin**
-   - **Master password**, enter your choice (in the lab, enter **```123Vodanhphai```**)
+   - **Master password**, enter your choice (in the lab, enter **`123Vodanhphai`**)
    - **Confirm password**, enter the password again.
 
 ![Create DB instance](/images/5/0006.png?featherlight=false&width=90pc)
@@ -64,7 +64,7 @@ pre : " <b> 2.5</b> "
 
 ![Create DB instance](/images/5/0008.png?featherlight=false&width=90pc)
 
-- Lưu ý: Ở tùy chọn Deletion protection, giá trị mặc định là Enable giúp bảo vệ cơ sở dữ liệu khỏi bị vô tình xóa (Protects the database from being deleted accidentally). Tuy nhiên, trong bài lab này, ta Disable Deletion protection để dễ dọn dẹp tài nguyên vào cuối bài lab.
+> Note: In the Deletion protection option, the default value is Enable, which helps protect the database from being accidentally deleted. However, in this lab, we Disable Deletion protection for easier resource cleanup at the end of the lab.
 
 9. Check again and select **Create database**
 
@@ -72,13 +72,13 @@ pre : " <b> 2.5</b> "
 
 10. Initialize DB instance in 10 minutes. When **Status** changes to **Available**, it's done.
 
-    - Select **db instance** just created.
+    - Select the **db instance** just created.
 
 ![Create DB instance](/images/5/00010.png?featherlight=false&width=90pc)
 
 11. In the **Connectivity & security** interface
 
-    - Store value **Endpoint**
+    - Store the value of **Endpoint**
     - Check port **3306**
 
 ![Create DB instance](/images/5/00011.png?featherlight=false&width=90pc)

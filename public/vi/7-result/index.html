@@ -12,21 +12,21 @@
     <title>Kiểm tra kết quả :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098440" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098440" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098440" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098440" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098440" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098440" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098440" rel="stylesheet">
+    <link href="/css/theme.css?1695098440" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098440" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098440" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098440"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098440"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098440"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098440"></script>
 
     
   </div>
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -756,32 +756,35 @@
 
 
 	<h4 id="kiểm-tra-kết-quả">Kiểm tra kết quả</h4>
-<p>Trong bài thực hành này, chúng ta sẽ kiếm tra truy cập tới ShareNote và tiến hành tăng số lượng yêu cầu truy cập đến ứng dụng thông qua việc mở đồng loạt nhiều kết nối sử dụng công cụ Webserver Stress Tool 8. Bạn hãy nhấn vào <a href="https://www.paessler.com/tools/webstress">Webserver Stress Tool 8</a> để tải về.</p>
+<p>Trong bài thực hành này, chúng ta sẽ kiểm tra truy cập tới <strong>ShareNote</strong> và tiến hành tăng số lượng yêu cầu truy cập đến ứng dụng thông qua việc mở đồng loạt nhiều kết nối sử dụng công cụ <em>Webserver Stress Tool 8</em>. Bạn hãy nhấn vào <a href="https://www.paessler.com/tools/webstress">Webserver Stress Tool 8</a> để tải về.</p>
 <ol>
 <li>Thực hiện tải <strong>Webserver Stress Tool 8</strong></li>
 </ol>
 <p><img src="/images/17/0001.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="2">
 <li>
-<p>Kiểm tra khả năng tự mở rộng của ứng dụng FCJ Management được triển khai</p>
+<p>Kiểm tra khả năng tự mở rộng của ứng dụng <strong>FCJ Management</strong> được triển khai</p>
 <ul>
-<li>Giải nén file zip và cài đặt Webserver Stress Tool 8 với tùy chọn mặc định.</li>
-<li>Khởi dộng Webserver Stress Tool 8 để tiến hành tạo số lượng truy cập lớn đến Endpoint của Load Balancer.</li>
-<li>Nhấn vào tab Test Type và nhập thông số như hình dưới đây:</li>
-<li>Run Unit : 100000</li>
-<li>Number of Users : 101</li>
-<li>Click Delay : 1</li>
+<li>Giải nén file zip và cài đặt <em>Webserver Stress Tool 8</em> với tùy chọn mặc định.</li>
+<li>Khởi động <em>Webserver Stress Tool 8</em> để tiến hành tạo số lượng truy cập lớn đến <em>Endpoint</em> của <em>Load Balancer</em>.</li>
+<li>Nhấn vào tab <strong>Test Type</strong> và nhập thông số như hình dưới đây:
+<ul>
+<li>Run Unit: 100000</li>
+<li>Number of Users: 101</li>
+<li>Click Delay: 1</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
 <p><img src="/images/17/0001.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="3">
-<li>Nhấn vào tab URLs, copy DNSName của ứng dụng FCJ Management vào ô URL ( DNSName khi bạn tạo Load Balancer ở bước 5.Khởi tạo Load Balancer), và nhấn <strong>Start Test</strong></li>
+<li>Nhấn vào tab <strong>URLs</strong>, copy <code>DNSName</code> của ứng dụng <strong>FCJ Management</strong> vào ô URL (DNSName khi bạn tạo <em>Load Balancer</em> ở bước 5.Khởi tạo Load Balancer), và nhấn <strong>Start Test</strong></li>
 </ol>
 <p><img src="/images/17/0002.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/17/0003.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="4">
-<li>Sau một khoảng thời gian, kiểm tra phản hồi của Auto Scaling Group. Ta thấy số lượng instance được tăng lên số lượng tối đa mà chúng ta thiết lập là 3.</li>
+<li>Sau một khoảng thời gian, kiểm tra phản hồi của <em>Auto Scaling Group</em>. Ta thấy số lượng instance được tăng lên số lượng tối đa mà chúng ta thiết lập là 3.</li>
 </ol>
 <p><img src="/images/17/0004.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <p><img src="/images/17/0006.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
@@ -800,7 +803,7 @@
 <li>Xem giao diện của <strong>EC2</strong> khi chạy ứng dụng.</li>
 </ol>
 <p><img src="/images/17/00010.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
-<p>Chúc mừng bạn vừa hoàn thành bài thực hành Triển khai ứng dụng FCJ Management với Auto Scaling Group và Elastic Load Balancer.</p>
+<p>Chúc mừng bạn vừa hoàn thành bài thực hành <em>Triển khai ứng dụng FCJ Management với Auto Scaling Group và Elastic Load Balancer</em>.</p>
 <p>Bạn sẽ nhận được mail thông báo.</p>
 <p><img src="/images/17/00013.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 
@@ -1157,19 +1160,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098440"></script>
+    <script src="/js/jquery.sticky.js?1695098440"></script>
+    <script src="/js/featherlight.min.js?1695098440"></script>
+    <script src="/js/highlight.pack.js?1695098440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098440"></script>
+    <script src="/js/learn.js?1695098440"></script>
+    <script src="/js/hugo-learn.js?1695098440"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098440" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

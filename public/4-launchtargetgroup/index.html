@@ -12,21 +12,21 @@
     <title>Create Target Group :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098439" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098439" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098439" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098439" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098439" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098439" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098439" rel="stylesheet">
+    <link href="/css/theme.css?1695098439" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098439" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098439" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098439"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098439"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098439"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098439"></script>
 
     
   </div>
@@ -530,13 +530,13 @@
  
   
     
-    <li data-nav-id="/7-result/" title="Check Result" class="dd-item 
+    <li data-nav-id="/7-result/" title="Check the result" class="dd-item 
         
         
         
         ">
       <a href="/7-result/">
-           <b> 7. </b> Check Result
+           <b> 7. </b> Check the result
           
             <i class="fas fa-check read-icon"></i>
           
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -757,8 +757,7 @@
 
 	<h4 id="create-target-group">Create Target Group</h4>
 <ol>
-<li>
-<p>Access <strong>EC2</strong> interface</p>
+<li>Access <strong>EC2</strong> interface:
 <ul>
 <li>Select <strong>Target Groups</strong></li>
 <li>Select <strong>Create target group</strong></li>
@@ -767,8 +766,7 @@
 </ol>
 <p><img src="/images/14/0001.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="2">
-<li>
-<p>Make a configuration</p>
+<li>Make a configuration:
 <ul>
 <li>Select <strong>Instances</strong></li>
 </ul>
@@ -776,13 +774,12 @@
 </ol>
 <p><img src="/images/14/0002.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="3">
-<li>
-<p>On the <strong>Specify group details</strong> page, set the following parameters for <strong>target group</strong>:</p>
+<li>On the <strong>Specify group details</strong> page, set the following parameters for <strong>target group</strong>:
 <ul>
-<li><strong>Target group name</strong>: Enter the name of the target group (eg <strong>FCJ-Management-TG</strong>).</li>
+<li><strong>Target group name</strong>: Enter the name of the target group (e.g., <strong>FCJ-Management-TG</strong>).</li>
 <li><strong>Protocol</strong>: HTTP.</li>
 <li><strong>Port</strong>: <strong>5000</strong> (Port used by FCJ Management).</li>
-<li>The remaining items leave the default.</li>
+<li>Leave the remaining items as default.</li>
 </ul>
 </li>
 </ol>
@@ -792,12 +789,11 @@
 </ol>
 <p><img src="/images/14/0004.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="5">
-<li>
-<p>In the <strong>Available instances</strong> interface</p>
+<li>In the <strong>Available instances</strong> interface:
 <ul>
 <li>Select <strong>FCJ-Management</strong> instance</li>
 <li>Select port <strong>5000</strong></li>
-<li>Select <strong>Include as pending below</strong> (if not selected when accessing with DNS Load Balancer will get an error <strong>HTTP 503: Service unavailable</strong>)</li>
+<li>Select <strong>Include as pending below</strong> (if not selected, accessing with DNS Load Balancer may result in an <strong>HTTP 503: Service unavailable</strong> error)</li>
 <li>Review</li>
 <li>Select <strong>Create target group</strong></li>
 </ul>
@@ -809,7 +805,7 @@
 </ol>
 <p><img src="/images/14/0006.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 <ol start="7">
-<li>Finish creating <strong>Target group</strong></li>
+<li>Finish creating the <strong>Target group</strong></li>
 </ol>
 <p><img src="/images/14/0007.png?featherlight=false&amp;width=90pc" alt="Deploy app"></p>
 
@@ -1166,19 +1162,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098439"></script>
+    <script src="/js/jquery.sticky.js?1695098439"></script>
+    <script src="/js/featherlight.min.js?1695098439"></script>
+    <script src="/js/highlight.pack.js?1695098439"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098439"></script>
+    <script src="/js/learn.js?1695098439"></script>
+    <script src="/js/hugo-learn.js?1695098439"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098439" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098439"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

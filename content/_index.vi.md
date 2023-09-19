@@ -9,25 +9,25 @@ chapter : false
 
 #### Tổng quan
 
-Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.
+Trong hướng dẫn này, chúng ta sẽ thực hiện triển khai ứng dụng bằng cách sử dụng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người truy cập. Ngoài ra, chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu từ người dùng đến Application Tier của ứng dụng.
 
-Hãy chắc chắn rằng bạn đã xem qua tài liệu [Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux](https://000004.awsstudygroup.com/) và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai **FCJ Management** cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
+Hãy đảm bảo bạn đã xem qua tài liệu [Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux](https://000004.awsstudygroup.com/) để nắm vững cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo **FCJ Management** đã triển khai để thực hiện việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
 
 #### Auto Scaling Group
 
-**Auto Scaling Group** (nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng của các EC2 Instance thành viên theo chính sách co giãn (scaling policy) mà bạn đặt ra.
+**Auto Scaling Group** (nhóm co giãn tự động) là một nhóm các EC2 Instance. Nhóm này có khả năng tự động điều chỉnh số lượng các EC2 Instance thành viên dựa trên các chính sách co giãn mà bạn đặt ra.
 
 #### Launch Template
 
-**Launch Template** (khuôn mẫu khởi tạo) là một tính năng giúp bạn tạo khuôn mẫu cho việc khởi tạo các EC2 Instance. Nhờ thế, bạn có thể quy trình hóa và đơn giản hóa công tác khởi tạo các EC2 Instance cho dịch vụ Auto Scaling (co giãn tự động).
+**Launch Template** (khuôn mẫu khởi tạo) là một tính năng cho phép bạn tạo ra các khuôn mẫu để khởi tạo EC2 Instance. Điều này giúp bạn tự động hóa và đơn giản hóa việc khởi tạo các EC2 Instance cho dịch vụ Auto Scaling (co giãn tự động).
 
 #### Load Balancer
 
-**Load Balancer** (máy cân bằng tải) là một công cụ có thể phân phối lưu lượng dữ liệu được trao đổi tới các tài nguyên AWS (cụ thể trong bài lab này là các EC2 Instances) trong Target Group.
+**Load Balancer** (máy cân bằng tải) là một công cụ cho phép phân phối lưu lượng dữ liệu tới các tài nguyên AWS (trong trường hợp này là các EC2 Instances) trong một Target Group cụ thể.
 
 #### Target Group
 
-**Target Group** (nhóm mục tiêu) là một nhóm những thành phần tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và truyền tải bởi Load Balancer.
+**Target Group** (nhóm mục tiêu) là một nhóm các tài nguyên AWS sẽ nhận lưu lượng dữ liệu từ Load Balancer và tiếp tục truyền chuyển nó.
 
 ![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
 

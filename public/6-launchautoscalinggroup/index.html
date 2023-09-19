@@ -12,21 +12,21 @@
     <title>Create Auto Scaling Group :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098439" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098439" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098439" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098439" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098439" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098439" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098439" rel="stylesheet">
+    <link href="/css/theme.css?1695098439" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098439" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098439" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098439"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098439"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098439"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098439"></script>
 
     
   </div>
@@ -530,13 +530,13 @@
  
   
     
-    <li data-nav-id="/7-result/" title="Check Result" class="dd-item 
+    <li data-nav-id="/7-result/" title="Check the result" class="dd-item 
         
         
         
         ">
       <a href="/7-result/">
-           <b> 7. </b> Check Result
+           <b> 7. </b> Check the result
           
             <i class="fas fa-check read-icon"></i>
           
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -756,7 +756,7 @@
 
 
 	<h4 id="create-auto-scaling-group">Create Auto Scaling Group</h4>
-<p>In this section, we will implement an Auto Scaling Group for the FCJ Management application to ensure our application will be deployed with high availability, and potentially increase the number of EC2 instances when users visit. into the boost system.</p>
+<p>In this section, we will implement an Auto Scaling Group for the FCJ Management application to ensure our application will be deployed with high availability and potentially increase the number of EC2 instances when users visit, into the boost system.</p>
 <ol>
 <li>
 <p>Access to <strong>EC2</strong></p>
@@ -768,14 +768,14 @@
 </ol>
 <p><img src="/images/16/0001.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="2">
-<li><strong>Auto Scaling Group name</strong>, enter <strong><code>FCJ-Management-ASG</code></strong></li>
+<li><strong>Auto Scaling Group name</strong>, enter <code>FCJ-Management-ASG</code></li>
 </ol>
 <p><img src="/images/16/0002.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="3">
 <li>
 <p>Configure the template</p>
 <ul>
-<li><strong>Launch template</strong>. select <strong>FCJ-Management-template</strong></li>
+<li><strong>Launch template</strong>, select <code>FCJ-Management-template</code></li>
 <li>Select <strong>Next</strong></li>
 </ul>
 </li>
@@ -801,7 +801,7 @@
 <ul>
 <li>Select <strong>Attach to an existing load balancer</strong></li>
 <li>Select <strong>Choose from your load balancer target groups</strong></li>
-<li>Select <strong>FCJ-Management-TG</strong></li>
+<li>Select <code>FCJ-Management-TG</code></li>
 </ul>
 </li>
 </ol>
@@ -826,9 +826,9 @@
 <p>Under <strong>Scaling policies</strong> - optional: Select this exercise to make it easier for the next step to be checked. You can completely set the resource scaling policy according to your needs.</p>
 <ul>
 <li>Select <strong>Target tracking scaling policy</strong></li>
-<li><strong>Scaling policy name</strong>, enter <strong><code>Target Tracking Policy</code></strong></li>
+<li><strong>Scaling policy name</strong>, enter <code>Target Tracking Policy</code></li>
 <li><strong>Metric type</strong>, select <strong>Application Load Balancer request count per target</strong>.</li>
-<li><strong>Target group</strong>, enter <strong><code>FCJ-Management</code></strong></li>
+<li><strong>Target group</strong>, enter <code>FCJ-Management</code></li>
 <li><strong>Target value</strong>, enter 30</li>
 </ul>
 </li>
@@ -863,9 +863,9 @@
 <p><img src="/images/16/00016.png?featherlight=false&amp;width=90pc" alt="Auto Scaling Group"></p>
 <ol start="15">
 <li>
-<p>The initialization of Auto Scaling Group will be done, the newly created Auto Scaling Group will be displayed in the list, and you can select it to view detailed information.</p>
+<p>The initialization of the Auto Scaling Group will be done, the newly created Auto Scaling Group will be displayed in the list, and you can select it to view detailed information.</p>
 <ul>
-<li>We can track existing EC2 instances in Auto Scaling Group on the <strong>Instance management</strong> page. Instances with InService status are ready-to-go instances.</li>
+<li>We can track existing EC2 instances in the Auto Scaling Group on the <strong>Instance management</strong> page. Instances with InService status are ready-to-go instances.</li>
 </ul>
 </li>
 </ol>
@@ -1216,7 +1216,7 @@
 			<a class="nav nav-prev" href="/5-launchloadbalancer/" title="Create Load Balancer"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/7-result/" title="Check Result" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/7-result/" title="Check the result" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1226,19 +1226,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098439"></script>
+    <script src="/js/jquery.sticky.js?1695098439"></script>
+    <script src="/js/featherlight.min.js?1695098439"></script>
+    <script src="/js/highlight.pack.js?1695098439"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098439"></script>
+    <script src="/js/learn.js?1695098439"></script>
+    <script src="/js/hugo-learn.js?1695098439"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098439" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098439"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

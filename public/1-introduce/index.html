@@ -12,21 +12,21 @@
     <title>Introduction :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1680243244" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1680243244" rel="stylesheet">
-    <link href="/css/hybrid.css?1680243244" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1680243244" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1680243244" rel="stylesheet">
-    <link href="/css/auto-complete.css?1680243244" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1680243244" rel="stylesheet">
-    <link href="/css/theme.css?1680243244" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1680243244" rel="stylesheet">
+    <link href="/css/nucleus.css?1695098438" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1695098438" rel="stylesheet">
+    <link href="/css/hybrid.css?1695098438" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1695098438" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1695098438" rel="stylesheet">
+    <link href="/css/auto-complete.css?1695098438" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1695098438" rel="stylesheet">
+    <link href="/css/theme.css?1695098438" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1695098438" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1680243244" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1695098438" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1680243244"></script>
+    <script src="/js/jquery-3.3.1.min.js?1695098438"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1680243244"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1680243244"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1695098438"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1695098438"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1680243244"></script>
+<script type="text/javascript" src="/js/search.js?1695098438"></script>
 
     
   </div>
@@ -530,13 +530,13 @@
  
   
     
-    <li data-nav-id="/7-result/" title="Check Result" class="dd-item 
+    <li data-nav-id="/7-result/" title="Check the result" class="dd-item 
         
         
         
         ">
       <a href="/7-result/">
-           <b> 7. </b> Check Result
+           <b> 7. </b> Check the result
           
             <i class="fas fa-check read-icon"></i>
           
@@ -665,7 +665,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>31-03-2023</font></i>
+        <i><font color=orange>19-09-2023</font></i>
     </left>
     <left>
         <br>
@@ -756,19 +756,19 @@
 
 
 	<h4 id="introduce">Introduce</h4>
-<p>In this exercise, we will deploy the application with Auto Scaling Group to ensure the scalability of the application according to the needs of the user. In addition, we will also implement a Load Balancer to balance the load and coordinate user access requests to our Application Tier.</p>
-<p>Make sure you go through the [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] document and understand how to deploy the application on the virtual machine. We will need to use the virtual machine deployed <strong>FCJ Management</strong> for mass deployment and scaling in the Auto Scaling Group.</p>
+<p>In this exercise, we will be deploying the application using an Auto Scaling Group to ensure the application&rsquo;s scalability based on user demand. Additionally, we will implement a Load Balancer to distribute the load and manage user access requests to our Application Tier.</p>
+<p>Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] to understand how to deploy the application on a virtual machine. We will utilize the virtual machine where <strong>FCJ Management</strong> is deployed for the purpose of mass deployment and scaling within the Auto Scaling Group.</p>
 <h4 id="auto-scaling-group">Auto Scaling Group</h4>
-<p><strong>Auto Scaling Group</strong> is a group of EC2 Instances. This group can scale the number of EC2 Instance members according to the scaling policy you set.</p>
+<p>An <strong>Auto Scaling Group</strong> is a collection of EC2 Instances that can dynamically adjust the number of its members according to the defined scaling policy.</p>
 <h4 id="launch-template">Launch Template</h4>
-<p><strong>Launch Template</strong> is a feature that helps you create a template for the initialization of EC2 Instances. As a result, you can streamline and simplify the creation of EC2 Instances for the Auto Scaling service.</p>
+<p>A <strong>Launch Template</strong> is a feature that allows you to create a template for initializing EC2 Instances. This simplifies and streamlines the process of creating EC2 Instances for use within the Auto Scaling service.</p>
 <h4 id="load-balancer">Load Balancer</h4>
-<p><strong>Load Balancer</strong> is a tool that can distribute exchanged data traffic to AWS resources (specifically, EC2 Instances in this lab) in the Target Group.</p>
+<p>A <strong>Load Balancer</strong> is a tool used to evenly distribute incoming data traffic to AWS resources, specifically EC2 Instances in this lab, within the Target Group.</p>
 <h4 id="target-group">Target Group</h4>
-<p><strong>Target Group</strong> is a group of AWS resource elements that will receive data traffic delivered and transported by the Load Balancer.</p>
-<p>In this exercise, we will deploy the application with Auto Scaling Group to ensure the scalability of the application according to the needs of the user. In addition, we will also implement a Load Balancer to balance the load and coordinate user access requests to our Application Tier.</p>
-<p>Make sure you go through the documentation Deploying FCJ Management Applications on Windows/AmazonLinux Virtual Machines and understand how to deploy the application on the virtual machine. We will need to use FCJ Management deployed virtual machine for mass deployment and scaling in Auto Scaling Group.</p>
-<p><img src="/images/2-Prerequiste/0.png?featherlight=false&amp;width=50pc" alt="ASG"></p>
+<p>A <strong>Target Group</strong> refers to a collection of AWS resource components that will receive and process data traffic routed through the Load Balancer.</p>
+<p>In this exercise, our focus is on deploying the application through the Auto Scaling Group to ensure scalability as per user requirements. We will also implement a Load Balancer to efficiently manage load distribution and coordinate user access to our Application Tier.</p>
+<p>Prior to proceeding, it is recommended that you thoroughly review the documentation titled &ldquo;Deploying FCJ Management Applications on Windows/AmazonLinux Virtual Machines&rdquo; to gain a clear understanding of deploying the application on a virtual machine. The FCJ Management deployed virtual machine will be utilized for extensive deployment and scaling within the Auto Scaling Group.</p>
+<p><img src="/images/2-Prerequiste/0.png?featherlight=false&amp;width=50pc" alt="Auto Scaling Group"></p>
 
 
 
@@ -1120,19 +1120,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.min.js?1680243244"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1680243244"></script>
-    <script src="/js/jquery.sticky.js?1680243244"></script>
-    <script src="/js/featherlight.min.js?1680243244"></script>
-    <script src="/js/highlight.pack.js?1680243244"></script>
+    <script src="/js/clipboard.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.min.js?1695098439"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1695098439"></script>
+    <script src="/js/jquery.sticky.js?1695098439"></script>
+    <script src="/js/featherlight.min.js?1695098439"></script>
+    <script src="/js/highlight.pack.js?1695098439"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1680243244"></script>
-    <script src="/js/learn.js?1680243244"></script>
-    <script src="/js/hugo-learn.js?1680243244"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1695098439"></script>
+    <script src="/js/learn.js?1695098439"></script>
+    <script src="/js/hugo-learn.js?1695098439"></script>
 
-    <link href="/mermaid/mermaid.css?1680243244" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1680243244"></script>
+    <link href="/mermaid/mermaid.css?1695098439" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1695098439"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
