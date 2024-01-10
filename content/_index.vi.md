@@ -29,7 +29,7 @@ Hãy đảm bảo bạn đã xem qua tài liệu [Triển khai Ứng dụng FCJ 
 
 **Target Group** (nhóm mục tiêu) là một nhóm các tài nguyên AWS sẽ nhận lưu lượng dữ liệu từ Load Balancer và tiếp tục truyền chuyển nó.
 
-![ASG](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
+![Auto Scaling Group](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
 
 #### Nội dung
 

@@ -29,7 +29,7 @@ A **Load Balancer** is a tool that distributes incoming data traffic to AWS reso
 
 A **Target Group** is a set of AWS resource elements that receive data traffic routed by the Load Balancer.
 
-![Auto Scaling Group](/images/2-Prerequisite/0.png?featherlight=false&width=50pc)
+![Auto Scaling Group](/images/2-Prerequiste/0.png?featherlight=false&width=50pc)
 
 ## Contents
 

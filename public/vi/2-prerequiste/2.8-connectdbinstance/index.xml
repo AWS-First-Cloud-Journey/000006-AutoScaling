@@ -4,8 +4,6 @@
     <title>Kết nối DB instance on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
     <link>/vi/2-prerequiste/2.8-connectdbinstance/</link>
     <description>Recent content in Kết nối DB instance on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language>
-    <atom:link href="/vi/2-prerequiste/2.8-connectdbinstance/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/2-prerequiste/2.8-connectdbinstance/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
