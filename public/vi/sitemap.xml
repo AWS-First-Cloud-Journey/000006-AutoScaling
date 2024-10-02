@@ -2,28 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/vi/1-introduce/</loc>
+    <loc>/vi/1-introduction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/1-introduce/"
+                href="/1-introduction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/1-introduce/"
+                href="/vi/1-introduction/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.1-createvpc/</loc>
+    <loc>/vi/7-test-solutions/7.1-test-manual-scaling-solution/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.1-createvpc/"
+                href="/7-test-solutions/7.1-test-manual-scaling-solution/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.1-createvpc/"
+                href="/vi/7-test-solutions/7.1-test-manual-scaling-solution/"
+                />
+  </url><url>
+    <loc>/vi/4-setup-load-balancer/4.1-create-target-group/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-setup-load-balancer/4.1-create-target-group/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-setup-load-balancer/4.1-create-target-group/"
+                />
+  </url><url>
+    <loc>/vi/2-preparation/2.1-setup-network/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-preparation/2.1-setup-network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-preparation/2.1-setup-network/"
                 />
   </url><url>
     <loc>/vi/</loc>
@@ -38,148 +62,184 @@
                 href="/vi/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/</loc>
+    <loc>/vi/2-preparation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/"
+                href="/2-preparation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/"
+                href="/vi/2-preparation/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.2-createsecuritygroup/</loc>
+    <loc>/vi/2-preparation/2.2-launch-ec2-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.2-createsecuritygroup/"
+                href="/2-preparation/2.2-launch-ec2-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.2-createsecuritygroup/"
+                href="/vi/2-preparation/2.2-launch-ec2-instance/"
                 />
   </url><url>
-    <loc>/vi/3-launchtemplate/</loc>
+    <loc>/vi/7-test-solutions/7.2-test-scheduled-scaling-solution/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-launchtemplate/"
+                href="/7-test-solutions/7.2-test-scheduled-scaling-solution/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-launchtemplate/"
+                href="/vi/7-test-solutions/7.2-test-scheduled-scaling-solution/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.3-createsgdb/</loc>
+    <loc>/vi/4-setup-load-balancer/4.2-create-load-balancer/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.3-createsgdb/"
+                href="/4-setup-load-balancer/4.2-create-load-balancer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.3-createsgdb/"
+                href="/vi/4-setup-load-balancer/4.2-create-load-balancer/"
                 />
   </url><url>
-    <loc>/vi/4-launchtargetgroup/</loc>
+    <loc>/vi/2-preparation/2.3-launch-db-instance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-launchtargetgroup/"
+                href="/2-preparation/2.3-launch-db-instance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-launchtargetgroup/"
+                href="/vi/2-preparation/2.3-launch-db-instance/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.4-createdbsubnetgroup/</loc>
+    <loc>/vi/7-test-solutions/7.3-test-dynamic-scaling-solution/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.4-createdbsubnetgroup/"
+                href="/7-test-solutions/7.3-test-dynamic-scaling-solution/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.4-createdbsubnetgroup/"
+                href="/vi/7-test-solutions/7.3-test-dynamic-scaling-solution/"
                 />
   </url><url>
-    <loc>/vi/5-launchloadbalancer/</loc>
+    <loc>/vi/3-create-launch-template/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-launchloadbalancer/"
+                href="/3-create-launch-template/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-launchloadbalancer/"
+                href="/vi/3-create-launch-template/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.5-createdbinstance/</loc>
+    <loc>/vi/2-preparation/2.4-add-data-to-db/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.5-createdbinstance/"
+                href="/2-preparation/2.4-add-data-to-db/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.5-createdbinstance/"
+                href="/vi/2-preparation/2.4-add-data-to-db/"
                 />
   </url><url>
-    <loc>/vi/6-launchautoscalinggroup/</loc>
+    <loc>/vi/7-test-solutions/7.4-test-predictive-scaling-solution/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/6-launchautoscalinggroup/"
+                href="/7-test-solutions/7.4-test-predictive-scaling-solution/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/6-launchautoscalinggroup/"
+                href="/vi/7-test-solutions/7.4-test-predictive-scaling-solution/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.6-createec2/</loc>
+    <loc>/vi/4-setup-load-balancer/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.6-createec2/"
+                href="/4-setup-load-balancer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.6-createec2/"
+                href="/vi/4-setup-load-balancer/"
                 />
   </url><url>
-    <loc>/vi/2-prerequiste/2.7-connectec2/</loc>
+    <loc>/vi/5-test/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-prerequiste/2.7-connectec2/"
+                href="/5-test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-prerequiste/2.7-connectec2/"
+                href="/vi/5-test/"
                 />
   </url><url>
-    <loc>/vi/7-result/</loc>
+    <loc>/vi/2-preparation/2.5-deploy-web-server/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/7-result/"
+                href="/2-preparation/2.5-deploy-web-server/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/7-result/"
+                href="/vi/2-preparation/2.5-deploy-web-server/"
+                />
+  </url><url>
+    <loc>/vi/2-preparation/2.6-prepare-metrics-for-predictive-scaling/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-preparation/2.6-prepare-metrics-for-predictive-scaling/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-preparation/2.6-prepare-metrics-for-predictive-scaling/"
+                />
+  </url><url>
+    <loc>/vi/6-create-auto-scaling-group/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-create-auto-scaling-group/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-create-auto-scaling-group/"
+                />
+  </url><url>
+    <loc>/vi/7-test-solutions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-test-solutions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-test-solutions/"
                 />
   </url><url>
     <loc>/vi/8-cleanup/</loc>
@@ -192,42 +252,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="/vi/8-cleanup/"
-                />
-  </url><url>
-    <loc>/vi/2-prerequiste/2.8-connectdbinstance/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-prerequiste/2.8-connectdbinstance/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-prerequiste/2.8-connectdbinstance/"
-                />
-  </url><url>
-    <loc>/vi/2-prerequiste/2.9-deployapp/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-prerequiste/2.9-deployapp/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-prerequiste/2.9-deployapp/"
-                />
-  </url><url>
-    <loc>/vi/2-prerequiste/2.10-createami/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-prerequiste/2.10-createami/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-prerequiste/2.10-createami/"
                 />
   </url><url>
     <loc>/vi/categories/</loc>

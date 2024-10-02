@@ -1,85 +1,116 @@
 ---
-title : "Dọn dẹp tài nguyên"
-date :  "`r Sys.Date()`" 
-weight : 8
-chapter : false
-pre : " <b> 8.   </b> "
+title: "Dọn dẹp tài nguyên"
+date: "`r Sys.Date()`"
+weight: 8
+chapter: false
+pre: "<strong>8. </strong>"
 ---
 
-#### Dọn dẹp tài nguyên
+### Dọn dẹp tài nguyên
 
-Chúng ta sẽ dọn dẹp tài nguyên theo thứ tự như sau:
+Sau khi thực hành xong bài workshop chúng ta tiến hành bước dọn dẹp tài nguyên
 
-#### Xóa Auto Scaling Group:
+#### Xóa Auto Scaling Group
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **Auto Scaling Groups**
-- Chọn **Auto Scaling Group** liên quan tới bài lab.
-- Click **Delete**
-- Gõ delete vào ô trống và nhấn delete
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, lướt xuống và chọn **Auto Scaling Groups**
+
+- Chọn Auto Scaling Groups **FCJ-Management-ASG**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Delete**
+
+![8.1](/images/8-Cleanup/8.1.png)
 
 #### Xóa Load Balancer:
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **Load Balancers**
-- Chọn **Load Balancer** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Delete**.
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, lướt xuống và chọn **Load Balancer**
+
+- Chọn Load Balancer **FCJ-Management-LB**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Delete load balancer**
+
+![8.2](/images/8-Cleanup/8.2.png)
 
 #### Xóa Target Group:
 
-- Truy cập **EC2 Management **Console**
-- Trên thanh điều hướng bên trái, chọn **Target Groups**
-- Chọn **Target Group** liên quan *tới bài lab.
-- Click **Actions**.
-- Click **Delete**.
-- Click **Yes, delete**
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, lướt xuống và chọn **Target Group**
+
+- Chọn Target Group **FCJ-Management-TG**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Delete**
+
+![8.3](/images/8-Cleanup/8.3.png)
 
 #### Xóa Launch Template:
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **Launch Templates**
-- Chọn **Launch Template** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Delete template**
-- Gõ delete vào ô trống và nhấn **delete**
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, lướt xuống và chọn **Launch Templates**
+
+- Chọn Launch Templates **CJ-Management-TG**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Delete template**
+
+![8.4](/images/8-Cleanup/8.4.png)
 
 #### Xóa AMI:
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **AMIs**
-- Chọn **AMI** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Deregister**.
-- Click **Continue**.
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, lướt xuống và chọn **AMIs**
+
+- Chọn AMI **FCJ-Management-AMI**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Deregister AMI**.
+
+![8.5](/images/8-Cleanup/8.5.png)
 
 #### Terminate EC2 instance
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **Intances**
-- Chọn tất cả **EC2 Instance** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Manage Instance State**.
-- Chọn **Terminate**.
-- Click **Change State**
+Ở giao diện quản lý EC2, ở thanh điều hướng bên trái, chọn **Instance**
 
+- Chọn **FCJ-Management** instance
+- Nhấn vào nút **Instance state** ở góc trên bên phải màn hình
+- Chọn **Terminate (delete) instance**
 
-#### Xóa DB Instance
+![8.6](/images/8-Cleanup/8.6.png)
 
-- Truy cập RDS Management Console
-- Trên thanh điều hướng bên trái, chọn **Databases**
-- Chọn tất cả **DB Instance** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Delete**
-- Bỏ chọn **Create final snapshot? và chọn I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available**
-- Gõ **delete me** vào ô trống.
-- Click **Delete**
+#### Xóa RDS Database
 
-#### Xóa Security Group
+- Truy cập **RDS**
+- Trên thanh điều hướng bên trái, chọn **Databases** instance
+- Chọn database instance **fcj-management-db-instance** liên quan tới bài lab.
+- Nhấn vào **Modify**.
 
-- Truy cập **EC2 Management Console**
-- Trên thanh điều hướng bên trái, chọn **Security Groups**
-- Chọn tất cả **Security Groups** liên quan tới bài lab.
-- Click **Actions**.
-- Click **Delete security groups**
-- Click **Delete**
+![8.7](/images/8-Cleanup/8.7.png)
+
+Ở phần Modify DB Instance, chúng ta kéo xuống dưới cùng
+
+- Nhấp bỏ **Enable deletion protection**
+- Nhấn **Continue**
+
+![8.8](/images/8-Cleanup/8.8.png)
+
+Tiếp tục ở phần Schedule modifications
+
+- Chọn **Apply immediately**
+- Nhấn **Modify DB instance**
+
+![8.9](/images/8-Cleanup/8.9.png)
+
+Tiến hành xoá DB instance
+
+- Chọn database instance **fcj-management-db-instance**
+- Nhấn vào nút **Actions** ở góc trên bên phải màn hình
+- Chọn **Delete**
+
+![8.10](/images/8-Cleanup/8.10.png)
+
+- Chọn **I acknowledge that upon instance deletion, automated, including system snapshots and point -in-time recovery, will no longer be available**
+- Điền **delete me**
+- Nhấn **Delete**
+
+![8.11](/images/8-Cleanup/8.11.png)
+
+#### Xóa Subnet Group
+
+- Chọn Subnet groups
+- Chọn subnet group **fcj-management-subnet-group**
+- Chọn **Delete**
+
+![8.12](/images/8-Cleanup/8.12.png)
