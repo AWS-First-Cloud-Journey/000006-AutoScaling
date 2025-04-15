@@ -6,98 +6,94 @@ chapter: false
 pre: "<strong>3. </strong>"
 ---
 
-### AMIs and Launch Template
+#### Overview
 
-AMIs (Amazon Machine Images) store information such as the operating system, applications, and settings in the EC2 instance from which they are created. Creating an AMI ensures that when new servers are launched, they are identical and can operate immediately.
+**ℹ️ Information**: In this section, we'll create a Launch Template using an Amazon Machine Image (AMI) from our existing EC2 instance. This approach ensures consistent deployment of our application across multiple instances.
 
-A launch template is a tool we use to configure the initialization of new EC2 instances through attached AMIs, instance types, network configurations, and security options. When we want to launch one or more identical servers, we simply use the configured launch template to do so.
+#### Understanding AMIs and Launch Templates
 
-### Setting Up Launch Templates
+**ℹ️ Information**: Amazon Machine Images (AMIs) capture the complete state of an EC2 instance, including the operating system, applications, and configurations. Launch Templates define the complete instance configuration, including AMI, instance type, networking, and security settings, enabling consistent and repeatable deployments.
 
-#### Creating Amazon Machine Images (AMIs) from EC2
+#### Creating an Amazon Machine Image (AMI)
 
-In the **EC2** management interface, on the right selection panel:
+To create an AMI from your existing EC2 instance:
 
-- Select **Instances**
-- Select the **FCJ-Management** instance
-- Click on **Actions**
-- Choose **Image and templates**
-- Click **Create image**
+1. Navigate to the **EC2** console
+2. In the left navigation pane, select **Instances**
+3. Select the **FCJ-Management** instance
+4. Click **Actions** → **Image and templates** → **Create image**
 
-![3.1](/images/3-create-launch-template/3.1.png)
+![Creating an AMI](/images/3-create-launch-template/3.1.png?featherlight=false&width=90pc)
 
-In the configuration panel for **Create AMI**, fill in the following information:
+Configure the AMI with the following settings:
 
 - **Image name**: `FCJ-Management-AMI`
 - **Image description**: `AMI for FCJ-Management`
 - Click **Create Image**
 
-![3.2](/images/3-create-launch-template/3.2.png)
+![AMI Configuration](/images/3-create-launch-template/3.2.png?featherlight=false&width=90pc)
 
-After creating the AMI, we will check the newly created AMI:
+Verify the AMI creation:
 
-- Select **AMIs** to see the newly created AMI
-- Click on **FCJ-Management-AMI**
+1. In the left navigation pane, select **AMIs**
+2. Locate and select **FCJ-Management-AMI**
 
-![3.3](/images/3-create-launch-template/3.3.png)
+![AMI Verification](/images/3-create-launch-template/3.3.png?featherlight=false&width=90pc)
 
-{{% notice note %}}
-The AMI initialization process will take about 3 minutes; after this period, we will see the **Status** of the AMI change to **Available**.
-{{% /notice %}}
+**⚠️ Warning**: The AMI creation process takes approximately 3 minutes to complete. Wait until the **Status** changes to **Available** before proceeding.
 
-![3.4](/images/3-create-launch-template/3.4.png)
+![AMI Available Status](/images/3-create-launch-template/3.4.png?featherlight=false&width=90pc)
 
-We have successfully created an image to save the EC2 configuration.
+#### Creating a Launch Template
 
-#### Creating Launch Templates
+Once your AMI is available, create a Launch Template:
 
-In the **EC2** management interface, on the right selection panel:
+1. In the EC2 console, select **Launch Templates** from the left navigation pane
+2. Click **Create launch template**
 
-- Select **Launch Templates**
-- Click on **Create launch template**
+![Create Launch Template](/images/3-create-launch-template/3.5.png?featherlight=false&width=90pc)
 
-![3.5](/images/3-create-launch-template/3.5.png)
+Configure the basic template information:
 
-In the **Create launch template** panel, fill in the following information:
+- **Launch template name**: `FCJ-Management-template`
+- **Template version description**: `Template for FCJ Management`
 
-- In the **Launch template name and description**:
-  - **Launch template name**: `FCJ-Management-template`
-  - **Template version description**: `Template for FCJ Management`
+![Template Basic Information](/images/3-create-launch-template/3.6.png?featherlight=false&width=90pc)
 
-![3.6](/images/3-create-launch-template/3.6.png)
+Configure the AMI and instance specifications:
 
-- In the **Application and OS Image (Amazon Machine Image)**:
-  - Select **My AMIs**
-  - Choose **Owned by me**
-  - Select the **Amazon Machine Image (AMI)** type and choose the created AMI **FCJ-Management-AMI**
+1. Under **Application and OS Image**:
+   - Select **My AMIs**
+   - Choose **Owned by me**
+   - Select the **FCJ-Management-AMI** you created earlier
 
-![3.7](/images/3-create-launch-template/3.7.png)
+![AMI Selection](/images/3-create-launch-template/3.7.png?featherlight=false&width=90pc)
 
-- In the **Instance type**:
-  - Choose instance type **t2.micro**
-- In the **Key pair (logic)**:
-  - Select the key pair named **fcj-key**
+2. Configure instance details:
+   - **Instance type**: `t2.micro`
+   - **Key pair**: `fcj-key`
 
-![3.8](/images/3-create-launch-template/3.8.png)
+![Instance Configuration](/images/3-create-launch-template/3.8.png?featherlight=false&width=90pc)
 
-- In the **Network settings**:
-  - Choose the public subnet **AutoScaling-Lab-public-ap-southeast-1a**
-  - Select **Select existing security group**
-  - Choose the security group **FCJ-Management-SG**
-  - Finally, click **Create launch template**
+3. Configure network settings:
+   - **Subnet**: `AutoScaling-Lab-public-ap-southeast-1a`
+   - **Security group**: Select **Select existing security group** and choose **FCJ-Management-SG**
+   - Click **Create launch template**
 
-![3.9](/images/3-create-launch-template/3.9.png)
+![Network Configuration](/images/3-create-launch-template/3.9.png?featherlight=false&width=90pc)
 
-#### Result
+#### Verifying the Launch Template
 
-Check the newly created Launch Template:
+After creation, verify your Launch Template:
 
-- Select **FCJ-Management-template**
+1. Select **FCJ-Management-template** from the Launch Templates list
 
-![3.10](/images/3-create-launch-template/3.10.png)
+![Launch Template Selection](/images/3-create-launch-template/3.10.png?featherlight=false&width=90pc)
 
-- Here, we can review the configuration of the Launch Template we created.
+2. Review the template configuration details to ensure all settings are correct
 
-![3.11](/images/3-create-launch-template/3.11.png)
+![Launch Template Details](/images/3-create-launch-template/3.11.png?featherlight=false&width=90pc)
 
-We have just completed creating the launch template.
+**💡 Pro Tip**: Launch Templates support versioning, allowing you to iterate on your configuration while maintaining the ability to roll back to previous versions if needed.
+
+**🔒 Security Note**: When creating Launch Templates, always follow the principle of least privilege by assigning only the necessary permissions to your instances through security groups and IAM roles.

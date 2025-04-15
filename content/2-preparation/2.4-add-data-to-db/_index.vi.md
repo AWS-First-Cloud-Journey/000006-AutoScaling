@@ -119,3 +119,5 @@ SELECT * FROM user;
 ![Image](/images/2-preparation/2.4-data-for-db/2.4.10.png?featherlight=false&width=90pc)
 
 Sử dụng **exit** đề rời khỏi. Nếu không thể ngắt kết nối với DB instance, hãy dùng tổ hợp phím Ctrl+C
+
+

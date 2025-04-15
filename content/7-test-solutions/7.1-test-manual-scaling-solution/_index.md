@@ -6,113 +6,108 @@ chapter: false
 pre: "<strong>7.1. </strong>"
 ---
 
-### Manual Scaling
+#### Overview
 
-Manual Scaling is performed by manually adjusting the **Desired capacity** of the ASG. After adjusting and confirming the update, wait for a while, and the ASG will update the number of instances and proceed to either launch or terminate EC2 Instances depending on the **Desired capacity** setting.
+**ℹ️ Information**: Manual Scaling is performed by explicitly adjusting the **Desired capacity** parameter of your Auto Scaling Group. After modifying this value and confirming the update, the ASG will automatically launch or terminate EC2 instances to match your specified capacity.
 
-#### Test Setup
+#### Test Environment Setup
 
-Once the Auto Scaling Group is created, the service will automatically launch an EC2 Instance according to the configuration. To verify this, you can check the EC2 Console:
+Once your Auto Scaling Group is created, the service automatically launches an EC2 instance according to your configuration. To verify this deployment:
 
-- Select **Load Balancer**
-- Choose the **Resource map - new** tab
+1. Navigate to the EC2 Console
+2. Select **Load Balancer**
+3. Choose the **Resource map - new** tab
 
-Here, you will see the Target Group linked to two Targets, which are two EC2 Instances (one is the original instance created, and the other is the instance created by ASG).
+![Auto Scaling Group Initial State](/images/7-test-solution/7.1.1.png?featherlight=false&width=90pc)
 
-![7.1.1](/images/7-test-solution/7.1.1.png)
+**ℹ️ Information**: You should observe the Target Group linked to two targets - your original EC2 instance and the new instance created by the Auto Scaling Group.
 
-Now, test the application that we downloaded earlier.
+#### Configuring the Load Test
 
-- Open the application and click on the **Test Type** tab
-- Test Type:
-  - Select **CLICKS**
-  - Run until: **100000**
-- User Simulation
-  - Number Of Users: **1000**
-  - Click Delay: **1** second
+Now we'll configure the load testing application downloaded earlier:
 
-![7.1.2](/images/7-test-solution/7.1.2.png)
+1. Open the application and navigate to the **Test Type** tab
+2. Configure the following settings:
+   - Test Type: **CLICKS**
+   - Run until: **100000**
+   - Number Of Users: **1000**
+   - Click Delay: **1** second
 
-In the URLs tab, configure the following information:
+![Load Test Configuration](/images/7-test-solution/7.1.2.png?featherlight=false&width=90pc)
 
-- Name: `Manual Scaling Test` (you can name it anything since we will use it to test other scaling methods later).
-- URL: Copy the DNS of the Load Balancer and paste it.
+3. In the URLs tab, enter:
+   - Name: `Manual Scaling Test` (this can be customized as needed)
+   - URL: Enter your Load Balancer's DNS name
 
-![7.1.3](/images/7-test-solution/7.1.3.png)
+![URL Configuration](/images/7-test-solution/7.1.3.png?featherlight=false&width=90pc)
 
-On the toolbar, click **Start Test**.
+4. Click **Start Test** on the toolbar to begin the load test
 
-![7.1.4](/images/7-test-solution/7.1.4.png)
+![Starting the Load Test](/images/7-test-solution/7.1.4.png?featherlight=false&width=90pc)
 
-#### Running the Test
+#### Monitoring Instance Performance
 
-Now go back to the AWS Management Console, in the EC2 Console:
+While the test is running, return to the AWS Management Console:
 
-- Select both EC2 Instances in the target group
-- Click on the **Monitoring** tab and start observing
+1. In the EC2 Console, select both EC2 instances in the target group
+2. Click on the **Monitoring** tab to observe performance metrics
 
-In this section, there are 7 charts, but for now, we only care about the following 5 charts:
+![Initial Performance Metrics](/images/7-test-solution/7.1.5.png?featherlight=false&width=90pc)
 
-- CPU Utilization (%): This chart shows the CPU resource usage of the two instances, each below 8%.
-- Network in (bytes): This chart shows the incoming network traffic to the two instances, each under 2.9 million Megabytes.
-- Network out (bytes): This chart shows the outgoing network traffic from the two instances, each under 17.3 million Megabytes.
-- Network packets in (count): This chart shows the number of packets coming into the two instances, each under 6.85 thousand packets.
-- Network packets out (count): This chart shows the number of packets going out from the two instances, each under 7.36 thousand packets.
+**💡 Pro Tip**: Focus on these five key metrics to understand your application's performance under load:
+- **CPU Utilization (%)**: Shows processor usage (currently below 8% for each instance)
+- **Network in (bytes)**: Measures incoming traffic (under 2.9 million MB per instance)
+- **Network out (bytes)**: Measures outgoing traffic (under 17.3 million MB per instance)
+- **Network packets in (count)**: Shows incoming packet count (under 6.85 thousand packets per instance)
+- **Network packets out (count)**: Shows outgoing packet count (under 7.36 thousand packets per instance)
 
-![7.1.5](/images/7-test-solution/7.1.5.png)
+**ℹ️ Information**: The charts display one line per selected instance. Selecting multiple instances allows you to compare their performance simultaneously, helping you understand how the Load Balancer distributes traffic.
 
-{{% notice note %}}
-From now on, we will read the charts this way, including important metrics in the vertical, horizontal axes, and plotted lines. This will help us better understand how the Load Balancer distributes network traffic to instances in the Target Group.
-{{% /notice %}}
+#### Manually Scaling Down the ASG
 
-{{% notice note %}}
-If you select only one instance, the chart will show just one line representing that instance. The more instances you select from the list, the more lines will be shown on the graph.
-{{% /notice %}}
+To simulate cost optimization during off-peak hours:
 
-#### Manually Adjusting the Desired Capacity of ASG
+1. Navigate to your Auto Scaling Group details page
+2. Note the current setting: **Desired capacity = 1**
+3. Click **Edit** to modify the capacity
 
-Now, let’s return to the details page of the ASG we created earlier. In the Group details section, we can see: **Desired capacity = 1**.
+![ASG Initial Configuration](/images/7-test-solution/7.1.6.png?featherlight=false&width=90pc)
 
-Let's assume it's off-peak hours, and we want to turn off one instance to save costs. To do this, we manually adjust the **Desired capacity = 0**. Click **Edit**.
+4. In the Group size dialog, set both Desired capacity and Min desired capacity to **0**
+5. Click **Update** to apply the changes
 
-![7.1.6](/images/7-test-solution/7.1.6.png)
+![Scaling Down Configuration](/images/7-test-solution/7.1.7.png?featherlight=false&width=90pc)
 
-A Group size dialog will appear. Adjust the Desired capacity and Min desired capacity to **0** and click **Update**.
+6. Navigate to the Activity tab to monitor the scaling action
 
-![7.1.7](/images/7-test-solution/7.1.7.png)
+![ASG Activity Log](/images/7-test-solution/7.1.8.png?featherlight=false&width=90pc)
 
-Then, go to the Activity tab to check what the ASG is doing.
+**⚠️ Warning**: While the instance is being terminated, you should pause your load testing application to avoid potential errors.
 
-![7.1.8](/images/7-test-solution/7.1.8.png)
+**ℹ️ Information**: The ASG will automatically terminate an instance based on your updated configuration. After a few minutes, returning to the Load Balancer's Resource map will show only one remaining target.
 
-{{% notice note %}}
-While the instance is being shut down, you can stop the test program.
-{{% /notice %}}
+![Scaled Down Resource Map](/images/7-test-solution/7.1.9.png?featherlight=false&width=90pc)
 
-=> We can see that the ASG automatically terminates an instance based on the configured settings.
+**💡 Pro Tip**: Remember to restart your load testing program after the scaling operation completes to continue your testing.
 
-A few minutes later, if you return to the Load Balancer details page and go to the **Resource map - new** tab, you'll see that there is now only one target remaining.
+#### Observing Notification and Performance Impact
 
-![7.1.9](/images/7-test-solution/7.1.9.png)
+After scaling down, you'll receive an email notification from Amazon SNS:
 
-{{% notice note %}}
-At this point, REMEMBER TO RESTART the test program.
-{{% /notice %}}
+![SNS Notification](/images/7-test-solution/7.1.10.png?featherlight=false&width=90pc)
 
-We will also receive an email from SNS.
+With reduced capacity, you may notice performance degradation when accessing your application through the Load Balancer's DNS:
 
-![7.1.10](/images/7-test-solution/7.1.10.png)
+![Application Performance](/images/7-test-solution/7.1.11.png?featherlight=false&width=90pc)
 
-When there is high traffic, the application's performance may slow down slightly. You can open the application via the Load Balancer's DNS to test.
+Return to the EC2 Console to observe the impact on your remaining instance:
 
-![7.1.11](/images/7-test-solution/7.1.11.png)
+![Single Instance Metrics](/images/7-test-solution/7.1.12.png?featherlight=false&width=90pc)
 
-Now, go back to the EC2 Console, select the remaining target, and observe the charts.
-
-![7.1.12](/images/7-test-solution/7.1.12.png)
-
-We can see that the instance is now handling almost double the network traffic, and its CPU resource usage has nearly quadrupled.
+**ℹ️ Information**: The monitoring data clearly shows that the remaining instance is now handling approximately double the network traffic, with CPU utilization nearly quadrupled compared to the previous balanced state.
 
 #### Conclusion
 
-In reality, systems will involve more complex and time-consuming processes, consuming more CPU resources. In this tutorial, we only tested GET requests, but in real cases, the requests will be much more complicated.
+**⚠️ Warning**: This demonstration uses simple GET requests, but real-world applications typically involve more complex operations that consume significantly more CPU resources and may experience more dramatic performance impacts during scaling events.
+
+**🔒 Security Note**: While manual scaling provides direct control over your infrastructure costs, it requires human intervention and monitoring, which can lead to delayed responses during unexpected traffic spikes. Consider implementing automated scaling policies for production workloads to maintain both performance and security.

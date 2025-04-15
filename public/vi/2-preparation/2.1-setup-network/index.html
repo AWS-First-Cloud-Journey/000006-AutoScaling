@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thiết lập hạ tầng mạng :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -874,8 +874,8 @@
 <li>Chọn <strong>Create VPC</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.5.png?featherlight=false&width=90pc"></p>
-<h4 id="thực-hiện-cấp-phát-ip-public">Thực hiện cấp phát IP public.</h4>
-<p>Thực hiện cấp phát IP public.</p>
+<h4 id="cấu-hình-auto-assign-public-ip-cho-public-subnets">Cấu hình Auto-assign Public IP cho Public Subnets</h4>
+<p><strong>ℹ️ Information</strong>: Để các EC2 instances trong public subnet có thể tự động nhận địa chỉ IP public khi khởi tạo, chúng ta cần bật tính năng auto-assign public IPv4 address.</p>
 <ul>
 <li>Chọn <strong>Subnets</strong></li>
 <li>Chọn <strong>public subnet</strong></li>
@@ -886,8 +886,9 @@
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.7.png?featherlight=false&width=90pc"></p>
 <p>Kiểm tra đã cấp phát thành công.</p>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.8.png?featherlight=false&width=90pc"></p>
-<p>Thực hiện cấp phát cho Public subnet còn lại (làm tương tự).
-Tiếp theo chúng ta sẽ tạo <strong>Security group</strong> cho ứng dụng.</p>
+<p><strong>💡 Pro Tip</strong>: Lặp lại các bước trên cho tất cả public subnet còn lại để đảm bảo tính nhất quán trong cấu hình mạng.</p>
+<h4 id="tạo-security-group-cho-ứng-dụng-fcj-management">Tạo Security Group cho ứng dụng FCJ Management</h4>
+<p><strong>ℹ️ Information</strong>: Security Group hoạt động như tường lửa ảo để kiểm soát lưu lượng truy cập vào và ra khỏi các tài nguyên AWS của bạn.</p>
 <ul>
 <li>Trong giao diện VPC, chọn <strong>Security groups</strong></li>
 <li>Chọn <strong>Create security group</strong></li>
@@ -897,36 +898,48 @@ Tiếp theo chúng ta sẽ tạo <strong>Security group</strong> cho ứng dụn
 <ul>
 <li><strong>Security group name</strong>, nhập <strong><code>FCJ-Management-SG</code></strong></li>
 <li><strong>Description</strong>, nhập <strong><code>Security Group for FCJ Management</code></strong></li>
-<li><strong>VPC</strong>,thì chọn VPC vừa tạo: <strong>AutoScaling-Lab</strong>.</li>
+<li><strong>VPC</strong>, chọn VPC vừa tạo: <strong>AutoScaling-Lab</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.10.png?featherlight=false&width=90pc"></p>
 <p>Cấu hình <strong>Inbound rules</strong></p>
 <ul>
-<li>Đầu tiên phải cấu hình <strong>SSH</strong> port 22 và <strong>Source: MyIP</strong> để có thể truy cập vào instance.</li>
-<li>Tiếp theo là <strong>HTTP</strong> port 80.</li>
-<li><strong>Custom TCP</strong> port <strong>5000</strong> dành cho <strong>FCJ Management</strong></li>
-<li>HTTPS port 443.</li>
+<li>Đầu tiên cấu hình <strong>SSH</strong> port 22 với <strong>Source: MyIP</strong> để có thể truy cập an toàn vào instance</li>
+<li>Tiếp theo là <strong>HTTP</strong> port 80</li>
+<li><strong>Custom TCP</strong> port <strong>5000</strong> dành cho ứng dụng <strong>FCJ Management</strong></li>
+<li><strong>HTTPS</strong> port 443</li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.11.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: Việc giới hạn truy cập SSH chỉ từ địa chỉ IP của bạn (MyIP) là một biện pháp bảo mật quan trọng để giảm thiểu rủi ro xâm nhập trái phép.</p>
 <p>Kiểm tra <strong>Outbound rules</strong> và chọn <strong>Create security group</strong></p>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.12.png?featherlight=false&width=90pc"></p>
-<h4 id="tạo-security-group-cho-database-instance">Tạo Security group cho Database instance</h4>
-<p>Chúng ta tạo Security group cho Database instance. Để đảm bảo bảo mật nên không cấu hình chung Security group của ứng dụng.
-Cấu hình <strong>security group</strong></p>
+<h4 id="tạo-security-group-cho-database-instance">Tạo Security Group cho Database Instance</h4>
+<p><strong>ℹ️ Information</strong>: Để tuân thủ nguyên tắc phân quyền tối thiểu (principle of least privilege), chúng ta nên tạo Security Group riêng cho Database instance.</p>
+<p>Cấu hình <strong>Security Group</strong>:</p>
 <ul>
 <li><strong>Security Group name</strong>, nhập <strong><code>FCJ-Mangement-DB-SG</code></strong></li>
 <li><strong>Description</strong>, nhập <strong><code>Security Group for DB instance</code></strong></li>
-<li>Chọn vpc vừa tạo</li>
+<li>Chọn VPC vừa tạo</li>
 </ul>
-<p>Cấu hình <strong>Inbound rules</strong></p>
+<p>Cấu hình <strong>Inbound rules</strong>:</p>
 <ul>
 <li>Chọn <strong>Add rule</strong></li>
 <li>Chọn <strong>MYSQL/Aurora</strong> port 3306</li>
-<li>Sau đó chọn Soure là <strong>FCJ-Management-SG</strong></li>
+<li>Sau đó chọn Source là <strong>FCJ-Management-SG</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.13.png?featherlight=false&width=90pc"></p>
-<p>Kiểm tra lại Outbound rules và cuối cùng bấm Create security group</p>
+<p><strong>🔒 Security Note</strong>: Bằng cách chỉ cho phép kết nối từ Security Group của ứng dụng (FCJ-Management-SG), chúng ta đảm bảo rằng chỉ các EC2 instances trong Security Group đó mới có thể kết nối đến database, tăng cường bảo mật cho dữ liệu.</p>
+<p>Kiểm tra lại <strong>Outbound rules</strong> và cuối cùng bấm <strong>Create security group</strong></p>
 <p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.14.png?featherlight=false&width=90pc"></p>
+<h4 id="tổng-kết">Tổng kết</h4>
+<p>Trong phần này, chúng ta đã hoàn thành việc thiết lập hạ tầng mạng cơ bản cho ứng dụng FCJ Management, bao gồm:</p>
+<ol>
+<li><strong>VPC và Subnet</strong>: Tạo môi trường mạng ảo riêng biệt với các subnet phân bố ở nhiều Availability Zone</li>
+<li><strong>Internet Gateway</strong>: Cho phép kết nối từ VPC ra internet</li>
+<li><strong>Route Table</strong>: Cấu hình định tuyến cho các subnet</li>
+<li><strong>Security Groups</strong>: Thiết lập các quy tắc bảo mật cho EC2 instances và RDS database</li>
+</ol>
+<p><strong>💡 Pro Tip</strong>: Việc phân chia subnet giữa các Availability Zone khác nhau giúp tăng tính sẵn sàng cao cho ứng dụng, đảm bảo hệ thống vẫn hoạt động ngay cả khi một AZ gặp sự cố.</p>
+<p>Trong bước tiếp theo, chúng ta sẽ tiến hành khởi tạo EC2 instance để triển khai ứng dụng FCJ Management.</p>
 
 
 
@@ -1318,19 +1331,19 @@ Cấu hình <strong>security group</strong></p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

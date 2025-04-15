@@ -6,144 +6,156 @@ chapter: false
 pre: "<strong>6. </strong>"
 ---
 
-### Issue in the Previous Section
+#### Overview
 
-In the testing results mentioned earlier, we can see that when the application receives many requests, it becomes unstable. The solution is to increase the number of EC2 Instances in the system and use a Load Balancer to distribute the requests from users.
+**ℹ️ Information**: Auto Scaling Groups automatically adjust your application's compute capacity based on demand, ensuring optimal performance while controlling costs. In this section, we'll configure an Auto Scaling Group to dynamically manage our EC2 instances behind the Application Load Balancer.
 
-However, this manual method is not very practical because to launch an EC2 Instance, we need to have the "core" inside it, which is the application responsible for handling those requests along with other libraries.
+#### Understanding the Need for Auto Scaling
 
-### Setting Up Auto Scaling Group
+**⚠️ Warning**: Our testing revealed performance instability when the application receives high traffic volumes. While manually adding EC2 instances and distributing traffic with a Load Balancer helps, this approach is impractical for several reasons:
 
-#### Setting Up Launch Template
+- Each new instance requires manual configuration with the application and dependencies
+- Responding to traffic fluctuations requires constant monitoring
+- Manual scaling cannot efficiently respond to unexpected traffic spikes
 
-In the **EC2** management console, scroll down the selection panel on the right.
+Auto Scaling solves these challenges by automatically adjusting capacity based on defined policies.
 
-- Select **Auto Scaling Groups**.
-- Click **Create Auto Scaling group**.
+#### Creating an Auto Scaling Group
 
-![6.1](/images/6-create-auto-scaling-group/6.1.png)
+Navigate to the Auto Scaling Group creation interface:
 
-In the **Auto Scaling group** creation interface, enter the following information:
+1. In the EC2 management console:
+   - Scroll down the left navigation panel
+   - Select **Auto Scaling Groups**
+   - Click **Create Auto Scaling group**
 
-- Name: `FCJ-Management-ASG`
-- In Launch template:
-  - Launch template: select `FCJ-Management-template` (or any name you choose).
-  - Version: **Default (1)** as the default choice.
+![Auto Scaling Group Creation Interface](/images/6-create-auto-scaling-group/6.1.png?featherlight=false&width=90pc)
 
-![6.2](/images/6-create-auto-scaling-group/6.2.png)
+#### Configuring Launch Template
 
-{{% notice note %}}
-Note that the ASG name should match the name of the ASG set in section **2.6**, which is for preparing data for Predictive Scaling.
-{{% /notice %}}
+In the Auto Scaling group creation wizard:
 
-{{% notice note %}}
-The **Launch template** selected for the ASG must be the one configured with _MySQL Client_, _Node_, _Source Code_, and _PM2_ to ensure the Targets operate normally. If you followed the steps in sections **2** and **3**, you have done it correctly.
-{{% /notice %}}
+1. Basic configuration:
+   - Name: `FCJ-Management-ASG`
+   - Launch template: select `FCJ-Management-template`
+   - Version: **Default (1)**
 
-![6.3](/images/6-create-auto-scaling-group/6.3.png)
+![Launch Template Selection](/images/6-create-auto-scaling-group/6.2.png?featherlight=false&width=90pc)
 
-#### Configuring the Network
+**ℹ️ Information**: The launch template contains all the configuration details needed to launch instances, including the AMI, instance type, key pair, security groups, and user data scripts.
 
-In the Network section, select the following information:
+![Launch Template Configuration](/images/6-create-auto-scaling-group/6.3.png?featherlight=false&width=90pc)
 
-- VPC: select **AutoScaling-Lab** VPC, which we created earlier in the tutorial.
-- Availability Zones and subnets: select **3 public subnets** that we created.
-- Click **Next**.
+**⚠️ Warning**: The ASG name should match the name specified in section **2.6** for Predictive Scaling configuration. The launch template must include all required components (MySQL Client, Node.js, application source code, and PM2) for proper instance functionality.
 
-![6.4](/images/6-create-auto-scaling-group/6.4.png)
+#### Configuring Network Settings
 
-#### Configuring the Load Balancer and Other Settings
+In the network configuration section:
 
-Previously, we created an **Application Load Balancer** and a **Target Group** and attached it to the Load Balancer. Now, select the following options:
+1. VPC: select **AutoScaling-Lab**
+2. Availability Zones and subnets: select all **3 public subnets**
+3. Click **Next**
 
-- Load balancing: select **Attach to an existing load balancer**.
-- Attach to an existing load balancer: choose **Choose from your load balancer target group**.
-- Existing load balancer target group: select **FCJ-Management-TG | HTTP**.
+![Network Configuration](/images/6-create-auto-scaling-group/6.4.png?featherlight=false&width=90pc)
 
-![6.5](/images/6-create-auto-scaling-group/6.5.png)
+**💡 Pro Tip**: Distributing instances across multiple Availability Zones improves application reliability. If one AZ experiences issues, instances in other AZs continue serving traffic.
 
-{{% notice note %}}
-When the Target Group and **Application Load Balancer** are correctly configured, the **Existing load balancer target group** option will show the Target Group, indicating that both ALB and TG exist.
-{{% /notice %}}
+#### Configuring Load Balancer Integration
 
-In the VPC Lattice integration options: select **No VPC Lattice service**, as we are not configuring this option in this tutorial.
+Connect your Auto Scaling Group to the previously created load balancer:
 
-Next, in Health checks, select (check) **Turn on Elastic Load Balancing health checks**. Leave the remaining settings as default.
+1. Load balancing: select **Attach to an existing load balancer**
+2. Attachment method: choose **Choose from your load balancer target groups**
+3. Target group: select **FCJ-Management-TG | HTTP**
 
-![6.6](/images/6-create-auto-scaling-group/6.6.png)
+![Load Balancer Integration](/images/6-create-auto-scaling-group/6.5.png?featherlight=false&width=90pc)
 
-In the Additional settings section, under Monitoring:
+**ℹ️ Information**: When properly configured, the dropdown will display your existing target group, confirming that both the Application Load Balancer and Target Group are correctly set up.
 
-- Select (check) **Enable group metrics collection within CloudWatch**.
-- Click **Next**.
+For additional configuration:
 
-![6.7](/images/6-create-auto-scaling-group/6.7.png)
+1. VPC Lattice integration: select **No VPC Lattice service**
+2. Health checks: enable **Turn on Elastic Load Balancing health checks**
+3. Leave remaining health check settings as default
 
-#### Setting Group Size and Scaling
+![Health Check Configuration](/images/6-create-auto-scaling-group/6.6.png?featherlight=false&width=90pc)
 
-In this section, define the group's scaling behavior and the number of Instances to be created during scaling, including scaling out (expanding) and scaling in (shrinking).
+Under Monitoring:
 
-- In the Group size section:
-  - Desired capacity: **1**
-- In the Scaling section:
-  - Scaling limits:
-    - Min desired capacity: **1**
-    - Max desired capacity: **3**
+1. Select **Enable group metrics collection within CloudWatch**
+2. Click **Next**
 
-![6.8](/images/6-create-auto-scaling-group/6.8.png)
+![Monitoring Configuration](/images/6-create-auto-scaling-group/6.7.png?featherlight=false&width=90pc)
 
-In the Automatic scaling - optional section: choose **No scaling policies** for now, as we won't configure scaling policies for the ASG yet.
+**💡 Pro Tip**: CloudWatch metrics provide valuable insights into your Auto Scaling Group's performance, helping you fine-tune scaling policies and troubleshoot issues.
 
-![6.9](/images/6-create-auto-scaling-group/6.9.png)
+#### Configuring Group Size and Scaling Policies
 
-In the Instance maintenance policy section: choose **No policy**.
+Define the initial capacity and scaling boundaries:
 
-![6.10](/images/6-create-auto-scaling-group/6.10.png)
+1. Group size:
+   - Desired capacity: **1**
+2. Scaling limits:
+   - Minimum capacity: **1**
+   - Maximum capacity: **3**
 
-{{% notice note %}}
-We are not configuring ASG policies here because we will apply scaling strategies later, including four different strategies.
-{{% /notice %}}
+![Group Size Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
 
-#### Setting Up Notifications
+For scaling policies:
 
-In this section, we'll configure email notifications (using Amazon SNS) when the ASG:
+1. Select **No scaling policies** (we'll configure these in later sections)
 
-- Launches a new Instance.
-- Terminates an Instance.
-- Fails to launch an Instance.
-- Fails to terminate an Instance.
+![Scaling Policies Configuration](/images/6-create-auto-scaling-group/6.9.png?featherlight=false&width=90pc)
 
-We'll create notifications for one email address, including the following details:
+For instance maintenance:
 
-- Send a notification to: `asg-topic`. Select a topic to send notifications.
-- With these recipients: enter the email address where you want SNS to send notifications.
-- Event types: select all.
-- Click **Next**.
+1. Select **No policy**
 
-![6.11](/images/6-create-auto-scaling-group/6.11.png)
+![Instance Maintenance Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
 
-![6.12](/images/6-create-auto-scaling-group/6.12.png)
+**ℹ️ Information**: We're deferring scaling policy configuration because we'll implement and compare multiple scaling strategies in subsequent sections.
 
-Review the information and click **Create Auto Scaling group**.
+#### Configuring Notifications
 
-![6.13](/images/6-create-auto-scaling-group/6.13.png)
+Set up Amazon SNS notifications to monitor Auto Scaling events:
 
-#### Results
+1. Notification configuration:
+   - SNS topic: `asg-topic`
+   - Recipients: enter your email address
+   - Event types: select all event types
+2. Click **Next**
 
-During the creation process, an email will be sent, so make sure to check and confirm email notifications from the selected topic.
+![Notification Configuration](/images/6-create-auto-scaling-group/6.11.png?featherlight=false&width=90pc)
 
-![6.14](/images/6-create-auto-scaling-group/6.14.png)
+![Event Type Selection](/images/6-create-auto-scaling-group/6.12.png?featherlight=false&width=90pc)
 
-![6.15](/images/6-create-auto-scaling-group/6.15.png)
+Review your configuration and click **Create Auto Scaling group**.
 
-Since we set **Desired capacity = 1**, when the ASG is created, it will automatically launch a new Instance, and you'll receive a new email.
+![Review Configuration](/images/6-create-auto-scaling-group/6.13.png?featherlight=false&width=90pc)
 
-![6.16](/images/6-create-auto-scaling-group/6.16.png)
+**🔒 Security Note**: Notifications provide real-time awareness of scaling events, helping you monitor for unexpected behavior that could indicate security issues or application problems.
 
-Check the Activity tab of the FCJ-Management-ASG to verify.
+#### Verifying Auto Scaling Group Creation
 
-![6.17](/images/6-create-auto-scaling-group/6.17.png)
+After creation, you'll receive confirmation emails:
 
-{{% notice note %}}
-During the execution of other scaling strategies, you may receive many emails, so keep an eye on your inbox. This is intentional to help monitor what is happening more easily.
-{{% /notice %}}
+1. First, a subscription confirmation email (requires confirmation)
+
+![Subscription Confirmation](/images/6-create-auto-scaling-group/6.14.png?featherlight=false&width=90pc)
+
+2. Then, a notification when the first instance launches
+
+![Instance Launch Notification](/images/6-create-auto-scaling-group/6.15.png?featherlight=false&width=90pc)
+
+![Email Notification](/images/6-create-auto-scaling-group/6.16.png?featherlight=false&width=90pc)
+
+Verify the Auto Scaling activity in the AWS Management Console:
+
+1. Select your Auto Scaling Group
+2. Navigate to the **Activity** tab to view scaling events
+
+![Activity Verification](/images/6-create-auto-scaling-group/6.17.png?featherlight=false&width=90pc)
+
+**⚠️ Warning**: As we implement different scaling strategies in subsequent sections, you may receive numerous notification emails. This is intentional to help you monitor scaling activities.
+
+**💡 Pro Tip**: Auto Scaling Groups work best when combined with CloudWatch alarms that trigger scaling actions based on metrics like CPU utilization, network traffic, or custom application metrics. We'll explore these options in upcoming sections.

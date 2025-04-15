@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Test dynamic scaling solution :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,7 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#dynamic-scaling">Dynamic Scaling</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -841,60 +841,96 @@
 
 
 
-	<h3 id="dynamic-scaling">Dynamic Scaling</h3>
-<p>Dynamic scaling is based on the metrics provided by CloudWatch. Depending on how we configure it, ASG will either launch or terminate instances. We can configure ASG to launch a new instance when the CPU resources of an instance or instances exceed 90%, or if the network traffic is high, or if the number of packets sent to each instance is large.</p>
-<p>Depending on the system and requirements, we will configure it differently. In this example, we will configure it based on the &ldquo;number of packets sent to each instance.&rdquo;</p>
-<h4 id="configuration">Configuration</h4>
-<p>Before testing, we will manually scale in by terminating one instance. Then, go to the Activity tab and check again.</p>
-<p><img alt="7.3.1" src="/images/7-test-solution/7.3.1.png"></p>
-<p><img alt="7.3.2" src="/images/7-test-solution/7.3.2.png"></p>
-<p>After deleting, we will now configure dynamic scaling. Go to the <strong>Automatic scaling</strong> tab.</p>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: Dynamic scaling automatically adjusts your application&rsquo;s capacity based on real-time metrics collected by Amazon CloudWatch. When properly configured, your Auto Scaling Group (ASG) will launch or terminate instances in response to changing workload demands, ensuring optimal performance and cost efficiency.</p>
+<h4 id="understanding-dynamic-scaling-metrics">Understanding Dynamic Scaling Metrics</h4>
+<p>Dynamic scaling can be triggered by various metrics, including:</p>
 <ul>
-<li>Click <strong>Create dynamic scaling policy</strong> to create a new scaling policy.</li>
+<li>CPU utilization percentage</li>
+<li>Network traffic volume</li>
+<li>Application Load Balancer request count per target</li>
+<li>Custom metrics specific to your application</li>
 </ul>
-<p><img alt="7.3.3" src="/images/7-test-solution/7.3.3.png"></p>
-<p>In this form, fill in the following details:</p>
+<p><strong>💡 Pro Tip</strong>: The choice of scaling metric should align with your application&rsquo;s performance bottlenecks. For web applications, request count per target often provides the most responsive scaling behavior.</p>
+<h4 id="configuring-dynamic-scaling">Configuring Dynamic Scaling</h4>
+<p>Before implementing dynamic scaling, we&rsquo;ll first ensure our environment is properly prepared:</p>
+<ol>
+<li>Manually scale in by terminating one instance to establish a baseline</li>
+<li>Verify the termination in the <strong>Activity</strong> tab of your ASG</li>
+</ol>
+<p><img alt="ASG Activity Tab" src="/images/7-test-solution/7.3.1.png?featherlight=false&width=90pc"></p>
+<p><img alt="Instance Termination Confirmation" src="/images/7-test-solution/7.3.2.png?featherlight=false&width=90pc"></p>
+<p>Now, let&rsquo;s configure dynamic scaling:</p>
+<ol>
+<li>Navigate to the <strong>Automatic scaling</strong> tab of your ASG</li>
+<li>Click <strong>Create dynamic scaling policy</strong></li>
+</ol>
+<p><img alt="Create Dynamic Scaling Policy" src="/images/7-test-solution/7.3.3.png?featherlight=false&width=90pc"></p>
+<ol start="3">
+<li>Configure the policy with these parameters:
 <ul>
-<li>Policy type: <strong>Target tracking scaling</strong>.</li>
-<li>Scaling policy name: <code>Request Over 500 per target</code>.</li>
-<li>Metric type: <strong>Application Load Balancer request count per target</strong>.</li>
-<li>Target group: <strong>FCJ-Management-TG</strong>.</li>
-<li>Target value: <strong>500</strong> (requests).</li>
-<li>Instance warmup: <strong>60 seconds</strong> (it is recommended to set a higher value).</li>
-<li>Click <strong>Create</strong> to create the policy.</li>
+<li>Policy type: <strong>Target tracking scaling</strong></li>
+<li>Scaling policy name: <code>Request Over 500 per target</code></li>
+<li>Metric type: <strong>Application Load Balancer request count per target</strong></li>
+<li>Target group: <strong>FCJ-Management-TG</strong></li>
+<li>Target value: <strong>500</strong> (requests)</li>
+<li>Instance warmup: <strong>60 seconds</strong></li>
+<li>Click <strong>Create</strong> to implement the policy</li>
 </ul>
-<p><img alt="7.3.4" src="/images/7-test-solution/7.3.4.png"></p>
-
-<div class="notices info" ><p>The <strong>Instance warmup</strong> parameter affects the time an instance starts receiving external traffic. Specifically, when an instance is created and in the <strong>InService</strong> state (ready to operate), you can adjust the time it takes for an instance to begin receiving and processing requests. This time is called <strong>instance warmup</strong>. Adjusting this parameter allows more time for the instance to become fully stable, as the application may need to update and install dependencies or connect to other services to function properly.</p>
-</div>
-
-<p>Result:</p>
-<p><img alt="7.3.5" src="/images/7-test-solution/7.3.5.png"></p>
-<h4 id="testing">Testing</h4>
-<p>Start the test program.</p>
-<p><img alt="7.3.6" src="/images/7-test-solution/7.3.6.png"></p>
-<p>Go to the EC2 Console to see how many requests are being sent to EC2.</p>
-<p><img alt="7.3.7" src="/images/7-test-solution/7.3.7.png"></p>
-
-<div class="notices note" ><p>Wait a moment for the metrics to update. You&rsquo;ll notice that the graphs are trending upwards or stabilizing.</p>
-</div>
-
-<p>Return to the <strong>Activity</strong> tab of ASG. You will see 3 instances have been launched. Since the request volume is high, ASG calculates that it needs to create the maximum desired number of instances.</p>
-<p><img alt="7.3.8" src="/images/7-test-solution/7.3.8.png"></p>
-<p>Go back to the EC2 Console, select all the newly created instances, and observe the charts.</p>
-<p><img alt="7.3.9" src="/images/7-test-solution/7.3.9.png"></p>
-<p>You will notice that the green line is gradually going down, and other lines are starting to appear.</p>
-
-<div class="notices note" ><p>As mentioned before, metrics update every 15 minutes, so you will need to wait a bit to see the results.</p>
-</div>
-
-<p>Now, we will stop the test program.</p>
-<p><img alt="7.3.10" src="/images/7-test-solution/7.3.10.png"></p>
-<p>Go to the ASG Activity tab and wait for ASG to terminate the unnecessary instances. This process may take a while.</p>
-<p><img alt="7.3.11" src="/images/7-test-solution/7.3.11.png"></p>
+</li>
+</ol>
+<p><img alt="Dynamic Scaling Policy Configuration" src="/images/7-test-solution/7.3.4.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: The <strong>Instance warmup</strong> parameter defines how long a newly launched instance should be excluded from aggregated metrics. This allows the instance to initialize fully before it&rsquo;s considered in scaling decisions. For production workloads, consider setting this value higher (120-300 seconds) depending on your application&rsquo;s initialization requirements.</p>
+<p>After successful creation, you&rsquo;ll see your dynamic scaling policy in the list:</p>
+<p><img alt="Dynamic Scaling Policy Created" src="/images/7-test-solution/7.3.5.png?featherlight=false&width=90pc"></p>
+<h4 id="testing-dynamic-scaling">Testing Dynamic Scaling</h4>
+<p>To evaluate the effectiveness of dynamic scaling:</p>
+<ol>
+<li>Start your load testing program with the same configuration used in previous tests</li>
+</ol>
+<p><img alt="Load Testing Program" src="/images/7-test-solution/7.3.6.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>Monitor the EC2 Console to observe the request metrics for your instances</li>
+</ol>
+<p><img alt="Initial Request Metrics" src="/images/7-test-solution/7.3.7.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: CloudWatch metrics may take several minutes to update. Be patient and observe the trend lines as they begin to stabilize or increase.</p>
+<ol start="3">
+<li>Return to the <strong>Activity</strong> tab of your ASG to monitor scaling actions</li>
+</ol>
+<p><img alt="ASG Scaling Activities" src="/images/7-test-solution/7.3.8.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: In this example, the ASG has determined that three instances are needed to handle the current request volume, scaling up to the maximum desired capacity we configured.</p>
+<ol start="4">
+<li>In the EC2 Console, select all instances to compare their performance metrics</li>
+</ol>
+<p><img alt="Multi-Instance Performance Metrics" src="/images/7-test-solution/7.3.9.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Notice how the green line (representing your original instance) gradually decreases as new instances (represented by other colors) begin handling portions of the traffic. This demonstrates the load balancer distributing requests across all available instances.</p>
+<ol start="5">
+<li>Stop the load testing program to observe scale-in behavior</li>
+</ol>
+<p><img alt="Stopping Load Test" src="/images/7-test-solution/7.3.10.png?featherlight=false&width=90pc"></p>
+<ol start="6">
+<li>Monitor the ASG Activity tab as unnecessary instances are terminated</li>
+</ol>
+<p><img alt="Scale-In Activities" src="/images/7-test-solution/7.3.11.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: Scale-in actions typically have a cooldown period to prevent rapid scaling oscillations. This means termination of excess instances may take several minutes after load decreases.</p>
+<h4 id="key-insights-and-best-practices">Key Insights and Best Practices</h4>
+<p><strong>ℹ️ Information</strong>: Dynamic scaling responds to real-time metrics, making it ideal for workloads with unpredictable traffic patterns. However, there are important considerations:</p>
+<ol>
+<li><strong>Metric Selection</strong>: Choose metrics that directly correlate with user experience and system performance</li>
+<li><strong>Target Values</strong>: Set appropriate target values based on performance testing and application requirements</li>
+<li><strong>Warmup Periods</strong>: Configure realistic warmup times that allow your application to fully initialize</li>
+<li><strong>Scale-In Protection</strong>: Consider enabling instance scale-in protection for critical workloads</li>
+<li><strong>Monitoring</strong>: Regularly review scaling activities to optimize your configuration</li>
+</ol>
+<p><strong>🔒 Security Note</strong>: When implementing dynamic scaling, ensure your security groups, IAM roles, and network configurations are properly set to maintain security posture during scaling events.</p>
 <h4 id="conclusion">Conclusion</h4>
-<p>When ASG detects that the system is becoming overloaded based on certain metrics, it will launch additional instances to bring the system back to a stable state. However, dynamic scaling is not very fast, as mentioned earlier. When scaling policies are created, they impact the core metrics, and ASG will &ldquo;look&rdquo; at them to decide whether to scale up or down.</p>
-<p>As a result, the number of instances is calculated and updated at a slower pace. To address this, we can use Predictive Scaling, which allows ASG to react more quickly.</p>
+<p>Dynamic scaling provides an effective way to automatically adjust capacity based on real-time demand. While it offers significant advantages over manual or scheduled scaling for unpredictable workloads, it does have inherent limitations:</p>
+<ul>
+<li>There&rsquo;s an unavoidable delay between metric collection, evaluation, and scaling action</li>
+<li>Rapid traffic spikes may temporarily impact performance before scaling completes</li>
+<li>Determining optimal target values requires testing and refinement</li>
+</ul>
+<p>For workloads with more predictable patterns or those requiring faster response to changing conditions, consider implementing predictive scaling, which we&rsquo;ll explore in the next section.</p>
 
 
 
@@ -1289,19 +1325,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

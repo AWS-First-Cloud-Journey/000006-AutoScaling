@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Các bước chuẩn bị :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#nội-dung">Nội dung</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,17 +835,65 @@
 
 
 
-	<p>Trong bài thực hành này, chúng ta cần chuẩn bị một số dịch vụ để có thể tiến hành triển khai ứng dụng FCJ Management sử dụng Auto Scaling Group cùng với Elastic Load Balancer. Một cách tổng quan, chúng ta sẽ triển khai ứng dụng FCJ Management theo kiến trúc như sau:
-<img alt="Create VPC" src="/images/2-preparation/diagram0006.png"></p>
-<h3 id="nội-dung">Nội dung</h3>
+	<h4 id="tổng-quan">Tổng quan</h4>
+<p>Trong bài thực hành này, chúng ta cần chuẩn bị một số dịch vụ để có thể tiến hành triển khai ứng dụng FCJ Management sử dụng Amazon EC2 Auto Scaling cùng với Elastic Load Balancing.</p>
+<p><strong>ℹ️ Information</strong>: Kiến trúc triển khai của ứng dụng FCJ Management sẽ tận dụng các dịch vụ quản lý của AWS để đảm bảo tính sẵn sàng cao và khả năng mở rộng linh hoạt.</p>
+<p><img alt="Create VPC" src="/images/2-preparation/diagram0006.png"></p>
+<h4 id="nội-dung">Nội dung</h4>
 <ol>
 <li><a href="/vi/2-preparation/2.1-setup-network/">Thiết lập hạ tầng mạng</a></li>
 <li><a href="/vi/2-preparation/2.2-launch-ec2-instance/">Khởi tạo EC2 instance</a></li>
-<li><a href="/vi/2-preparation/2.3-launch-db-instance/">Khởi tạo Database instance với RDS</a></li>
+<li><a href="/vi/2-preparation/2.3-launch-db-instance/">Khởi tạo Database instance với Amazon RDS</a></li>
 <li><a href="/vi/2-preparation/2.4-add-data-to-db/">Cài đặt dữ liệu cho database</a></li>
 <li><a href="/vi/2-preparation/2.5-deploy-web-server/">Triển khai máy chủ web</a></li>
 <li><a href="/vi/2-preparation/2.6-prepare-metrics-for-predictive-scaling/">Chuẩn bị metric cho Predictive scaling</a></li>
 </ol>
+<p><strong>💡 Pro Tip</strong>: Việc chuẩn bị đầy đủ các thành phần cơ sở hạ tầng trước khi triển khai ứng dụng sẽ giúp quá trình triển khai diễn ra suôn sẻ và giảm thiểu các vấn đề có thể phát sinh.</p>
+<h4 id="các-dịch-vụ-aws-sử-dụng-trong-bài-thực-hành">Các dịch vụ AWS sử dụng trong bài thực hành</h4>
+<p>Trong bài thực hành này, chúng ta sẽ sử dụng các dịch vụ AWS sau:</p>
+<ol>
+<li>
+<p><strong>Amazon VPC (Virtual Private Cloud)</strong>: Tạo môi trường mạng ảo riêng biệt để triển khai các tài nguyên AWS.</p>
+</li>
+<li>
+<p><strong>Amazon EC2 (Elastic Compute Cloud)</strong>: Cung cấp máy chủ ảo để chạy ứng dụng FCJ Management.</p>
+</li>
+<li>
+<p><strong>Amazon RDS (Relational Database Service)</strong>: Dịch vụ cơ sở dữ liệu quan hệ được quản lý để lưu trữ dữ liệu ứng dụng.</p>
+</li>
+<li>
+<p><strong>Amazon EC2 Auto Scaling</strong>: Tự động điều chỉnh số lượng EC2 instances dựa trên nhu cầu thực tế.</p>
+</li>
+<li>
+<p><strong>Elastic Load Balancing (ELB)</strong>: Phân phối lưu lượng truy cập đến giữa nhiều EC2 instances.</p>
+</li>
+<li>
+<p><strong>Amazon CloudWatch</strong>: Giám sát tài nguyên và ứng dụng AWS, thu thập và theo dõi các metrics.</p>
+</li>
+<li>
+<p><strong>AWS Systems Manager</strong>: Quản lý cấu hình và tự động hóa các tác vụ trên EC2 instances.</p>
+</li>
+</ol>
+<h4 id="yêu-cầu-kỹ-thuật">Yêu cầu kỹ thuật</h4>
+<p>Để hoàn thành bài thực hành này, bạn cần:</p>
+<ol>
+<li>
+<p><strong>Tài khoản AWS</strong>: Có quyền truy cập vào AWS Management Console với đầy đủ quyền để tạo và quản lý các dịch vụ được liệt kê ở trên.</p>
+</li>
+<li>
+<p><strong>Kiến thức cơ bản</strong>: Hiểu biết cơ bản về EC2, VPC, và các dịch vụ AWS khác.</p>
+</li>
+<li>
+<p><strong>Trình duyệt web</strong>: Chrome, Firefox, hoặc Edge phiên bản mới nhất.</p>
+</li>
+<li>
+<p><strong>Công cụ kết nối SSH</strong> (tùy chọn): Như PuTTY (Windows) hoặc Terminal (macOS/Linux) để kết nối với EC2 instances.</p>
+</li>
+<li>
+<p><strong>Kiên nhẫn và tỉ mỉ</strong>: Một số bước trong bài thực hành có thể mất thời gian để hoàn thành, đặc biệt là khi chờ các tài nguyên được khởi tạo.</p>
+</li>
+</ol>
+<p><strong>🔒 Security Note</strong>: Trong môi trường thực tế, bạn nên tuân thủ nguyên tắc đặc quyền tối thiểu (principle of least privilege) khi cấp quyền cho người dùng AWS IAM.</p>
 
 
 
@@ -1223,7 +1271,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/1-introduction/" title="Giới thiệu"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/1-introduction/" title="Giới thiệu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vi/2-preparation/2.1-setup-network/" title="Thiết lập hạ tầng mạng" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1236,19 +1284,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

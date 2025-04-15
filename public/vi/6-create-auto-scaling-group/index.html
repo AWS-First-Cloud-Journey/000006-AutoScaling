@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Auto Scaling Group :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,8 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#vấn-đề-ở-phần-trước">Vấn đề ở phần trước</a></li>
-        <li><a href="#thiết-lập-auto-scaling-group">Thiết lập Auto Scaling Group</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -836,125 +835,110 @@
 
 
 
-	<h3 id="vấn-đề-ở-phần-trước">Vấn đề ở phần trước</h3>
-<p>Ở phần kiểm thử kết quả ở bên trên, thì chúng ta có thể thấy là khi ứng dụng có nhiều request tới thì nó sẽ hoạt động không còn ổn định nữa và giải pháp là chúng ta sẽ phải tăng thêm nhiều EC2 Instance ở trong hệ thống và nhờ vào Load Balancer để chia sẻ các yêu cầu từ phía người dùng.</p>
-<p>Tuy nhiên tới phương pháp thủ công này thì sẽ không được hợp lý cho lắm, bởi vì để khởi tạo một EC2 Instance, thì mình cần phải có được cái &ldquo;lõi&rdquo; ở bên trong, chính là ứng dụng đang đảm nhận nhiệm vụ xử lý các yêu cầu đó và cùng với các thư viện khác.</p>
-<h3 id="thiết-lập-auto-scaling-group">Thiết lập Auto Scaling Group</h3>
-<h4 id="thiết-lập-launch-template">Thiết lập Launch template</h4>
-<p>Ở trong giao diện quản lý của <strong>EC2</strong>, kéo bảng lựa chọn ở bên phải xuống cuối cùng.</p>
+	<h4 id="vấn-đề-ở-phần-trước">Vấn đề ở phần trước</h4>
+<p><strong>ℹ️ Information</strong>: Ở phần kiểm thử kết quả trước đó, chúng ta nhận thấy khi ứng dụng nhận nhiều request, hiệu suất không còn ổn định. Giải pháp là tăng số lượng EC2 Instance trong hệ thống và sử dụng Load Balancer để phân phối các yêu cầu từ người dùng.</p>
+<p>Tuy nhiên, phương pháp thủ công không hiệu quả vì để khởi tạo một EC2 Instance mới, chúng ta cần đảm bảo mỗi instance đều có đầy đủ ứng dụng, thư viện và cấu hình cần thiết để xử lý các yêu cầu.</p>
+<h4 id="thiết-lập-auto-scaling-group">Thiết lập Auto Scaling Group</h4>
+<h4 id="tạo-auto-scaling-group">Tạo Auto Scaling Group</h4>
+<p>Ở giao diện quản lý <strong>EC2</strong>, kéo bảng lựa chọn bên trái xuống cuối:</p>
 <ul>
-<li>Chọn <strong>Auto Scaling Groups</strong>.</li>
-<li>Ấn <strong>Create Auto Scaling group</strong>.</li>
+<li>Chọn <strong>Auto Scaling Groups</strong></li>
+<li>Ấn <strong>Create Auto Scaling group</strong></li>
 </ul>
 <p><img alt="6.1" src="/images/6-create-auto-scaling-group/6.1.png"></p>
-<p>Ở trong giao diện tạo <strong>Auto Scaling group</strong>, chúng ta sẽ điền các thông tin sau</p>
+<p>Trong giao diện tạo <strong>Auto Scaling group</strong>, điền các thông tin sau:</p>
 <ul>
 <li>Name: <code>FCJ-Management-ASG</code></li>
 <li>Trong Launch template:
 <ul>
-<li>Launch template: chọn <code>FCJ-Management-template</code> (có thể là bất kỳ cái tên nào).</li>
-<li>Version: <strong>Default (1)</strong> theo như lựa chọn mặc định.</li>
+<li>Launch template: chọn <code>FCJ-Management-template</code></li>
+<li>Version: <strong>Default (1)</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="6.2" src="/images/6-create-auto-scaling-group/6.2.png"></p>
-
-<div class="notices note" ><p>Lưu ý là tên của ASG bạn nên đặt đúng với tên của ASG mà được đặt ở trong phần <strong>2.6</strong> trước đó, bước chuẩn bị dữ liệu cho Predictive Scaling.</p>
-</div>
-
-
-<div class="notices note" ><p><strong>Launch template</strong> được chọn cho ASG phải là template mà được cài đặt đầy đủ <em>MySQL Client</em>, <em>Node</em>, <em>Source Code</em> và <em>PM2</em> thì mới đảm bảo các Target hoạt động bình thường, nếu như bạn làm theo các bướcr trong phần <strong>2</strong> và phần <strong>3</strong> thì bạn đã làm đúng.</p>
-</div>
-
+<p><strong>⚠️ Warning</strong>: Tên của ASG nên đặt đúng với tên ASG đã được đặt ở phần <strong>2.6</strong> trước đó, để đảm bảo tính nhất quán cho Predictive Scaling.</p>
+<p><strong>🔒 Security Note</strong>: <strong>Launch template</strong> được chọn cho ASG phải là template đã được cài đặt đầy đủ <em>MySQL Client</em>, <em>Node</em>, <em>Source Code</em> và <em>PM2</em> để đảm bảo các Target hoạt động bình thường. Nếu bạn đã làm theo các bước trong phần <strong>2</strong> và phần <strong>3</strong>, bạn đã thiết lập đúng.</p>
 <p><img alt="6.3" src="/images/6-create-auto-scaling-group/6.3.png"></p>
 <h4 id="thiết-lập-mạng">Thiết lập mạng</h4>
-<p>Ở trong phần Network, chọn các thông tin như sau:</p>
+<p>Trong phần Network, cấu hình như sau:</p>
 <ul>
-<li>VPC: chọn VPC <strong>AutoScaling-Lab</strong>, VPC mà chúng ta đã tạo ở đầu bài.</li>
-<li>Availability Zones and subnets: chọn <strong>3 public subnets</strong> mà chúng ta đã tạo.</li>
-<li>Ấn <strong>Next</strong>.</li>
+<li>VPC: chọn VPC <strong>AutoScaling-Lab</strong> đã tạo trước đó</li>
+<li>Availability Zones and subnets: chọn <strong>3 public subnets</strong> đã tạo</li>
+<li>Ấn <strong>Next</strong></li>
 </ul>
 <p><img alt="6.4" src="/images/6-create-auto-scaling-group/6.4.png"></p>
-<h4 id="thiết-lập-load-balancer-và-một-số-thứ-khác">Thiết lập Load Balancer và một số thứ khác</h4>
-<p>Ở trước đó thì chúng ta đã có tạo <strong>Application Load Balancer</strong> và tạo một <strong>Target Group</strong> và gắn vào trong bộ cân bằng tải đó. Nên giờ chúng ta sẽ chọn một số lựa chọn như sau:</p>
+<h4 id="thiết-lập-load-balancer">Thiết lập Load Balancer</h4>
+<p><strong>ℹ️ Information</strong>: Trước đó chúng ta đã tạo <strong>Application Load Balancer</strong> và <strong>Target Group</strong> đã được gắn vào bộ cân bằng tải. Giờ chúng ta sẽ kết nối ASG với Load Balancer đó.</p>
 <ul>
-<li>Load balancing: chọn <strong>Attach to an existing load balancer</strong>.</li>
+<li>Load balancing: chọn <strong>Attach to an existing load balancer</strong></li>
 <li>Attach to an existing load balancer: chọn <strong>Choose from your load balancer target group</strong></li>
-<li>Existing load balancer target group: chọn <strong>FCJ-Management-TG | HTTP</strong>.</li>
+<li>Existing load balancer target group: chọn <strong>FCJ-Management-TG | HTTP</strong></li>
 </ul>
 <p><img alt="6.5" src="/images/6-create-auto-scaling-group/6.5.png"></p>
-
-<div class="notices note" ><p>Khi cấu hình đúng Target Group và <strong>Application Load Balancer</strong>, thì ở lựa chọn <strong>Existing load balancer target group</strong> chúng ta có thể thấy được <strong>Target Group</strong> đó được liệt kê, nghĩa là cả ALB và TG đều tồn tại.</p>
-</div>
-
-<p>Trong phần VPC Lattice integration options: chọn <strong>No VPC Lattice service</strong>, trong bài này thì chúng ta không cấu hình phần này.</p>
-<p>Tiếp theo là Health checks, chúng ta sẽ chọn (tích) <strong>Turn on Elastic Load Balancing health checks</strong>. Để các thiết lập còn lại theo mặc định.</p>
-<p><img alt="6.6" src="/images/6-create-auto-scaling-group/6.6.png"></p>
-<p>Trong phần Additional settings, ở phần Monitoring:</p>
+<p><strong>💡 Pro Tip</strong>: Khi cấu hình đúng Target Group và Application Load Balancer, lựa chọn <strong>Existing load balancer target group</strong> sẽ hiển thị Target Group đã tạo, xác nhận rằng cả ALB và TG đều tồn tại và được cấu hình đúng.</p>
+<p>Trong phần VPC Lattice integration options: chọn <strong>No VPC Lattice service</strong> (không sử dụng trong bài lab này)</p>
+<p>Tiếp theo, ở phần Health checks:</p>
 <ul>
-<li>Chọn (tích) <strong>Enable group metrics collection within CloudWatch</strong>.</li>
-<li>Ấn <strong>Next</strong>.</li>
+<li>Tích chọn <strong>Turn on Elastic Load Balancing health checks</strong></li>
+<li>Giữ các thiết lập còn lại theo mặc định</li>
+</ul>
+<p><img alt="6.6" src="/images/6-create-auto-scaling-group/6.6.png"></p>
+<p>Trong phần Additional settings, ở mục Monitoring:</p>
+<ul>
+<li>Tích chọn <strong>Enable group metrics collection within CloudWatch</strong></li>
+<li>Ấn <strong>Next</strong></li>
 </ul>
 <p><img alt="6.7" src="/images/6-create-auto-scaling-group/6.7.png"></p>
-<h4 id="thiết-lập-size-và-scaling-cho-group">Thiết lập Size và Scaling cho Group</h4>
-<p>Ở trong phần này thì mình sẽ xác định các hành vi mở rộng của Group và số lượng các Instance sẽ được khởi tạo trong quá trình Scale, bao gồm Scale out (mở rộng) và Scale in (thu hẹp).</p>
+<h4 id="thiết-lập-size-và-scaling-policies">Thiết lập Size và Scaling Policies</h4>
+<p><strong>ℹ️ Information</strong>: Trong phần này, chúng ta xác định hành vi mở rộng của Group và số lượng Instance sẽ được khởi tạo trong quá trình Scale out (mở rộng) và Scale in (thu hẹp).</p>
 <ul>
 <li>Trong phần Group size:
 <ul>
 <li>Desired capacity: <strong>1</strong></li>
 </ul>
 </li>
-<li>Trong phần Scaling:
-<ul>
-<li>Scaling limits:
+<li>Trong phần Scaling limits:
 <ul>
 <li>Min desired capacity: <strong>1</strong></li>
 <li>Max desired capacity: <strong>3</strong></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <p><img alt="6.8" src="/images/6-create-auto-scaling-group/6.8.png"></p>
-<p>Trong Automatic scaling - optional: chọn <strong>No scaling policies</strong>, tạm thời làm mình sẽ không thiết lập chính sách scaling cho ASG.</p>
+<p>Trong Automatic scaling - optional: chọn <strong>No scaling policies</strong> (tạm thời chưa thiết lập chính sách scaling cho ASG)</p>
 <p><img alt="6.9" src="/images/6-create-auto-scaling-group/6.9.png"></p>
-<p>Trong Instance maintenace policy: chọn <strong>No policy</strong>.</p>
+<p>Trong Instance maintenance policy: chọn <strong>No policy</strong></p>
 <p><img alt="6.10" src="/images/6-create-auto-scaling-group/6.10.png"></p>
-
-<div class="notices note" ><p>Ở đây chúng ta sẽ không thiết lập chính sách cho ASG là vì mình sẽ thực hiện các chiến lược Scaling sau, bao gồm 4 chiến lược khác nhau.</p>
-</div>
-
+<p><strong>💡 Pro Tip</strong>: Chúng ta không thiết lập chính sách scaling ngay lúc này vì sẽ thực hiện 4 chiến lược scaling khác nhau trong các bước tiếp theo.</p>
 <h4 id="thiết-lập-thông-báo">Thiết lập thông báo</h4>
-<p>Trong phần này, chúng ta sẽ thiết lập thông báo tới email (dùng Amazon SNS) khi mà ASG:</p>
+<p><strong>ℹ️ Information</strong>: Trong phần này, chúng ta thiết lập thông báo qua email (sử dụng Amazon SNS) khi ASG thực hiện các hành động như:</p>
 <ul>
-<li>Khởi tạo một Instance mới.</li>
-<li>Huỷ một Instance.</li>
-<li>Thất bại khi khởi tạo Instance.</li>
-<li>Thất bại khi huỷ một instance.</li>
+<li>Khởi tạo Instance mới</li>
+<li>Huỷ Instance</li>
+<li>Thất bại khi khởi tạo Instance</li>
+<li>Thất bại khi huỷ Instance</li>
 </ul>
-<p>Chúng ta sẽ chỉ tạo thông báo tới một email duy nhất, bao gồm các thông tin:</p>
+<p>Cấu hình thông báo:</p>
 <ul>
-<li>Send a notification to: <code>asg-topic</code>. Mình sẽ chọn một topic để gửi.</li>
-<li>With these recipents: nhập email mà bạn muốn SNS gửi tới.</li>
-<li>Event types: chọn tất cả.</li>
-<li>Ấn <strong>Next</strong>.</li>
+<li>Send a notification to: <code>asg-topic</code> (tạo topic mới)</li>
+<li>With these recipients: nhập email bạn muốn nhận thông báo</li>
+<li>Event types: chọn tất cả</li>
+<li>Ấn <strong>Next</strong></li>
 </ul>
 <p><img alt="6.11" src="/images/6-create-auto-scaling-group/6.11.png"></p>
 <p><img alt="6.12" src="/images/6-create-auto-scaling-group/6.12.png"></p>
-<p>Xác nhận lại các thông tin và <strong>Create Auto Scaling group</strong>.</p>
+<p>Xác nhận lại các thông tin và ấn <strong>Create Auto Scaling group</strong></p>
 <p><img alt="6.13" src="/images/6-create-auto-scaling-group/6.13.png"></p>
 <h4 id="kết-quả">Kết quả</h4>
-<p>Trong quá trình tạo thì sẽ có một email gửi tới, nhớ kiểm tra và đăng ký nhận email từ topic đó.</p>
+<p><strong>⚠️ Warning</strong>: Trong quá trình tạo, bạn sẽ nhận được email xác nhận đăng ký từ SNS topic. Hãy kiểm tra và xác nhận đăng ký để nhận các thông báo tiếp theo.</p>
 <p><img alt="6.14" src="/images/6-create-auto-scaling-group/6.14.png"></p>
 <p><img alt="6.15" src="/images/6-create-auto-scaling-group/6.15.png"></p>
-<p>Vì ở trên chúng ta chỉnh thông số <strong>Desired capacity = 1</strong>, nên khi được tạo ra thì ASG sẽ tự động tạo cho hệ thống một Instance mới, lúc này thì chúng ta sẽ nhận được email mới.</p>
+<p>Vì chúng ta đã thiết lập <strong>Desired capacity = 1</strong>, ASG sẽ tự động tạo một Instance mới, và bạn sẽ nhận được email thông báo.</p>
 <p><img alt="6.16" src="/images/6-create-auto-scaling-group/6.16.png"></p>
-<p>Vào trong tab Activity của ASG FCJ-Management-ASG để kiểm tra</p>
+<p>Vào tab Activity của ASG FCJ-Management-ASG để kiểm tra:</p>
 <p><img alt="6.17" src="/images/6-create-auto-scaling-group/6.17.png"></p>
-
-<div class="notices note" ><p>Trong quá trình thực hiện các chiến lược scaling khác, bạn có thể sẽ nhận được rất nhiều email, nên hãy chú ý trong Email Box. Đây cũng là chủ đích khi chúng ta tạo SNS để thông báo, nhắm dễ kiểm soát được điều gì đang diễn ra hơn.</p>
-</div>
-
+<p><strong>💡 Pro Tip</strong>: Trong quá trình thực hiện các chiến lược scaling khác nhau, bạn có thể nhận được nhiều email thông báo. Đây là chủ đích khi chúng ta thiết lập SNS, giúp theo dõi và kiểm soát tốt hơn các hoạt động của Auto Scaling Group.</p>
 
 
 
@@ -1345,19 +1329,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

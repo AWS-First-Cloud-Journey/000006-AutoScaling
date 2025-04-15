@@ -95,3 +95,5 @@ Nó sẽ yêu cầu thiết lập Startup Script, hãy copy/paste command đó v
 Để đảm bảo các ứng dụng đang chạy được lưu lại và khởi động lại khi server khởi động lại, chúng ta cần chạy lệnh **`pm2 save`**. Lệnh này sẽ lưu trạng thái hiện tại của các tiến trình vào danh sách khởi động.
 
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.11.png?featherlight=false&width=90pc)
+
+

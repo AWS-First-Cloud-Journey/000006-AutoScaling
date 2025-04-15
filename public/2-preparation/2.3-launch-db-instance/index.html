@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Launch a Database Instance with RDS :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703291" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703291" rel="stylesheet">
+    <link href="/css/theme.css?1744703291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703291"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -841,97 +841,117 @@
 
 
 
-	<h4 id="create-a-subnet-group-for-the-database-instance">Create a subnet group for the database instance.</h4>
-<p>Access the AWS <strong>AWS Management Console</strong></p>
+	<h4 id="creating-a-db-subnet-group">Creating a DB Subnet Group</h4>
+<p><strong>ℹ️ Information</strong>: A DB subnet group is a collection of subnets that you designate for your RDS database instances within a VPC. This configuration ensures high availability by allowing Amazon RDS to deploy instances across multiple Availability Zones.</p>
+<p>Access the AWS Management Console:</p>
 <ul>
-<li>Search for <strong>RDS</strong></li>
-<li>Select <strong>RDS</strong></li>
+<li>In the search bar, find and select <strong>RDS</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc"></p>
-<p>Continue:</p>
+<p><img alt="RDS Console Navigation" src="/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc"></p>
+<p>In the RDS console:</p>
 <ul>
-<li>Select <strong>Subnet groups</strong></li>
-<li>Select <strong>Create DB subnet group</strong></li>
+<li>Select <strong>Subnet groups</strong> from the left navigation panel</li>
+<li>Click <strong>Create DB subnet group</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.2.png?featherlight=false&width=90pc"></p>
-<p>In the <strong>Create DB subnet group</strong> interface</p>
+<p><img alt="Create DB Subnet Group" src="/images/2-preparation/2.3-rds/2.3.2.png?featherlight=false&width=90pc"></p>
+<p>Configure the DB subnet group details:</p>
 <ul>
 <li>For <strong>Name</strong>, enter <strong><code>FCJ-Management-Subnet-Group</code></strong></li>
 <li>For <strong>Description</strong>, enter <strong><code>Subnet Group for FCJ Management</code></strong></li>
-<li>Select the VPC you created.</li>
+<li>Select the VPC you created earlier (<strong>AutoScaling-Lab</strong>)</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.3.png?featherlight=false&width=90pc"></p>
-<p>Configure the <strong>subnet</strong></p>
+<p><img alt="DB Subnet Group Details" src="/images/2-preparation/2.3-rds/2.3.3.png?featherlight=false&width=90pc"></p>
+<p>Configure the subnet selection:</p>
 <ul>
-<li>Select the availability zones (AZs)</li>
-<li>Choose the private subnets.</li>
+<li>Select multiple Availability Zones for redundancy</li>
+<li>Choose the <strong>private subnets</strong> for enhanced security</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.4.png?featherlight=false&width=90pc"></p>
-<p>Click on <strong>Create</strong></p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.5.png?featherlight=false&width=90pc"></p>
-<p>Successfully created the <strong>DB Subnet Group</strong> with 2 AZs.</p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.6.png?featherlight=false&width=90pc"></p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.7.png?featherlight=false&width=90pc"></p>
-<h4 id="create-a-database-instance">Create a database instance.</h4>
-<p>Access the <strong>RDS AWS Management Console</strong></p>
+<p><strong>🔒 Security Note</strong>: Always place your database instances in private subnets to prevent direct internet access, reducing your attack surface.</p>
+<p><img alt="Subnet Selection" src="/images/2-preparation/2.3-rds/2.3.4.png?featherlight=false&width=90pc"></p>
+<p>Complete the creation:</p>
 <ul>
-<li>Select <strong>Databases</strong></li>
-<li>Click on <strong>Create database</strong></li>
+<li>Click <strong>Create</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.8.png?featherlight=false&width=90pc"></p>
-<p>Choose the method to create the <strong>database</strong></p>
+<p><img alt="Create Button" src="/images/2-preparation/2.3-rds/2.3.5.png?featherlight=false&width=90pc"></p>
+<p>Verify the DB subnet group has been created successfully with multiple AZs:</p>
+<p><img alt="Subnet Group Created" src="/images/2-preparation/2.3-rds/2.3.6.png?featherlight=false&width=90pc"></p>
+<p><img alt="Subnet Group Details" src="/images/2-preparation/2.3-rds/2.3.7.png?featherlight=false&width=90pc"></p>
+<h4 id="launching-an-amazon-rds-database-instance">Launching an Amazon RDS Database Instance</h4>
+<p><strong>ℹ️ Information</strong>: Amazon RDS makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks.</p>
+<p>Navigate to the RDS console:</p>
 <ul>
-<li>Select <strong>Standard create</strong></li>
+<li>Select <strong>Databases</strong> from the left navigation panel</li>
+<li>Click <strong>Create database</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.9.png?featherlight=false&width=90pc"></p>
-<p>Configure the <strong>Engine</strong> for the database</p>
+<p><img alt="Create Database" src="/images/2-preparation/2.3-rds/2.3.8.png?featherlight=false&width=90pc"></p>
+<p>Select the database creation method:</p>
 <ul>
-<li>Select <strong>MySQL</strong></li>
+<li>Choose <strong>Standard create</strong> for full configuration options</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.10.png?featherlight=false&width=90pc"></p>
-<p>Configure <strong>Template</strong></p>
+<p><img alt="Standard Create Option" src="/images/2-preparation/2.3-rds/2.3.9.png?featherlight=false&width=90pc"></p>
+<p>Select the database engine:</p>
 <ul>
-<li>Select <strong>Production</strong></li>
-<li>Select <strong>Mutil-AZ DB instance</strong></li>
+<li>Choose <strong>MySQL</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.11.png?featherlight=false&width=90pc"></p>
-<p>Next, proceed with the detailed configuration</p>
+<p><img alt="MySQL Engine Selection" src="/images/2-preparation/2.3-rds/2.3.10.png?featherlight=false&width=90pc"></p>
+<p>Configure the deployment template:</p>
+<ul>
+<li>Select <strong>Production</strong> template</li>
+<li>Choose <strong>Multi-AZ DB instance</strong> for high availability</li>
+</ul>
+<p><strong>💡 Pro Tip</strong>: Multi-AZ deployments enhance availability by automatically provisioning and maintaining a synchronous standby replica in a different Availability Zone.</p>
+<p><img alt="Production Template" src="/images/2-preparation/2.3-rds/2.3.11.png?featherlight=false&width=90pc"></p>
+<p>Configure instance details:</p>
 <ul>
 <li>For <strong>DB instance identifier</strong>, enter <strong><code>fcj-management-db-instance</code></strong></li>
 <li>For <strong>Master username</strong>, enter <strong><code>admin</code></strong></li>
-<li>Select <strong>Self managed</strong></li>
+<li>Select <strong>Self managed</strong> for credential management</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.12.png?featherlight=false&width=90pc"></p>
-<p>Continue: - For <strong>Master password</strong>, enter your choice (in this lab, enter <strong><code>123Vodanhphai</code></strong>) - For <strong>Confirm password</strong>, re-enter the password once more.</p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.13.png?featherlight=false&width=90pc"></p>
-<p>Configure the details for the instance:</p>
+<p><img alt="Instance Configuration" src="/images/2-preparation/2.3-rds/2.3.12.png?featherlight=false&width=90pc"></p>
+<p>Set the database password:</p>
 <ul>
-<li>Select <strong><code>db.m5d.large</code></strong></li>
-<li>Select <strong><code>General Purpose SSD (gp3)</code></strong></li>
-<li>For Allocated storage, enter <strong><code>20</code></strong></li>
+<li>For <strong>Master password</strong>, enter a strong password (for this lab: <strong><code>123Vodanhphai</code></strong>)</li>
+<li>Confirm the password</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.14.png?featherlight=false&width=90pc"></p>
-<p>Configure the Connectivity for the db instance</p>
+<p><strong>🔒 Security Note</strong>: In production environments, always use complex passwords and consider using AWS Secrets Manager to automatically rotate credentials.</p>
+<p><img alt="Password Configuration" src="/images/2-preparation/2.3-rds/2.3.13.png?featherlight=false&width=90pc"></p>
+<p>Configure instance specifications:</p>
 <ul>
-<li>Select <strong>Don&rsquo;t connect to an EC2 compute resouce</strong></li>
-<li>For <strong>VPC</strong>, select the created <strong><code>AutoScaling-Lab</code></strong></li>
-<li>For <strong>Subnet group</strong>, choose the subnet group you created.</li>
+<li>Select <strong><code>db.m5d.large</code></strong> for the instance class</li>
+<li>Choose <strong>General Purpose SSD (gp3)</strong> for storage type</li>
+<li>Set <strong>Allocated storage</strong> to <strong><code>20</code></strong> GiB</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.15.png?featherlight=false&width=90pc"></p>
-<p>Continue:</p>
+<p><img alt="Instance Specifications" src="/images/2-preparation/2.3-rds/2.3.14.png?featherlight=false&width=90pc"></p>
+<p>Configure connectivity settings:</p>
+<ul>
+<li>Select <strong>Don&rsquo;t connect to an EC2 compute resource</strong></li>
+<li>For <strong>VPC</strong>, select your created VPC (<strong><code>AutoScaling-Lab</code></strong>)</li>
+<li>For <strong>Subnet group</strong>, choose the subnet group you created earlier</li>
+</ul>
+<p><img alt="Connectivity Configuration" src="/images/2-preparation/2.3-rds/2.3.15.png?featherlight=false&width=90pc"></p>
+<p>Configure security settings:</p>
 <ul>
 <li>For <strong>VPC security group</strong>, select <strong>Choose existing</strong></li>
-<li>For <strong>Security Group</strong>, select <strong>FCJ-Management-DB-SG</strong> (to avoid confusion with the web application&rsquo;s security group).</li>
+<li>For <strong>Security Group</strong>, select <strong>FCJ-Management-DB-SG</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.16.png?featherlight=false&width=90pc"></p>
-<p>Initialize the database with the name <strong><code>awsfcjuer</code></strong>, and leave the rest as default.</p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.17.png?featherlight=false&width=90pc"></p>
-<p>Click on <strong>Create database</strong></p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.18.png?featherlight=false&width=90pc"></p>
-<p>The database instance has been created successfully.</p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.19.png?featherlight=false&width=90pc"></p>
-<p>We have the Endpoint and Port as shown below.</p>
-<p><img alt="Image" src="/images/2-preparation/2.3-rds/2.3.20.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: Using dedicated security groups for your database tier helps maintain proper network segmentation and access control.</p>
+<p><img alt="Security Configuration" src="/images/2-preparation/2.3-rds/2.3.16.png?featherlight=false&width=90pc"></p>
+<p>Configure initial database settings:</p>
+<ul>
+<li>Set the initial database name to <strong><code>awsfcjuer</code></strong></li>
+<li>Leave other settings at their default values</li>
+</ul>
+<p><img alt="Initial Database Configuration" src="/images/2-preparation/2.3-rds/2.3.17.png?featherlight=false&width=90pc"></p>
+<p>Complete the database creation:</p>
+<ul>
+<li>Click <strong>Create database</strong></li>
+</ul>
+<p><img alt="Create Database Button" src="/images/2-preparation/2.3-rds/2.3.18.png?featherlight=false&width=90pc"></p>
+<p>Verify successful database creation:</p>
+<p><img alt="Database Created Successfully" src="/images/2-preparation/2.3-rds/2.3.19.png?featherlight=false&width=90pc"></p>
+<p>Note the database endpoint and port for future reference:</p>
+<p><strong>💡 Pro Tip</strong>: You&rsquo;ll need this endpoint information when configuring your application to connect to the database.</p>
+<p><img alt="Database Endpoint Information" src="/images/2-preparation/2.3-rds/2.3.20.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -1326,19 +1346,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746189"></script>
-    <script src="/js/jquery.sticky.js?1733746189"></script>
-    <script src="/js/featherlight.min.js?1733746189"></script>
-    <script src="/js/highlight.pack.js?1733746189"></script>
+    <script src="/js/clipboard.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703291"></script>
+    <script src="/js/jquery.sticky.js?1744703291"></script>
+    <script src="/js/featherlight.min.js?1744703291"></script>
+    <script src="/js/highlight.pack.js?1744703291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746189"></script>
-    <script src="/js/learn.js?1733746189"></script>
-    <script src="/js/hugo-learn.js?1733746189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703291"></script>
+    <script src="/js/learn.js?1744703291"></script>
+    <script src="/js/hugo-learn.js?1744703291"></script>
 
-    <link href="/mermaid/mermaid.css?1733746189" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746189"></script>
+    <link href="/mermaid/mermaid.css?1744703291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

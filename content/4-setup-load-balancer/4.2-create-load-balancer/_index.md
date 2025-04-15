@@ -6,57 +6,70 @@ chapter: false
 pre: "<strong>4.2. </strong>"
 ---
 
-#### Create Load Balancer
+#### Creating an Application Load Balancer
 
-In the EC2 management interface, in the left selection panel:
+**ℹ️ Information**: Application Load Balancers operate at the application layer (Layer 7) and are ideal for HTTP/HTTPS traffic routing. They provide advanced request routing capabilities, support for containerized applications, and integration with AWS services.
 
-- Select **Load Balancers**
-- Click the **Create Load Balancer** button
+Navigate to the Load Balancer creation interface:
 
-![4.2.1](/images/4-setup-load-balancer/4.2.1.png)
+1. In the EC2 management console:
+   - Select **Load Balancers** from the left navigation pane
+   - Click the **Create Load Balancer** button
 
-A "Compare and select load balancer type" panel appears.
+![Load Balancer Creation Interface](/images/4-setup-load-balancer/4.2.1.png?featherlight=false&width=90pc)
 
-- In the Load balancer types section:
-  - Under **Application Load Balancer**
-  - Click **Create**
+2. In the "Compare and select load balancer type" panel:
+   - Locate the **Application Load Balancer** section
+   - Click **Create**
 
-![4.2.2](/images/4-setup-load-balancer/4.2.2.png)
+![Load Balancer Type Selection](/images/4-setup-load-balancer/4.2.2.png?featherlight=false&width=90pc)
 
-You will see the "Create Application Load Balancer" panel.
+#### Configuring Load Balancer Settings
 
-- In the **Basic configuration** section:
-  - Load balancer name: `FCJ-Management-LB`
-  - Scheme: **Internet-facing**
-  - Load balancer IP address type: **IPv4**
+In the "Create Application Load Balancer" configuration panel:
 
-![4.2.3](/images/4-setup-load-balancer/4.2.3.png)
+1. Basic configuration:
+   - Load balancer name: `FCJ-Management-LB`
+   - Scheme: **Internet-facing**
+   - IP address type: **IPv4**
 
-- In the Network mapping section:
-  - Select VPC: **AutoScaling-Lab**
-  - Choose Public Subnets: **ap-southeast-1a**, **ap-southeast-1b**, **ap-southeast-1c**. Note: choose **public subnet**
+![Basic Load Balancer Configuration](/images/4-setup-load-balancer/4.2.3.png?featherlight=false&width=90pc)
 
-![4.2.4](/images/4-setup-load-balancer/4.2.4.png)
+2. Network mapping:
+   - VPC: **AutoScaling-Lab**
+   - Availability Zones: Select all three public subnets in **ap-southeast-1a**, **ap-southeast-1b**, and **ap-southeast-1c**
 
-- In the Security groups section:
-  - Security groups: **FCJ-Management-SG**
-- In the Listeners and routing section:
-  - Default action: **FCJ-Management-TG**
+![Network Mapping Configuration](/images/4-setup-load-balancer/4.2.4.png?featherlight=false&width=90pc)
 
-![4.2.5](/images/4-setup-load-balancer/4.2.5.png)
+**⚠️ Warning**: Ensure you select only public subnets for internet-facing load balancers. Private subnets cannot receive traffic from the internet.
 
-- In the Summary section, you can review the information configured for the Load Balancer:
-  - Click the **Create Balancer** button
+3. Security and routing configuration:
+   - Security groups: **FCJ-Management-SG**
+   - Listeners and routing: Set default action to forward to **FCJ-Management-TG**
 
-![4.2.6](/images/4-setup-load-balancer/4.2.6.png)
+![Security and Routing Configuration](/images/4-setup-load-balancer/4.2.5.png?featherlight=false&width=90pc)
 
-#### Result
+4. Review the configuration summary:
+   - Verify all settings are correct
+   - Click **Create load balancer**
 
-After creating the Load Balancer, select **FCJ-Management-LB** to view its information.
+![Configuration Review](/images/4-setup-load-balancer/4.2.6.png?featherlight=false&width=90pc)
 
-![4.2.7](/images/4-setup-load-balancer/4.2.7.png)
+#### Verifying Load Balancer Deployment
 
-- In the management section for the created Load Balancer:
-  - Select **Resource map - new** to view an overview of the Load Balancer's connections
+After successful creation:
 
-![4.2.8](/images/4-setup-load-balancer/4.2.8.png)
+1. Select **FCJ-Management-LB** from the load balancers list
+2. Review the load balancer details, including DNS name, state, and listeners
+
+![Load Balancer Details](/images/4-setup-load-balancer/4.2.7.png?featherlight=false&width=90pc)
+
+3. Explore the load balancer's connections:
+   - Select **Resource map - new** to visualize the load balancer architecture
+   - Verify connections to target groups and registered targets
+
+![Load Balancer Resource Map](/images/4-setup-load-balancer/4.2.8.png?featherlight=false&width=90pc)
+
+**💡 Pro Tip**: Application Load Balancers support content-based routing, allowing you to route requests to different target groups based on URL paths, host headers, or query parameters. This enables microservices architectures where different services handle specific request patterns.
+
+**🔒 Security Note**: For production workloads, consider implementing HTTPS listeners with certificates from AWS Certificate Manager (ACM) to ensure encrypted communication between clients and your load balancer.

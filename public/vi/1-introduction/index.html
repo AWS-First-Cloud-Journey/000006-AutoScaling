@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Giới thiệu :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
+    <title>Giới thiệu :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         active
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -792,7 +792,7 @@
             
           
           
-            <a href='/vi/'>Triển khai ứng dụng FCJ Management với Auto Scaling Group</a> > Giới thiệu
+            <a href='/vi/'>Triển khai ứng dụng FCJ Management với Auto Scaling Group</a> > Giới thiệu
           
         
           
@@ -827,7 +827,7 @@
           
             <h1>
               
-              Giới thiệu
+              Giới thiệu
             </h1>
           
 
@@ -837,34 +837,56 @@
 
 	<h4 id="giới-thiệu">Giới thiệu</h4>
 <p>Trong bài thực hành này, chúng ta sẽ tiến hành triển khai ứng dụng sử dụng Auto Scaling Group để đảm bảo khả năng mở rộng linh hoạt theo nhu cầu của người dùng. Chúng ta cũng sẽ triển khai Load Balancer để cân bằng tải và phân phối yêu cầu truy cập từ người dùng đến Application Tier.</p>
-<p>Hãy đảm bảo bạn đã tham khảo tài liệu <a href="https://000004.awsstudygroup.com/">Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux</a> và hiểu cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ sử dụng máy ảo <strong>FCJ Management</strong> đã triển khai để thực hiện việc triển khai và mở rộng trong Auto Scaling Group.</p>
+<p>ℹ️ <strong>Information</strong>: Hãy đảm bảo bạn đã tham khảo tài liệu <a href="https://000004.awsstudygroup.com/">Triển khai Ứng dụng FCJ Management trên Máy ảo Windows/AmazonLinux</a> và hiểu cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ sử dụng máy ảo <strong>FCJ Management</strong> đã triển khai để thực hiện việc triển khai và mở rộng trong Auto Scaling Group.</p>
 <h4 id="auto-scaling-group">Auto Scaling Group</h4>
 <ol>
 <li>
 <p>Tại sao cần sử dụng Auto scaling group?</p>
-<p>Khi ứng dụng của chúng ta đưa vào hoạt động, lượng người truy cập sẽ thay đổi theo thời gian, do đó chúng ta cần thường xuyên thay đổi (scaling) lượng instance nhằm nâng cao tính sẵn sàng và tiết kiệm chi phí. Để tự động hóa và linh hoạt trong công việc scaling, chúng ta sẽ có giải pháp là Auto scaling group.</p>
+<p>Khi ứng dụng của chúng ta đưa vào hoạt động, lượng người truy cập sẽ thay đổi theo thời gian, do đó chúng ta cần thường xuyên thay đổi (scaling) lượng instance nhằm nâng cao tính sẵn sàng và tiết kiệm chi phí. Để tự động hóa và linh hoạt trong công việc scaling, chúng ta sẽ có giải pháp là Auto Scaling Group.</p>
 </li>
 <li>
-<p>Sơ lược về Auto scaling group</p>
-<p><strong>Auto Scaling Group (ASG)</strong> giúp tự động điều chỉnh số lượng EC2 instances theo nhu cầu của ứng dụng. ASG có thể tự động mở rộng (scale up) khi lưu lượng tăng, hoặc thu nhỏ (scale down) khi lưu lượng giảm, giúp tối ưu hóa tài nguyên và giảm chi phí. Nó cũng giúp đảm bảo tính sẵn sàng cao bằng cách phân phối instances qua nhiều Availability Zones để duy trì hoạt động liên tục ngay cả khi một phần của hệ thống gặp sự cố.</p>
+<p>Sơ lược về Auto Scaling Group</p>
+<p>ℹ️ <strong>Information</strong>: <strong>Amazon EC2 Auto Scaling Group (ASG)</strong> giúp tự động điều chỉnh số lượng EC2 instances theo nhu cầu của ứng dụng. ASG có thể tự động mở rộng (scale out) khi lưu lượng tăng, hoặc thu nhỏ (scale in) khi lưu lượng giảm, giúp tối ưu hóa tài nguyên và giảm chi phí. Nó cũng giúp đảm bảo tính sẵn sàng cao bằng cách phân phối instances qua nhiều Availability Zones để duy trì hoạt động liên tục ngay cả khi một phần của hệ thống gặp sự cố.</p>
 </li>
 <li>
 <p>Các loại Scaling trong ASG</p>
 <p>Trong nội dung này, chúng ta sẽ tìm hiểu về các loại Scaling sau đây:</p>
 <ul>
-<li><strong>Manual Scaling</strong>: Người dùng tự tay điều chỉnh số lượng EC2 instances trong Auto Scaling Group dựa trên yêu cầu. Đây là phương pháp thủ công, không tự động dựa trên chỉ số cụ thể.</li>
-<li><strong>Dynamic Scaling</strong>: Tự động điều chỉnh số lượng instances dựa trên các chỉ số thời gian thực như CPU utilization, network traffic, hoặc custom metrics từ CloudWatch. Dynamic scaling có 3 chính sách chính là <strong>Target Tracking Scaling</strong>, <strong>Step Scaling</strong>, <strong>Simple Scaling</strong>.</li>
-<li><strong>Scheduled Scaling</strong>: Cho phép chúng ta cấu hình các thời gian cụ thể để tự động mở rộng hoặc thu nhỏ instances, ví dụ như tăng số lượng instances vào giờ cao điểm hoặc giảm xuống ngoài giờ làm việc. Phù hợp cho các trường hợp mà chúng ta đã biết trước mô hình lưu lượng truy cập.</li>
-<li><strong>Predictive Scaling</strong>: Nó dự đoán hoạt động bằng cách phân tích load data trong lịch sử để tìm các mẫu hàng ngày hoặc hàng tuần trong luồng lưu lượng truy cập. Nó sử dụng thông tin này để dự báo nhu cầu công suất trong tương lai để Amazon EC2 Auto Scaling có thể chủ động tăng công suất của Auto Scaling group để phù hợp với dự kiến.</li>
+<li>
+<p><strong>Manual Scaling</strong>: Người dùng tự tay điều chỉnh số lượng EC2 instances trong Auto Scaling Group dựa trên yêu cầu. Đây là phương pháp thủ công, không tự động dựa trên chỉ số cụ thể.</p>
+</li>
+<li>
+<p><strong>Dynamic Scaling</strong>: Tự động điều chỉnh số lượng instances dựa trên các chỉ số thời gian thực như CPU utilization, network traffic, hoặc custom metrics từ Amazon CloudWatch. Dynamic scaling có 3 chính sách chính:</p>
+<ul>
+<li><strong>Target Tracking Scaling</strong>: Duy trì một giá trị mục tiêu cho metric cụ thể</li>
+<li><strong>Step Scaling</strong>: Điều chỉnh dựa trên ngưỡng metric với các bước tăng/giảm khác nhau</li>
+<li><strong>Simple Scaling</strong>: Điều chỉnh dựa trên một ngưỡng đơn giản</li>
+</ul>
+</li>
+<li>
+<p><strong>Scheduled Scaling</strong>: Cho phép chúng ta cấu hình các thời gian cụ thể để tự động mở rộng hoặc thu nhỏ instances, ví dụ như tăng số lượng instances vào giờ cao điểm hoặc giảm xuống ngoài giờ làm việc. Phù hợp cho các trường hợp mà chúng ta đã biết trước mô hình lưu lượng truy cập.</p>
+</li>
+<li>
+<p><strong>Predictive Scaling</strong>: Sử dụng machine learning để dự đoán hoạt động bằng cách phân tích load data trong lịch sử để tìm các mẫu hàng ngày hoặc hàng tuần trong luồng lưu lượng truy cập. Nó sử dụng thông tin này để dự báo nhu cầu công suất trong tương lai để Amazon EC2 Auto Scaling có thể chủ động tăng công suất của Auto Scaling Group để phù hợp với dự kiến.</p>
+</li>
 </ul>
 </li>
 </ol>
+<p>💡 <strong>Pro Tip</strong>: Kết hợp Predictive Scaling với Dynamic Scaling để đạt hiệu quả tối ưu - Predictive Scaling chuẩn bị trước cho các mẫu lưu lượng đã biết, trong khi Dynamic Scaling xử lý các biến động không lường trước được.</p>
 <h4 id="launch-template">Launch Template</h4>
-<p><strong>Launch Template</strong> là một cấu hình chứa các thông số cần thiết để khởi chạy EC2 instances. Nó lưu trữ các chi tiết như loại instance, AMI (Amazon Machine Image), key pair, network settings, security groups, và các thông tin khác về cấu hình của EC2. Nhằm đơn giản hóa việc tạo instance, hỗ trợ trong việc tự động tạo mới các instance trong ASG.</p>
+<p>ℹ️ <strong>Information</strong>: <strong>Launch Template</strong> là một cấu hình chứa các thông số cần thiết để khởi chạy EC2 instances. Nó lưu trữ các chi tiết như loại instance, AMI (Amazon Machine Image), key pair, network settings, security groups, và các thông tin khác về cấu hình của EC2. Nhằm đơn giản hóa việc tạo instance, hỗ trợ trong việc tự động tạo mới các instance trong ASG.</p>
+<p>🔒 <strong>Security Note</strong>: Launch Templates hỗ trợ quản lý phiên bản, cho phép bạn duy trì nhiều phiên bản cấu hình khác nhau và kiểm soát chặt chẽ các thay đổi, giúp tăng cường bảo mật và tuân thủ.</p>
 <h4 id="elastic-load-balancer">Elastic Load Balancer</h4>
-<p><strong>Elastic Load Balancer</strong> là một công cụ giúp phân phối đều tải công việc (traffic) đến nhiều máy chủ hoặc instances để đảm bảo hệ thống hoạt động ổn định và tránh quá tải cho bất kỳ một máy chủ nào. Nó giúp tối ưu hiệu suất, tăng tính sẵn sàng và đảm bảo rằng nếu một máy chủ gặp sự cố, lưu lượng sẽ được chuyển hướng tới các máy chủ khác mà không ảnh hưởng đến người dùng.</p>
+<p>ℹ️ <strong>Information</strong>: <strong>Elastic Load Balancer (ELB)</strong> là một dịch vụ giúp phân phối đều tải công việc (traffic) đến nhiều máy chủ hoặc instances để đảm bảo hệ thống hoạt động ổn định và tránh quá tải cho bất kỳ một máy chủ nào. Nó giúp tối ưu hiệu suất, tăng tính sẵn sàng và đảm bảo rằng nếu một máy chủ gặp sự cố, lưu lượng sẽ được chuyển hướng tới các máy chủ khác mà không ảnh hưởng đến người dùng.</p>
+<p>AWS cung cấp ba loại Load Balancer:</p>
+<ul>
+<li><strong>Application Load Balancer (ALB)</strong>: Tối ưu cho HTTP/HTTPS traffic, hoạt động ở tầng ứng dụng (Layer 7)</li>
+<li><strong>Network Load Balancer (NLB)</strong>: Xử lý traffic ở tầng vận chuyển (Layer 4), phù hợp cho các ứng dụng yêu cầu hiệu suất cực cao</li>
+<li><strong>Gateway Load Balancer (GWLB)</strong>: Dùng để triển khai và quản lý các thiết bị mạng ảo</li>
+</ul>
 <h4 id="target-group">Target Group</h4>
-<p><strong>Target Group</strong> là một thành phần của Elastic Load Balancer (ELB), dùng để xác định và quản lý các EC2 instances mà Load Balancer sẽ phân phối lưu lượng truy cập đến.</p>
+<p>ℹ️ <strong>Information</strong>: <strong>Target Group</strong> là một thành phần của Elastic Load Balancer (ELB), dùng để xác định và quản lý các EC2 instances, IP addresses, Lambda functions, hoặc các container mà Load Balancer sẽ phân phối lưu lượng truy cập đến. Target Group cũng định nghĩa các health check để đảm bảo traffic chỉ được gửi đến các targets khỏe mạnh.</p>
+<p>⚠️ <strong>Warning</strong>: Cấu hình health check không phù hợp có thể dẫn đến việc loại bỏ các instances khỏe mạnh hoặc giữ lại các instances có vấn đề trong Target Group. Hãy đảm bảo thiết lập các ngưỡng timeout, interval và threshold phù hợp với đặc điểm ứng dụng của bạn.</p>
 
 
 
@@ -1252,19 +1274,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

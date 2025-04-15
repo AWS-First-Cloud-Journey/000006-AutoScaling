@@ -6,74 +6,71 @@ chapter: false
 pre: "<strong>7.2. </strong>"
 ---
 
-### Scheduled Scaling
+#### Scheduled Scaling
 
-Scheduled Scaling là mình sẽ cho ASG biết là khi nào, khoảng thời gian nào là nó nên khởi tạo thêm các instance và thời điểm nào là nó nên xoá bớt đi các instance. Loại scale này phù hợp cho các lượng công việc mà trong đó nó sẽ biến động theo một khoảng thời gian nhất định, có tính chất lặp lại từng ngày và trong một khoảng thời gian dài.
+**ℹ️ Information**: Scheduled Scaling cho phép bạn cấu hình Auto Scaling Group (ASG) để tự động điều chỉnh số lượng instance theo lịch trình đã định sẵn. Giải pháp này phù hợp với các workload có tính chu kỳ, biến động theo thời gian cụ thể và lặp lại theo quy luật trong thời gian dài.
 
-Vì ở phần trước thì chúng ta đã cài đặt phần kiểm thử rồi, nên giớ chúng ta sẽ không cần phải cài đặt lại nữa, tiếp tục dùng các thông số cài đặt đó.
+Vì đã cài đặt phần kiểm thử ở phần trước, chúng ta sẽ tiếp tục sử dụng các thông số cài đặt đó mà không cần cấu hình lại.
 
 #### Tiến hành cấu hình
 
-Vào trong trang thông tin của ASG đã tạo, vào tab Automatic scaling, kéo xuống dưới cùng.
+Truy cập vào trang thông tin chi tiết của ASG đã tạo, chọn tab **Automatic scaling**, sau đó kéo xuống phần cuối trang:
 
 ![7.2.1](/images/7-test-solution/7.2.1.png)
 
-Ở dưới phần Scheduled actions, ấn **Create scheduled action**
+Trong phần Scheduled actions, nhấn **Create scheduled action**:
 
 ![7.2.2](/images/7-test-solution/7.2.2.png)
 
-Một biểu mẫu sẽ hiện lên, điền các thông tin như sau
+Điền các thông tin vào biểu mẫu như sau:
 
-- Name: `Rush hour`.
-- Desired capacity: **1**.
-- Min: **1** (các bạn nên để là 0).
-- Max: **3**.
-- Recurrence: **Once** (hoặc bất kì lựa chọn nào khác).
-- Time zone: **Asia/Ho_Chi_Minh**.
-- Specific start time: nên chỉnh thời gian gần nhất với lúc mà bạn đang cấu hình.
-- Ấn **Create** để tạo.
+- Name: `Rush hour`
+- Desired capacity: **1**
+- Min: **1** (**💡 Pro Tip**: Nên cấu hình là 0 trong môi trường thực tế để tối ưu chi phí)
+- Max: **3**
+- Recurrence: **Once** (hoặc lựa chọn khác phù hợp với nhu cầu)
+- Time zone: **Asia/Ho_Chi_Minh**
+- Specific start time: Chọn thời gian gần nhất với thời điểm hiện tại
+- Nhấn **Create** để hoàn tất
 
 ![7.2.3](/images/7-test-solution/7.2.3.png)
 
 {{% notice note %}}
-Các thông số Desired capacity, Min hay Max nó đều sẽ ảnh hưởng tới các thông số tương ứng của ASG, nên trên thực tế thì chúng ta cũng sẽ cần phải kết hợp nhiều loại scaling và cân nhắc, xem xét kĩ lưỡng khi cấu hình các thông số này.
+Các thông số Desired capacity, Min và Max sẽ ảnh hưởng trực tiếp đến cấu hình tương ứng của ASG. Trong môi trường sản xuất, cần kết hợp nhiều loại scaling và cân nhắc kỹ lưỡng khi thiết lập các thông số này.
 {{% /notice %}}
 
-Đã tạo thành công.
+Sau khi tạo thành công, bạn sẽ thấy scheduled action mới trong danh sách:
 
 ![7.2.4](/images/7-test-solution/7.2.4.png)
 
 #### Kiểm thử
 
-Trước khi ASG khởi tạo instance theo lịch khoảng 5 phút, thì chúng ta nên chạy chương trình test.
+**⚠️ Warning**: Nên bắt đầu chạy chương trình kiểm thử khoảng 5 phút trước khi ASG dự kiến khởi tạo instance theo lịch trình để có thể quan sát đầy đủ hiệu quả của scheduled scaling.
 
 ![7.2.5](/images/7-test-solution/7.2.5.png)
 
-Sau một vài phút, thời điểm ASG khởi tạo instance mới đã tới. Lúc này vào trong tab **Activity** để xem các hoạt động của ASG. Có thể thấy là sự kiện **Executing scheduled action Rush hour** được khởi động vào đúng thời điểm và sau đó thì ASG khởi tạo instance mới.
+Sau vài phút, khi thời điểm đã đến, vào tab **Activity** để theo dõi các hoạt động của ASG. Bạn sẽ thấy sự kiện **Executing scheduled action Rush hour** được kích hoạt đúng thời điểm đã cấu hình, sau đó ASG sẽ khởi tạo instance mới:
 
 ![7.2.6](/images/7-test-solution/7.2.6.png)
 
-Trở lại với EC2 Console, các metrics sẽ được cập nhật vào mỗi 15 phút một lần, nên khi quay lại để quan sát các thông số này, tập chung vào biểu đồ CPU Utilization, thì chúng ta có thể thấy là từ khoảng 14:30 tới 14:40 thì có một đoạn bị gấp khúc và tăng cao, đó là khi mà chung ta mở chương trình test.
+**ℹ️ Information**: Quay lại EC2 Console để quan sát các metrics. Lưu ý rằng các metrics được cập nhật 15 phút một lần. Khi xem biểu đồ CPU Utilization, bạn có thể thấy đoạn gấp khúc và tăng cao từ khoảng 14:30 đến 14:40, đây là thời điểm chúng ta chạy chương trình kiểm thử:
 
 ![7.2.7](/images/7-test-solution/7.2.7.png)
 
-Đợt tiếp thêm vài phút để các metric này được cập nhật, khi được cập nhật thì tích chọn thêm instance vừa mới được khởi tạo.
+Đợi thêm vài phút để các metrics được cập nhật đầy đủ, sau đó tích chọn thêm instance vừa được khởi tạo:
 
 ![7.2.8](/images/7-test-solution/7.2.8.png)
 
-Chúng ta có thể thấy là sau khúc 14:40 thì đường biểu đồ đã đi xuống.
-
-Phóng to biểu đồ này lên
-
-- Chọn **1h**
-- Chọn **1 second**
+**💡 Pro Tip**: Để quan sát chi tiết hơn, bạn có thể phóng to biểu đồ bằng cách:
+- Chọn **1h** cho khung thời gian
+- Chọn **1 second** cho độ phân giải
 
 ![7.2.9](/images/7-test-solution/7.2.9.png)
 
-Chúng ta sẽ thấy rõ hơn về sự thay đổi.
+Với cài đặt này, bạn sẽ thấy rõ hơn sự thay đổi trong hiệu suất hệ thống trước và sau khi instance mới được thêm vào.
 
 #### Kết luận
 
-Trong thực tế thì các sàn giao dịch thường sẽ có các thời điểm mà lượng người dùng sẽ tăng cao. Và việc tăng cao này nó giống như giờ cao điểm ở giao thông, cứ vào một khoảng thời điểm nhất định nào đó thì lượng người tham gia giao thông / giao dịch sẽ tăng cao, việc này sẽ lặp lại vào mỗi ngày trong một thời gian dài. Khi đó thì mình sẽ cần lên lịch cho các instance mới để chịu tải.
+**ℹ️ Information**: Trong môi trường thực tế, nhiều hệ thống như sàn giao dịch thường có các thời điểm lưu lượng người dùng tăng cao theo quy luật. Hiện tượng này tương tự như "giờ cao điểm" trong giao thông - vào những khoảng thời gian nhất định, lượng người tham gia giao dịch tăng đột biến và lặp lại hàng ngày trong thời gian dài. Scheduled Scaling giúp chuẩn bị trước các instance để đáp ứng nhu cầu tăng cao này.
 
-Nhưng trong thực tế thì chúng ta cần sẽ phải kết hợp với các loại scaling khác để tăng độ tin cậy của hệ thống.
+**🔒 Security Note**: Mặc dù Scheduled Scaling rất hiệu quả cho các workload có tính chu kỳ, trong thực tế nên kết hợp với các loại scaling khác như Dynamic Scaling để tăng độ tin cậy và khả năng đáp ứng của hệ thống trước các biến động không lường trước được.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Launch Template :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,8 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#amis-và-launch-template">AMIs và Launch Template</a></li>
-        <li><a href="#thiết-lập-launch-templates">Thiết lập Launch Templates</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -836,73 +835,70 @@
 
 
 
-	<h3 id="amis-và-launch-template">AMIs và Launch Template</h3>
-<p>AMIs (Amazon Machine Images) lưu trữ các thông tin như hệ điều hành, ứng dụng, cài đặt ở EC2 mà chúng được tạo. Việc tạo ra AMI đảm bảo rằng khi máy chủ mới được tạo ra thì nó được mọi máy chủ mới đều giống nhau và có thể hoạt động ngay lập tức</p>
-<p>Launch template là một công cụ mà chúng ta dùng để cấu hình cho việc khởi tạo các EC2 mới thông AMI được gắn, loại instance, cấu hình mạng, và các tuỳ chọn bảo mật. Khi chúng ta muốn khởi tạo một hoặc nhiều máy chủ giống nhau, chúng ta chỉ cần sử dụng launch template đã được cấu hình để thực hiện việc này.</p>
-<h3 id="thiết-lập-launch-templates">Thiết lập Launch Templates</h3>
+	<h4 id="amis-và-launch-template">AMIs và Launch Template</h4>
+<p><strong>ℹ️ Information</strong>: AMIs (Amazon Machine Images) lưu trữ các thông tin như hệ điều hành, ứng dụng, và cấu hình của EC2 instance mà chúng được tạo từ đó. Việc tạo AMI đảm bảo rằng khi khởi tạo máy chủ mới, tất cả các instance đều giống nhau và có thể hoạt động ngay lập tức.</p>
+<p>Launch template là một công cụ mà chúng ta dùng để cấu hình việc khởi tạo các EC2 instance mới thông qua AMI được chỉ định, loại instance, cấu hình mạng, và các tùy chọn bảo mật. Khi cần khởi tạo một hoặc nhiều máy chủ giống nhau, chúng ta chỉ cần sử dụng launch template đã được cấu hình sẵn.</p>
+<h4 id="thiết-lập-launch-templates">Thiết lập Launch Templates</h4>
 <h4 id="tạo-amazon-machine-images-amis-từ-ec2">Tạo Amazon Machine Images (AMIs) từ EC2</h4>
-<p>Ở trong phần giao diện quản lý <strong>EC2</strong>, ở bảng chọn bên phải</p>
+<p>Ở trong phần giao diện quản lý <strong>EC2</strong>, ở bảng điều hướng bên trái:</p>
 <ul>
 <li>Chọn <strong>Instances</strong></li>
-<li>Chọn <strong>FCJ-Management</strong> instance</li>
+<li>Chọn instance <strong>FCJ-Management</strong></li>
 <li>Chọn <strong>Actions</strong></li>
 <li>Chọn <strong>Image and templates</strong></li>
 <li>Ấn <strong>Create image</strong></li>
 </ul>
 <p><img alt="3.1" src="/images/3-create-launch-template/3.1.png"></p>
-<p>Trong bảng cấu hình cho <strong>Create AMI</strong>, chúng ta tiến hành điền các thông tin sau</p>
+<p>Trong bảng cấu hình <strong>Create AMI</strong>, điền các thông tin sau:</p>
 <ul>
-<li>Image name <code>FCJ-Management-AMI</code></li>
-<li>Image description <code>AMI for FCJ-Management</code></li>
+<li>Image name: <code>FCJ-Management-AMI</code></li>
+<li>Image description: <code>AMI for FCJ-Management</code></li>
 <li>Ấn <strong>Create Image</strong></li>
 </ul>
 <p><img alt="3.2" src="/images/3-create-launch-template/3.2.png"></p>
-<p>Sau khi tạo AMI chúng ta sẽ kiểm tra AMI vừa tạo</p>
+<p>Sau khi tạo AMI, kiểm tra AMI vừa tạo:</p>
 <ul>
-<li>Chọn <strong>AMIs</strong> chúng ta sẽ thấy AMI vừa tạo được</li>
-<li>Chọn <strong>FCJ-Management-AMI</strong></li>
+<li>Chọn <strong>AMIs</strong> trong bảng điều hướng bên trái</li>
+<li>Tìm và chọn <strong>FCJ-Management-AMI</strong></li>
 </ul>
 <p><img alt="3.3" src="/images/3-create-launch-template/3.3.png"></p>
-<p>
-<div class="notices note" ><p>Quá trình khởi tạo AMI sẽ mất khoảng 3 phút, sau quá trình khởi tạo chúng ta sẽ thấy <strong>Status</strong> của AMI chuyển từ trạng <strong>Available</strong></p>
-</div>
-
-<img alt="3.4" src="/images/3-create-launch-template/3.4.png"></p>
-<p>Chúng ta vừa hoàn thành tạo một Image để lưu cấu hình của EC2</p>
+<p><strong>⚠️ Warning</strong>: Quá trình khởi tạo AMI sẽ mất khoảng 3 phút. Sau quá trình khởi tạo, <strong>Status</strong> của AMI sẽ chuyển sang trạng thái <strong>Available</strong>.</p>
+<p><img alt="3.4" src="/images/3-create-launch-template/3.4.png"></p>
+<p><strong>💡 Pro Tip</strong>: Chúng ta vừa hoàn thành việc tạo một Image để lưu cấu hình của EC2 instance. AMI này sẽ giúp đảm bảo tính nhất quán khi triển khai nhiều instance.</p>
 <h4 id="tạo-launch-templates">Tạo Launch Templates</h4>
-<p>Ở giao diện quản lý <strong>EC2</strong>, ở bảng chọn bên phải</p>
+<p>Ở giao diện quản lý <strong>EC2</strong>, ở bảng điều hướng bên trái:</p>
 <ul>
 <li>Chọn <strong>Launch Templates</strong></li>
-<li>Chọn <strong>Create lkunch template</strong></li>
+<li>Chọn <strong>Create launch template</strong></li>
 </ul>
 <p><img alt="3.5" src="/images/3-create-launch-template/3.5.png"></p>
-<p>Ở trong bảng <strong>Create launch template</strong> hãy điền các thông tin sau</p>
+<p>Trong bảng <strong>Create launch template</strong>, điền các thông tin sau:</p>
 <ul>
-<li>Ở phần <strong>Launch template name and description</strong>
+<li>Ở phần <strong>Launch template name and description</strong>:
 <ul>
-<li>Launch template name <code>FCJ-Management-template</code></li>
-<li>Template version description <code>Template for FCJ Management</code></li>
+<li>Launch template name: <code>FCJ-Management-template</code></li>
+<li>Template version description: <code>Template for FCJ Management</code></li>
 </ul>
 </li>
 </ul>
 <p><img alt="3.6" src="/images/3-create-launch-template/3.6.png"></p>
 <ul>
-<li>Ở phần <strong>Application and OS Image (Amazon Machine Image)</strong>
+<li>Ở phần <strong>Application and OS Image (Amazon Machine Image)</strong>:
 <ul>
 <li>Chọn <strong>My AMIs</strong></li>
 <li>Chọn <strong>Owned by me</strong></li>
-<li>Chọn loại <strong>Amazon Machine Image (AMI)</strong>, chọn AMI đã tạo <strong>FCJ-Management-AMI</strong></li>
+<li>Chọn AMI đã tạo <strong>FCJ-Management-AMI</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="3.7" src="/images/3-create-launch-template/3.7.png"></p>
 <ul>
-<li>Ở phần <strong>Instance type</strong>
+<li>Ở phần <strong>Instance type</strong>:
 <ul>
 <li>Chọn loại Instance <strong>t2.micro</strong></li>
 </ul>
 </li>
-<li>Ở phần <strong>Key pair (logic)</strong>
+<li>Ở phần <strong>Key pair (login)</strong>:
 <ul>
 <li>Chọn <strong>Key pair name</strong> có tên là <strong>fcj-key</strong></li>
 </ul>
@@ -910,7 +906,7 @@
 </ul>
 <p><img alt="3.8" src="/images/3-create-launch-template/3.8.png"></p>
 <ul>
-<li>Ở phần <strong>Network settings</strong>
+<li>Ở phần <strong>Network settings</strong>:
 <ul>
 <li>Chọn subnet public <strong>AutoScaling-Lab-public-ap-southeast-1a</strong></li>
 <li>Chọn <strong>Select existing security group</strong></li>
@@ -920,17 +916,22 @@
 </li>
 </ul>
 <p><img alt="3.9" src="/images/3-create-launch-template/3.9.png"></p>
+<p><strong>🔒 Security Note</strong>: Việc chọn đúng security group là rất quan trọng để đảm bảo các quy tắc truy cập phù hợp cho instance của bạn. Hãy đảm bảo security group chỉ mở các cổng cần thiết.</p>
 <h4 id="kết-quả">Kết quả</h4>
-<p>Kiểm tra Launch Template vừa tạo</p>
+<p>Kiểm tra Launch Template vừa tạo:</p>
 <ul>
 <li>Chọn <strong>FCJ-Management-template</strong></li>
 </ul>
 <p><img alt="3.10" src="/images/3-create-launch-template/3.10.png"></p>
 <ul>
-<li>Ở đây chúng ta có thể xem lại cấu hình Launch Template chúng ta đã tạo</li>
+<li>Ở đây chúng ta có thể xem lại cấu hình Launch Template đã tạo</li>
 </ul>
 <p><img alt="3.11" src="/images/3-create-launch-template/3.11.png"></p>
-<p>Chúng ta vừa hoàn thành tạo Launch Template.</p>
+<p><strong>💡 Pro Tip</strong>: Launch Template vừa tạo có thể được sử dụng để khởi tạo các EC2 instance riêng lẻ hoặc trong Auto Scaling Group. Bạn cũng có thể tạo nhiều phiên bản của cùng một template để quản lý các thay đổi theo thời gian.</p>
+<h4 id="tùy-chỉnh-nâng-cao-cho-launch-template">Tùy chỉnh nâng cao cho Launch Template</h4>
+<p>Ngoài các cấu hình cơ bản, Launch Template còn cho phép bạn tùy chỉnh nhiều thông số nâng cao để tối ưu hóa hiệu suất và chi phí cho các EC2 instance trong Auto Scaling Group.</p>
+<h5 id="sử-dụng-user-data">Sử dụng User Data</h5>
+<p>User Data là một tính năng mạnh mẽ cho phép bạn chạy script khi instance khởi động.</p>
 
 
 
@@ -1321,19 +1322,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

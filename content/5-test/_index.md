@@ -6,26 +6,49 @@ chapter: false
 pre: "<strong>5. </strong>"
 ---
 
-### Test the result
+#### Overview
 
-After deploying the Load Balancer, we will take the DNS name of the LB and paste it into the browser to test the deployment result.
+**ℹ️ Information**: In this section, we'll verify that our application is properly deployed behind the Application Load Balancer and functioning as expected. This testing phase ensures our infrastructure is correctly configured before proceeding to auto scaling implementation.
 
-![5.1.png](/images/5-test/5.1.png)
+#### Accessing the Application
 
-And here is the result.
+To test the deployment:
 
-![5.2.png](/images/5-test/5.2.png)
+1. Navigate to the EC2 console and select **Load Balancers**
+2. Locate the **FCJ-Management-LB** and copy its DNS name
+3. Paste the DNS name into your browser's address bar
 
-Now, we will perform some actions to check if the system is functioning properly. Try changing the information of a record.
+![Accessing the Application via Load Balancer DNS](/images/5-test/5.1.png?featherlight=false&width=90pc)
 
-![5.3.png](/images/5-test/5.3.png)
+**💡 Pro Tip**: The DNS name of your Application Load Balancer follows the format `name-1234567890.region.elb.amazonaws.com` and is globally resolvable, allowing access from anywhere with internet connectivity.
 
-After entering the information, we click Submit and receive a notification.
+#### Verifying Application Functionality
 
-![5.4.png](/images/5-test/5.4.png)
+Upon successful connection, you should see the FCJ Management application interface:
 
-Return to the homepage and get the result.
+![Application Interface](/images/5-test/5.2.png?featherlight=false&width=90pc)
 
-![5.5.png](/images/5-test/5.5.png)
+#### Testing CRUD Operations
 
-In the following test steps, we will mainly read the metrics, but you can also read and check whether the application slows down during the testing process.
+To verify complete functionality, test the application's data manipulation capabilities:
+
+1. Select a record and click the edit button to modify its information
+
+![Editing a Record](/images/5-test/5.3.png?featherlight=false&width=90pc)
+
+2. After entering the updated information, click **Submit**
+3. Verify you receive a success notification
+
+![Update Confirmation](/images/5-test/5.4.png?featherlight=false&width=90pc)
+
+4. Return to the homepage to confirm the changes are reflected in the database
+
+![Updated Record Verification](/images/5-test/5.5.png?featherlight=false&width=90pc)
+
+**⚠️ Warning**: If you encounter any errors during testing, verify that your security groups are properly configured to allow traffic on port 5000 and that your target group health checks are passing.
+
+#### Performance Monitoring
+
+**ℹ️ Information**: In subsequent testing steps, we'll focus on monitoring application metrics through Amazon CloudWatch. While reviewing these metrics, pay attention to any performance degradation that might occur during periods of increased load.
+
+**🔒 Security Note**: All traffic to your application is now flowing through the Application Load Balancer, which provides an additional security layer by isolating your EC2 instances from direct internet access. Consider implementing AWS WAF with your ALB for additional protection against common web exploits.

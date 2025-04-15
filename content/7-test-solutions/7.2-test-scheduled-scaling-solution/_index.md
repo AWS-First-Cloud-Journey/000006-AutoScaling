@@ -6,74 +6,95 @@ chapter: false
 pre: "<strong>7.2. </strong>"
 ---
 
-### Scheduled Scaling
+#### Overview
 
-Scheduled Scaling allows us to inform the ASG when it should launch additional instances and when it should remove instances. This type of scaling is suitable for workloads that fluctuate over a certain period, recurring daily, and over a long period.
+**ℹ️ Information**: Scheduled Scaling enables you to configure your Auto Scaling Group to automatically adjust capacity based on predictable load changes. This approach is ideal for workloads with consistent patterns that occur at specific times daily, weekly, or seasonally.
 
-Since we've already set up the testing in the previous section, we don't need to set it up again, and we can continue using those settings.
+#### Test Environment Setup
 
-#### Configuration
+Since we've already configured our load testing environment in the previous section, we'll continue using those settings for consistency in our comparison of scaling methods.
 
-Go to the ASG information page, navigate to the "Automatic scaling" tab, and scroll to the bottom.
+#### Configuring Scheduled Scaling
 
-![7.2.1](/images/7-test-solution/7.2.1.png)
+To implement scheduled scaling:
 
-Under the "Scheduled actions" section, click **Create scheduled action**.
+1. Navigate to your Auto Scaling Group details page
+2. Select the **Automatic scaling** tab
+3. Scroll to the **Scheduled actions** section at the bottom of the page
 
-![7.2.2](/images/7-test-solution/7.2.2.png)
+![Scheduled Actions Section](/images/7-test-solution/7.2.1.png?featherlight=false&width=90pc)
 
-A form will appear. Fill in the details as follows:
+4. Click **Create scheduled action**
 
-- Name: `Rush hour`.
-- Desired capacity: **1**.
-- Min: **1** (you can set it to 0).
-- Max: **3**.
-- Recurrence: **Once** (or any other option).
-- Time zone: **Asia/Ho_Chi_Minh**.
-- Specific start time: Set it to the nearest time you're configuring.
-- Click **Create** to create the scheduled action.
+![Create Scheduled Action Button](/images/7-test-solution/7.2.2.png?featherlight=false&width=90pc)
 
-![7.2.3](/images/7-test-solution/7.2.3.png)
+5. Configure the scheduled action with these parameters:
+   - Name: `Rush hour`
+   - Desired capacity: **1**
+   - Min: **1** (can be set to 0 depending on your requirements)
+   - Max: **3**
+   - Recurrence: **Once** (or select another pattern as needed)
+   - Time zone: **Asia/Ho_Chi_Minh** (select your appropriate time zone)
+   - Specific start time: Set to the nearest time from your current configuration
+   - Click **Create** to implement the scheduled action
 
-{{% notice note %}}
-The parameters for Desired capacity, Min, and Max will all affect the corresponding ASG parameters, so in practice, you will need to combine multiple scaling types and carefully consider these settings.
-{{% /notice %}}
+![Scheduled Action Configuration](/images/7-test-solution/7.2.3.png?featherlight=false&width=90pc)
 
-Successfully created.
+**⚠️ Warning**: The Desired capacity, Min, and Max parameters will override the corresponding ASG settings during the scheduled period. When implementing multiple scaling types in production, carefully consider how these values interact with other scaling policies.
 
-![7.2.4](/images/7-test-solution/7.2.4.png)
+After successful creation, you'll see your scheduled action in the list:
 
-#### Testing
+![Scheduled Action Created](/images/7-test-solution/7.2.4.png?featherlight=false&width=90pc)
 
-Approximately 5 minutes before the ASG launches instances as scheduled, we should run the test program.
+#### Testing the Scheduled Scaling
 
-![7.2.5](/images/7-test-solution/7.2.5.png)
+For effective testing:
 
-After a few minutes, when the scheduled time for ASG to launch new instances arrives, go to the **Activity** tab to monitor ASG actions. You'll see the **Executing scheduled action Rush hour** event triggered at the right time, and then the ASG launches a new instance.
+1. Start your load testing program approximately 5 minutes before the scheduled scaling action is set to trigger
 
-![7.2.6](/images/7-test-solution/7.2.6.png)
+![Load Testing Program](/images/7-test-solution/7.2.5.png?featherlight=false&width=90pc)
 
-Returning to the EC2 Console, metrics are updated every 15 minutes. When you revisit to observe these metrics, focus on the CPU Utilization chart. You can see that between 14:30 and 14:40, there is a spike, which was caused when we started the test program.
+2. When the scheduled time arrives, monitor the **Activity** tab of your ASG
+3. You should observe the **Executing scheduled action Rush hour** event triggering at the configured time, followed by the launch of a new instance
 
-![7.2.7](/images/7-test-solution/7.2.7.png)
+![ASG Activity Log](/images/7-test-solution/7.2.6.png?featherlight=false&width=90pc)
 
-Wait a few more minutes for these metrics to update. Once updated, select the newly launched instance.
+#### Analyzing the Results
 
-![7.2.8](/images/7-test-solution/7.2.8.png)
+To evaluate the effectiveness of scheduled scaling:
 
-You will notice that after 14:40, the chart declines.
+1. Return to the EC2 Console and examine the instance metrics (note that metrics update every 15 minutes)
+2. Focus on the CPU Utilization chart to observe the impact of your test
 
-Zoom in on this chart:
+![Initial CPU Metrics](/images/7-test-solution/7.2.7.png?featherlight=false&width=90pc)
 
-- Select **1h**.
-- Select **1 second**.
+**💡 Pro Tip**: In this example, you can see a CPU utilization spike between 14:30 and 14:40, which corresponds to when we initiated the load test. After the new instance was added by the scheduled action, the load was distributed, resulting in the subsequent decline.
 
-![7.2.9](/images/7-test-solution/7.2.9.png)
+3. For more detailed analysis, select the newly launched instance and adjust the chart view:
+   - Select **1h** timeframe
+   - Select **1 second** granularity
 
-You'll see the changes more clearly.
+![Detailed CPU Metrics](/images/7-test-solution/7.2.9.png?featherlight=false&width=90pc)
+
+This granular view clearly shows how the scheduled scaling action affected system performance.
+
+#### Real-World Applications
+
+**ℹ️ Information**: Scheduled Scaling is particularly valuable for applications with predictable usage patterns:
+
+- Financial trading platforms with market opening/closing traffic spikes
+- E-commerce sites during daily peak shopping hours
+- Enterprise applications with business-hour usage patterns
+- Batch processing jobs that run at specific times
+
+**🔒 Security Note**: While scheduled scaling helps optimize resource utilization, it's important to maintain minimum capacity levels that can handle unexpected traffic surges or potential DDoS attacks outside of scheduled scaling periods.
 
 #### Conclusion
 
-In reality, trading platforms often experience peak user traffic at certain times of the day. This increase in traffic is similar to rush hour in transportation, where traffic rises at a specific time each day and repeats daily for a long period. In such cases, we need to schedule new instances to handle the load.
+Scheduled Scaling provides a proactive approach to capacity management for workloads with predictable patterns. However, for maximum resilience and cost efficiency, AWS recommends combining scheduled scaling with other scaling types:
 
-However, in practice, we will need to combine this with other types of scaling to enhance the reliability of the system.
+- Use scheduled scaling for predictable, time-based patterns
+- Implement dynamic scaling to handle unexpected traffic variations
+- Consider predictive scaling for workloads with complex but recurring patterns
+
+This multi-layered approach ensures your application remains responsive while optimizing resource utilization and cost.

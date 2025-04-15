@@ -1,104 +1,131 @@
 ---
-title: "Setup network infrastructure"
+title: "Setup Network Infrastructure"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
 pre: "<strong>2.1. </strong>"
 ---
 
-#### Create VPC
+#### Creating Your VPC Environment
 
-Go to the [AWS Management Console](https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/)
+**ℹ️ Information**: In this section, we'll create a Virtual Private Cloud (VPC) with public and private subnets across multiple Availability Zones to ensure high availability for our Auto Scaling architecture.
 
-- Find **VPC**
-- Select **VPC**
+Navigate to the [AWS Management Console](https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/)
 
-![Image](/images/2-preparation/2.1-network/2.1.1.png?featherlight=false&width=90pc)
+- In the search bar, find and select **VPC**
 
-In the **VPC** Console
+![VPC Console Navigation](/images/2-preparation/2.1-network/2.1.1.png?featherlight=false&width=90pc)
+
+In the **VPC** Console:
 
 - Click **Create VPC**
 
-![Image](/images/2-preparation/2.1-network/2.1.2.png?featherlight=false&width=90pc)
+![Create VPC Button](/images/2-preparation/2.1-network/2.1.2.png?featherlight=false&width=90pc)
 
-In the **Create VPC** interface
+In the **Create VPC** interface:
 
-- Select **VPC and more**
-- Next, type your VPC name. In this lab, we name it **`AutoScaling-Lab`**
-- **IPv4 CIDR block**, type **`10.0.0.0/16`**
+- Select **VPC and more** for the comprehensive setup wizard
+- For VPC name, enter **`AutoScaling-Lab`**
+- For **IPv4 CIDR block**, enter **`10.0.0.0/16`**
 
-![Image](/images/2-preparation/2.1-network/2.1.3.png?featherlight=false&width=90pc)
+![VPC Configuration](/images/2-preparation/2.1-network/2.1.3.png?featherlight=false&width=90pc)
 
-Select as follows:
+Configure the VPC architecture:
 
-- Number of AZs: **3**
-- Number of public subnets: **3**
-- Number of private subnets: **3**
-- NAT gateways: **None**
+- Number of Availability Zones: **3** (for maximum resilience)
+- Number of public subnets: **3** (one per AZ)
+- Number of private subnets: **3** (one per AZ)
+- NAT gateways: **None** (we'll keep costs minimal for this lab)
 
-![Image](/images/2-preparation/2.1-network/2.1.4.png?featherlight=false&width=90pc)
+![VPC Architecture Configuration](/images/2-preparation/2.1-network/2.1.4.png?featherlight=false&width=90pc)
 
-Select as follows:
+Finalize the VPC creation:
 
 - VPC endpoints: **None**
-- Choose **Create VPC**
+- Click **Create VPC**
 
-![Image](/images/2-preparation/2.1-network/2.1.5.png?featherlight=false&width=90pc)
+![Create VPC Final Step](/images/2-preparation/2.1-network/2.1.5.png?featherlight=false&width=90pc)
 
-#### Allocate a public IP.
+#### Configuring Public Subnet Auto-Assignment
 
-Allocate a public IP.
+**ℹ️ Information**: For EC2 instances in public subnets to receive public IP addresses automatically, we need to enable auto-assign public IPv4 addresses.
 
-- Select **Subnets**
-- Select **public subnet**
-- Select **Edit subnet settings**
+To enable auto-assign public IP:
 
-![Image](/images/2-preparation/2.1-network/2.1.6.png?featherlight=false&width=90pc)
+- Select **Subnets** in the left navigation
+- Select a **public subnet**
+- Click **Edit subnet settings**
 
-Select **Enable auto-assign public IPv4 address**. Then select **Save**
+![Edit Subnet Settings](/images/2-preparation/2.1-network/2.1.6.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.1-network/2.1.7.png?featherlight=false&width=90pc)
+In the subnet settings:
 
-Check if the allocation was successful.
+- Check **Enable auto-assign public IPv4 address**
+- Click **Save**
 
-![Image](/images/2-preparation/2.1-network/2.1.8.png?featherlight=false&width=90pc)
+![Enable Auto-assign Public IP](/images/2-preparation/2.1-network/2.1.7.png?featherlight=false&width=90pc)
 
-Allocate for the remaining public subnet (do the same).
+Verify the configuration was successful:
 
-Next, we will create a **Security group**. - In the VPC console, select **Security groups** - Click **Create security group**
+![Verify Subnet Configuration](/images/2-preparation/2.1-network/2.1.8.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.1-network/2.1.9.png?featherlight=false&width=90pc)
+**💡 Pro Tip**: Repeat this process for all public subnets to ensure any EC2 instance launched in these subnets automatically receives a public IP address.
 
-Configure the **Security Group** - **Security group name**, enter **`FCJ-Management-SG`** - **Description**, enter **`Security Group for FCJ Management`** - **VPC**,select the VPC you just created: **AutoScaling-Lab**.
+#### Creating Application Security Group
 
-![Image](/images/2-preparation/2.1-network/2.1.10.png?featherlight=false&width=90pc)
+**ℹ️ Information**: Security Groups act as virtual firewalls for your instances to control inbound and outbound traffic.
 
-Configure the **Inbound rules** - First, configure **SSH** on port **22** with **Source: MyIP** to allow access to the instance. - Next, allow **HTTP** on port **80**. - Add **Custom TCP** on port **5000** for **FCJ Management** - Finally, allow **HTTPS** on port **443**.
+To create a security group for your application:
 
-![Image](/images/2-preparation/2.1-network/2.1.11.png?featherlight=false&width=90pc)
+- In the VPC console, select **Security groups**
+- Click **Create security group**
 
-Check the **Outbound rules** and click **Create security group**
+![Create Security Group](/images/2-preparation/2.1-network/2.1.9.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.1-network/2.1.12.png?featherlight=false&width=90pc)
+Configure the basic security group details:
 
-#### Create a security group for the database instance.
+- **Security group name**: **`FCJ-Management-SG`**
+- **Description**: **`Security Group for FCJ Management`**
+- **VPC**: Select the **AutoScaling-Lab** VPC you created
 
-We create a security group for the database instance. To ensure security, we do not configure the application's security group.
+![Security Group Basic Configuration](/images/2-preparation/2.1-network/2.1.10.png?featherlight=false&width=90pc)
 
-Configure the **security group**
+Configure the inbound rules:
 
-- **Security Group name**, enter **`FCJ-Mangement-DB-SG`**
-- **Description**, enter **`Security Group for DB instance`**
-- Select the VPC you just created.
+- Add rule for **SSH** (port **22**) with **Source: My IP** for secure administrative access
+- Add rule for **HTTP** (port **80**) with **Source: Anywhere-IPv4** for web traffic
+- Add rule for **Custom TCP** (port **5000**) with **Source: Anywhere-IPv4** for the FCJ Management application
+- Add rule for **HTTPS** (port **443**) with **Source: Anywhere-IPv4** for secure web traffic
 
-Configure the **Inbound rules**
+![Security Group Inbound Rules](/images/2-preparation/2.1-network/2.1.11.png?featherlight=false&width=90pc)
 
-- Select **Add rule**
-- Choose **MYSQL/Aurora** on port **3306**
-- Then select the source as **FCJ-Management-SG**
+**🔒 Security Note**: In a production environment, consider restricting access to specific IP ranges rather than using "Anywhere" for enhanced security.
 
-![Image](/images/2-preparation/2.1-network/2.1.13.png?featherlight=false&width=90pc)
+Review the outbound rules (default allows all outbound traffic) and click **Create security group**
 
-Check the **Outbound Rules** and finally click on **Create Security Group**.
+![Security Group Outbound Rules](/images/2-preparation/2.1-network/2.1.12.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.1-network/2.1.14.png?featherlight=false&width=90pc)
+#### Creating Database Security Group
+
+**ℹ️ Information**: For database instances, we'll create a separate security group with more restrictive access controls to enhance security.
+
+Configure the database security group:
+
+- **Security Group name**: **`FCJ-Management-DB-SG`**
+- **Description**: **`Security Group for DB instance`**
+- **VPC**: Select your **AutoScaling-Lab** VPC
+
+Configure the inbound rules:
+
+- Add rule for **MYSQL/Aurora** (port **3306**)
+- Set the source to the application security group **FCJ-Management-SG**
+
+![Database Security Group Configuration](/images/2-preparation/2.1-network/2.1.13.png?featherlight=false&width=90pc)
+
+**🔒 Security Note**: By referencing the application security group as the source, you ensure that only EC2 instances with that security group can access the database, following the principle of least privilege.
+
+Review the outbound rules and click **Create Security Group**
+
+![Database Security Group Creation](/images/2-preparation/2.1-network/2.1.14.png?featherlight=false&width=90pc)
+
+**💡 Pro Tip**: This network architecture with separate security groups for application and database tiers follows AWS Well-Architected best practices for security and isolation.

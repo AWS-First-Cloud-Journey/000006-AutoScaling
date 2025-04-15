@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Khởi tạo EC2 Instance :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -809,7 +809,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -833,7 +841,8 @@
 
 
 
-	<p>Truy cập vào <a href="https://aws.amazon.com/console/">AWS Management Console</a>:</p>
+	<h4 id="tạo-ec2-instance">Tạo EC2 Instance</h4>
+<p>Truy cập vào <a href="https://aws.amazon.com/console/">AWS Management Console</a>:</p>
 <ul>
 <li>Tìm <strong>EC2</strong></li>
 <li>Chọn <strong>EC2</strong></li>
@@ -844,8 +853,10 @@
 <li>Chọn <strong>Launch instances</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.2.png?featherlight=false&width=90pc"></p>
+<h4 id="cấu-hình-thông-tin-cơ-bản">Cấu hình thông tin cơ bản</h4>
 <p>Đặt tên cho instance, nhập <strong><code>FCJ-Management</code></strong></p>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.3.png?featherlight=false&width=90pc"></p>
+<h4 id="chọn-amazon-machine-image-ami">Chọn Amazon Machine Image (AMI)</h4>
 <p>Thực hiện chọn <strong>AMI</strong>:</p>
 <ul>
 <li>Chọn <strong>Quick Start</strong></li>
@@ -853,13 +864,15 @@
 <li>Chọn <strong>Amazon Linux 2023 AMI</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.4.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: Amazon Linux 2023 là phiên bản mới nhất của Amazon Linux, được tối ưu hóa cho workloads trên AWS với hiệu suất cao, thời gian khởi động nhanh và các tính năng bảo mật nâng cao như SELinux được kích hoạt mặc định.</p>
+<h4 id="chọn-loại-instance-và-tạo-key-pair">Chọn loại instance và tạo key pair</h4>
 <p>Chọn <strong>Instance type</strong>:</p>
 <ul>
 <li>Chọn <strong>t2.micro</strong></li>
 <li>Chọn <strong>Create new key pair</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.5.png?featherlight=false&width=90pc"></p>
-<p>Cấu hình key pair</p>
+<p>Cấu hình key pair:</p>
 <ul>
 <li>Đặt tên là <strong><code>fcj-key</code></strong></li>
 <li>Key pair type: <strong>RSA</strong></li>
@@ -867,30 +880,60 @@
 <li>Bấm <strong>Create key pair</strong></li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.6.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: Key pair là thành phần quan trọng để bảo mật kết nối SSH đến EC2 instance. Hãy lưu trữ file .pem ở nơi an toàn, đặt quyền truy cập phù hợp (chmod 400 trên Linux/macOS) và không chia sẻ với người khác. AWS không lưu trữ private key, nên nếu bị mất, bạn sẽ cần tạo key pair mới.</p>
+<h4 id="cấu-hình-mạng">Cấu hình mạng</h4>
 <p>Thực hiện cấu hình <strong>Network</strong>:</p>
 <ul>
-<li>
-<p>Bấm vào nút Edit</p>
-</li>
-<li>
-<p><strong>VPC</strong>, chọn VPC đã tạo.</p>
-</li>
-<li>
-<p><strong>Subnet</strong>, chọn <strong>Public subnet</strong></p>
-</li>
-<li>
-<p>Kiểm tra đã <strong>Auto-assign public IP</strong> chưa?. Nếu chưa, xem lại bước cấp phát public IP ở bước tạo VPC.</p>
-</li>
+<li>Bấm vào nút Edit</li>
+<li><strong>VPC</strong>, chọn VPC đã tạo.</li>
+<li><strong>Subnet</strong>, chọn <strong>Public subnet</strong></li>
+<li>Kiểm tra đã <strong>Auto-assign public IP</strong> chưa? Nếu chưa, xem lại bước cấp phát public IP ở bước tạo VPC.</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.7.png?featherlight=false&width=90pc">
-Tiếp tục:</p>
+<p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.7.png?featherlight=false&width=90pc"></p>
+<h4 id="cấu-hình-bảo-mật-và-khởi-tạo">Cấu hình bảo mật và khởi tạo</h4>
+<p>Tiếp tục:</p>
 <ul>
 <li>Chọn <strong>Select existing security group</strong> rồi chọn <strong>FCJ-Management-SG</strong>.</li>
 <li>Chọn <strong>Launch instance</strong>.</li>
 </ul>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.8.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Sử dụng security group đã được cấu hình sẵn giúp đảm bảo tính nhất quán trong chính sách bảo mật và dễ dàng quản lý quyền truy cập mạng. Bạn có thể áp dụng cùng một security group cho nhiều EC2 instances, giúp đơn giản hóa việc quản lý và cập nhật các quy tắc bảo mật.</p>
+<h4 id="xác-nhận-khởi-tạo-thành-công">Xác nhận khởi tạo thành công</h4>
 <p>Khởi tạo instance thành công.</p>
 <p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.9.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: EC2 instance sẽ mất khoảng 1-2 phút để khởi động hoàn toàn và sẵn sàng cho kết nối SSH. Bạn có thể theo dõi trạng thái của instance trong tab &ldquo;Instance state&rdquo; và đợi đến khi trạng thái chuyển sang &ldquo;Running&rdquo; và kiểm tra &ldquo;Status check&rdquo; đạt 2/2 checks passed.</p>
+<h4 id="kết-nối-đến-ec2-instance">Kết nối đến EC2 Instance</h4>
+<p>Sau khi EC2 instance đã được khởi tạo thành công và ở trạng thái &ldquo;Running&rdquo;, chúng ta có thể kết nối đến instance bằng SSH.</p>
+<p><strong>Đối với người dùng Windows:</strong></p>
+<ol>
+<li>Tải và cài đặt PuTTY từ <a href="https://www.putty.org/">trang chủ PuTTY</a> nếu bạn chưa có.</li>
+<li>Sử dụng PuTTYgen để chuyển đổi file .pem thành .ppk:
+<ul>
+<li>Mở PuTTYgen</li>
+<li>Chọn &ldquo;Load&rdquo; và tìm file fcj-key.pem đã tải về</li>
+<li>Chọn &ldquo;Save private key&rdquo; và lưu file .ppk</li>
+</ul>
+</li>
+<li>Mở PuTTY và cấu hình:
+<ul>
+<li>Nhập địa chỉ IP Public của EC2 instance vào trường Host Name</li>
+<li>Trong mục Connection &gt; SSH &gt; Auth, chọn Browse và tìm đến file .ppk đã tạo</li>
+<li>Nhập &ldquo;ec2-user&rdquo; khi được yêu cầu username</li>
+</ul>
+</li>
+</ol>
+<p><strong>Đối với người dùng macOS/Linux:</strong></p>
+<ol>
+<li>Mở Terminal</li>
+<li>Đặt quyền cho file key:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">400</span> /đường/dẫn/đến/fcj-key.pem
+</span></span></code></pre></div></li>
+<li>Kết nối đến instance:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -i /đường/dẫn/đến/fcj-key.pem ec2-user@địa-chỉ-IP-Public
+</span></span></code></pre></div></li>
+</ol>
+<p><img alt="Image" src="/images/2-preparation/2.2-launch-ec2/2.2.10.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Bạn cũng có thể sử dụng tính năng EC2 Instance Connect trên AWS Management Console để kết nối đến instance mà không cần cấu hình SSH client. Chỉ cần chọn instance và nhấp vào nút &ldquo;Connect&rdquo;.</p>
 
 
 
@@ -1275,7 +1318,7 @@ Tiếp tục:</p>
 			<a class="nav nav-prev" href="/vi/2-preparation/2.1-setup-network/" title="Thiết lập hạ tầng mạng"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1285,19 +1328,19 @@ Tiếp tục:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Cleanup Resources :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#cleanup-resources">Cleanup Resources</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,96 +835,111 @@
 
 
 
-	<h3 id="cleanup-resources">Cleanup Resources</h3>
-<p>After completing the workshop, we will proceed with the cleanup of resources.</p>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: After completing the workshop, it&rsquo;s important to properly clean up all AWS resources to avoid ongoing charges. This section guides you through the systematic removal of all resources created during this workshop.</p>
 <h4 id="delete-auto-scaling-group">Delete Auto Scaling Group</h4>
-<p>In the EC2 management interface, on the left navigation pane, scroll down and select <strong>Auto Scaling Groups</strong>.</p>
-<ul>
+<ol>
+<li>Navigate to the EC2 management console</li>
+<li>In the left navigation pane, scroll down and select <strong>Auto Scaling Groups</strong></li>
 <li>Select the Auto Scaling Group <strong>FCJ-Management-ASG</strong></li>
 <li>Click the <strong>Actions</strong> button at the top right of the screen</li>
 <li>Choose <strong>Delete</strong></li>
-</ul>
-<p><img alt="8.1" src="/images/8-Cleanup/8.1.png"></p>
+</ol>
+<p><img alt="Delete Auto Scaling Group" src="/images/8-Cleanup/8.1.png?featherlight=false&width=90pc"></p>
 <h4 id="delete-load-balancer">Delete Load Balancer</h4>
-<p>In the EC2 management interface, on the left navigation pane, scroll down and select <strong>Load Balancer</strong>.</p>
-<ul>
+<ol>
+<li>In the EC2 management console, on the left navigation pane, select <strong>Load Balancers</strong></li>
 <li>Select the Load Balancer <strong>FCJ-Management-LB</strong></li>
-<li>Click the <strong>Actions</strong> button at the top right of the screen</li>
+<li>Click the <strong>Actions</strong> button</li>
 <li>Choose <strong>Delete load balancer</strong></li>
-</ul>
-<p><img alt="8.2" src="/images/8-Cleanup/8.2.png"></p>
+</ol>
+<p><img alt="Delete Load Balancer" src="/images/8-Cleanup/8.2.png?featherlight=false&width=90pc"></p>
 <h4 id="delete-target-group">Delete Target Group</h4>
-<p>In the EC2 management interface, on the left navigation pane, scroll down and select <strong>Target Group</strong>.</p>
-<ul>
+<ol>
+<li>In the EC2 management console, on the left navigation pane, select <strong>Target Groups</strong></li>
 <li>Select the Target Group <strong>FCJ-Management-TG</strong></li>
-<li>Click the <strong>Actions</strong> button at the top right of the screen</li>
+<li>Click the <strong>Actions</strong> button</li>
 <li>Choose <strong>Delete</strong></li>
-</ul>
-<p><img alt="8.3" src="/images/8-Cleanup/8.3.png"></p>
+</ol>
+<p><img alt="Delete Target Group" src="/images/8-Cleanup/8.3.png?featherlight=false&width=90pc"></p>
 <h4 id="delete-launch-template">Delete Launch Template</h4>
-<p>In the EC2 management interface, on the left navigation pane, scroll down and select <strong>Launch Templates</strong>.</p>
-<ul>
+<ol>
+<li>In the EC2 management console, on the left navigation pane, select <strong>Launch Templates</strong></li>
 <li>Select the Launch Template <strong>FCJ-Management-TG</strong></li>
-<li>Click the <strong>Actions</strong> button at the top right of the screen</li>
+<li>Click the <strong>Actions</strong> button</li>
 <li>Choose <strong>Delete template</strong></li>
-</ul>
-<p><img alt="8.4" src="/images/8-Cleanup/8.4.png"></p>
+</ol>
+<p><img alt="Delete Launch Template" src="/images/8-Cleanup/8.4.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: Ensure you&rsquo;ve terminated all instances using this launch template before deletion to avoid potential errors.</p>
 <h4 id="deregister-ami">Deregister AMI</h4>
-<p>In the EC2 management interface, on the left navigation pane, scroll down and select <strong>AMIs</strong>.</p>
-<ul>
+<ol>
+<li>In the EC2 management console, on the left navigation pane, select <strong>AMIs</strong></li>
 <li>Select the AMI <strong>FCJ-Management-AMI</strong></li>
-<li>Click the <strong>Actions</strong> button at the top right of the screen</li>
+<li>Click the <strong>Actions</strong> button</li>
 <li>Choose <strong>Deregister AMI</strong></li>
-</ul>
-<p><img alt="8.5" src="/images/8-Cleanup/8.5.png"></p>
+</ol>
+<p><img alt="Deregister AMI" src="/images/8-Cleanup/8.5.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: After deregistering an AMI, remember that its associated EBS snapshots will still exist and may incur charges. Consider deleting these snapshots separately if they&rsquo;re no longer needed.</p>
 <h4 id="terminate-ec2-instance">Terminate EC2 Instance</h4>
-<p>In the EC2 management interface, on the left navigation pane, select <strong>Instances</strong>.</p>
-<ul>
+<ol>
+<li>In the EC2 management console, on the left navigation pane, select <strong>Instances</strong></li>
 <li>Select the <strong>FCJ-Management</strong> instance</li>
-<li>Click the <strong>Instance state</strong> button at the top right of the screen</li>
+<li>Click the <strong>Instance state</strong> button</li>
 <li>Choose <strong>Terminate (delete) instance</strong></li>
-</ul>
-<p><img alt="8.6" src="/images/8-Cleanup/8.6.png"></p>
+</ol>
+<p><img alt="Terminate EC2 Instance" src="/images/8-Cleanup/8.6.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: Terminating an instance permanently deletes its instance store volumes. If you have important data, ensure it&rsquo;s backed up before proceeding.</p>
 <h4 id="delete-rds-database">Delete RDS Database</h4>
-<ul>
-<li>Access <strong>RDS</strong></li>
+<ol>
+<li>Navigate to the <strong>RDS</strong> console</li>
 <li>On the left navigation pane, select <strong>Databases</strong></li>
-<li>Select the database instance <strong>fcj-management-db-instance</strong> related to the lab.</li>
-<li>Click <strong>Modify</strong>.</li>
-</ul>
-<p><img alt="8.7" src="/images/8-Cleanup/8.7.png"></p>
-<p>In the Modify DB Instance section, scroll down to the bottom:</p>
-<ul>
-<li>Uncheck <strong>Enable deletion protection</strong></li>
+<li>Select the database instance <strong>fcj-management-db-instance</strong></li>
+<li>Click <strong>Modify</strong></li>
+</ol>
+<p><img alt="Modify RDS Database" src="/images/8-Cleanup/8.7.png?featherlight=false&width=90pc"></p>
+<ol start="5">
+<li>In the Modify DB Instance section, scroll down and uncheck <strong>Enable deletion protection</strong></li>
 <li>Click <strong>Continue</strong></li>
-</ul>
-<p><img alt="8.8" src="/images/8-Cleanup/8.8.png"></p>
-<p>Continue in the Schedule modifications section:</p>
+</ol>
+<p><img alt="Disable Deletion Protection" src="/images/8-Cleanup/8.8.png?featherlight=false&width=90pc"></p>
+<ol start="7">
+<li>In the Schedule modifications section:
 <ul>
 <li>Select <strong>Apply immediately</strong></li>
 <li>Click <strong>Modify DB instance</strong></li>
 </ul>
-<p><img alt="8.9" src="/images/8-Cleanup/8.9.png"></p>
-<p>Proceed to delete the DB instance:</p>
+</li>
+</ol>
+<p><img alt="Apply Modifications" src="/images/8-Cleanup/8.9.png?featherlight=false&width=90pc"></p>
+<ol start="8">
+<li>After the modification completes:
 <ul>
 <li>Select the database instance <strong>fcj-management-db-instance</strong></li>
-<li>Click the <strong>Actions</strong> button at the top right of the screen</li>
+<li>Click the <strong>Actions</strong> button</li>
 <li>Choose <strong>Delete</strong></li>
 </ul>
-<p><img alt="8.10" src="/images/8-Cleanup/8.10.png"></p>
+</li>
+</ol>
+<p><img alt="Delete RDS Database" src="/images/8-Cleanup/8.10.png?featherlight=false&width=90pc"></p>
+<ol start="9">
+<li>In the confirmation dialog:
 <ul>
-<li>Select <strong>I acknowledge that upon instance deletion, automated, including system snapshots and point-in-time recovery, will no longer be available</strong></li>
-<li>Enter <strong>delete me</strong></li>
+<li>Select <strong>I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available</strong></li>
+<li>Enter <strong>delete me</strong> in the confirmation field</li>
 <li>Click <strong>Delete</strong></li>
 </ul>
-<p><img alt="8.11" src="/images/8-Cleanup/8.11.png"></p>
+</li>
+</ol>
+<p><img alt="Confirm RDS Deletion" src="/images/8-Cleanup/8.11.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: This action permanently deletes your database and all its data. If you need to preserve any information, create a final snapshot before deletion.</p>
 <h4 id="delete-subnet-group">Delete Subnet Group</h4>
-<ul>
-<li>Select <strong>Subnet groups</strong></li>
+<ol>
+<li>In the RDS console, select <strong>Subnet groups</strong> from the left navigation pane</li>
 <li>Select the subnet group <strong>fcj-management-subnet-group</strong></li>
 <li>Click <strong>Delete</strong></li>
-</ul>
-<p><img alt="8.12" src="/images/8-Cleanup/8.12.png"></p>
+</ol>
+<p><img alt="Delete Subnet Group" src="/images/8-Cleanup/8.12.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: After completing these steps, verify in the AWS Billing Dashboard that there are no unexpected charges related to resources from this workshop. Some resources like EBS snapshots or CloudWatch logs may persist unless explicitly deleted.</p>
 
 
 
@@ -1312,19 +1327,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

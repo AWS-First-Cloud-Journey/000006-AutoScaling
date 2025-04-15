@@ -6,61 +6,81 @@ chapter: false
 pre: "<strong>2.2. </strong>"
 ---
 
+#### Launching an EC2 Instance
+
+**ℹ️ Information**: In this section, we'll launch an Amazon EC2 instance that will serve as the foundation for our Auto Scaling configuration. This instance will be used to create an Amazon Machine Image (AMI) for our Launch Template.
+
 Access the [AWS Management Console](https://aws.amazon.com/console/):
 
-- Search for **EC2**
-- Select **EC2**
+- In the search bar, find and select **EC2**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.1.png?featherlight=false&width=90pc)
+![EC2 Console Navigation](/images/2-preparation/2.2-launch-ec2/2.2.1.png?featherlight=false&width=90pc)
 
 In the **EC2** console:
 
-- Click on **Launch instances**
+- Click **Launch instances**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.2.png?featherlight=false&width=90pc)
+![Launch Instances Button](/images/2-preparation/2.2-launch-ec2/2.2.2.png?featherlight=false&width=90pc)
 
-Name the instance, enter **`FCJ-Management`**
+#### Configure Basic Instance Details
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.3.png?featherlight=false&width=90pc)
+For the instance name:
+- Enter **`FCJ-Management`**
 
-For **AMI**:
+![Instance Naming](/images/2-preparation/2.2-launch-ec2/2.2.3.png?featherlight=false&width=90pc)
 
+#### Select Amazon Machine Image (AMI)
+
+For the operating system:
 - Select **Quick Start**
-- Selec **Amazon Linux**
+- Choose **Amazon Linux**
 - Select **Amazon Linux 2023 AMI**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.4.png?featherlight=false&width=90pc)
+![AMI Selection](/images/2-preparation/2.2-launch-ec2/2.2.4.png?featherlight=false&width=90pc)
 
-Select **Instance type**:
+#### Configure Instance Type and Key Pair
 
-- Select **t2.micro**
+For compute resources:
+- Select **t2.micro** instance type
 - Click **Create new key pair**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.5.png?featherlight=false&width=90pc)
+![Instance Type Selection](/images/2-preparation/2.2-launch-ec2/2.2.5.png?featherlight=false&width=90pc)
 
-Configure the key pair
+**🔒 Security Note**: The key pair is essential for secure SSH access to your instance. Store the private key securely and never share it.
 
-- Name it **`fcj-key`**
+Configure the key pair:
+- Name: **`fcj-key`**
 - Key pair type: **RSA**
 - Private key format: **.pem**
 - Click **Create key pair**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.6.png?featherlight=false&width=90pc)
+![Key Pair Configuration](/images/2-preparation/2.2-launch-ec2/2.2.6.png?featherlight=false&width=90pc)
 
-Configure the **Network**:
+#### Configure Network Settings
 
-- Click the Edit button
-- For **VPC**, select the VPC you created.
-- For **Subnet**, choose **Public subnet**
-- Check if **Auto-assign public IP** is enabled. If not, review the step for allocating a public IP when creating the VPC.
+For network configuration:
+- Click the **Edit** button
+- VPC: Select the VPC you created in the previous step
+- Subnet: Choose a **Public subnet**
+- Ensure **Auto-assign public IP** is enabled
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.7.png?featherlight=false&width=90pc) 8. Continue:
+**💡 Pro Tip**: Placing this instance in a public subnet allows direct internet access, which is necessary for initial setup and configuration.
 
-- Select **Select existing security group** and then choose **FCJ-Management-SG**.
-- Click **Launch instance**.
+![Network Configuration](/images/2-preparation/2.2-launch-ec2/2.2.7.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.8.png?featherlight=false&width=90pc)
+#### Configure Security Group
 
-Complete the creation of the Security Group for the database.
+For access control:
+- Select **Select existing security group**
+- Choose **FCJ-Management-SG**
+- Click **Launch instance**
 
-![Image](/images/2-preparation/2.2-launch-ec2/2.2.9.png?featherlight=false&width=90pc)
+![Security Group Selection](/images/2-preparation/2.2-launch-ec2/2.2.8.png?featherlight=false&width=90pc)
+
+#### Review and Launch
+
+Verify your instance is launching:
+
+![Instance Launch Confirmation](/images/2-preparation/2.2-launch-ec2/2.2.9.png?featherlight=false&width=90pc)
+
+**⚠️ Warning**: After launching, your instance may take a few minutes to initialize. Wait until the instance state shows as "running" and status checks have passed before proceeding to the next step.

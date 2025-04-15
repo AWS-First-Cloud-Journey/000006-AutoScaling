@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create Launch Template :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,8 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#amis-and-launch-template">AMIs and Launch Template</a></li>
-        <li><a href="#setting-up-launch-templates">Setting Up Launch Templates</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -836,101 +835,89 @@
 
 
 
-	<h3 id="amis-and-launch-template">AMIs and Launch Template</h3>
-<p>AMIs (Amazon Machine Images) store information such as the operating system, applications, and settings in the EC2 instance from which they are created. Creating an AMI ensures that when new servers are launched, they are identical and can operate immediately.</p>
-<p>A launch template is a tool we use to configure the initialization of new EC2 instances through attached AMIs, instance types, network configurations, and security options. When we want to launch one or more identical servers, we simply use the configured launch template to do so.</p>
-<h3 id="setting-up-launch-templates">Setting Up Launch Templates</h3>
-<h4 id="creating-amazon-machine-images-amis-from-ec2">Creating Amazon Machine Images (AMIs) from EC2</h4>
-<p>In the <strong>EC2</strong> management interface, on the right selection panel:</p>
-<ul>
-<li>Select <strong>Instances</strong></li>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: In this section, we&rsquo;ll create a Launch Template using an Amazon Machine Image (AMI) from our existing EC2 instance. This approach ensures consistent deployment of our application across multiple instances.</p>
+<h4 id="understanding-amis-and-launch-templates">Understanding AMIs and Launch Templates</h4>
+<p><strong>ℹ️ Information</strong>: Amazon Machine Images (AMIs) capture the complete state of an EC2 instance, including the operating system, applications, and configurations. Launch Templates define the complete instance configuration, including AMI, instance type, networking, and security settings, enabling consistent and repeatable deployments.</p>
+<h4 id="creating-an-amazon-machine-image-ami">Creating an Amazon Machine Image (AMI)</h4>
+<p>To create an AMI from your existing EC2 instance:</p>
+<ol>
+<li>Navigate to the <strong>EC2</strong> console</li>
+<li>In the left navigation pane, select <strong>Instances</strong></li>
 <li>Select the <strong>FCJ-Management</strong> instance</li>
-<li>Click on <strong>Actions</strong></li>
-<li>Choose <strong>Image and templates</strong></li>
-<li>Click <strong>Create image</strong></li>
-</ul>
-<p><img alt="3.1" src="/images/3-create-launch-template/3.1.png"></p>
-<p>In the configuration panel for <strong>Create AMI</strong>, fill in the following information:</p>
+<li>Click <strong>Actions</strong> → <strong>Image and templates</strong> → <strong>Create image</strong></li>
+</ol>
+<p><img alt="Creating an AMI" src="/images/3-create-launch-template/3.1.png?featherlight=false&width=90pc"></p>
+<p>Configure the AMI with the following settings:</p>
 <ul>
 <li><strong>Image name</strong>: <code>FCJ-Management-AMI</code></li>
 <li><strong>Image description</strong>: <code>AMI for FCJ-Management</code></li>
 <li>Click <strong>Create Image</strong></li>
 </ul>
-<p><img alt="3.2" src="/images/3-create-launch-template/3.2.png"></p>
-<p>After creating the AMI, we will check the newly created AMI:</p>
-<ul>
-<li>Select <strong>AMIs</strong> to see the newly created AMI</li>
-<li>Click on <strong>FCJ-Management-AMI</strong></li>
-</ul>
-<p><img alt="3.3" src="/images/3-create-launch-template/3.3.png"></p>
-
-<div class="notices note" ><p>The AMI initialization process will take about 3 minutes; after this period, we will see the <strong>Status</strong> of the AMI change to <strong>Available</strong>.</p>
-</div>
-
-<p><img alt="3.4" src="/images/3-create-launch-template/3.4.png"></p>
-<p>We have successfully created an image to save the EC2 configuration.</p>
-<h4 id="creating-launch-templates">Creating Launch Templates</h4>
-<p>In the <strong>EC2</strong> management interface, on the right selection panel:</p>
-<ul>
-<li>Select <strong>Launch Templates</strong></li>
-<li>Click on <strong>Create launch template</strong></li>
-</ul>
-<p><img alt="3.5" src="/images/3-create-launch-template/3.5.png"></p>
-<p>In the <strong>Create launch template</strong> panel, fill in the following information:</p>
-<ul>
-<li>In the <strong>Launch template name and description</strong>:
+<p><img alt="AMI Configuration" src="/images/3-create-launch-template/3.2.png?featherlight=false&width=90pc"></p>
+<p>Verify the AMI creation:</p>
+<ol>
+<li>In the left navigation pane, select <strong>AMIs</strong></li>
+<li>Locate and select <strong>FCJ-Management-AMI</strong></li>
+</ol>
+<p><img alt="AMI Verification" src="/images/3-create-launch-template/3.3.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: The AMI creation process takes approximately 3 minutes to complete. Wait until the <strong>Status</strong> changes to <strong>Available</strong> before proceeding.</p>
+<p><img alt="AMI Available Status" src="/images/3-create-launch-template/3.4.png?featherlight=false&width=90pc"></p>
+<h4 id="creating-a-launch-template">Creating a Launch Template</h4>
+<p>Once your AMI is available, create a Launch Template:</p>
+<ol>
+<li>In the EC2 console, select <strong>Launch Templates</strong> from the left navigation pane</li>
+<li>Click <strong>Create launch template</strong></li>
+</ol>
+<p><img alt="Create Launch Template" src="/images/3-create-launch-template/3.5.png?featherlight=false&width=90pc"></p>
+<p>Configure the basic template information:</p>
 <ul>
 <li><strong>Launch template name</strong>: <code>FCJ-Management-template</code></li>
 <li><strong>Template version description</strong>: <code>Template for FCJ Management</code></li>
 </ul>
-</li>
-</ul>
-<p><img alt="3.6" src="/images/3-create-launch-template/3.6.png"></p>
-<ul>
-<li>In the <strong>Application and OS Image (Amazon Machine Image)</strong>:
+<p><img alt="Template Basic Information" src="/images/3-create-launch-template/3.6.png?featherlight=false&width=90pc"></p>
+<p>Configure the AMI and instance specifications:</p>
+<ol>
+<li>Under <strong>Application and OS Image</strong>:
 <ul>
 <li>Select <strong>My AMIs</strong></li>
 <li>Choose <strong>Owned by me</strong></li>
-<li>Select the <strong>Amazon Machine Image (AMI)</strong> type and choose the created AMI <strong>FCJ-Management-AMI</strong></li>
+<li>Select the <strong>FCJ-Management-AMI</strong> you created earlier</li>
 </ul>
 </li>
-</ul>
-<p><img alt="3.7" src="/images/3-create-launch-template/3.7.png"></p>
+</ol>
+<p><img alt="AMI Selection" src="/images/3-create-launch-template/3.7.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>Configure instance details:
 <ul>
-<li>In the <strong>Instance type</strong>:
-<ul>
-<li>Choose instance type <strong>t2.micro</strong></li>
+<li><strong>Instance type</strong>: <code>t2.micro</code></li>
+<li><strong>Key pair</strong>: <code>fcj-key</code></li>
 </ul>
 </li>
-<li>In the <strong>Key pair (logic)</strong>:
+</ol>
+<p><img alt="Instance Configuration" src="/images/3-create-launch-template/3.8.png?featherlight=false&width=90pc"></p>
+<ol start="3">
+<li>Configure network settings:
 <ul>
-<li>Select the key pair named <strong>fcj-key</strong></li>
+<li><strong>Subnet</strong>: <code>AutoScaling-Lab-public-ap-southeast-1a</code></li>
+<li><strong>Security group</strong>: Select <strong>Select existing security group</strong> and choose <strong>FCJ-Management-SG</strong></li>
+<li>Click <strong>Create launch template</strong></li>
 </ul>
 </li>
-</ul>
-<p><img alt="3.8" src="/images/3-create-launch-template/3.8.png"></p>
-<ul>
-<li>In the <strong>Network settings</strong>:
-<ul>
-<li>Choose the public subnet <strong>AutoScaling-Lab-public-ap-southeast-1a</strong></li>
-<li>Select <strong>Select existing security group</strong></li>
-<li>Choose the security group <strong>FCJ-Management-SG</strong></li>
-<li>Finally, click <strong>Create launch template</strong></li>
-</ul>
-</li>
-</ul>
-<p><img alt="3.9" src="/images/3-create-launch-template/3.9.png"></p>
-<h4 id="result">Result</h4>
-<p>Check the newly created Launch Template:</p>
-<ul>
-<li>Select <strong>FCJ-Management-template</strong></li>
-</ul>
-<p><img alt="3.10" src="/images/3-create-launch-template/3.10.png"></p>
-<ul>
-<li>Here, we can review the configuration of the Launch Template we created.</li>
-</ul>
-<p><img alt="3.11" src="/images/3-create-launch-template/3.11.png"></p>
-<p>We have just completed creating the launch template.</p>
+</ol>
+<p><img alt="Network Configuration" src="/images/3-create-launch-template/3.9.png?featherlight=false&width=90pc"></p>
+<h4 id="verifying-the-launch-template">Verifying the Launch Template</h4>
+<p>After creation, verify your Launch Template:</p>
+<ol>
+<li>Select <strong>FCJ-Management-template</strong> from the Launch Templates list</li>
+</ol>
+<p><img alt="Launch Template Selection" src="/images/3-create-launch-template/3.10.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>Review the template configuration details to ensure all settings are correct</li>
+</ol>
+<p><img alt="Launch Template Details" src="/images/3-create-launch-template/3.11.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Launch Templates support versioning, allowing you to iterate on your configuration while maintaining the ability to roll back to previous versions if needed.</p>
+<p><strong>🔒 Security Note</strong>: When creating Launch Templates, always follow the principle of least privilege by assigning only the necessary permissions to your instances through security groups and IAM roles.</p>
 
 
 
@@ -1321,19 +1308,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746189"></script>
-    <script src="/js/jquery.sticky.js?1733746189"></script>
-    <script src="/js/featherlight.min.js?1733746189"></script>
-    <script src="/js/highlight.pack.js?1733746189"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746189"></script>
-    <script src="/js/learn.js?1733746189"></script>
-    <script src="/js/hugo-learn.js?1733746189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746189" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746189"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

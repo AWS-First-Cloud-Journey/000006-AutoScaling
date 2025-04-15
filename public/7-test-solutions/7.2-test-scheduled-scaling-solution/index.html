@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Test scheduled scaling solution :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,7 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#scheduled-scaling">Scheduled Scaling</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -841,52 +841,86 @@
 
 
 
-	<h3 id="scheduled-scaling">Scheduled Scaling</h3>
-<p>Scheduled Scaling allows us to inform the ASG when it should launch additional instances and when it should remove instances. This type of scaling is suitable for workloads that fluctuate over a certain period, recurring daily, and over a long period.</p>
-<p>Since we&rsquo;ve already set up the testing in the previous section, we don&rsquo;t need to set it up again, and we can continue using those settings.</p>
-<h4 id="configuration">Configuration</h4>
-<p>Go to the ASG information page, navigate to the &ldquo;Automatic scaling&rdquo; tab, and scroll to the bottom.</p>
-<p><img alt="7.2.1" src="/images/7-test-solution/7.2.1.png"></p>
-<p>Under the &ldquo;Scheduled actions&rdquo; section, click <strong>Create scheduled action</strong>.</p>
-<p><img alt="7.2.2" src="/images/7-test-solution/7.2.2.png"></p>
-<p>A form will appear. Fill in the details as follows:</p>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: Scheduled Scaling enables you to configure your Auto Scaling Group to automatically adjust capacity based on predictable load changes. This approach is ideal for workloads with consistent patterns that occur at specific times daily, weekly, or seasonally.</p>
+<h4 id="test-environment-setup">Test Environment Setup</h4>
+<p>Since we&rsquo;ve already configured our load testing environment in the previous section, we&rsquo;ll continue using those settings for consistency in our comparison of scaling methods.</p>
+<h4 id="configuring-scheduled-scaling">Configuring Scheduled Scaling</h4>
+<p>To implement scheduled scaling:</p>
+<ol>
+<li>Navigate to your Auto Scaling Group details page</li>
+<li>Select the <strong>Automatic scaling</strong> tab</li>
+<li>Scroll to the <strong>Scheduled actions</strong> section at the bottom of the page</li>
+</ol>
+<p><img alt="Scheduled Actions Section" src="/images/7-test-solution/7.2.1.png?featherlight=false&width=90pc"></p>
+<ol start="4">
+<li>Click <strong>Create scheduled action</strong></li>
+</ol>
+<p><img alt="Create Scheduled Action Button" src="/images/7-test-solution/7.2.2.png?featherlight=false&width=90pc"></p>
+<ol start="5">
+<li>Configure the scheduled action with these parameters:
 <ul>
-<li>Name: <code>Rush hour</code>.</li>
-<li>Desired capacity: <strong>1</strong>.</li>
-<li>Min: <strong>1</strong> (you can set it to 0).</li>
-<li>Max: <strong>3</strong>.</li>
-<li>Recurrence: <strong>Once</strong> (or any other option).</li>
-<li>Time zone: <strong>Asia/Ho_Chi_Minh</strong>.</li>
-<li>Specific start time: Set it to the nearest time you&rsquo;re configuring.</li>
-<li>Click <strong>Create</strong> to create the scheduled action.</li>
+<li>Name: <code>Rush hour</code></li>
+<li>Desired capacity: <strong>1</strong></li>
+<li>Min: <strong>1</strong> (can be set to 0 depending on your requirements)</li>
+<li>Max: <strong>3</strong></li>
+<li>Recurrence: <strong>Once</strong> (or select another pattern as needed)</li>
+<li>Time zone: <strong>Asia/Ho_Chi_Minh</strong> (select your appropriate time zone)</li>
+<li>Specific start time: Set to the nearest time from your current configuration</li>
+<li>Click <strong>Create</strong> to implement the scheduled action</li>
 </ul>
-<p><img alt="7.2.3" src="/images/7-test-solution/7.2.3.png"></p>
-
-<div class="notices note" ><p>The parameters for Desired capacity, Min, and Max will all affect the corresponding ASG parameters, so in practice, you will need to combine multiple scaling types and carefully consider these settings.</p>
-</div>
-
-<p>Successfully created.</p>
-<p><img alt="7.2.4" src="/images/7-test-solution/7.2.4.png"></p>
-<h4 id="testing">Testing</h4>
-<p>Approximately 5 minutes before the ASG launches instances as scheduled, we should run the test program.</p>
-<p><img alt="7.2.5" src="/images/7-test-solution/7.2.5.png"></p>
-<p>After a few minutes, when the scheduled time for ASG to launch new instances arrives, go to the <strong>Activity</strong> tab to monitor ASG actions. You&rsquo;ll see the <strong>Executing scheduled action Rush hour</strong> event triggered at the right time, and then the ASG launches a new instance.</p>
-<p><img alt="7.2.6" src="/images/7-test-solution/7.2.6.png"></p>
-<p>Returning to the EC2 Console, metrics are updated every 15 minutes. When you revisit to observe these metrics, focus on the CPU Utilization chart. You can see that between 14:30 and 14:40, there is a spike, which was caused when we started the test program.</p>
-<p><img alt="7.2.7" src="/images/7-test-solution/7.2.7.png"></p>
-<p>Wait a few more minutes for these metrics to update. Once updated, select the newly launched instance.</p>
-<p><img alt="7.2.8" src="/images/7-test-solution/7.2.8.png"></p>
-<p>You will notice that after 14:40, the chart declines.</p>
-<p>Zoom in on this chart:</p>
+</li>
+</ol>
+<p><img alt="Scheduled Action Configuration" src="/images/7-test-solution/7.2.3.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: The Desired capacity, Min, and Max parameters will override the corresponding ASG settings during the scheduled period. When implementing multiple scaling types in production, carefully consider how these values interact with other scaling policies.</p>
+<p>After successful creation, you&rsquo;ll see your scheduled action in the list:</p>
+<p><img alt="Scheduled Action Created" src="/images/7-test-solution/7.2.4.png?featherlight=false&width=90pc"></p>
+<h4 id="testing-the-scheduled-scaling">Testing the Scheduled Scaling</h4>
+<p>For effective testing:</p>
+<ol>
+<li>Start your load testing program approximately 5 minutes before the scheduled scaling action is set to trigger</li>
+</ol>
+<p><img alt="Load Testing Program" src="/images/7-test-solution/7.2.5.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>When the scheduled time arrives, monitor the <strong>Activity</strong> tab of your ASG</li>
+<li>You should observe the <strong>Executing scheduled action Rush hour</strong> event triggering at the configured time, followed by the launch of a new instance</li>
+</ol>
+<p><img alt="ASG Activity Log" src="/images/7-test-solution/7.2.6.png?featherlight=false&width=90pc"></p>
+<h4 id="analyzing-the-results">Analyzing the Results</h4>
+<p>To evaluate the effectiveness of scheduled scaling:</p>
+<ol>
+<li>Return to the EC2 Console and examine the instance metrics (note that metrics update every 15 minutes)</li>
+<li>Focus on the CPU Utilization chart to observe the impact of your test</li>
+</ol>
+<p><img alt="Initial CPU Metrics" src="/images/7-test-solution/7.2.7.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: In this example, you can see a CPU utilization spike between 14:30 and 14:40, which corresponds to when we initiated the load test. After the new instance was added by the scheduled action, the load was distributed, resulting in the subsequent decline.</p>
+<ol start="3">
+<li>For more detailed analysis, select the newly launched instance and adjust the chart view:
 <ul>
-<li>Select <strong>1h</strong>.</li>
-<li>Select <strong>1 second</strong>.</li>
+<li>Select <strong>1h</strong> timeframe</li>
+<li>Select <strong>1 second</strong> granularity</li>
 </ul>
-<p><img alt="7.2.9" src="/images/7-test-solution/7.2.9.png"></p>
-<p>You&rsquo;ll see the changes more clearly.</p>
+</li>
+</ol>
+<p><img alt="Detailed CPU Metrics" src="/images/7-test-solution/7.2.9.png?featherlight=false&width=90pc"></p>
+<p>This granular view clearly shows how the scheduled scaling action affected system performance.</p>
+<h4 id="real-world-applications">Real-World Applications</h4>
+<p><strong>ℹ️ Information</strong>: Scheduled Scaling is particularly valuable for applications with predictable usage patterns:</p>
+<ul>
+<li>Financial trading platforms with market opening/closing traffic spikes</li>
+<li>E-commerce sites during daily peak shopping hours</li>
+<li>Enterprise applications with business-hour usage patterns</li>
+<li>Batch processing jobs that run at specific times</li>
+</ul>
+<p><strong>🔒 Security Note</strong>: While scheduled scaling helps optimize resource utilization, it&rsquo;s important to maintain minimum capacity levels that can handle unexpected traffic surges or potential DDoS attacks outside of scheduled scaling periods.</p>
 <h4 id="conclusion">Conclusion</h4>
-<p>In reality, trading platforms often experience peak user traffic at certain times of the day. This increase in traffic is similar to rush hour in transportation, where traffic rises at a specific time each day and repeats daily for a long period. In such cases, we need to schedule new instances to handle the load.</p>
-<p>However, in practice, we will need to combine this with other types of scaling to enhance the reliability of the system.</p>
+<p>Scheduled Scaling provides a proactive approach to capacity management for workloads with predictable patterns. However, for maximum resilience and cost efficiency, AWS recommends combining scheduled scaling with other scaling types:</p>
+<ul>
+<li>Use scheduled scaling for predictable, time-based patterns</li>
+<li>Implement dynamic scaling to handle unexpected traffic variations</li>
+<li>Consider predictive scaling for workloads with complex but recurring patterns</li>
+</ul>
+<p>This multi-layered approach ensures your application remains responsive while optimizing resource utilization and cost.</p>
 
 
 
@@ -1281,19 +1315,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

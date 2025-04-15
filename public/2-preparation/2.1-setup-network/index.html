@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Setup network infrastructure :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
+    <title>Setup Network Infrastructure :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703291" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703291" rel="stylesheet">
+    <link href="/css/theme.css?1744703291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703291"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         active
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -796,7 +796,7 @@
             
           
           
-            <a href='/'>Deploying FCJ Management with Auto Scaling Group</a> > <a href='/2-preparation/'>Preparation</a> > Setup network infrastructure
+            <a href='/'>Deploying FCJ Management with Auto Scaling Group</a> > <a href='/2-preparation/'>Preparation</a> > Setup Network Infrastructure
           
         
           
@@ -833,7 +833,7 @@
           
             <h1>
               
-              Setup network infrastructure
+              Setup Network Infrastructure
             </h1>
           
 
@@ -841,77 +841,101 @@
 
 
 
-	<h4 id="create-vpc">Create VPC</h4>
-<p>Go to the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/">AWS Management Console</a></p>
+	<h4 id="creating-your-vpc-environment">Creating Your VPC Environment</h4>
+<p><strong>ℹ️ Information</strong>: In this section, we&rsquo;ll create a Virtual Private Cloud (VPC) with public and private subnets across multiple Availability Zones to ensure high availability for our Auto Scaling architecture.</p>
+<p>Navigate to the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/sign-in-console/">AWS Management Console</a></p>
 <ul>
-<li>Find <strong>VPC</strong></li>
-<li>Select <strong>VPC</strong></li>
+<li>In the search bar, find and select <strong>VPC</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.1.png?featherlight=false&width=90pc"></p>
-<p>In the <strong>VPC</strong> Console</p>
+<p><img alt="VPC Console Navigation" src="/images/2-preparation/2.1-network/2.1.1.png?featherlight=false&width=90pc"></p>
+<p>In the <strong>VPC</strong> Console:</p>
 <ul>
 <li>Click <strong>Create VPC</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.2.png?featherlight=false&width=90pc"></p>
-<p>In the <strong>Create VPC</strong> interface</p>
+<p><img alt="Create VPC Button" src="/images/2-preparation/2.1-network/2.1.2.png?featherlight=false&width=90pc"></p>
+<p>In the <strong>Create VPC</strong> interface:</p>
 <ul>
-<li>Select <strong>VPC and more</strong></li>
-<li>Next, type your VPC name. In this lab, we name it <strong><code>AutoScaling-Lab</code></strong></li>
-<li><strong>IPv4 CIDR block</strong>, type <strong><code>10.0.0.0/16</code></strong></li>
+<li>Select <strong>VPC and more</strong> for the comprehensive setup wizard</li>
+<li>For VPC name, enter <strong><code>AutoScaling-Lab</code></strong></li>
+<li>For <strong>IPv4 CIDR block</strong>, enter <strong><code>10.0.0.0/16</code></strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.3.png?featherlight=false&width=90pc"></p>
-<p>Select as follows:</p>
+<p><img alt="VPC Configuration" src="/images/2-preparation/2.1-network/2.1.3.png?featherlight=false&width=90pc"></p>
+<p>Configure the VPC architecture:</p>
 <ul>
-<li>Number of AZs: <strong>3</strong></li>
-<li>Number of public subnets: <strong>3</strong></li>
-<li>Number of private subnets: <strong>3</strong></li>
-<li>NAT gateways: <strong>None</strong></li>
+<li>Number of Availability Zones: <strong>3</strong> (for maximum resilience)</li>
+<li>Number of public subnets: <strong>3</strong> (one per AZ)</li>
+<li>Number of private subnets: <strong>3</strong> (one per AZ)</li>
+<li>NAT gateways: <strong>None</strong> (we&rsquo;ll keep costs minimal for this lab)</li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.4.png?featherlight=false&width=90pc"></p>
-<p>Select as follows:</p>
+<p><img alt="VPC Architecture Configuration" src="/images/2-preparation/2.1-network/2.1.4.png?featherlight=false&width=90pc"></p>
+<p>Finalize the VPC creation:</p>
 <ul>
 <li>VPC endpoints: <strong>None</strong></li>
-<li>Choose <strong>Create VPC</strong></li>
+<li>Click <strong>Create VPC</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.5.png?featherlight=false&width=90pc"></p>
-<h4 id="allocate-a-public-ip">Allocate a public IP.</h4>
-<p>Allocate a public IP.</p>
+<p><img alt="Create VPC Final Step" src="/images/2-preparation/2.1-network/2.1.5.png?featherlight=false&width=90pc"></p>
+<h4 id="configuring-public-subnet-auto-assignment">Configuring Public Subnet Auto-Assignment</h4>
+<p><strong>ℹ️ Information</strong>: For EC2 instances in public subnets to receive public IP addresses automatically, we need to enable auto-assign public IPv4 addresses.</p>
+<p>To enable auto-assign public IP:</p>
 <ul>
-<li>Select <strong>Subnets</strong></li>
-<li>Select <strong>public subnet</strong></li>
-<li>Select <strong>Edit subnet settings</strong></li>
+<li>Select <strong>Subnets</strong> in the left navigation</li>
+<li>Select a <strong>public subnet</strong></li>
+<li>Click <strong>Edit subnet settings</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.6.png?featherlight=false&width=90pc"></p>
-<p>Select <strong>Enable auto-assign public IPv4 address</strong>. Then select <strong>Save</strong></p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.7.png?featherlight=false&width=90pc"></p>
-<p>Check if the allocation was successful.</p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.8.png?featherlight=false&width=90pc"></p>
-<p>Allocate for the remaining public subnet (do the same).</p>
-<p>Next, we will create a <strong>Security group</strong>. - In the VPC console, select <strong>Security groups</strong> - Click <strong>Create security group</strong></p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.9.png?featherlight=false&width=90pc"></p>
-<p>Configure the <strong>Security Group</strong> - <strong>Security group name</strong>, enter <strong><code>FCJ-Management-SG</code></strong> - <strong>Description</strong>, enter <strong><code>Security Group for FCJ Management</code></strong> - <strong>VPC</strong>,select the VPC you just created: <strong>AutoScaling-Lab</strong>.</p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.10.png?featherlight=false&width=90pc"></p>
-<p>Configure the <strong>Inbound rules</strong> - First, configure <strong>SSH</strong> on port <strong>22</strong> with <strong>Source: MyIP</strong> to allow access to the instance. - Next, allow <strong>HTTP</strong> on port <strong>80</strong>. - Add <strong>Custom TCP</strong> on port <strong>5000</strong> for <strong>FCJ Management</strong> - Finally, allow <strong>HTTPS</strong> on port <strong>443</strong>.</p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.11.png?featherlight=false&width=90pc"></p>
-<p>Check the <strong>Outbound rules</strong> and click <strong>Create security group</strong></p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.12.png?featherlight=false&width=90pc"></p>
-<h4 id="create-a-security-group-for-the-database-instance">Create a security group for the database instance.</h4>
-<p>We create a security group for the database instance. To ensure security, we do not configure the application&rsquo;s security group.</p>
-<p>Configure the <strong>security group</strong></p>
+<p><img alt="Edit Subnet Settings" src="/images/2-preparation/2.1-network/2.1.6.png?featherlight=false&width=90pc"></p>
+<p>In the subnet settings:</p>
 <ul>
-<li><strong>Security Group name</strong>, enter <strong><code>FCJ-Mangement-DB-SG</code></strong></li>
-<li><strong>Description</strong>, enter <strong><code>Security Group for DB instance</code></strong></li>
-<li>Select the VPC you just created.</li>
+<li>Check <strong>Enable auto-assign public IPv4 address</strong></li>
+<li>Click <strong>Save</strong></li>
 </ul>
-<p>Configure the <strong>Inbound rules</strong></p>
+<p><img alt="Enable Auto-assign Public IP" src="/images/2-preparation/2.1-network/2.1.7.png?featherlight=false&width=90pc"></p>
+<p>Verify the configuration was successful:</p>
+<p><img alt="Verify Subnet Configuration" src="/images/2-preparation/2.1-network/2.1.8.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Repeat this process for all public subnets to ensure any EC2 instance launched in these subnets automatically receives a public IP address.</p>
+<h4 id="creating-application-security-group">Creating Application Security Group</h4>
+<p><strong>ℹ️ Information</strong>: Security Groups act as virtual firewalls for your instances to control inbound and outbound traffic.</p>
+<p>To create a security group for your application:</p>
 <ul>
-<li>Select <strong>Add rule</strong></li>
-<li>Choose <strong>MYSQL/Aurora</strong> on port <strong>3306</strong></li>
-<li>Then select the source as <strong>FCJ-Management-SG</strong></li>
+<li>In the VPC console, select <strong>Security groups</strong></li>
+<li>Click <strong>Create security group</strong></li>
 </ul>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.13.png?featherlight=false&width=90pc"></p>
-<p>Check the <strong>Outbound Rules</strong> and finally click on <strong>Create Security Group</strong>.</p>
-<p><img alt="Image" src="/images/2-preparation/2.1-network/2.1.14.png?featherlight=false&width=90pc"></p>
+<p><img alt="Create Security Group" src="/images/2-preparation/2.1-network/2.1.9.png?featherlight=false&width=90pc"></p>
+<p>Configure the basic security group details:</p>
+<ul>
+<li><strong>Security group name</strong>: <strong><code>FCJ-Management-SG</code></strong></li>
+<li><strong>Description</strong>: <strong><code>Security Group for FCJ Management</code></strong></li>
+<li><strong>VPC</strong>: Select the <strong>AutoScaling-Lab</strong> VPC you created</li>
+</ul>
+<p><img alt="Security Group Basic Configuration" src="/images/2-preparation/2.1-network/2.1.10.png?featherlight=false&width=90pc"></p>
+<p>Configure the inbound rules:</p>
+<ul>
+<li>Add rule for <strong>SSH</strong> (port <strong>22</strong>) with <strong>Source: My IP</strong> for secure administrative access</li>
+<li>Add rule for <strong>HTTP</strong> (port <strong>80</strong>) with <strong>Source: Anywhere-IPv4</strong> for web traffic</li>
+<li>Add rule for <strong>Custom TCP</strong> (port <strong>5000</strong>) with <strong>Source: Anywhere-IPv4</strong> for the FCJ Management application</li>
+<li>Add rule for <strong>HTTPS</strong> (port <strong>443</strong>) with <strong>Source: Anywhere-IPv4</strong> for secure web traffic</li>
+</ul>
+<p><img alt="Security Group Inbound Rules" src="/images/2-preparation/2.1-network/2.1.11.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: In a production environment, consider restricting access to specific IP ranges rather than using &ldquo;Anywhere&rdquo; for enhanced security.</p>
+<p>Review the outbound rules (default allows all outbound traffic) and click <strong>Create security group</strong></p>
+<p><img alt="Security Group Outbound Rules" src="/images/2-preparation/2.1-network/2.1.12.png?featherlight=false&width=90pc"></p>
+<h4 id="creating-database-security-group">Creating Database Security Group</h4>
+<p><strong>ℹ️ Information</strong>: For database instances, we&rsquo;ll create a separate security group with more restrictive access controls to enhance security.</p>
+<p>Configure the database security group:</p>
+<ul>
+<li><strong>Security Group name</strong>: <strong><code>FCJ-Management-DB-SG</code></strong></li>
+<li><strong>Description</strong>: <strong><code>Security Group for DB instance</code></strong></li>
+<li><strong>VPC</strong>: Select your <strong>AutoScaling-Lab</strong> VPC</li>
+</ul>
+<p>Configure the inbound rules:</p>
+<ul>
+<li>Add rule for <strong>MYSQL/Aurora</strong> (port <strong>3306</strong>)</li>
+<li>Set the source to the application security group <strong>FCJ-Management-SG</strong></li>
+</ul>
+<p><img alt="Database Security Group Configuration" src="/images/2-preparation/2.1-network/2.1.13.png?featherlight=false&width=90pc"></p>
+<p><strong>🔒 Security Note</strong>: By referencing the application security group as the source, you ensure that only EC2 instances with that security group can access the database, following the principle of least privilege.</p>
+<p>Review the outbound rules and click <strong>Create Security Group</strong></p>
+<p><img alt="Database Security Group Creation" src="/images/2-preparation/2.1-network/2.1.14.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: This network architecture with separate security groups for application and database tiers follows AWS Well-Architected best practices for security and isolation.</p>
 
 
 
@@ -1303,19 +1327,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746189"></script>
-    <script src="/js/jquery.sticky.js?1733746189"></script>
-    <script src="/js/featherlight.min.js?1733746189"></script>
-    <script src="/js/highlight.pack.js?1733746189"></script>
+    <script src="/js/clipboard.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703291"></script>
+    <script src="/js/jquery.sticky.js?1744703291"></script>
+    <script src="/js/featherlight.min.js?1744703291"></script>
+    <script src="/js/highlight.pack.js?1744703291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746189"></script>
-    <script src="/js/learn.js?1733746189"></script>
-    <script src="/js/hugo-learn.js?1733746189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703291"></script>
+    <script src="/js/learn.js?1744703291"></script>
+    <script src="/js/hugo-learn.js?1744703291"></script>
 
-    <link href="/mermaid/mermaid.css?1733746189" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746189"></script>
+    <link href="/mermaid/mermaid.css?1744703291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

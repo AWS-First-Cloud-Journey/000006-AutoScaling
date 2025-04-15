@@ -6,35 +6,45 @@ chapter: false
 pre: "<strong>1. </strong>"
 ---
 
-#### Introduce
+#### Introduction
 
-In this exercise, we will be deploying the application using an Auto Scaling Group to ensure the application's scalability based on user demand. Additionally, we will implement a Load Balancer to distribute the load and manage user access requests to our Application Tier.
+**ℹ️ Information**: In this workshop, we will deploy an application using Amazon EC2 Auto Scaling to ensure dynamic scalability based on user demand. Additionally, we will implement Elastic Load Balancing to distribute traffic and efficiently manage user requests to our application tier.
 
-Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] to understand how to deploy the application on a virtual machine. We will utilize the virtual machine where **FCJ Management** is deployed for the purpose of mass deployment and scaling within the Auto Scaling Group.
+Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/Amazon Linux Virtual Machine] to understand the base deployment process. We will use the virtual machine with **FCJ Management** already deployed as the foundation for our Auto Scaling Group configuration.
 
-#### Auto Scaling Group
-1. Why Use Auto Scaling Group? 
-   
-   When our application goes live, the volume of users accessing it will change over time. Therefore, we need to frequently adjust (scale) the number of instances to enhance availability and save costs. To automate and make scaling flexible, we have a solution known as the Auto Scaling Group.
-2. Overview of Auto Scaling Group
-   
-    **Auto Scaling Group (ASG)** helps automatically adjust the number of EC2 instances based on the needs of the application. ASG can automatically scale up when traffic increases or scale down when traffic decreases, optimizing resources and reducing costs. It also ensures high availability by distributing instances across multiple Availability Zones to maintain continuous operation even if part of the system encounters issues.
-3. Types of Scaling in ASG
-   
-   In this content, we will explore the following types of scaling:
-   - **Manual Scaling**: Users manually adjust the number of EC2 instances in the Auto Scaling Group based on demand. This is a manual method that does not automatically respond to specific metrics.
-   - **Dynamic Scaling**: Automatically adjusts the number of instances based on real-time metrics such as CPU utilization, network traffic, or custom metrics from CloudWatch. Dynamic scaling has three primary policies: **Target Tracking Scaling**, **Step Scaling**, **Simple Scaling**.
-   - **Scheduled Scaling**: Allows us to configure specific times to automatically scale up or down instances, for example, increasing the number of instances during peak hours or decreasing them outside of working hours. This is suitable for scenarios where we already know the traffic pattern.
-   - **Predictive Scaling**: It predicts activity by analyzing historical load data to identify daily or weekly patterns in traffic flow. It uses this information to forecast future capacity needs, allowing Amazon EC2 Auto Scaling to proactively increase the capacity of the Auto Scaling group as needed.
+#### Amazon EC2 Auto Scaling
 
-#### Launch Template
+**ℹ️ Information**: When applications go into production, user traffic naturally fluctuates over time. To maintain optimal performance and cost efficiency, we need to adjust (scale) the number of instances accordingly. Amazon EC2 Auto Scaling provides an automated solution that makes this scaling process flexible and hands-free.
 
-**Launch Template** is a configuration that contains the necessary parameters to launch EC2 instances. It stores details such as instance type, AMI (Amazon Machine Image), key pair, network settings, security groups, and other configuration information for EC2. This simplifies the instance creation process and supports the automatic creation of new instances in ASG.
+Amazon EC2 Auto Scaling automatically adjusts the number of EC2 instances based on application demand. It can scale out (add instances) when traffic increases and scale in (remove instances) when traffic decreases, optimizing resource utilization and reducing costs. It also enhances high availability by distributing instances across multiple Availability Zones, ensuring continuous operation even if part of the infrastructure experiences issues.
 
-#### Elastic Load Balancer
+#### Scaling Strategies
 
-**Elastic Load Balancer** is a tool that helps evenly distribute workloads (traffic) to multiple servers or instances to ensure stable system operation and prevent any single server from becoming overloaded. It optimizes performance, increases availability, and ensures that if one server encounters issues, traffic will be redirected to other servers without affecting users.
+In this workshop, we will explore the following scaling strategies:
 
-#### Target Group
+1. **Manual Scaling**: Manually adjusting the number of EC2 instances in the Auto Scaling group based on anticipated demand. This method requires human intervention and does not automatically respond to metrics.
 
-**Target Group**  is a component of the Elastic Load Balancer (ELB) that is used to identify and manage the EC2 instances that the Load Balancer will distribute traffic to.
+2. **Dynamic Scaling**: Automatically adjusting capacity based on real-time metrics such as CPU utilization, network traffic, or custom CloudWatch metrics. Dynamic scaling includes three primary approaches:
+   - **Target Tracking Scaling**: Maintains a specific metric value (e.g., 50% CPU utilization)
+   - **Step Scaling**: Responds to metric thresholds with proportional capacity adjustments
+   - **Simple Scaling**: Adjusts capacity based on a single metric threshold
+
+3. **Scheduled Scaling**: Configuring specific times to automatically scale instances up or down, such as increasing capacity during business hours and decreasing it during off-hours. This works well for predictable traffic patterns.
+
+4. **Predictive Scaling**: Forecasts future capacity needs by analyzing historical load patterns. This proactive approach allows Amazon EC2 Auto Scaling to scale out in advance of anticipated traffic increases, ensuring optimal performance during peak periods.
+
+#### Launch Templates
+
+**ℹ️ Information**: A Launch Template is a configuration that contains all the necessary parameters to launch EC2 instances. It stores specifications such as instance type, Amazon Machine Image (AMI), key pair, network settings, security groups, and other EC2 configuration details. Launch Templates simplify the instance creation process and enable Auto Scaling groups to consistently deploy properly configured instances.
+
+**💡 Pro Tip**: Launch Templates support versioning, allowing you to iterate on your configuration while maintaining the ability to roll back if needed.
+
+#### Elastic Load Balancing
+
+**ℹ️ Information**: Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses. It helps ensure high availability and fault tolerance by preventing any single resource from becoming overwhelmed with traffic. If one server experiences issues, traffic is automatically redirected to healthy servers, maintaining a seamless user experience.
+
+**🔒 Security Note**: Elastic Load Balancing integrates with AWS Certificate Manager to provide SSL/TLS termination, enhancing security for your applications without adding computational overhead to your instances.
+
+#### Target Groups
+
+**ℹ️ Information**: A Target Group is a component of Elastic Load Balancing that identifies and manages the destinations (targets) to which the load balancer routes traffic. Target Groups allow you to register multiple EC2 instances, configure health checks, and set routing rules. They serve as the bridge between your load balancer and the application instances, enabling intelligent traffic distribution based on health and availability.

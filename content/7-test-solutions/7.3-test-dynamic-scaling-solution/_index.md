@@ -6,84 +6,110 @@ chapter: false
 pre: "<strong>7.3. </strong>"
 ---
 
-### Dynamic Scaling
+#### Overview
 
-Dynamic scaling is based on the metrics provided by CloudWatch. Depending on how we configure it, ASG will either launch or terminate instances. We can configure ASG to launch a new instance when the CPU resources of an instance or instances exceed 90%, or if the network traffic is high, or if the number of packets sent to each instance is large.
+**ℹ️ Information**: Dynamic scaling automatically adjusts your application's capacity based on real-time metrics collected by Amazon CloudWatch. When properly configured, your Auto Scaling Group (ASG) will launch or terminate instances in response to changing workload demands, ensuring optimal performance and cost efficiency.
 
-Depending on the system and requirements, we will configure it differently. In this example, we will configure it based on the "number of packets sent to each instance."
+#### Understanding Dynamic Scaling Metrics
 
-#### Configuration
+Dynamic scaling can be triggered by various metrics, including:
 
-Before testing, we will manually scale in by terminating one instance. Then, go to the Activity tab and check again.
+- CPU utilization percentage
+- Network traffic volume
+- Application Load Balancer request count per target
+- Custom metrics specific to your application
 
-![7.3.1](/images/7-test-solution/7.3.1.png)
+**💡 Pro Tip**: The choice of scaling metric should align with your application's performance bottlenecks. For web applications, request count per target often provides the most responsive scaling behavior.
 
-![7.3.2](/images/7-test-solution/7.3.2.png)
+#### Configuring Dynamic Scaling
 
-After deleting, we will now configure dynamic scaling. Go to the **Automatic scaling** tab.
+Before implementing dynamic scaling, we'll first ensure our environment is properly prepared:
 
-- Click **Create dynamic scaling policy** to create a new scaling policy.
+1. Manually scale in by terminating one instance to establish a baseline
+2. Verify the termination in the **Activity** tab of your ASG
 
-![7.3.3](/images/7-test-solution/7.3.3.png)
+![ASG Activity Tab](/images/7-test-solution/7.3.1.png?featherlight=false&width=90pc)
 
-In this form, fill in the following details:
+![Instance Termination Confirmation](/images/7-test-solution/7.3.2.png?featherlight=false&width=90pc)
 
-- Policy type: **Target tracking scaling**.
-- Scaling policy name: `Request Over 500 per target`.
-- Metric type: **Application Load Balancer request count per target**.
-- Target group: **FCJ-Management-TG**.
-- Target value: **500** (requests).
-- Instance warmup: **60 seconds** (it is recommended to set a higher value).
-- Click **Create** to create the policy.
+Now, let's configure dynamic scaling:
 
-![7.3.4](/images/7-test-solution/7.3.4.png)
+1. Navigate to the **Automatic scaling** tab of your ASG
+2. Click **Create dynamic scaling policy**
 
-{{% notice info %}}
-The **Instance warmup** parameter affects the time an instance starts receiving external traffic. Specifically, when an instance is created and in the **InService** state (ready to operate), you can adjust the time it takes for an instance to begin receiving and processing requests. This time is called **instance warmup**. Adjusting this parameter allows more time for the instance to become fully stable, as the application may need to update and install dependencies or connect to other services to function properly.
-{{% /notice %}}
+![Create Dynamic Scaling Policy](/images/7-test-solution/7.3.3.png?featherlight=false&width=90pc)
 
-Result:
+3. Configure the policy with these parameters:
+   - Policy type: **Target tracking scaling**
+   - Scaling policy name: `Request Over 500 per target`
+   - Metric type: **Application Load Balancer request count per target**
+   - Target group: **FCJ-Management-TG**
+   - Target value: **500** (requests)
+   - Instance warmup: **60 seconds**
+   - Click **Create** to implement the policy
 
-![7.3.5](/images/7-test-solution/7.3.5.png)
+![Dynamic Scaling Policy Configuration](/images/7-test-solution/7.3.4.png?featherlight=false&width=90pc)
 
-#### Testing
+**ℹ️ Information**: The **Instance warmup** parameter defines how long a newly launched instance should be excluded from aggregated metrics. This allows the instance to initialize fully before it's considered in scaling decisions. For production workloads, consider setting this value higher (120-300 seconds) depending on your application's initialization requirements.
 
-Start the test program.
+After successful creation, you'll see your dynamic scaling policy in the list:
 
-![7.3.6](/images/7-test-solution/7.3.6.png)
+![Dynamic Scaling Policy Created](/images/7-test-solution/7.3.5.png?featherlight=false&width=90pc)
 
-Go to the EC2 Console to see how many requests are being sent to EC2.
+#### Testing Dynamic Scaling
 
-![7.3.7](/images/7-test-solution/7.3.7.png)
+To evaluate the effectiveness of dynamic scaling:
 
-{{% notice note %}}
-Wait a moment for the metrics to update. You'll notice that the graphs are trending upwards or stabilizing.
-{{% /notice %}}
+1. Start your load testing program with the same configuration used in previous tests
 
-Return to the **Activity** tab of ASG. You will see 3 instances have been launched. Since the request volume is high, ASG calculates that it needs to create the maximum desired number of instances.
+![Load Testing Program](/images/7-test-solution/7.3.6.png?featherlight=false&width=90pc)
 
-![7.3.8](/images/7-test-solution/7.3.8.png)
+2. Monitor the EC2 Console to observe the request metrics for your instances
 
-Go back to the EC2 Console, select all the newly created instances, and observe the charts.
+![Initial Request Metrics](/images/7-test-solution/7.3.7.png?featherlight=false&width=90pc)
 
-![7.3.9](/images/7-test-solution/7.3.9.png)
+**⚠️ Warning**: CloudWatch metrics may take several minutes to update. Be patient and observe the trend lines as they begin to stabilize or increase.
 
-You will notice that the green line is gradually going down, and other lines are starting to appear.
+3. Return to the **Activity** tab of your ASG to monitor scaling actions
 
-{{% notice note %}}
-As mentioned before, metrics update every 15 minutes, so you will need to wait a bit to see the results.
-{{% /notice %}}
+![ASG Scaling Activities](/images/7-test-solution/7.3.8.png?featherlight=false&width=90pc)
 
-Now, we will stop the test program.
+**ℹ️ Information**: In this example, the ASG has determined that three instances are needed to handle the current request volume, scaling up to the maximum desired capacity we configured.
 
-![7.3.10](/images/7-test-solution/7.3.10.png)
+4. In the EC2 Console, select all instances to compare their performance metrics
 
-Go to the ASG Activity tab and wait for ASG to terminate the unnecessary instances. This process may take a while.
+![Multi-Instance Performance Metrics](/images/7-test-solution/7.3.9.png?featherlight=false&width=90pc)
 
-![7.3.11](/images/7-test-solution/7.3.11.png)
+**💡 Pro Tip**: Notice how the green line (representing your original instance) gradually decreases as new instances (represented by other colors) begin handling portions of the traffic. This demonstrates the load balancer distributing requests across all available instances.
+
+5. Stop the load testing program to observe scale-in behavior
+
+![Stopping Load Test](/images/7-test-solution/7.3.10.png?featherlight=false&width=90pc)
+
+6. Monitor the ASG Activity tab as unnecessary instances are terminated
+
+![Scale-In Activities](/images/7-test-solution/7.3.11.png?featherlight=false&width=90pc)
+
+**⚠️ Warning**: Scale-in actions typically have a cooldown period to prevent rapid scaling oscillations. This means termination of excess instances may take several minutes after load decreases.
+
+#### Key Insights and Best Practices
+
+**ℹ️ Information**: Dynamic scaling responds to real-time metrics, making it ideal for workloads with unpredictable traffic patterns. However, there are important considerations:
+
+1. **Metric Selection**: Choose metrics that directly correlate with user experience and system performance
+2. **Target Values**: Set appropriate target values based on performance testing and application requirements
+3. **Warmup Periods**: Configure realistic warmup times that allow your application to fully initialize
+4. **Scale-In Protection**: Consider enabling instance scale-in protection for critical workloads
+5. **Monitoring**: Regularly review scaling activities to optimize your configuration
+
+**🔒 Security Note**: When implementing dynamic scaling, ensure your security groups, IAM roles, and network configurations are properly set to maintain security posture during scaling events.
 
 #### Conclusion
 
-When ASG detects that the system is becoming overloaded based on certain metrics, it will launch additional instances to bring the system back to a stable state. However, dynamic scaling is not very fast, as mentioned earlier. When scaling policies are created, they impact the core metrics, and ASG will "look" at them to decide whether to scale up or down.
+Dynamic scaling provides an effective way to automatically adjust capacity based on real-time demand. While it offers significant advantages over manual or scheduled scaling for unpredictable workloads, it does have inherent limitations:
 
-As a result, the number of instances is calculated and updated at a slower pace. To address this, we can use Predictive Scaling, which allows ASG to react more quickly.
+- There's an unavoidable delay between metric collection, evaluation, and scaling action
+- Rapid traffic spikes may temporarily impact performance before scaling completes
+- Determining optimal target values requires testing and refinement
+
+For workloads with more predictable patterns or those requiring faster response to changing conditions, consider implementing predictive scaling, which we'll explore in the next section.

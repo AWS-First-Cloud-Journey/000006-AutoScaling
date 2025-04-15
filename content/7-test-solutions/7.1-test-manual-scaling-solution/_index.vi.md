@@ -6,24 +6,26 @@ chapter: false
 pre: "<strong>7.1. </strong>"
 ---
 
-### Manual Scaling
+#### Manual Scaling
 
-Manual Scaling là mình sẽ thực hiện bằng cách là tự điều chỉnh thủ công thông số **Desired capacity** của ASG, sau khi điều chỉnh xong và xác nhận update thì đợi trong một khoảng thời gian, ASG sẽ update xong số lượng và tiến hành khởi tạo hoặc xoá bớt đi EC2 Instance tuỳ thuộc vào thông số **Desired capacity** đó.
+**ℹ️ Information**: Manual Scaling là phương pháp điều chỉnh thủ công thông số **Desired capacity** của Auto Scaling Group (ASG). Sau khi điều chỉnh và xác nhận cập nhật, ASG sẽ tự động khởi tạo hoặc xóa EC2 Instance dựa trên giá trị Desired capacity mới.
 
 #### Cài đặt kiểm thử
 
-Khi tạo xong Auto Scaling Group, thì chính dịch vụ này sẽ tự động khởi tạo một EC2 Instance do chúng ta cấu hình trước đó, để có thể xem được điều này thì chúng ta có thể vào trong EC2 Console
+Khi tạo xong Auto Scaling Group, dịch vụ này sẽ tự động khởi tạo một EC2 Instance theo cấu hình đã thiết lập. Để xác nhận điều này, chúng ta có thể vào EC2 Console:
 
 - Chọn **Load Balancer**
 - Chọn tab **Resource map - new**
 
-Ở đây chúng ta có thể thấy được là Target Group trước đó đang có liên kết tới 2 Targets lần lượt là 2 EC2 Instances (1 là instance gốc được tạo trước đó; cái còn lại là instance được tạo từ ASG).
+Tại đây, chúng ta có thể thấy Target Group đang liên kết với 2 Targets (EC2 Instances): một instance gốc được tạo trước đó và một instance được tạo từ ASG.
 
 ![7.1.1](/images/7-test-solution/7.1.1.png)
 
-Giờ thì kiểm thử với ứng dụng mà chúng ta đã tải trước đó.
+**💡 Pro Tip**: Resource Map là công cụ trực quan giúp bạn dễ dàng theo dõi mối quan hệ giữa Load Balancer, Target Group và các EC2 Instance, đặc biệt hữu ích khi làm việc với Auto Scaling.
 
-- Mở ứng dụng lên, ấn vào tab **Test Type**
+Tiếp theo, chúng ta sẽ kiểm thử với ứng dụng đã tải trước đó:
+
+- Mở ứng dụng, chọn tab **Test Type**
 - Test Type:
   - Chọn **CLICKS**
   - Run until: **100000**
@@ -33,31 +35,31 @@ Giờ thì kiểm thử với ứng dụng mà chúng ta đã tải trước đ�
 
 ![7.1.2](/images/7-test-solution/7.1.2.png)
 
-Trong tab URLs, mình sẽ cấu hình các thông tin
+Trong tab URLs, cấu hình các thông tin:
 
-- Name: `Manual Scaling Test`, ở đây thì bạn đặt là gì cũng được, bởi vì chúng ta sẽ dùng để test trong các loại scaling khác sau đó.
-- URL: copy DNS của Load Balancer và dán vào.
+- Name: `Manual Scaling Test` (bạn có thể đặt tên tùy ý, vì chúng ta sẽ sử dụng lại cho các loại scaling khác sau này)
+- URL: Dán DNS của Load Balancer vào đây
 
 ![7.1.3](/images/7-test-solution/7.1.3.png)
 
-Trên thanh công cụ, mình sẽ bắt đầu ấn **Start Test**.
+Trên thanh công cụ, nhấn **Start Test** để bắt đầu.
 
 ![7.1.4](/images/7-test-solution/7.1.4.png)
 
 #### Tiến hành kiểm thử
 
-Giờ quay lại với AWS Management Console, vào trong EC2 Console
+Quay lại AWS Management Console, vào EC2 Console:
 
-- Tích chọn 2 EC2 Instance ở trong target group
-- Ấn vào tab **Monitoring** và bắt đầu quan sát
+- Tích chọn 2 EC2 Instance trong target group
+- Chọn tab **Monitoring** và bắt đầu quan sát
 
-Trong mục này, chúng ta có 7 biểu đồ, nhưng hiện tại thì chúng ta chỉ quan tâm tới 5 biểu đồ sau:
+**ℹ️ Information**: Trong phần Monitoring, chúng ta sẽ tập trung vào 5 biểu đồ quan trọng sau:
 
-- CPU Utilization (%): biểu đồ cho thấy lượng tài nguyên CPU mà 2 instances này đã dùng trong khoảng dưới 8% với mỗi instance.
-- Network in (bytes): biểu đồ cho thấy dung lượng mạng đi vào 2 instances này trong khoảng dưới 2.9 triệu Megabytes với mỗi instance.
-- Network out (bytes): biểu đồ cho thấy dung lượng mạng đi ra từ 2 instances này trong khoảng dưới 17.3 triệu Megabytes với mỗi instance.
-- Network packets in (count): biểu đồ cho thấy số lượng các gói tin đi vào 2 instances này trong khoảng dưới 6.85 nghìn gói tin với mỗi instance.
-- Network packets out (count): biểu đồ cho thấy số lượng các gói tin đi ra từ 2 instances này trong khoảng dưới 7.36 nghìn gói tin với mỗi instance.
+1. **CPU Utilization (%)**: Hiển thị lượng tài nguyên CPU mà mỗi instance đã sử dụng (khoảng dưới 8%)
+2. **Network in (bytes)**: Hiển thị dung lượng mạng đi vào mỗi instance (khoảng dưới 2.9 triệu Megabytes)
+3. **Network out (bytes)**: Hiển thị dung lượng mạng đi ra từ mỗi instance (khoảng dưới 17.3 triệu Megabytes)
+4. **Network packets in (count)**: Hiển thị số lượng gói tin đi vào mỗi instance (khoảng dưới 6.85 nghìn gói tin)
+5. **Network packets out (count)**: Hiển thị số lượng gói tin đi ra từ mỗi instance (khoảng dưới 7.36 nghìn gói tin)
 
 ![7.1.5](/images/7-test-solution/7.1.5.png)
 
@@ -66,53 +68,59 @@ Từ giờ trở đi chúng ta sẽ đọc các biểu đồ này như vậy. Ba
 {{% /notice %}}
 
 {{% notice note %}}
-Và nếu như mà bạn chỉ tích chọn 1 instance, thì trên biểu đồ chỉ có một đường vẽ đại diện cho instance đó. Như vậy, khi tích chọn càng nhiều trên danh sách thì sẽ càng có nhiều đường biểu diễn hơn.
+Nếu bạn chỉ tích chọn 1 instance, thì trên biểu đồ chỉ có một đường vẽ đại diện cho instance đó. Khi tích chọn càng nhiều instance trên danh sách, sẽ càng có nhiều đường biểu diễn hơn.
 {{% /notice %}}
 
-#### Điều chính thủ công thông số Desired capacity của ASG
+#### Điều chỉnh thủ công thông số Desired capacity của ASG
 
-Giờ thì chúng ta trở lại với trang thông tin chi tiết của ASG mà chúng ta đã tạo ở trước đó. Trong phần Group details, chúng ta có thể thấy được là: **Desired capacity = 1**.
+Trở lại trang thông tin chi tiết của ASG đã tạo trước đó. Trong phần Group details, chúng ta thấy: **Desired capacity = 1**.
 
-Giờ chúng ta sẽ giả sử một tình huống, là đã qua giờ cao điểm nên là mình muốn tắt bớt đi một instance để tiết kiệm chi phí. Để làm được việc này thì chúng ta sẽ điều chỉnh thủ công thông số **Desired capacity = 0**. Ấn **Edit**.
+**ℹ️ Information**: Giả sử một tình huống đã qua giờ cao điểm và chúng ta muốn tắt bớt một instance để tiết kiệm chi phí. Để thực hiện, chúng ta sẽ điều chỉnh thủ công thông số **Desired capacity = 0**. Nhấn **Edit**.
 
 ![7.1.6](/images/7-test-solution/7.1.6.png)
 
-Sẽ hiện lên bảng thông tin Group size, điều chỉnh Desired capacity và Min desired capacity về **0** và ấn **Update**.
+**⚠️ Warning**: Khi giảm Desired capacity xuống 0, tất cả các instance do ASG quản lý sẽ bị chấm dứt. Đảm bảo rằng đây là hành động có chủ đích và sẽ không ảnh hưởng đến tính khả dụng của ứng dụng.
+
+Trong bảng thông tin Group size, điều chỉnh Desired capacity và Min desired capacity về **0** và nhấn **Update**.
 
 ![7.1.7](/images/7-test-solution/7.1.7.png)
 
-Sau đó vào trong tab Activity để xem ASG đang có hoạt động gì.
+Sau đó vào tab Activity để xem hoạt động của ASG.
 
 ![7.1.8](/images/7-test-solution/7.1.8.png)
 
 {{% notice note %}}
-Trong quá trình instance đang được tắt đi, thì bạn có thể dừng chương trình test lại.
+Trong quá trình instance đang được tắt đi, bạn có thể tạm dừng chương trình test.
 {{% /notice %}}
 
-=> Như vậy chúng ta có thể thấy là ASG sẽ tự động huỷ đi một instance theo như thông số mà nó đã được cấu hình.
+**ℹ️ Information**: Như vậy, chúng ta có thể thấy ASG sẽ tự động hủy instance theo thông số đã được cấu hình.
 
-Một vài phút sau, vào lại trong trang thông tin của Load Balancer, vào tab **Resource map - new** thì chúng ta có thể thấy được là giờ chỉ còn có một target thôi.
+Sau vài phút, vào lại trang thông tin của Load Balancer, chọn tab **Resource map - new**, chúng ta sẽ thấy giờ chỉ còn một target.
 
 ![7.1.9](/images/7-test-solution/7.1.9.png)
 
 {{% notice note %}}
-Tới bước này thì bạn NHỚ BẬT LẠI chương trình test.
+Tới bước này, hãy BẬT LẠI chương trình test.
 {{% /notice %}}
 
-Chúng ta cũng sẽ nhận được một email từ SNS
+**ℹ️ Information**: Chúng ta cũng sẽ nhận được email thông báo từ Amazon SNS về việc ASG đã chấm dứt instance.
 
 ![7.1.10](/images/7-test-solution/7.1.10.png)
 
-Khi chương trình của chúng ta đang có lưu lượng truy cập lớn, thì thao tác sẽ bị chậm đi một ít. Các bạn có thể mở ứng dụng thông qua DNS của Load Balancer để kiểm thử.
+**💡 Pro Tip**: Thông báo SNS giúp bạn theo dõi các hoạt động của ASG trong thời gian thực, đặc biệt hữu ích khi triển khai các chiến lược scaling trong môi trường sản xuất.
+
+Khi chương trình đang có lưu lượng truy cập lớn, các thao tác sẽ bị chậm đi. Bạn có thể mở ứng dụng thông qua DNS của Load Balancer để kiểm thử.
 
 ![7.1.11](/images/7-test-solution/7.1.11.png)
 
-Giờ thì vào lại EC2 Console, chọn target còn lại, và quan sát biểu đồ.
+Quay lại EC2 Console, chọn target còn lại và quan sát biểu đồ.
 
 ![7.1.12](/images/7-test-solution/7.1.12.png)
 
-Có thể thấy, hiện tại thì instance đã chịu tải lưu lượng mạng vào và ra có thể nói là gấp đôi và lượng tài nguyên CPU đã dùng gần gấp 4 lần.
+**ℹ️ Information**: Có thể thấy, hiện tại instance đang phải chịu tải lưu lượng mạng vào và ra gần như gấp đôi, và lượng tài nguyên CPU đã sử dụng gần gấp 4 lần so với trước đó.
 
 #### Kết luận
 
-Trên thực tế thì các hệ thống sẽ có các bước thực hiện phức tạp hơn, lâu hơn nên từ đó sẽ dùng nhiều tài nguyên CPU hơn. Trong bài này thì chúng ta chỉ kiểm tra giao thực GET, còn thực tế thì các request này sẽ phức tạp hơn nhiều.
+**💡 Pro Tip**: Trên thực tế, các hệ thống sẽ có các quy trình xử lý phức tạp hơn, thời gian xử lý lâu hơn, do đó sẽ tiêu tốn nhiều tài nguyên CPU hơn. Trong bài lab này, chúng ta chỉ kiểm tra giao thức GET đơn giản, trong khi các ứng dụng thực tế sẽ có các request phức tạp hơn nhiều.
+
+**🔒 Security Note**: Khi thực hiện manual scaling trong môi trường sản xuất, cần đảm bảo rằng việc giảm số lượng instance không ảnh hưởng đến khả năng xử lý của hệ thống và không tạo ra các điểm yếu về bảo mật do quá tải.

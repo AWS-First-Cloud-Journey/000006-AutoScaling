@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm tra kết quả :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#kiểm-tra-kết-quả">Kiểm tra kết quả</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,18 +835,70 @@
 
 
 
-	<h3 id="kiểm-tra-kết-quả">Kiểm tra kết quả</h3>
-<p>Sau khi triển khai xong Load Balancer, thì chúng ta sẽ lấy DNS name của LB này và dán vào trong trình duyệt để thử kết quả của triển khai.</p>
-<p><img alt="5.1.png" src="/images/5-test/5.1.png"></p>
-<p>Và đây là kết quả</p>
-<p><img alt="5.2.png" src="/images/5-test/5.2.png"></p>
-<p>Giờ thì chúng ta sẽ thao tác một số thứ để kiểm tra xem hệ thống hoạt động ổn định hay không. Thử thay đổi thông tin của 1 record.</p>
-<p><img alt="5.3.png" src="/images/5-test/5.3.png"></p>
-<p>Khi nhập xong thì chúng ta ấn Submit và nhận được thông báo.</p>
-<p><img alt="5.4.png" src="/images/5-test/5.4.png"></p>
-<p>Trở lại trang chủ và nhận được kết quả là</p>
-<p><img alt="5.5.png" src="/images/5-test/5.5.png"></p>
-<p>Ở các bước kiểm thử ở sau, thì chúng ta sẽ đọc các metrics là chính, nhưng bạn cũng có thể vừa đọc và vừa kiểm tra xem là ứng dụng có bị chậm trong quá trình kiểm thử hay không.</p>
+	<h4 id="kiểm-tra-kết-quả-triển-khai">Kiểm tra kết quả triển khai</h4>
+<p><strong>ℹ️ Information</strong>: Sau khi hoàn tất việc triển khai Load Balancer, chúng ta cần xác minh rằng hệ thống đang hoạt động đúng như mong đợi. Việc kiểm tra này giúp đảm bảo rằng lưu lượng truy cập được phân phối chính xác đến ứng dụng của chúng ta.</p>
+<p>Để truy cập ứng dụng, hãy sử dụng DNS name của Load Balancer và dán vào trình duyệt web:</p>
+<p><img alt="Truy cập DNS của Load Balancer" src="/images/5-test/5.1.png"></p>
+<p>Kết quả hiển thị trang web ứng dụng quản lý của chúng ta:</p>
+<p><img alt="Giao diện ứng dụng" src="/images/5-test/5.2.png"></p>
+<p><strong>💡 Pro Tip</strong>: Luôn sử dụng DNS name của Load Balancer thay vì địa chỉ IP trực tiếp của EC2 instance. Điều này đảm bảo ứng dụng của bạn vẫn hoạt động ngay cả khi các instance cơ bản được thay thế hoặc mở rộng.</p>
+<h4 id="kiểm-tra-tính-ổn-định-của-hệ-thống">Kiểm tra tính ổn định của hệ thống</h4>
+<p>Để xác minh rằng hệ thống hoạt động ổn định, chúng ta sẽ thực hiện một số thao tác cơ bản. Đầu tiên, hãy thử thay đổi thông tin của một record trong ứng dụng:</p>
+<p><img alt="Chỉnh sửa thông tin record" src="/images/5-test/5.3.png"></p>
+<p>Sau khi nhập thông tin, nhấn Submit và quan sát thông báo xác nhận:</p>
+<p><img alt="Thông báo xác nhận" src="/images/5-test/5.4.png"></p>
+<p>Quay lại trang chủ, chúng ta có thể thấy thông tin đã được cập nhật thành công:</p>
+<p><img alt="Kết quả sau khi cập nhật" src="/images/5-test/5.5.png"></p>
+<p><strong>⚠️ Warning</strong>: Trong các bước kiểm thử tiếp theo, chúng ta sẽ tập trung vào việc phân tích các metrics từ CloudWatch. Tuy nhiên, bạn nên kết hợp việc theo dõi metrics với việc kiểm tra trải nghiệm người dùng thực tế để đánh giá toàn diện hiệu suất của hệ thống.</p>
+<p><strong>🔒 Security Note</strong>: Khi kiểm tra ứng dụng qua Load Balancer, hãy đảm bảo rằng bạn đang sử dụng kết nối an toàn (HTTPS) nếu ứng dụng của bạn xử lý dữ liệu nhạy cảm. Trong môi trường sản xuất, việc cấu hình SSL/TLS cho Load Balancer là một thực hành bảo mật quan trọng.</p>
+<h4 id="kiểm-tra-khả-năng-chịu-tải-của-hệ-thống">Kiểm tra khả năng chịu tải của hệ thống</h4>
+<p><strong>ℹ️ Information</strong>: Một trong những lợi ích chính của việc sử dụng Load Balancer là khả năng phân phối tải đồng đều giữa các EC2 instance. Để kiểm tra khả năng này, chúng ta có thể theo dõi các metrics trên CloudWatch.</p>
+<p>Truy cập vào dịch vụ CloudWatch từ AWS Management Console:</p>
+<!-- raw HTML omitted -->
+<p>Trong CloudWatch, chúng ta có thể xem các metrics của Load Balancer như RequestCount, TargetResponseTime, và HTTPCode:</p>
+<!-- raw HTML omitted -->
+<p><strong>💡 Pro Tip</strong>: Thiết lập CloudWatch Dashboards để theo dõi các metrics quan trọng của hệ thống trong một giao diện tập trung, giúp bạn nhanh chóng phát hiện các vấn đề tiềm ẩn.</p>
+<h4 id="kiểm-tra-khả-năng-tự-phục-hồi">Kiểm tra khả năng tự phục hồi</h4>
+<p>Một tính năng quan trọng của kiến trúc sử dụng Load Balancer và Auto Scaling Group là khả năng tự phục hồi khi có instance gặp sự cố. Để kiểm tra tính năng này:</p>
+<ol>
+<li>Truy cập vào EC2 Management Console</li>
+<li>Chọn một trong các instance đang chạy trong Auto Scaling Group</li>
+<li>Thực hiện thao tác terminate instance</li>
+</ol>
+<!-- raw HTML omitted -->
+<p>Sau khi terminate instance, Auto Scaling Group sẽ tự động phát hiện và khởi tạo một instance mới để thay thế:</p>
+<!-- raw HTML omitted -->
+<p><strong>⚠️ Warning</strong>: Trong quá trình Auto Scaling Group tạo instance mới, có thể có một khoảng thời gian ngắn khi hệ thống hoạt động với công suất giảm. Tuy nhiên, Load Balancer sẽ tiếp tục định tuyến lưu lượng đến các instance khỏe mạnh còn lại.</p>
+<h4 id="kiểm-tra-khả-năng-mở-rộng-tự-động">Kiểm tra khả năng mở rộng tự động</h4>
+<p>Auto Scaling Group cho phép hệ thống tự động mở rộng khi tải tăng cao. Để kiểm tra tính năng này, chúng ta có thể tạo tải nhân tạo lên hệ thống và quan sát phản ứng:</p>
+<ol>
+<li>Sử dụng công cụ tạo tải như Apache JMeter hoặc AWS Load Testing</li>
+<li>Theo dõi các metrics như CPU Utilization trên CloudWatch</li>
+<li>Quan sát Auto Scaling Group tự động tăng số lượng instance khi tải vượt ngưỡng</li>
+</ol>
+<!-- raw HTML omitted -->
+<p><strong>💡 Pro Tip</strong>: Khi thiết kế các bài kiểm tra tải, hãy mô phỏng các mẫu lưu lượng thực tế mà ứng dụng của bạn dự kiến sẽ gặp phải. Điều này giúp bạn đánh giá chính xác hơn hiệu suất của hệ thống trong điều kiện thực tế.</p>
+<h4 id="kiểm-tra-khả-năng-chịu-lỗi-của-availability-zone">Kiểm tra khả năng chịu lỗi của Availability Zone</h4>
+<p>Một lợi ích lớn của việc triển khai ứng dụng trên nhiều Availability Zone là khả năng chịu lỗi khi một AZ gặp sự cố. Để kiểm tra tính năng này:</p>
+<ol>
+<li>Truy cập vào VPC Management Console</li>
+<li>Chọn một subnet trong một AZ cụ thể mà ứng dụng đang chạy</li>
+<li>Tạm thời vô hiệu hóa lưu lượng đến subnet đó bằng cách điều chỉnh Network ACLs</li>
+</ol>
+<p>Quan sát Load Balancer tự động định tuyến lưu lượng đến các instance trong các AZ còn lại:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>🔒 Security Note</strong>: Khi thực hiện các bài kiểm tra chịu lỗi, hãy đảm bảo rằng bạn có kế hoạch khôi phục rõ ràng để nhanh chóng khôi phục hệ thống về trạng thái bình thường sau khi hoàn thành kiểm tra.</p>
+<h4 id="kết-luận">Kết luận</h4>
+<p>Qua các bài kiểm tra, chúng ta đã xác nhận rằng hệ thống triển khai với Load Balancer và Auto Scaling Group hoạt động hiệu quả, đảm bảo tính sẵn sàng cao và khả năng mở rộng linh hoạt cho ứng dụng FCJ-Management.</p>
+<p>Kiến trúc này cung cấp nhiều lợi ích quan trọng:</p>
+<ol>
+<li><strong>Tính sẵn sàng cao</strong>: Ứng dụng vẫn hoạt động ngay cả khi một số instance hoặc một AZ gặp sự cố.</li>
+<li><strong>Khả năng mở rộng tự động</strong>: Hệ thống tự động điều chỉnh số lượng instance dựa trên nhu cầu thực tế.</li>
+<li><strong>Cân bằng tải hiệu quả</strong>: Load Balancer đảm bảo lưu lượng được phân phối đồng đều giữa các instance.</li>
+<li><strong>Tự phục hồi</strong>: Khi một instance gặp sự cố, hệ thống tự động thay thế nó với một instance mới.</li>
+</ol>
+<p><strong>💡 Pro Tip</strong>: Để tối ưu hóa hơn nữa hệ thống trong môi trường sản xuất, hãy xem xét việc triển khai các giải pháp giám sát và cảnh báo toàn diện, cũng như thiết lập các kế hoạch khôi phục sau thảm họa (DR) chi tiết.</p>
 
 
 
@@ -1237,19 +1289,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Chuẩn bị các metric cho Predictive scaling :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,10 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#chuẩn-bị-dữ-liệu-cho-predictive-scaling">Chuẩn bị dữ liệu cho Predictive scaling</a></li>
-        <li><a href="#các-bước-chuẩn-bị">Các bước chuẩn bị</a></li>
-        <li><a href="#tải-dữ-liệu-lên-cloudwatch">Tải dữ liệu lên CloudWatch</a></li>
-        <li><a href="#kiểm-tra">Kiểm tra</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -844,9 +841,9 @@
 
 
 
-	<h3 id="chuẩn-bị-dữ-liệu-cho-predictive-scaling">Chuẩn bị dữ liệu cho Predictive scaling</h3>
+	<h4 id="chuẩn-bị-dữ-liệu-cho-predictive-scaling">Chuẩn bị dữ liệu cho Predictive scaling</h4>
 <p>Bởi vì Predictive scaling cần phải có một lượng dữ liệu trong vòng hơn 2 ngày để có thể đưa ra được các dự đoán vào các ngày tiếp theo, mà ở đây chúng ta lại không có các dữ liệu đó cho nên là chúng ta sẽ cần phải chuẩn bị để giải lập một môi trường như thế.</p>
-<h3 id="các-bước-chuẩn-bị">Các bước chuẩn bị</h3>
+<h4 id="các-bước-chuẩn-bị">Các bước chuẩn bị</h4>
 <p>Đầu tên là chúng ta sẽ tạo một folder mới với tên là <code>metric-preparation</code> và chuyển vào trong thư mục này</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir metric-preparation <span style="color:#f92672">&amp;&amp;</span> cd metric-preparation
 </span></span></code></pre></div><p>Sau đó là tải kịch bản để chuẩn bị các dữ liệu</p>
@@ -871,7 +868,7 @@
 <div class="notices note" ><p>Ở 2 lệnh ở trên đều xuất hiện tham số <strong>FCJ-Management-ASG</strong> thì nó chính là tên của Auto Scaling Group mà chúng ta sẽ tạo về sau, nên về sau thì bạn cần sẽ phải tạo ASG với cùng tên như thế. Còn không thì bạn nên thay một cái tên khác từ bây giờ.</p>
 </div>
 
-<h3 id="tải-dữ-liệu-lên-cloudwatch">Tải dữ liệu lên CloudWatch</h3>
+<h4 id="tải-dữ-liệu-lên-cloudwatch">Tải dữ liệu lên CloudWatch</h4>
 <p>Trong Amazon Linux 2023, và dùng đúng AMI thì AWS CLI đã được cài đặt sẵn ở bên trong, lúc này thì chúng ta chỉ cần lấy ra để cấu hình lại các crediential là được. Nên nhớ là bạn phải có một IAM User đủ quyền để tải dữ liệu lên CloudWatch hoặc ít nhất là đủ quyền để làm bài workshop này.</p>
 <p>Vào trang IAM, vào thông tin IAM User và ấy Access Key Id và Serect Access Key, nếu chưa có thì tạo mới.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws configure
@@ -881,7 +878,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudwatch put-metric-data --namespace <span style="color:#e6db74">&#39;FCJ Management Custom Metrics&#39;</span> --metric-data file://metric-cpu.json
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudwatch put-metric-data --namespace <span style="color:#e6db74">&#39;FCJ Management Custom Metrics&#39;</span> --metric-data file://metric-instances.json
 </span></span></code></pre></div><p><img alt="2.6.8.png" src="/images/2-preparation/2.6-prepare-metric-data/2.6.8.png"></p>
-<h3 id="kiểm-tra">Kiểm tra</h3>
+<h4 id="kiểm-tra">Kiểm tra</h4>
 <p>Cuối cùng thì chúng ta sẽ vào trong CloudWatch để kiểm tra kết quả</p>
 <ul>
 <li>Tìm <strong>CloudWatch</strong></li>
@@ -902,6 +899,39 @@
 <div class="notices note" ><p>Chúng ta sẽ phải chờ khoảng <strong>30 phút</strong> hoặc hơn để cho CloudWatch xử lý xong. Thay vì chờ thì chúng ta nên làm tiếp các phần tiếp theo.</p>
 </div>
 
+<h4 id="hiểu-về-dữ-liệu-đã-tải-lên">Hiểu về dữ liệu đã tải lên</h4>
+<p>Dữ liệu mà chúng ta đã tải lên CloudWatch bao gồm hai loại metric quan trọng:</p>
+<ol>
+<li>
+<p><strong>CPU Utilization</strong>: Đây là dữ liệu về mức sử dụng CPU của Auto Scaling Group theo thời gian. Metric này giúp AWS Predictive Scaling hiểu được mô hình sử dụng tài nguyên của ứng dụng và dự đoán nhu cầu trong tương lai.</p>
+</li>
+<li>
+<p><strong>Instance Count</strong>: Đây là dữ liệu về số lượng instance đã được sử dụng trong quá khứ. Metric này giúp hệ thống hiểu được cách Auto Scaling Group đã phản ứng với các thay đổi về tải trong quá khứ.</p>
+</li>
+</ol>
+<p>Hai loại dữ liệu này cung cấp cho AWS Predictive Scaling thông tin cần thiết để:</p>
+<ul>
+<li>Phân tích mô hình sử dụng tài nguyên theo thời gian</li>
+<li>Dự đoán nhu cầu tài nguyên trong tương lai</li>
+<li>Tự động điều chỉnh capacity trước khi nhu cầu thực sự tăng cao</li>
+</ul>
+<h4 id="lợi-ích-của-predictive-scaling">Lợi ích của Predictive Scaling</h4>
+<p>Việc sử dụng Predictive Scaling mang lại nhiều lợi ích so với chỉ sử dụng Dynamic Scaling thông thường:</p>
+<ol>
+<li>
+<p><strong>Chủ động thay vì phản ứng</strong>: Predictive Scaling tăng/giảm capacity trước khi nhu cầu thực sự thay đổi, giúp tránh tình trạng ứng dụng bị quá tải.</p>
+</li>
+<li>
+<p><strong>Tối ưu chi phí</strong>: Bằng cách dự đoán chính xác nhu cầu, bạn chỉ sử dụng đúng số lượng tài nguyên cần thiết vào đúng thời điểm.</p>
+</li>
+<li>
+<p><strong>Cải thiện trải nghiệm người dùng</strong>: Người dùng không phải đợi hệ thống scale up khi tải tăng cao đột ngột.</p>
+</li>
+<li>
+<p><strong>Xử lý tốt các mô hình tải có tính chu kỳ</strong>: Đặc biệt hiệu quả cho các ứng dụng có mô hình sử dụng theo giờ, theo ngày hoặc theo mùa.</p>
+</li>
+</ol>
+<p>Trong phần tiếp theo, chúng ta sẽ cấu hình Auto Scaling Group để sử dụng các metric này cho Predictive Scaling.</p>
 
 
 
@@ -1296,19 +1326,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

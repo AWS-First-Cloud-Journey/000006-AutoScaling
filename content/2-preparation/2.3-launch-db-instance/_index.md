@@ -6,122 +6,145 @@ chapter: false
 pre: "<strong>2.3. </strong>"
 ---
 
-#### Create a subnet group for the database instance.
+#### Creating a DB Subnet Group
 
-Access the AWS **AWS Management Console**
+**ℹ️ Information**: A DB subnet group is a collection of subnets that you designate for your RDS database instances within a VPC. This configuration ensures high availability by allowing Amazon RDS to deploy instances across multiple Availability Zones.
 
-- Search for **RDS**
-- Select **RDS**
+Access the AWS Management Console:
 
-![Image](/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc)
+- In the search bar, find and select **RDS**
 
-Continue:
+![RDS Console Navigation](/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc)
 
-- Select **Subnet groups**
-- Select **Create DB subnet group**
+In the RDS console:
 
-![Image](/images/2-preparation/2.3-rds/2.3.2.png?featherlight=false&width=90pc)
+- Select **Subnet groups** from the left navigation panel
+- Click **Create DB subnet group**
 
-In the **Create DB subnet group** interface
+![Create DB Subnet Group](/images/2-preparation/2.3-rds/2.3.2.png?featherlight=false&width=90pc)
+
+Configure the DB subnet group details:
 
 - For **Name**, enter **`FCJ-Management-Subnet-Group`**
 - For **Description**, enter **`Subnet Group for FCJ Management`**
-- Select the VPC you created.
+- Select the VPC you created earlier (**AutoScaling-Lab**)
 
-![Image](/images/2-preparation/2.3-rds/2.3.3.png?featherlight=false&width=90pc)
+![DB Subnet Group Details](/images/2-preparation/2.3-rds/2.3.3.png?featherlight=false&width=90pc)
 
-Configure the **subnet**
+Configure the subnet selection:
 
-- Select the availability zones (AZs)
-- Choose the private subnets.
+- Select multiple Availability Zones for redundancy
+- Choose the **private subnets** for enhanced security
 
-![Image](/images/2-preparation/2.3-rds/2.3.4.png?featherlight=false&width=90pc)
+**🔒 Security Note**: Always place your database instances in private subnets to prevent direct internet access, reducing your attack surface.
 
-Click on **Create**
+![Subnet Selection](/images/2-preparation/2.3-rds/2.3.4.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.5.png?featherlight=false&width=90pc)
+Complete the creation:
 
-Successfully created the **DB Subnet Group** with 2 AZs.
+- Click **Create**
 
-![Image](/images/2-preparation/2.3-rds/2.3.6.png?featherlight=false&width=90pc)
+![Create Button](/images/2-preparation/2.3-rds/2.3.5.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.7.png?featherlight=false&width=90pc)
+Verify the DB subnet group has been created successfully with multiple AZs:
 
-#### Create a database instance.
+![Subnet Group Created](/images/2-preparation/2.3-rds/2.3.6.png?featherlight=false&width=90pc)
 
-Access the **RDS AWS Management Console**
+![Subnet Group Details](/images/2-preparation/2.3-rds/2.3.7.png?featherlight=false&width=90pc)
 
-- Select **Databases**
-- Click on **Create database**
+#### Launching an Amazon RDS Database Instance
 
-![Image](/images/2-preparation/2.3-rds/2.3.8.png?featherlight=false&width=90pc)
+**ℹ️ Information**: Amazon RDS makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks.
 
-Choose the method to create the **database**
+Navigate to the RDS console:
 
-- Select **Standard create**
+- Select **Databases** from the left navigation panel
+- Click **Create database**
 
-![Image](/images/2-preparation/2.3-rds/2.3.9.png?featherlight=false&width=90pc)
+![Create Database](/images/2-preparation/2.3-rds/2.3.8.png?featherlight=false&width=90pc)
 
-Configure the **Engine** for the database
+Select the database creation method:
 
-- Select **MySQL**
+- Choose **Standard create** for full configuration options
 
-![Image](/images/2-preparation/2.3-rds/2.3.10.png?featherlight=false&width=90pc)
+![Standard Create Option](/images/2-preparation/2.3-rds/2.3.9.png?featherlight=false&width=90pc)
 
-Configure **Template**
+Select the database engine:
 
-- Select **Production**
-- Select **Mutil-AZ DB instance**
+- Choose **MySQL**
 
-![Image](/images/2-preparation/2.3-rds/2.3.11.png?featherlight=false&width=90pc)
+![MySQL Engine Selection](/images/2-preparation/2.3-rds/2.3.10.png?featherlight=false&width=90pc)
 
-Next, proceed with the detailed configuration
+Configure the deployment template:
+
+- Select **Production** template
+- Choose **Multi-AZ DB instance** for high availability
+
+**💡 Pro Tip**: Multi-AZ deployments enhance availability by automatically provisioning and maintaining a synchronous standby replica in a different Availability Zone.
+
+![Production Template](/images/2-preparation/2.3-rds/2.3.11.png?featherlight=false&width=90pc)
+
+Configure instance details:
 
 - For **DB instance identifier**, enter **`fcj-management-db-instance`**
 - For **Master username**, enter **`admin`**
-- Select **Self managed**
+- Select **Self managed** for credential management
 
-![Image](/images/2-preparation/2.3-rds/2.3.12.png?featherlight=false&width=90pc)
+![Instance Configuration](/images/2-preparation/2.3-rds/2.3.12.png?featherlight=false&width=90pc)
 
-Continue: - For **Master password**, enter your choice (in this lab, enter **`123Vodanhphai`**) - For **Confirm password**, re-enter the password once more.
+Set the database password:
 
-![Image](/images/2-preparation/2.3-rds/2.3.13.png?featherlight=false&width=90pc)
+- For **Master password**, enter a strong password (for this lab: **`123Vodanhphai`**)
+- Confirm the password
 
-Configure the details for the instance:
+**🔒 Security Note**: In production environments, always use complex passwords and consider using AWS Secrets Manager to automatically rotate credentials.
 
-- Select **`db.m5d.large`**
-- Select **`General Purpose SSD (gp3)`**
-- For Allocated storage, enter **`20`**
+![Password Configuration](/images/2-preparation/2.3-rds/2.3.13.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.14.png?featherlight=false&width=90pc)
+Configure instance specifications:
 
-Configure the Connectivity for the db instance
+- Select **`db.m5d.large`** for the instance class
+- Choose **General Purpose SSD (gp3)** for storage type
+- Set **Allocated storage** to **`20`** GiB
 
-- Select **Don't connect to an EC2 compute resouce**
-- For **VPC**, select the created **`AutoScaling-Lab`**
-- For **Subnet group**, choose the subnet group you created.
+![Instance Specifications](/images/2-preparation/2.3-rds/2.3.14.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.15.png?featherlight=false&width=90pc)
+Configure connectivity settings:
 
-Continue:
+- Select **Don't connect to an EC2 compute resource**
+- For **VPC**, select your created VPC (**`AutoScaling-Lab`**)
+- For **Subnet group**, choose the subnet group you created earlier
+
+![Connectivity Configuration](/images/2-preparation/2.3-rds/2.3.15.png?featherlight=false&width=90pc)
+
+Configure security settings:
 
 - For **VPC security group**, select **Choose existing**
-- For **Security Group**, select **FCJ-Management-DB-SG** (to avoid confusion with the web application's security group).
+- For **Security Group**, select **FCJ-Management-DB-SG**
 
-![Image](/images/2-preparation/2.3-rds/2.3.16.png?featherlight=false&width=90pc)
+**🔒 Security Note**: Using dedicated security groups for your database tier helps maintain proper network segmentation and access control.
 
-Initialize the database with the name **`awsfcjuer`**, and leave the rest as default.
+![Security Configuration](/images/2-preparation/2.3-rds/2.3.16.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.17.png?featherlight=false&width=90pc)
+Configure initial database settings:
 
-Click on **Create database**
+- Set the initial database name to **`awsfcjuer`**
+- Leave other settings at their default values
 
-![Image](/images/2-preparation/2.3-rds/2.3.18.png?featherlight=false&width=90pc)
+![Initial Database Configuration](/images/2-preparation/2.3-rds/2.3.17.png?featherlight=false&width=90pc)
 
-The database instance has been created successfully.
+Complete the database creation:
 
-![Image](/images/2-preparation/2.3-rds/2.3.19.png?featherlight=false&width=90pc)
+- Click **Create database**
 
-We have the Endpoint and Port as shown below.
+![Create Database Button](/images/2-preparation/2.3-rds/2.3.18.png?featherlight=false&width=90pc)
 
-![Image](/images/2-preparation/2.3-rds/2.3.20.png?featherlight=false&width=90pc)
+Verify successful database creation:
+
+![Database Created Successfully](/images/2-preparation/2.3-rds/2.3.19.png?featherlight=false&width=90pc)
+
+Note the database endpoint and port for future reference:
+
+**💡 Pro Tip**: You'll need this endpoint information when configuring your application to connect to the database.
+
+![Database Endpoint Information](/images/2-preparation/2.3-rds/2.3.20.png?featherlight=false&width=90pc)

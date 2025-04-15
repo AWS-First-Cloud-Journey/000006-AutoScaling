@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm thử các giải pháp :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,9 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#các-giải-pháp--kỹ-thuật-scaling">Các giải pháp / kỹ thuật scaling</a></li>
-        <li><a href="#cài-đặt-chương-trình-kiểm-thử">Cài đặt chương trình kiểm thử</a></li>
-        <li><a href="#nội-dung">Nội dung</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -837,27 +835,27 @@
 
 
 
-	<h3 id="các-giải-pháp--kỹ-thuật-scaling">Các giải pháp / kỹ thuật scaling</h3>
-<p>Dịch vụ <strong>Auto Scaling Group</strong> cung cấp cho mình các giải pháp scaling khác nhau, tuỳ thuộc vào nhu cầu và mức độ sử dụng hệ thống của chúng ta. Vì thề mà chúng ta cần phải tính toán, ước lượng, quan sát và lập kế hoạch sử dụng cho từng loại hoặc là kết hợp các loại với nhau để tăng độ linh hoạt của hệ thống.</p>
-<p>Trong phần này thì chúng ta sẽ đi thử từng giải pháp, nhưng trước khi đi vào từng giải pháp thì chúng ta hãy cũng tìm hiểu sơ về các giải pháp scaling này.</p>
+	<h4 id="các-giải-pháp--kỹ-thuật-scaling">Các giải pháp / kỹ thuật scaling</h4>
+<p><strong>ℹ️ Information</strong>: Dịch vụ <strong>Auto Scaling Group</strong> cung cấp nhiều giải pháp scaling khác nhau, tùy thuộc vào nhu cầu và mức độ sử dụng hệ thống. Chúng ta cần tính toán, ước lượng, quan sát và lập kế hoạch sử dụng từng loại hoặc kết hợp các loại với nhau để tăng độ linh hoạt của hệ thống.</p>
+<p>Trong phần này, chúng ta sẽ thử nghiệm từng giải pháp, nhưng trước tiên hãy tìm hiểu sơ lược về các giải pháp scaling này.</p>
 <h4 id="manual-scaling">Manual scaling</h4>
-<p>Chúng ta thực hiện mở rộng hay thu hẹp các target trong một Target Group bằng cách là điều chỉnh thông số Desired capacity trong <strong>Auto Scaling Group</strong>, thì hành động này được gọi là Manual Scaling. Trong một số tình huống đơn lẻ, nhanh, thì chúng ta cần sẽ phải thực hiện việc thêm và bớt các targets thủ công.</p>
+<p><strong>ℹ️ Information</strong>: Manual Scaling là việc chúng ta thực hiện mở rộng hay thu hẹp các target trong một Target Group bằng cách điều chỉnh thông số Desired capacity trong <strong>Auto Scaling Group</strong>. Trong một số tình huống đơn lẻ, cần xử lý nhanh, chúng ta cần thực hiện việc thêm và bớt các targets thủ công.</p>
 <h4 id="scheduled-scaling">Scheduled scaling</h4>
-<p>Khi mà chúng ta nắm rõ được lưu lượng mạng vào và ra của hệ thống hoặc là thời điểm mà các target hoạt động ở công suất gần như là cao nhất, và hoạt động này diễn ra liên tục và mang tính dài hạng (có thể là hàng năm) thì mình có thể đặt lịch (và cả hẹn giờ) để cho <strong>Auto Scaling Group</strong> thực hiện việc mở rộng và thu gọn các targets.</p>
+<p><strong>ℹ️ Information</strong>: Khi chúng ta nắm rõ được lưu lượng mạng vào và ra của hệ thống hoặc thời điểm mà các target hoạt động ở công suất gần như cao nhất, và hoạt động này diễn ra liên tục và mang tính dài hạn (có thể là hàng năm), chúng ta có thể đặt lịch (và hẹn giờ) để <strong>Auto Scaling Group</strong> thực hiện việc mở rộng và thu gọn các targets.</p>
 <h4 id="dynamic-scaling">Dynamic scaling</h4>
-<p>Ngoài ra nếu như lưu lượng mạng đi vào hệ thống không diễn ra theo một trật tự nào và khó đoán thì chúng ta có thể dùng giải pháp tự động scaling của ASG. Khi đó thì ASG sẽ dựa vào cấu hình Dynamic scalang policy để triển khai việc mở rộng và thu gọn các targets cho phù hợp hơn với hệ thống.</p>
+<p><strong>ℹ️ Information</strong>: Nếu lưu lượng mạng đi vào hệ thống không diễn ra theo một trật tự nào và khó đoán, chúng ta có thể dùng giải pháp tự động scaling của ASG. Khi đó, ASG sẽ dựa vào cấu hình Dynamic scaling policy để triển khai việc mở rộng và thu gọn các targets cho phù hợp hơn với hệ thống.</p>
 <h4 id="predictive-scaling">Predictive scaling</h4>
-<p>Còn một kỹ thuật khác nữa là ASG sẽ dự đoán các lưu lượng mạng trong vòng 3 hoặc nhiều ngày tới. Với những hệ thống khó đoán, thì chúng ta có thể dựa vào giải pháp này và Dynamic scaling để tăng tính linh hoạt cho hệ thống. Giải pháp này sẽ biểu diễn các thông số tuỳ vào việc mà mình cấu hình, nhưng ý tưởng chung vẫn là dữ đoán trước các lưu lượng, mức sử dụng trong hệ thống.</p>
+<p><strong>ℹ️ Information</strong>: Predictive scaling là kỹ thuật giúp ASG dự đoán lưu lượng mạng trong vòng 3 hoặc nhiều ngày tới. Với những hệ thống khó đoán, chúng ta có thể kết hợp giải pháp này với Dynamic scaling để tăng tính linh hoạt cho hệ thống. Giải pháp này sẽ biểu diễn các thông số tùy vào cấu hình, nhưng ý tưởng chung vẫn là dự đoán trước các lưu lượng và mức sử dụng trong hệ thống.</p>
 
-<div class="notices note" ><p>Vì khi thực hiện phần này thì chúng ta không có dữ liệu ở phần trước, nên đó là lý do mà chúng ta cần phải chuẩn bị và chạy dữ liệu mẫu ở phần <strong>2.6 - Prepare metrics for predictive scaling</strong> trước đó.</p>
+<div class="notices note" ><p>Vì khi thực hiện phần này chúng ta không có dữ liệu ở phần trước, nên đó là lý do mà chúng ta cần phải chuẩn bị và chạy dữ liệu mẫu ở phần <strong>2.6 - Prepare metrics for predictive scaling</strong> trước đó.</p>
 </div>
 
-<h3 id="cài-đặt-chương-trình-kiểm-thử">Cài đặt chương trình kiểm thử</h3>
-<p>Trước khi đi vào phần này, thì chúng ta cần phải tải một chương trình kiểm thử để có thể giải lập được hệ thống đang chịu tải ở lưu lượng cao. Đầu tiên, vào đường dẫn này để tải chương trình kiểm thử về: <a href="https://www.paessler.com/tools/webstress">https://www.paessler.com/tools/webstress</a></p>
+<h4 id="cài-đặt-chương-trình-kiểm-thử">Cài đặt chương trình kiểm thử</h4>
+<p><strong>ℹ️ Information</strong>: Trước khi đi vào phần này, chúng ta cần tải một chương trình kiểm thử để có thể giả lập hệ thống đang chịu tải ở lưu lượng cao. Đầu tiên, vào đường dẫn này để tải chương trình kiểm thử về: <a href="https://www.paessler.com/tools/webstress">https://www.paessler.com/tools/webstress</a></p>
 <p><img alt="7.1" src="/images/7-test-solution/7.1.png"></p>
-<p>Chúng ta sẽ tải về file Rar, vào trong file Rar đó trích xuất file cài đặt ở bên trong và cài đặt chương trình. Sau khi cài đặt xong thì chúng ta vào trong chương trình và thấy được giao diện như sau</p>
+<p>Chúng ta sẽ tải về file Rar, trích xuất file cài đặt ở bên trong và cài đặt chương trình. Sau khi cài đặt xong, chúng ta vào chương trình và sẽ thấy giao diện như sau:</p>
 <p><img alt="7.2" src="/images/7-test-solution/7.2.png"></p>
-<h3 id="nội-dung">Nội dung</h3>
+<h4 id="nội-dung">Nội dung</h4>
 <ol>
 <li><a href="/vi/7-test-solutions/7.1-test-manual-scaling-solution/">Kiểm thử giải pháp manual scaling</a></li>
 <li><a href="/vi/7-test-solutions/7.2-test-scheduled-scaling-solution/">Kiểm thử giải pháp scheduled scaling</a></li>
@@ -865,9 +863,36 @@
 <li><a href="/vi/7-test-solutions/7.4-test-predictive-scaling-solution/">Kiểm thử giải pháp predictive scaling</a></li>
 </ol>
 
-<div class="notices ìn" ><p>Thời gian để làm phần này là rất lâu, và cần phải quan sát kỹ lưỡng (bạn có thể test trong quá trình chạy kiểm thử), nên bạn phải kiên nhẫn và kĩ lường để quan sát kết quả.</p>
+<div class="notices info" ><p>Thời gian để làm phần này khá lâu và cần phải quan sát kỹ lưỡng (bạn có thể test trong quá trình chạy kiểm thử), nên bạn phải kiên nhẫn và kỹ lưỡng để quan sát kết quả.</p>
 </div>
 
+<h4 id="lưu-ý-khi-thực-hiện-kiểm-thử">Lưu ý khi thực hiện kiểm thử</h4>
+<p><strong>⚠️ Warning</strong>: Khi thực hiện các bài kiểm thử scaling, cần lưu ý một số điểm sau:</p>
+<ol>
+<li>
+<p><strong>Chi phí</strong>: Mỗi khi ASG tạo thêm instance, bạn sẽ phải trả phí cho các instance đó. Hãy đảm bảo thiết lập giới hạn số lượng instance tối đa (Max capacity) phù hợp với ngân sách của bạn.</p>
+</li>
+<li>
+<p><strong>Thời gian chờ</strong>: Các metrics trong CloudWatch thường có độ trễ khoảng 1-5 phút. Đồng thời, việc khởi tạo instance mới cũng cần thời gian. Vì vậy, hãy kiên nhẫn khi theo dõi kết quả kiểm thử.</p>
+</li>
+<li>
+<p><strong>Dọn dẹp tài nguyên</strong>: Sau khi hoàn thành kiểm thử, hãy đảm bảo xóa các chính sách scaling không cần thiết và điều chỉnh lại Desired capacity về mức phù hợp để tránh phát sinh chi phí không mong muốn.</p>
+</li>
+<li>
+<p><strong>Kết hợp các giải pháp</strong>: Trong môi trường thực tế, việc kết hợp nhiều loại scaling (như Dynamic với Predictive) thường mang lại hiệu quả tốt hơn so với chỉ sử dụng một loại.</p>
+</li>
+</ol>
+<p><strong>💡 Pro Tip</strong>: Nên thiết lập các cảnh báo (CloudWatch Alarms) để được thông báo khi số lượng instance vượt quá ngưỡng nhất định, giúp kiểm soát chi phí tốt hơn trong quá trình kiểm thử.</p>
+<h4 id="các-metrics-quan-trọng-cần-theo-dõi">Các metrics quan trọng cần theo dõi</h4>
+<p>Khi thực hiện kiểm thử các giải pháp scaling, bạn nên theo dõi các metrics sau:</p>
+<ol>
+<li><strong>CPU Utilization</strong>: Phần trăm sử dụng CPU của các instance</li>
+<li><strong>Network In/Out</strong>: Lưu lượng mạng vào/ra của các instance</li>
+<li><strong>Request Count Per Target</strong>: Số lượng request mà mỗi target nhận được</li>
+<li><strong>Target Response Time</strong>: Thời gian phản hồi của các target</li>
+<li><strong>Healthy Host Count</strong>: Số lượng host đang hoạt động bình thường</li>
+</ol>
+<p>Việc theo dõi các metrics này sẽ giúp bạn đánh giá hiệu quả của các giải pháp scaling và điều chỉnh cấu hình cho phù hợp với nhu cầu thực tế của ứng dụng.</p>
 
 
 
@@ -1258,19 +1283,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

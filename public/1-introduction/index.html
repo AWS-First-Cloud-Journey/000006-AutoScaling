@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Introduction :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703291" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703291" rel="stylesheet">
+    <link href="/css/theme.css?1744703291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703291"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -835,36 +835,41 @@
 
 
 
-	<h4 id="introduce">Introduce</h4>
-<p>In this exercise, we will be deploying the application using an Auto Scaling Group to ensure the application&rsquo;s scalability based on user demand. Additionally, we will implement a Load Balancer to distribute the load and manage user access requests to our Application Tier.</p>
-<p>Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/AmazonLinux Virtual Machine] to understand how to deploy the application on a virtual machine. We will utilize the virtual machine where <strong>FCJ Management</strong> is deployed for the purpose of mass deployment and scaling within the Auto Scaling Group.</p>
-<h4 id="auto-scaling-group">Auto Scaling Group</h4>
+	<h4 id="introduction">Introduction</h4>
+<p><strong>ℹ️ Information</strong>: In this workshop, we will deploy an application using Amazon EC2 Auto Scaling to ensure dynamic scalability based on user demand. Additionally, we will implement Elastic Load Balancing to distribute traffic and efficiently manage user requests to our application tier.</p>
+<p>Before proceeding, please review the document [Deploying FCJ Management Application on a Windows/Amazon Linux Virtual Machine] to understand the base deployment process. We will use the virtual machine with <strong>FCJ Management</strong> already deployed as the foundation for our Auto Scaling Group configuration.</p>
+<h4 id="amazon-ec2-auto-scaling">Amazon EC2 Auto Scaling</h4>
+<p><strong>ℹ️ Information</strong>: When applications go into production, user traffic naturally fluctuates over time. To maintain optimal performance and cost efficiency, we need to adjust (scale) the number of instances accordingly. Amazon EC2 Auto Scaling provides an automated solution that makes this scaling process flexible and hands-free.</p>
+<p>Amazon EC2 Auto Scaling automatically adjusts the number of EC2 instances based on application demand. It can scale out (add instances) when traffic increases and scale in (remove instances) when traffic decreases, optimizing resource utilization and reducing costs. It also enhances high availability by distributing instances across multiple Availability Zones, ensuring continuous operation even if part of the infrastructure experiences issues.</p>
+<h4 id="scaling-strategies">Scaling Strategies</h4>
+<p>In this workshop, we will explore the following scaling strategies:</p>
 <ol>
 <li>
-<p>Why Use Auto Scaling Group?</p>
-<p>When our application goes live, the volume of users accessing it will change over time. Therefore, we need to frequently adjust (scale) the number of instances to enhance availability and save costs. To automate and make scaling flexible, we have a solution known as the Auto Scaling Group.</p>
+<p><strong>Manual Scaling</strong>: Manually adjusting the number of EC2 instances in the Auto Scaling group based on anticipated demand. This method requires human intervention and does not automatically respond to metrics.</p>
 </li>
 <li>
-<p>Overview of Auto Scaling Group</p>
-<p><strong>Auto Scaling Group (ASG)</strong> helps automatically adjust the number of EC2 instances based on the needs of the application. ASG can automatically scale up when traffic increases or scale down when traffic decreases, optimizing resources and reducing costs. It also ensures high availability by distributing instances across multiple Availability Zones to maintain continuous operation even if part of the system encounters issues.</p>
-</li>
-<li>
-<p>Types of Scaling in ASG</p>
-<p>In this content, we will explore the following types of scaling:</p>
+<p><strong>Dynamic Scaling</strong>: Automatically adjusting capacity based on real-time metrics such as CPU utilization, network traffic, or custom CloudWatch metrics. Dynamic scaling includes three primary approaches:</p>
 <ul>
-<li><strong>Manual Scaling</strong>: Users manually adjust the number of EC2 instances in the Auto Scaling Group based on demand. This is a manual method that does not automatically respond to specific metrics.</li>
-<li><strong>Dynamic Scaling</strong>: Automatically adjusts the number of instances based on real-time metrics such as CPU utilization, network traffic, or custom metrics from CloudWatch. Dynamic scaling has three primary policies: <strong>Target Tracking Scaling</strong>, <strong>Step Scaling</strong>, <strong>Simple Scaling</strong>.</li>
-<li><strong>Scheduled Scaling</strong>: Allows us to configure specific times to automatically scale up or down instances, for example, increasing the number of instances during peak hours or decreasing them outside of working hours. This is suitable for scenarios where we already know the traffic pattern.</li>
-<li><strong>Predictive Scaling</strong>: It predicts activity by analyzing historical load data to identify daily or weekly patterns in traffic flow. It uses this information to forecast future capacity needs, allowing Amazon EC2 Auto Scaling to proactively increase the capacity of the Auto Scaling group as needed.</li>
+<li><strong>Target Tracking Scaling</strong>: Maintains a specific metric value (e.g., 50% CPU utilization)</li>
+<li><strong>Step Scaling</strong>: Responds to metric thresholds with proportional capacity adjustments</li>
+<li><strong>Simple Scaling</strong>: Adjusts capacity based on a single metric threshold</li>
 </ul>
 </li>
+<li>
+<p><strong>Scheduled Scaling</strong>: Configuring specific times to automatically scale instances up or down, such as increasing capacity during business hours and decreasing it during off-hours. This works well for predictable traffic patterns.</p>
+</li>
+<li>
+<p><strong>Predictive Scaling</strong>: Forecasts future capacity needs by analyzing historical load patterns. This proactive approach allows Amazon EC2 Auto Scaling to scale out in advance of anticipated traffic increases, ensuring optimal performance during peak periods.</p>
+</li>
 </ol>
-<h4 id="launch-template">Launch Template</h4>
-<p><strong>Launch Template</strong> is a configuration that contains the necessary parameters to launch EC2 instances. It stores details such as instance type, AMI (Amazon Machine Image), key pair, network settings, security groups, and other configuration information for EC2. This simplifies the instance creation process and supports the automatic creation of new instances in ASG.</p>
-<h4 id="elastic-load-balancer">Elastic Load Balancer</h4>
-<p><strong>Elastic Load Balancer</strong> is a tool that helps evenly distribute workloads (traffic) to multiple servers or instances to ensure stable system operation and prevent any single server from becoming overloaded. It optimizes performance, increases availability, and ensures that if one server encounters issues, traffic will be redirected to other servers without affecting users.</p>
-<h4 id="target-group">Target Group</h4>
-<p><strong>Target Group</strong>  is a component of the Elastic Load Balancer (ELB) that is used to identify and manage the EC2 instances that the Load Balancer will distribute traffic to.</p>
+<h4 id="launch-templates">Launch Templates</h4>
+<p><strong>ℹ️ Information</strong>: A Launch Template is a configuration that contains all the necessary parameters to launch EC2 instances. It stores specifications such as instance type, Amazon Machine Image (AMI), key pair, network settings, security groups, and other EC2 configuration details. Launch Templates simplify the instance creation process and enable Auto Scaling groups to consistently deploy properly configured instances.</p>
+<p><strong>💡 Pro Tip</strong>: Launch Templates support versioning, allowing you to iterate on your configuration while maintaining the ability to roll back if needed.</p>
+<h4 id="elastic-load-balancing">Elastic Load Balancing</h4>
+<p><strong>ℹ️ Information</strong>: Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses. It helps ensure high availability and fault tolerance by preventing any single resource from becoming overwhelmed with traffic. If one server experiences issues, traffic is automatically redirected to healthy servers, maintaining a seamless user experience.</p>
+<p><strong>🔒 Security Note</strong>: Elastic Load Balancing integrates with AWS Certificate Manager to provide SSL/TLS termination, enhancing security for your applications without adding computational overhead to your instances.</p>
+<h4 id="target-groups">Target Groups</h4>
+<p><strong>ℹ️ Information</strong>: A Target Group is a component of Elastic Load Balancing that identifies and manages the destinations (targets) to which the load balancer routes traffic. Target Groups allow you to register multiple EC2 instances, configure health checks, and set routing rules. They serve as the bridge between your load balancer and the application instances, enabling intelligent traffic distribution based on health and availability.</p>
 
 
 
@@ -1252,19 +1257,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746189"></script>
-    <script src="/js/jquery.sticky.js?1733746189"></script>
-    <script src="/js/featherlight.min.js?1733746189"></script>
-    <script src="/js/highlight.pack.js?1733746189"></script>
+    <script src="/js/clipboard.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703291"></script>
+    <script src="/js/jquery.sticky.js?1744703291"></script>
+    <script src="/js/featherlight.min.js?1744703291"></script>
+    <script src="/js/highlight.pack.js?1744703291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746189"></script>
-    <script src="/js/learn.js?1733746189"></script>
-    <script src="/js/hugo-learn.js?1733746189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703291"></script>
+    <script src="/js/learn.js?1744703291"></script>
+    <script src="/js/hugo-learn.js?1744703291"></script>
 
-    <link href="/mermaid/mermaid.css?1733746189" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746189"></script>
+    <link href="/mermaid/mermaid.css?1744703291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -6,52 +6,65 @@ chapter: false
 pre: "<strong>4.1. </strong>"
 ---
 
-#### Create Target Group
+#### Creating an Application Load Balancer Target Group
 
-In the EC2 management interface, on the left side panel, scroll down to the **Load Balancing** section.
+**ℹ️ Information**: Target groups route requests to individual registered targets such as EC2 instances. When creating a load balancer, you define at least one target group, then register targets to that group.
 
-- Select **Target Group**
-- Click on **Create target group**
+Navigate to the Target Group creation interface:
 
-![4.1.1](/images/4-setup-load-balancer/4.1.1.png)
+1. In the EC2 management console, locate the **Load Balancing** section in the left navigation pane
+2. Select **Target Groups**
+3. Click **Create target group**
 
-The **Specify group details** dialog will appear. Configure it as follows:
+![Target Group Creation Interface](/images/4-setup-load-balancer/4.1.1.png?featherlight=false&width=90pc)
 
-- In the Basic configuration section:
-  - Choose a target type: **Instances**
-  - Target group name: `FCJ-Management-TG`
+#### Configuring Target Group Details
 
-![4.1.2](/images/4-setup-load-balancer/4.1.2.png)
+In the **Specify group details** section, configure the following settings:
 
-- Continue in the Basic configuration section:
-  - Protocol: port **HTTP**, **5000**
-  - IP address: **IPv4**
-  - VPC: **AutoScaling-Lab**
-  - Protocol version: **HTTP1**
+1. Basic configuration:
+   - Target type: **Instances**
+   - Target group name: `FCJ-Management-TG`
 
-![4.1.3](/images/4-setup-load-balancer/4.1.3.png)
+![Basic Target Group Configuration](/images/4-setup-load-balancer/4.1.2.png?featherlight=false&width=90pc)
 
-- Click **Next**
+2. Network settings:
+   - Protocol: **HTTP**
+   - Port: **5000**
+   - IP address type: **IPv4**
+   - VPC: **AutoScaling-Lab**
+   - Protocol version: **HTTP1**
 
-![4.1.4](/images/4-setup-load-balancer/4.1.4.png)
+![Network Settings Configuration](/images/4-setup-load-balancer/4.1.3.png?featherlight=false&width=90pc)
 
-Next, we proceed to **Register target**.
+3. Click **Next** to proceed to target registration
 
-- In the Available instance section:
-  - Select target group **FCJ-Management-TG**
-  - Ports for the selected instances: **5000**
-  - Choose **Include as pending below**
+![Proceed to Target Registration](/images/4-setup-load-balancer/4.1.4.png?featherlight=false&width=90pc)
 
-![4.1.5](/images/4-setup-load-balancer/4.1.5.png)
+#### Registering Targets
 
-- In the Review targets section:
-  - You will see the target group has been registered previously
-  - Click **Create target group**
+In the **Register targets** section:
 
-![4.1.6](/images/4-setup-load-balancer/4.1.6.png)
+1. Select your instance from the Available instances list
+2. Verify port **5000** is specified for the selected instance
+3. Click **Include as pending below**
 
-#### Result
+![Registering Target Instances](/images/4-setup-load-balancer/4.1.5.png?featherlight=false&width=90pc)
 
-We have completed the creation of the Target Group. Select the Target Group **FCJ-Management-TG** that was just created to view its information.
+4. Review the pending targets in the list
+5. Click **Create target group** to complete the process
 
-![4.1.7](/images/4-setup-load-balancer/4.1.7.png)
+![Finalizing Target Group Creation](/images/4-setup-load-balancer/4.1.6.png?featherlight=false&width=90pc)
+
+#### Verifying Target Group Creation
+
+After successful creation, you can view and manage your new target group:
+
+1. Select the newly created **FCJ-Management-TG** from the target groups list
+2. Review the target group details, health status, and registered targets
+
+![Target Group Verification](/images/4-setup-load-balancer/4.1.7.png?featherlight=false&width=90pc)
+
+**💡 Pro Tip**: Target groups support health checks to ensure traffic is only routed to healthy instances. You can customize health check settings including path, port, threshold counts, and timeout values to match your application's specific requirements.
+
+**🔒 Security Note**: When configuring target groups, consider using HTTPS protocol with proper certificate management for production workloads to ensure encrypted communication between clients and your load balancer.

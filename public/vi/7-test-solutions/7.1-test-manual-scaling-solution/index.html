@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm thử giải pháp manual scaling :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,7 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#manual-scaling">Manual Scaling</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -841,19 +841,20 @@
 
 
 
-	<h3 id="manual-scaling">Manual Scaling</h3>
-<p>Manual Scaling là mình sẽ thực hiện bằng cách là tự điều chỉnh thủ công thông số <strong>Desired capacity</strong> của ASG, sau khi điều chỉnh xong và xác nhận update thì đợi trong một khoảng thời gian, ASG sẽ update xong số lượng và tiến hành khởi tạo hoặc xoá bớt đi EC2 Instance tuỳ thuộc vào thông số <strong>Desired capacity</strong> đó.</p>
+	<h4 id="manual-scaling">Manual Scaling</h4>
+<p><strong>ℹ️ Information</strong>: Manual Scaling là phương pháp điều chỉnh thủ công thông số <strong>Desired capacity</strong> của Auto Scaling Group (ASG). Sau khi điều chỉnh và xác nhận cập nhật, ASG sẽ tự động khởi tạo hoặc xóa EC2 Instance dựa trên giá trị Desired capacity mới.</p>
 <h4 id="cài-đặt-kiểm-thử">Cài đặt kiểm thử</h4>
-<p>Khi tạo xong Auto Scaling Group, thì chính dịch vụ này sẽ tự động khởi tạo một EC2 Instance do chúng ta cấu hình trước đó, để có thể xem được điều này thì chúng ta có thể vào trong EC2 Console</p>
+<p>Khi tạo xong Auto Scaling Group, dịch vụ này sẽ tự động khởi tạo một EC2 Instance theo cấu hình đã thiết lập. Để xác nhận điều này, chúng ta có thể vào EC2 Console:</p>
 <ul>
 <li>Chọn <strong>Load Balancer</strong></li>
 <li>Chọn tab <strong>Resource map - new</strong></li>
 </ul>
-<p>Ở đây chúng ta có thể thấy được là Target Group trước đó đang có liên kết tới 2 Targets lần lượt là 2 EC2 Instances (1 là instance gốc được tạo trước đó; cái còn lại là instance được tạo từ ASG).</p>
+<p>Tại đây, chúng ta có thể thấy Target Group đang liên kết với 2 Targets (EC2 Instances): một instance gốc được tạo trước đó và một instance được tạo từ ASG.</p>
 <p><img alt="7.1.1" src="/images/7-test-solution/7.1.1.png"></p>
-<p>Giờ thì kiểm thử với ứng dụng mà chúng ta đã tải trước đó.</p>
+<p><strong>💡 Pro Tip</strong>: Resource Map là công cụ trực quan giúp bạn dễ dàng theo dõi mối quan hệ giữa Load Balancer, Target Group và các EC2 Instance, đặc biệt hữu ích khi làm việc với Auto Scaling.</p>
+<p>Tiếp theo, chúng ta sẽ kiểm thử với ứng dụng đã tải trước đó:</p>
 <ul>
-<li>Mở ứng dụng lên, ấn vào tab <strong>Test Type</strong></li>
+<li>Mở ứng dụng, chọn tab <strong>Test Type</strong></li>
 <li>Test Type:
 <ul>
 <li>Chọn <strong>CLICKS</strong></li>
@@ -868,65 +869,68 @@
 </li>
 </ul>
 <p><img alt="7.1.2" src="/images/7-test-solution/7.1.2.png"></p>
-<p>Trong tab URLs, mình sẽ cấu hình các thông tin</p>
+<p>Trong tab URLs, cấu hình các thông tin:</p>
 <ul>
-<li>Name: <code>Manual Scaling Test</code>, ở đây thì bạn đặt là gì cũng được, bởi vì chúng ta sẽ dùng để test trong các loại scaling khác sau đó.</li>
-<li>URL: copy DNS của Load Balancer và dán vào.</li>
+<li>Name: <code>Manual Scaling Test</code> (bạn có thể đặt tên tùy ý, vì chúng ta sẽ sử dụng lại cho các loại scaling khác sau này)</li>
+<li>URL: Dán DNS của Load Balancer vào đây</li>
 </ul>
 <p><img alt="7.1.3" src="/images/7-test-solution/7.1.3.png"></p>
-<p>Trên thanh công cụ, mình sẽ bắt đầu ấn <strong>Start Test</strong>.</p>
+<p>Trên thanh công cụ, nhấn <strong>Start Test</strong> để bắt đầu.</p>
 <p><img alt="7.1.4" src="/images/7-test-solution/7.1.4.png"></p>
 <h4 id="tiến-hành-kiểm-thử">Tiến hành kiểm thử</h4>
-<p>Giờ quay lại với AWS Management Console, vào trong EC2 Console</p>
+<p>Quay lại AWS Management Console, vào EC2 Console:</p>
 <ul>
-<li>Tích chọn 2 EC2 Instance ở trong target group</li>
-<li>Ấn vào tab <strong>Monitoring</strong> và bắt đầu quan sát</li>
+<li>Tích chọn 2 EC2 Instance trong target group</li>
+<li>Chọn tab <strong>Monitoring</strong> và bắt đầu quan sát</li>
 </ul>
-<p>Trong mục này, chúng ta có 7 biểu đồ, nhưng hiện tại thì chúng ta chỉ quan tâm tới 5 biểu đồ sau:</p>
-<ul>
-<li>CPU Utilization (%): biểu đồ cho thấy lượng tài nguyên CPU mà 2 instances này đã dùng trong khoảng dưới 8% với mỗi instance.</li>
-<li>Network in (bytes): biểu đồ cho thấy dung lượng mạng đi vào 2 instances này trong khoảng dưới 2.9 triệu Megabytes với mỗi instance.</li>
-<li>Network out (bytes): biểu đồ cho thấy dung lượng mạng đi ra từ 2 instances này trong khoảng dưới 17.3 triệu Megabytes với mỗi instance.</li>
-<li>Network packets in (count): biểu đồ cho thấy số lượng các gói tin đi vào 2 instances này trong khoảng dưới 6.85 nghìn gói tin với mỗi instance.</li>
-<li>Network packets out (count): biểu đồ cho thấy số lượng các gói tin đi ra từ 2 instances này trong khoảng dưới 7.36 nghìn gói tin với mỗi instance.</li>
-</ul>
+<p><strong>ℹ️ Information</strong>: Trong phần Monitoring, chúng ta sẽ tập trung vào 5 biểu đồ quan trọng sau:</p>
+<ol>
+<li><strong>CPU Utilization (%)</strong>: Hiển thị lượng tài nguyên CPU mà mỗi instance đã sử dụng (khoảng dưới 8%)</li>
+<li><strong>Network in (bytes)</strong>: Hiển thị dung lượng mạng đi vào mỗi instance (khoảng dưới 2.9 triệu Megabytes)</li>
+<li><strong>Network out (bytes)</strong>: Hiển thị dung lượng mạng đi ra từ mỗi instance (khoảng dưới 17.3 triệu Megabytes)</li>
+<li><strong>Network packets in (count)</strong>: Hiển thị số lượng gói tin đi vào mỗi instance (khoảng dưới 6.85 nghìn gói tin)</li>
+<li><strong>Network packets out (count)</strong>: Hiển thị số lượng gói tin đi ra từ mỗi instance (khoảng dưới 7.36 nghìn gói tin)</li>
+</ol>
 <p><img alt="7.1.5" src="/images/7-test-solution/7.1.5.png"></p>
 
 <div class="notices note" ><p>Từ giờ trở đi chúng ta sẽ đọc các biểu đồ này như vậy. Bao gồm các thông số quan trọng ở cột dọc, cột ngang và các đường vẽ. Từ đây sẽ giúp chúng ta hiểu hơn về cách Load Balancer cân bằng lưu lượng mạng tới cho các instance ở trong Target Group.</p>
 </div>
 
 
-<div class="notices note" ><p>Và nếu như mà bạn chỉ tích chọn 1 instance, thì trên biểu đồ chỉ có một đường vẽ đại diện cho instance đó. Như vậy, khi tích chọn càng nhiều trên danh sách thì sẽ càng có nhiều đường biểu diễn hơn.</p>
+<div class="notices note" ><p>Nếu bạn chỉ tích chọn 1 instance, thì trên biểu đồ chỉ có một đường vẽ đại diện cho instance đó. Khi tích chọn càng nhiều instance trên danh sách, sẽ càng có nhiều đường biểu diễn hơn.</p>
 </div>
 
-<h4 id="điều-chính-thủ-công-thông-số-desired-capacity-của-asg">Điều chính thủ công thông số Desired capacity của ASG</h4>
-<p>Giờ thì chúng ta trở lại với trang thông tin chi tiết của ASG mà chúng ta đã tạo ở trước đó. Trong phần Group details, chúng ta có thể thấy được là: <strong>Desired capacity = 1</strong>.</p>
-<p>Giờ chúng ta sẽ giả sử một tình huống, là đã qua giờ cao điểm nên là mình muốn tắt bớt đi một instance để tiết kiệm chi phí. Để làm được việc này thì chúng ta sẽ điều chỉnh thủ công thông số <strong>Desired capacity = 0</strong>. Ấn <strong>Edit</strong>.</p>
+<h4 id="điều-chỉnh-thủ-công-thông-số-desired-capacity-của-asg">Điều chỉnh thủ công thông số Desired capacity của ASG</h4>
+<p>Trở lại trang thông tin chi tiết của ASG đã tạo trước đó. Trong phần Group details, chúng ta thấy: <strong>Desired capacity = 1</strong>.</p>
+<p><strong>ℹ️ Information</strong>: Giả sử một tình huống đã qua giờ cao điểm và chúng ta muốn tắt bớt một instance để tiết kiệm chi phí. Để thực hiện, chúng ta sẽ điều chỉnh thủ công thông số <strong>Desired capacity = 0</strong>. Nhấn <strong>Edit</strong>.</p>
 <p><img alt="7.1.6" src="/images/7-test-solution/7.1.6.png"></p>
-<p>Sẽ hiện lên bảng thông tin Group size, điều chỉnh Desired capacity và Min desired capacity về <strong>0</strong> và ấn <strong>Update</strong>.</p>
+<p><strong>⚠️ Warning</strong>: Khi giảm Desired capacity xuống 0, tất cả các instance do ASG quản lý sẽ bị chấm dứt. Đảm bảo rằng đây là hành động có chủ đích và sẽ không ảnh hưởng đến tính khả dụng của ứng dụng.</p>
+<p>Trong bảng thông tin Group size, điều chỉnh Desired capacity và Min desired capacity về <strong>0</strong> và nhấn <strong>Update</strong>.</p>
 <p><img alt="7.1.7" src="/images/7-test-solution/7.1.7.png"></p>
-<p>Sau đó vào trong tab Activity để xem ASG đang có hoạt động gì.</p>
+<p>Sau đó vào tab Activity để xem hoạt động của ASG.</p>
 <p><img alt="7.1.8" src="/images/7-test-solution/7.1.8.png"></p>
 
-<div class="notices note" ><p>Trong quá trình instance đang được tắt đi, thì bạn có thể dừng chương trình test lại.</p>
+<div class="notices note" ><p>Trong quá trình instance đang được tắt đi, bạn có thể tạm dừng chương trình test.</p>
 </div>
 
-<p>=&gt; Như vậy chúng ta có thể thấy là ASG sẽ tự động huỷ đi một instance theo như thông số mà nó đã được cấu hình.</p>
-<p>Một vài phút sau, vào lại trong trang thông tin của Load Balancer, vào tab <strong>Resource map - new</strong> thì chúng ta có thể thấy được là giờ chỉ còn có một target thôi.</p>
+<p><strong>ℹ️ Information</strong>: Như vậy, chúng ta có thể thấy ASG sẽ tự động hủy instance theo thông số đã được cấu hình.</p>
+<p>Sau vài phút, vào lại trang thông tin của Load Balancer, chọn tab <strong>Resource map - new</strong>, chúng ta sẽ thấy giờ chỉ còn một target.</p>
 <p><img alt="7.1.9" src="/images/7-test-solution/7.1.9.png"></p>
 
-<div class="notices note" ><p>Tới bước này thì bạn NHỚ BẬT LẠI chương trình test.</p>
+<div class="notices note" ><p>Tới bước này, hãy BẬT LẠI chương trình test.</p>
 </div>
 
-<p>Chúng ta cũng sẽ nhận được một email từ SNS</p>
+<p><strong>ℹ️ Information</strong>: Chúng ta cũng sẽ nhận được email thông báo từ Amazon SNS về việc ASG đã chấm dứt instance.</p>
 <p><img alt="7.1.10" src="/images/7-test-solution/7.1.10.png"></p>
-<p>Khi chương trình của chúng ta đang có lưu lượng truy cập lớn, thì thao tác sẽ bị chậm đi một ít. Các bạn có thể mở ứng dụng thông qua DNS của Load Balancer để kiểm thử.</p>
+<p><strong>💡 Pro Tip</strong>: Thông báo SNS giúp bạn theo dõi các hoạt động của ASG trong thời gian thực, đặc biệt hữu ích khi triển khai các chiến lược scaling trong môi trường sản xuất.</p>
+<p>Khi chương trình đang có lưu lượng truy cập lớn, các thao tác sẽ bị chậm đi. Bạn có thể mở ứng dụng thông qua DNS của Load Balancer để kiểm thử.</p>
 <p><img alt="7.1.11" src="/images/7-test-solution/7.1.11.png"></p>
-<p>Giờ thì vào lại EC2 Console, chọn target còn lại, và quan sát biểu đồ.</p>
+<p>Quay lại EC2 Console, chọn target còn lại và quan sát biểu đồ.</p>
 <p><img alt="7.1.12" src="/images/7-test-solution/7.1.12.png"></p>
-<p>Có thể thấy, hiện tại thì instance đã chịu tải lưu lượng mạng vào và ra có thể nói là gấp đôi và lượng tài nguyên CPU đã dùng gần gấp 4 lần.</p>
+<p><strong>ℹ️ Information</strong>: Có thể thấy, hiện tại instance đang phải chịu tải lưu lượng mạng vào và ra gần như gấp đôi, và lượng tài nguyên CPU đã sử dụng gần gấp 4 lần so với trước đó.</p>
 <h4 id="kết-luận">Kết luận</h4>
-<p>Trên thực tế thì các hệ thống sẽ có các bước thực hiện phức tạp hơn, lâu hơn nên từ đó sẽ dùng nhiều tài nguyên CPU hơn. Trong bài này thì chúng ta chỉ kiểm tra giao thực GET, còn thực tế thì các request này sẽ phức tạp hơn nhiều.</p>
+<p><strong>💡 Pro Tip</strong>: Trên thực tế, các hệ thống sẽ có các quy trình xử lý phức tạp hơn, thời gian xử lý lâu hơn, do đó sẽ tiêu tốn nhiều tài nguyên CPU hơn. Trong bài lab này, chúng ta chỉ kiểm tra giao thức GET đơn giản, trong khi các ứng dụng thực tế sẽ có các request phức tạp hơn nhiều.</p>
+<p><strong>🔒 Security Note</strong>: Khi thực hiện manual scaling trong môi trường sản xuất, cần đảm bảo rằng việc giảm số lượng instance không ảnh hưởng đến khả năng xử lý của hệ thống và không tạo ra các điểm yếu về bảo mật do quá tải.</p>
 
 
 
@@ -1318,19 +1322,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

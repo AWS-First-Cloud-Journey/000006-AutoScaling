@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Test manual scaling solution :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,7 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#manual-scaling">Manual Scaling</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -841,92 +841,92 @@
 
 
 
-	<h3 id="manual-scaling">Manual Scaling</h3>
-<p>Manual Scaling is performed by manually adjusting the <strong>Desired capacity</strong> of the ASG. After adjusting and confirming the update, wait for a while, and the ASG will update the number of instances and proceed to either launch or terminate EC2 Instances depending on the <strong>Desired capacity</strong> setting.</p>
-<h4 id="test-setup">Test Setup</h4>
-<p>Once the Auto Scaling Group is created, the service will automatically launch an EC2 Instance according to the configuration. To verify this, you can check the EC2 Console:</p>
-<ul>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: Manual Scaling is performed by explicitly adjusting the <strong>Desired capacity</strong> parameter of your Auto Scaling Group. After modifying this value and confirming the update, the ASG will automatically launch or terminate EC2 instances to match your specified capacity.</p>
+<h4 id="test-environment-setup">Test Environment Setup</h4>
+<p>Once your Auto Scaling Group is created, the service automatically launches an EC2 instance according to your configuration. To verify this deployment:</p>
+<ol>
+<li>Navigate to the EC2 Console</li>
 <li>Select <strong>Load Balancer</strong></li>
 <li>Choose the <strong>Resource map - new</strong> tab</li>
-</ul>
-<p>Here, you will see the Target Group linked to two Targets, which are two EC2 Instances (one is the original instance created, and the other is the instance created by ASG).</p>
-<p><img alt="7.1.1" src="/images/7-test-solution/7.1.1.png"></p>
-<p>Now, test the application that we downloaded earlier.</p>
+</ol>
+<p><img alt="Auto Scaling Group Initial State" src="/images/7-test-solution/7.1.1.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: You should observe the Target Group linked to two targets - your original EC2 instance and the new instance created by the Auto Scaling Group.</p>
+<h4 id="configuring-the-load-test">Configuring the Load Test</h4>
+<p>Now we&rsquo;ll configure the load testing application downloaded earlier:</p>
+<ol>
+<li>Open the application and navigate to the <strong>Test Type</strong> tab</li>
+<li>Configure the following settings:
 <ul>
-<li>Open the application and click on the <strong>Test Type</strong> tab</li>
-<li>Test Type:
-<ul>
-<li>Select <strong>CLICKS</strong></li>
+<li>Test Type: <strong>CLICKS</strong></li>
 <li>Run until: <strong>100000</strong></li>
-</ul>
-</li>
-<li>User Simulation
-<ul>
 <li>Number Of Users: <strong>1000</strong></li>
 <li>Click Delay: <strong>1</strong> second</li>
 </ul>
 </li>
-</ul>
-<p><img alt="7.1.2" src="/images/7-test-solution/7.1.2.png"></p>
-<p>In the URLs tab, configure the following information:</p>
+</ol>
+<p><img alt="Load Test Configuration" src="/images/7-test-solution/7.1.2.png?featherlight=false&width=90pc"></p>
+<ol start="3">
+<li>In the URLs tab, enter:
 <ul>
-<li>Name: <code>Manual Scaling Test</code> (you can name it anything since we will use it to test other scaling methods later).</li>
-<li>URL: Copy the DNS of the Load Balancer and paste it.</li>
+<li>Name: <code>Manual Scaling Test</code> (this can be customized as needed)</li>
+<li>URL: Enter your Load Balancer&rsquo;s DNS name</li>
 </ul>
-<p><img alt="7.1.3" src="/images/7-test-solution/7.1.3.png"></p>
-<p>On the toolbar, click <strong>Start Test</strong>.</p>
-<p><img alt="7.1.4" src="/images/7-test-solution/7.1.4.png"></p>
-<h4 id="running-the-test">Running the Test</h4>
-<p>Now go back to the AWS Management Console, in the EC2 Console:</p>
+</li>
+</ol>
+<p><img alt="URL Configuration" src="/images/7-test-solution/7.1.3.png?featherlight=false&width=90pc"></p>
+<ol start="4">
+<li>Click <strong>Start Test</strong> on the toolbar to begin the load test</li>
+</ol>
+<p><img alt="Starting the Load Test" src="/images/7-test-solution/7.1.4.png?featherlight=false&width=90pc"></p>
+<h4 id="monitoring-instance-performance">Monitoring Instance Performance</h4>
+<p>While the test is running, return to the AWS Management Console:</p>
+<ol>
+<li>In the EC2 Console, select both EC2 instances in the target group</li>
+<li>Click on the <strong>Monitoring</strong> tab to observe performance metrics</li>
+</ol>
+<p><img alt="Initial Performance Metrics" src="/images/7-test-solution/7.1.5.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Focus on these five key metrics to understand your application&rsquo;s performance under load:</p>
 <ul>
-<li>Select both EC2 Instances in the target group</li>
-<li>Click on the <strong>Monitoring</strong> tab and start observing</li>
+<li><strong>CPU Utilization (%)</strong>: Shows processor usage (currently below 8% for each instance)</li>
+<li><strong>Network in (bytes)</strong>: Measures incoming traffic (under 2.9 million MB per instance)</li>
+<li><strong>Network out (bytes)</strong>: Measures outgoing traffic (under 17.3 million MB per instance)</li>
+<li><strong>Network packets in (count)</strong>: Shows incoming packet count (under 6.85 thousand packets per instance)</li>
+<li><strong>Network packets out (count)</strong>: Shows outgoing packet count (under 7.36 thousand packets per instance)</li>
 </ul>
-<p>In this section, there are 7 charts, but for now, we only care about the following 5 charts:</p>
-<ul>
-<li>CPU Utilization (%): This chart shows the CPU resource usage of the two instances, each below 8%.</li>
-<li>Network in (bytes): This chart shows the incoming network traffic to the two instances, each under 2.9 million Megabytes.</li>
-<li>Network out (bytes): This chart shows the outgoing network traffic from the two instances, each under 17.3 million Megabytes.</li>
-<li>Network packets in (count): This chart shows the number of packets coming into the two instances, each under 6.85 thousand packets.</li>
-<li>Network packets out (count): This chart shows the number of packets going out from the two instances, each under 7.36 thousand packets.</li>
-</ul>
-<p><img alt="7.1.5" src="/images/7-test-solution/7.1.5.png"></p>
-
-<div class="notices note" ><p>From now on, we will read the charts this way, including important metrics in the vertical, horizontal axes, and plotted lines. This will help us better understand how the Load Balancer distributes network traffic to instances in the Target Group.</p>
-</div>
-
-
-<div class="notices note" ><p>If you select only one instance, the chart will show just one line representing that instance. The more instances you select from the list, the more lines will be shown on the graph.</p>
-</div>
-
-<h4 id="manually-adjusting-the-desired-capacity-of-asg">Manually Adjusting the Desired Capacity of ASG</h4>
-<p>Now, let’s return to the details page of the ASG we created earlier. In the Group details section, we can see: <strong>Desired capacity = 1</strong>.</p>
-<p>Let&rsquo;s assume it&rsquo;s off-peak hours, and we want to turn off one instance to save costs. To do this, we manually adjust the <strong>Desired capacity = 0</strong>. Click <strong>Edit</strong>.</p>
-<p><img alt="7.1.6" src="/images/7-test-solution/7.1.6.png"></p>
-<p>A Group size dialog will appear. Adjust the Desired capacity and Min desired capacity to <strong>0</strong> and click <strong>Update</strong>.</p>
-<p><img alt="7.1.7" src="/images/7-test-solution/7.1.7.png"></p>
-<p>Then, go to the Activity tab to check what the ASG is doing.</p>
-<p><img alt="7.1.8" src="/images/7-test-solution/7.1.8.png"></p>
-
-<div class="notices note" ><p>While the instance is being shut down, you can stop the test program.</p>
-</div>
-
-<p>=&gt; We can see that the ASG automatically terminates an instance based on the configured settings.</p>
-<p>A few minutes later, if you return to the Load Balancer details page and go to the <strong>Resource map - new</strong> tab, you&rsquo;ll see that there is now only one target remaining.</p>
-<p><img alt="7.1.9" src="/images/7-test-solution/7.1.9.png"></p>
-
-<div class="notices note" ><p>At this point, REMEMBER TO RESTART the test program.</p>
-</div>
-
-<p>We will also receive an email from SNS.</p>
-<p><img alt="7.1.10" src="/images/7-test-solution/7.1.10.png"></p>
-<p>When there is high traffic, the application&rsquo;s performance may slow down slightly. You can open the application via the Load Balancer&rsquo;s DNS to test.</p>
-<p><img alt="7.1.11" src="/images/7-test-solution/7.1.11.png"></p>
-<p>Now, go back to the EC2 Console, select the remaining target, and observe the charts.</p>
-<p><img alt="7.1.12" src="/images/7-test-solution/7.1.12.png"></p>
-<p>We can see that the instance is now handling almost double the network traffic, and its CPU resource usage has nearly quadrupled.</p>
+<p><strong>ℹ️ Information</strong>: The charts display one line per selected instance. Selecting multiple instances allows you to compare their performance simultaneously, helping you understand how the Load Balancer distributes traffic.</p>
+<h4 id="manually-scaling-down-the-asg">Manually Scaling Down the ASG</h4>
+<p>To simulate cost optimization during off-peak hours:</p>
+<ol>
+<li>Navigate to your Auto Scaling Group details page</li>
+<li>Note the current setting: <strong>Desired capacity = 1</strong></li>
+<li>Click <strong>Edit</strong> to modify the capacity</li>
+</ol>
+<p><img alt="ASG Initial Configuration" src="/images/7-test-solution/7.1.6.png?featherlight=false&width=90pc"></p>
+<ol start="4">
+<li>In the Group size dialog, set both Desired capacity and Min desired capacity to <strong>0</strong></li>
+<li>Click <strong>Update</strong> to apply the changes</li>
+</ol>
+<p><img alt="Scaling Down Configuration" src="/images/7-test-solution/7.1.7.png?featherlight=false&width=90pc"></p>
+<ol start="6">
+<li>Navigate to the Activity tab to monitor the scaling action</li>
+</ol>
+<p><img alt="ASG Activity Log" src="/images/7-test-solution/7.1.8.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: While the instance is being terminated, you should pause your load testing application to avoid potential errors.</p>
+<p><strong>ℹ️ Information</strong>: The ASG will automatically terminate an instance based on your updated configuration. After a few minutes, returning to the Load Balancer&rsquo;s Resource map will show only one remaining target.</p>
+<p><img alt="Scaled Down Resource Map" src="/images/7-test-solution/7.1.9.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Remember to restart your load testing program after the scaling operation completes to continue your testing.</p>
+<h4 id="observing-notification-and-performance-impact">Observing Notification and Performance Impact</h4>
+<p>After scaling down, you&rsquo;ll receive an email notification from Amazon SNS:</p>
+<p><img alt="SNS Notification" src="/images/7-test-solution/7.1.10.png?featherlight=false&width=90pc"></p>
+<p>With reduced capacity, you may notice performance degradation when accessing your application through the Load Balancer&rsquo;s DNS:</p>
+<p><img alt="Application Performance" src="/images/7-test-solution/7.1.11.png?featherlight=false&width=90pc"></p>
+<p>Return to the EC2 Console to observe the impact on your remaining instance:</p>
+<p><img alt="Single Instance Metrics" src="/images/7-test-solution/7.1.12.png?featherlight=false&width=90pc"></p>
+<p><strong>ℹ️ Information</strong>: The monitoring data clearly shows that the remaining instance is now handling approximately double the network traffic, with CPU utilization nearly quadrupled compared to the previous balanced state.</p>
 <h4 id="conclusion">Conclusion</h4>
-<p>In reality, systems will involve more complex and time-consuming processes, consuming more CPU resources. In this tutorial, we only tested GET requests, but in real cases, the requests will be much more complicated.</p>
+<p><strong>⚠️ Warning</strong>: This demonstration uses simple GET requests, but real-world applications typically involve more complex operations that consume significantly more CPU resources and may experience more dramatic performance impacts during scaling events.</p>
+<p><strong>🔒 Security Note</strong>: While manual scaling provides direct control over your infrastructure costs, it requires human intervention and monitoring, which can lead to delayed responses during unexpected traffic spikes. Consider implementing automated scaling policies for production workloads to maintain both performance and security.</p>
 
 
 
@@ -1318,19 +1318,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

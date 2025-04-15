@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Test :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#test-the-result">Test the result</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,18 +835,39 @@
 
 
 
-	<h3 id="test-the-result">Test the result</h3>
-<p>After deploying the Load Balancer, we will take the DNS name of the LB and paste it into the browser to test the deployment result.</p>
-<p><img alt="5.1.png" src="/images/5-test/5.1.png"></p>
-<p>And here is the result.</p>
-<p><img alt="5.2.png" src="/images/5-test/5.2.png"></p>
-<p>Now, we will perform some actions to check if the system is functioning properly. Try changing the information of a record.</p>
-<p><img alt="5.3.png" src="/images/5-test/5.3.png"></p>
-<p>After entering the information, we click Submit and receive a notification.</p>
-<p><img alt="5.4.png" src="/images/5-test/5.4.png"></p>
-<p>Return to the homepage and get the result.</p>
-<p><img alt="5.5.png" src="/images/5-test/5.5.png"></p>
-<p>In the following test steps, we will mainly read the metrics, but you can also read and check whether the application slows down during the testing process.</p>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: In this section, we&rsquo;ll verify that our application is properly deployed behind the Application Load Balancer and functioning as expected. This testing phase ensures our infrastructure is correctly configured before proceeding to auto scaling implementation.</p>
+<h4 id="accessing-the-application">Accessing the Application</h4>
+<p>To test the deployment:</p>
+<ol>
+<li>Navigate to the EC2 console and select <strong>Load Balancers</strong></li>
+<li>Locate the <strong>FCJ-Management-LB</strong> and copy its DNS name</li>
+<li>Paste the DNS name into your browser&rsquo;s address bar</li>
+</ol>
+<p><img alt="Accessing the Application via Load Balancer DNS" src="/images/5-test/5.1.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: The DNS name of your Application Load Balancer follows the format <code>name-1234567890.region.elb.amazonaws.com</code> and is globally resolvable, allowing access from anywhere with internet connectivity.</p>
+<h4 id="verifying-application-functionality">Verifying Application Functionality</h4>
+<p>Upon successful connection, you should see the FCJ Management application interface:</p>
+<p><img alt="Application Interface" src="/images/5-test/5.2.png?featherlight=false&width=90pc"></p>
+<h4 id="testing-crud-operations">Testing CRUD Operations</h4>
+<p>To verify complete functionality, test the application&rsquo;s data manipulation capabilities:</p>
+<ol>
+<li>Select a record and click the edit button to modify its information</li>
+</ol>
+<p><img alt="Editing a Record" src="/images/5-test/5.3.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>After entering the updated information, click <strong>Submit</strong></li>
+<li>Verify you receive a success notification</li>
+</ol>
+<p><img alt="Update Confirmation" src="/images/5-test/5.4.png?featherlight=false&width=90pc"></p>
+<ol start="4">
+<li>Return to the homepage to confirm the changes are reflected in the database</li>
+</ol>
+<p><img alt="Updated Record Verification" src="/images/5-test/5.5.png?featherlight=false&width=90pc"></p>
+<p><strong>⚠️ Warning</strong>: If you encounter any errors during testing, verify that your security groups are properly configured to allow traffic on port 5000 and that your target group health checks are passing.</p>
+<h4 id="performance-monitoring">Performance Monitoring</h4>
+<p><strong>ℹ️ Information</strong>: In subsequent testing steps, we&rsquo;ll focus on monitoring application metrics through Amazon CloudWatch. While reviewing these metrics, pay attention to any performance degradation that might occur during periods of increased load.</p>
+<p><strong>🔒 Security Note</strong>: All traffic to your application is now flowing through the Application Load Balancer, which provides an additional security layer by isolating your EC2 instances from direct internet access. Consider implementing AWS WAF with your ALB for additional protection against common web exploits.</p>
 
 
 
@@ -1237,19 +1258,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -6,111 +6,113 @@ chapter: false
 pre: "<strong>8. </strong>"
 ---
 
-### Cleanup Resources
+#### Overview
 
-After completing the workshop, we will proceed with the cleanup of resources.
+**ℹ️ Information**: After completing the workshop, it's important to properly clean up all AWS resources to avoid ongoing charges. This section guides you through the systematic removal of all resources created during this workshop.
 
 #### Delete Auto Scaling Group
 
-In the EC2 management interface, on the left navigation pane, scroll down and select **Auto Scaling Groups**.
+1. Navigate to the EC2 management console
+2. In the left navigation pane, scroll down and select **Auto Scaling Groups**
+3. Select the Auto Scaling Group **FCJ-Management-ASG**
+4. Click the **Actions** button at the top right of the screen
+5. Choose **Delete**
 
-- Select the Auto Scaling Group **FCJ-Management-ASG**
-- Click the **Actions** button at the top right of the screen
-- Choose **Delete**
-
-![8.1](/images/8-Cleanup/8.1.png)
+![Delete Auto Scaling Group](/images/8-Cleanup/8.1.png?featherlight=false&width=90pc)
 
 #### Delete Load Balancer
 
-In the EC2 management interface, on the left navigation pane, scroll down and select **Load Balancer**.
+1. In the EC2 management console, on the left navigation pane, select **Load Balancers**
+2. Select the Load Balancer **FCJ-Management-LB**
+3. Click the **Actions** button
+4. Choose **Delete load balancer**
 
-- Select the Load Balancer **FCJ-Management-LB**
-- Click the **Actions** button at the top right of the screen
-- Choose **Delete load balancer**
-
-![8.2](/images/8-Cleanup/8.2.png)
+![Delete Load Balancer](/images/8-Cleanup/8.2.png?featherlight=false&width=90pc)
 
 #### Delete Target Group
 
-In the EC2 management interface, on the left navigation pane, scroll down and select **Target Group**.
+1. In the EC2 management console, on the left navigation pane, select **Target Groups**
+2. Select the Target Group **FCJ-Management-TG**
+3. Click the **Actions** button
+4. Choose **Delete**
 
-- Select the Target Group **FCJ-Management-TG**
-- Click the **Actions** button at the top right of the screen
-- Choose **Delete**
-
-![8.3](/images/8-Cleanup/8.3.png)
+![Delete Target Group](/images/8-Cleanup/8.3.png?featherlight=false&width=90pc)
 
 #### Delete Launch Template
 
-In the EC2 management interface, on the left navigation pane, scroll down and select **Launch Templates**.
+1. In the EC2 management console, on the left navigation pane, select **Launch Templates**
+2. Select the Launch Template **FCJ-Management-TG**
+3. Click the **Actions** button
+4. Choose **Delete template**
 
-- Select the Launch Template **FCJ-Management-TG**
-- Click the **Actions** button at the top right of the screen
-- Choose **Delete template**
+![Delete Launch Template](/images/8-Cleanup/8.4.png?featherlight=false&width=90pc)
 
-![8.4](/images/8-Cleanup/8.4.png)
+**⚠️ Warning**: Ensure you've terminated all instances using this launch template before deletion to avoid potential errors.
 
 #### Deregister AMI
 
-In the EC2 management interface, on the left navigation pane, scroll down and select **AMIs**.
+1. In the EC2 management console, on the left navigation pane, select **AMIs**
+2. Select the AMI **FCJ-Management-AMI**
+3. Click the **Actions** button
+4. Choose **Deregister AMI**
 
-- Select the AMI **FCJ-Management-AMI**
-- Click the **Actions** button at the top right of the screen
-- Choose **Deregister AMI**
+![Deregister AMI](/images/8-Cleanup/8.5.png?featherlight=false&width=90pc)
 
-![8.5](/images/8-Cleanup/8.5.png)
+**💡 Pro Tip**: After deregistering an AMI, remember that its associated EBS snapshots will still exist and may incur charges. Consider deleting these snapshots separately if they're no longer needed.
 
 #### Terminate EC2 Instance
 
-In the EC2 management interface, on the left navigation pane, select **Instances**.
+1. In the EC2 management console, on the left navigation pane, select **Instances**
+2. Select the **FCJ-Management** instance
+3. Click the **Instance state** button
+4. Choose **Terminate (delete) instance**
 
-- Select the **FCJ-Management** instance
-- Click the **Instance state** button at the top right of the screen
-- Choose **Terminate (delete) instance**
+![Terminate EC2 Instance](/images/8-Cleanup/8.6.png?featherlight=false&width=90pc)
 
-![8.6](/images/8-Cleanup/8.6.png)
+**🔒 Security Note**: Terminating an instance permanently deletes its instance store volumes. If you have important data, ensure it's backed up before proceeding.
 
 #### Delete RDS Database
 
-- Access **RDS**
-- On the left navigation pane, select **Databases**
-- Select the database instance **fcj-management-db-instance** related to the lab.
-- Click **Modify**.
+1. Navigate to the **RDS** console
+2. On the left navigation pane, select **Databases**
+3. Select the database instance **fcj-management-db-instance**
+4. Click **Modify**
 
-![8.7](/images/8-Cleanup/8.7.png)
+![Modify RDS Database](/images/8-Cleanup/8.7.png?featherlight=false&width=90pc)
 
-In the Modify DB Instance section, scroll down to the bottom:
+5. In the Modify DB Instance section, scroll down and uncheck **Enable deletion protection**
+6. Click **Continue**
 
-- Uncheck **Enable deletion protection**
-- Click **Continue**
+![Disable Deletion Protection](/images/8-Cleanup/8.8.png?featherlight=false&width=90pc)
 
-![8.8](/images/8-Cleanup/8.8.png)
+7. In the Schedule modifications section:
+   - Select **Apply immediately**
+   - Click **Modify DB instance**
 
-Continue in the Schedule modifications section:
+![Apply Modifications](/images/8-Cleanup/8.9.png?featherlight=false&width=90pc)
 
-- Select **Apply immediately**
-- Click **Modify DB instance**
+8. After the modification completes:
+   - Select the database instance **fcj-management-db-instance**
+   - Click the **Actions** button
+   - Choose **Delete**
 
-![8.9](/images/8-Cleanup/8.9.png)
+![Delete RDS Database](/images/8-Cleanup/8.10.png?featherlight=false&width=90pc)
 
-Proceed to delete the DB instance:
+9. In the confirmation dialog:
+   - Select **I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available**
+   - Enter **delete me** in the confirmation field
+   - Click **Delete**
 
-- Select the database instance **fcj-management-db-instance**
-- Click the **Actions** button at the top right of the screen
-- Choose **Delete**
+![Confirm RDS Deletion](/images/8-Cleanup/8.11.png?featherlight=false&width=90pc)
 
-![8.10](/images/8-Cleanup/8.10.png)
-
-- Select **I acknowledge that upon instance deletion, automated, including system snapshots and point-in-time recovery, will no longer be available**
-- Enter **delete me**
-- Click **Delete**
-
-![8.11](/images/8-Cleanup/8.11.png)
+**⚠️ Warning**: This action permanently deletes your database and all its data. If you need to preserve any information, create a final snapshot before deletion.
 
 #### Delete Subnet Group
 
-- Select **Subnet groups**
-- Select the subnet group **fcj-management-subnet-group**
-- Click **Delete**
+1. In the RDS console, select **Subnet groups** from the left navigation pane
+2. Select the subnet group **fcj-management-subnet-group**
+3. Click **Delete**
 
-![8.12](/images/8-Cleanup/8.12.png)
+![Delete Subnet Group](/images/8-Cleanup/8.12.png?featherlight=false&width=90pc)
+
+**ℹ️ Information**: After completing these steps, verify in the AWS Billing Dashboard that there are no unexpected charges related to resources from this workshop. Some resources like EBS snapshots or CloudWatch logs may persist unless explicitly deleted.

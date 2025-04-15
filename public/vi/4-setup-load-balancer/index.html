@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thiết lập Load Balancer :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#load-balancer">Load Balancer</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,13 +835,49 @@
 
 
 
-	<h3 id="load-balancer">Load Balancer</h3>
-<p>Load Balancer là một bước quan trọng để đảm bảo tính khả dụng và khả năng mở rộng cao cho ứng dụng của bạn. Cân bằng tải phân phối lưu lượng truy cập đến trên nhiều mục tiêu, chẳng hạn như phiên bản EC2, vùng chứa hoặc địa chỉ IP, giúp tối ưu hóa việc sử dụng tài nguyên, cải thiện hiệu suất và đảm bảo khả năng chịu lỗi.</p>
+	<h4 id="elastic-load-balancing-elb">Elastic Load Balancing (ELB)</h4>
+<p><strong>ℹ️ Information</strong>: Elastic Load Balancing (ELB) là một dịch vụ AWS quan trọng để đảm bảo tính khả dụng cao và khả năng mở rộng cho ứng dụng của bạn. ELB tự động phân phối lưu lượng truy cập đến trên nhiều mục tiêu, như các phiên bản Amazon EC2, container, địa chỉ IP, và các hàm Lambda, giúp tối ưu hóa việc sử dụng tài nguyên, cải thiện hiệu suất và đảm bảo khả năng chịu lỗi.</p>
+<p><strong>💡 Pro Tip</strong>: Sử dụng ELB kết hợp với Auto Scaling Groups để tự động điều chỉnh số lượng máy chủ dựa trên nhu cầu thực tế, giúp tối ưu chi phí vận hành.</p>
+<p><strong>🔒 Security Note</strong>: ELB hỗ trợ mã hóa SSL/TLS và tích hợp với AWS Certificate Manager để bảo vệ dữ liệu trong quá trình truyền tải.</p>
 <h4 id="nội-dung">Nội dung</h4>
 <ol>
 <li><a href="/vi/4-setup-load-balancer/4.1-create-target-group/">Tạo Target Group</a></li>
 <li><a href="/vi/4-setup-load-balancer/4.2-create-load-balancer/">Tạo Load Balancer</a></li>
 </ol>
+<h4 id="lợi-ích-của-việc-sử-dụng-load-balancer">Lợi ích của việc sử dụng Load Balancer</h4>
+<p>Việc sử dụng Load Balancer trong kiến trúc ứng dụng của bạn mang lại nhiều lợi ích quan trọng:</p>
+<ol>
+<li>
+<p><strong>Tính sẵn sàng cao (High Availability)</strong>: Load Balancer phân phối lưu lượng truy cập đến nhiều EC2 instance chạy trong các Availability Zone khác nhau, giúp ứng dụng của bạn vẫn hoạt động ngay cả khi một AZ gặp sự cố.</p>
+</li>
+<li>
+<p><strong>Khả năng mở rộng (Scalability)</strong>: Kết hợp với Auto Scaling Group, Load Balancer cho phép ứng dụng của bạn tự động mở rộng để đáp ứng nhu cầu tăng cao và thu hẹp khi nhu cầu giảm.</p>
+</li>
+<li>
+<p><strong>Kiểm tra sức khỏe (Health Checks)</strong>: Load Balancer thường xuyên kiểm tra sức khỏe của các EC2 instance và chỉ định hướng lưu lượng đến các instance khỏe mạnh.</p>
+</li>
+<li>
+<p><strong>Bảo mật (Security)</strong>: Application Load Balancer (ALB) cung cấp các tính năng bảo mật như tích hợp với AWS WAF để bảo vệ khỏi các cuộc tấn công web phổ biến.</p>
+</li>
+<li>
+<p><strong>Cân bằng tải thông minh</strong>: ELB có thể phân phối lưu lượng dựa trên nhiều thuật toán khác nhau, đảm bảo không có instance nào bị quá tải.</p>
+</li>
+</ol>
+<h4 id="các-loại-load-balancer-trong-aws">Các loại Load Balancer trong AWS</h4>
+<p>AWS cung cấp ba loại Load Balancer chính:</p>
+<ol>
+<li>
+<p><strong>Application Load Balancer (ALB)</strong>: Hoạt động ở tầng ứng dụng (Layer 7) và hỗ trợ định tuyến dựa trên nội dung, phù hợp cho các ứng dụng web.</p>
+</li>
+<li>
+<p><strong>Network Load Balancer (NLB)</strong>: Hoạt động ở tầng vận chuyển (Layer 4), xử lý hàng triệu yêu cầu mỗi giây với độ trễ cực thấp, phù hợp cho các ứng dụng yêu cầu hiệu suất cao.</p>
+</li>
+<li>
+<p><strong>Classic Load Balancer (CLB)</strong>: Phiên bản cũ hơn, hỗ trợ cả Layer 4 và Layer 7, nhưng có ít tính năng hơn so với ALB và NLB.</p>
+</li>
+</ol>
+<p>Trong bài lab này, chúng ta sẽ sử dụng Application Load Balancer vì nó phù hợp nhất cho ứng dụng web của chúng ta.</p>
+<p><strong>⚠️ Warning</strong>: Khi thiết lập Load Balancer, hãy đảm bảo cấu hình security group phù hợp để cho phép lưu lượng từ Load Balancer đến các EC2 instance trong Auto Scaling Group.</p>
 
 
 
@@ -1232,19 +1268,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

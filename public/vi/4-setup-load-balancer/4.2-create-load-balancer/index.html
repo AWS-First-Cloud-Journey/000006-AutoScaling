@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Load Balancer :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -841,75 +841,125 @@
 
 
 
-	<h4 id="tạo-load-balancer">Tạo Load Balancer</h4>
-<p>Ở giao diện quản lý EC2, ở bảng chọn bên trái</p>
+	<h4 id="tạo-application-load-balancer">Tạo Application Load Balancer</h4>
+<p><strong>ℹ️ Information</strong>: Application Load Balancer (ALB) là một dịch vụ cân bằng tải thông minh hoạt động ở tầng ứng dụng (Layer 7), cho phép định tuyến lưu lượng truy cập dựa trên nội dung yêu cầu và hỗ trợ nhiều tính năng nâng cao như path-based routing và host-based routing.</p>
+<p>Ở giao diện quản lý EC2, ở bảng điều hướng bên trái:</p>
 <ul>
 <li>Chọn <strong>Load Balancers</strong></li>
 <li>Nhấn vào nút <strong>Create Load Balancer</strong></li>
 </ul>
 <p><img alt="4.2.1" src="/images/4-setup-load-balancer/4.2.1.png"></p>
-<p>Xuất hiện bảng Compare and select load balancer type</p>
+<p>Xuất hiện bảng Compare and select load balancer type:</p>
 <ul>
-<li>Ở phần Load balancer types
+<li>Ở phần Load balancer types:
 <ul>
-<li>Ở phàn <strong>Application Load Balancer</strong></li>
+<li>Tại phần <strong>Application Load Balancer</strong></li>
 <li>Chọn <strong>Create</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.2" src="/images/4-setup-load-balancer/4.2.2.png"></p>
-<p>Chúng ta sẽ thấy xuất hiện bảng Create Application Load Balancer</p>
+<p><strong>💡 Pro Tip</strong>: Application Load Balancer là lựa chọn tối ưu cho các ứng dụng web hiện đại, đặc biệt là các ứng dụng microservices hoặc container-based, vì khả năng định tuyến thông minh và hỗ trợ WebSocket.</p>
+<p>Trong bảng Create Application Load Balancer:</p>
 <ul>
-<li>Ở phần <strong>Basic configuration</strong>
+<li>Ở phần <strong>Basic configuration</strong>:
 <ul>
-<li>Load balancer name <code>FCJ-Management-LB</code></li>
-<li>Scheme <strong>Internet-facing</strong></li>
-<li>Load balancer IP address type <strong>IPv4</strong></li>
+<li>Load balancer name: <code>FCJ-Management-LB</code></li>
+<li>Scheme: <strong>Internet-facing</strong></li>
+<li>Load balancer IP address type: <strong>IPv4</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.2" src="/images/4-setup-load-balancer/4.2.3.png"></p>
 <ul>
-<li>Ở phần Network mapping
+<li>Ở phần <strong>Network mapping</strong>:
 <ul>
-<li>Chọn VPC <strong>AutoScaling-Lab</strong></li>
-<li>Chọn Subnet Public <strong>ap-southeast-1a</strong>, <strong>ap-southeast-1b</strong>, <strong>ap-southeast-1c</strong>. Lưu ý chọn <strong>public subnet</strong></li>
+<li>VPC: <strong>AutoScaling-Lab</strong></li>
+<li>Subnet: Chọn Public Subnet ở <strong>ap-southeast-1a</strong>, <strong>ap-southeast-1b</strong>, và <strong>ap-southeast-1c</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.4" src="/images/4-setup-load-balancer/4.2.4.png"></p>
+<p><strong>⚠️ Warning</strong>: Đảm bảo chọn đúng public subnet cho Internet-facing Load Balancer. Việc chọn private subnet sẽ khiến Load Balancer không thể tiếp nhận lưu lượng từ internet.</p>
 <ul>
-<li>Ở phần Security groups
+<li>Ở phần <strong>Security groups</strong>:
 <ul>
-<li>Security groups <strong>FCJ-Management-SG</strong></li>
+<li>Chọn <strong>FCJ-Management-SG</strong></li>
 </ul>
 </li>
-<li>Ở phần Listeners and routing
+<li>Ở phần <strong>Listeners and routing</strong>:
 <ul>
-<li>Default action <strong>FCJ-Management-TG</strong></li>
+<li>Default action: <strong>FCJ-Management-TG</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.5" src="/images/4-setup-load-balancer/4.2.5.png"></p>
+<p><strong>🔒 Security Note</strong>: Security group cho Load Balancer nên chỉ cho phép lưu lượng HTTP/HTTPS từ internet, trong khi security group cho EC2 instance nên chỉ cho phép lưu lượng từ Load Balancer, tạo thành một kiến trúc bảo mật nhiều lớp.</p>
 <ul>
-<li>Ở phần Summary, chúng ta có thể kiểm tra được các thông tin đã cấu hình cho Load Balancer
+<li>Ở phần <strong>Summary</strong>, kiểm tra lại các thông tin đã cấu hình cho Load Balancer
 <ul>
-<li>Nhấn vào nút <strong>Create Balancer</strong></li>
+<li>Nhấn vào nút <strong>Create Load Balancer</strong></li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.6" src="/images/4-setup-load-balancer/4.2.6.png"></p>
-<h4 id="kết-quả">Kết quả</h4>
-<p>Sau khi tạo Load Balancer chúng ta chọn <strong>FCJ-Management-LB</strong> để xem thông tin</p>
+<h4 id="xác-nhận-và-kiểm-tra-load-balancer">Xác nhận và kiểm tra Load Balancer</h4>
+<p>Sau khi tạo Load Balancer, chọn <strong>FCJ-Management-LB</strong> để xem thông tin chi tiết:</p>
 <p><img alt="4.2.7" src="/images/4-setup-load-balancer/4.2.7.png"></p>
+<p><strong>ℹ️ Information</strong>: Sau khi tạo, Load Balancer sẽ cần vài phút để chuyển sang trạng thái &ldquo;active&rdquo;. Trong thời gian này, AWS đang cấp phát và cấu hình các tài nguyên cần thiết cho Load Balancer của bạn.</p>
 <ul>
-<li>Trong phần quản lý Load Balancer đã tạo
+<li>Trong phần quản lý Load Balancer đã tạo:
 <ul>
 <li>Chọn <strong>Resource map - new</strong> để xem tổng quan liên kết của Load Balancer</li>
 </ul>
 </li>
 </ul>
 <p><img alt="4.2.8" src="/images/4-setup-load-balancer/4.2.8.png"></p>
+<p><strong>💡 Pro Tip</strong>: Sử dụng DNS name của Load Balancer (hiển thị trong tab Description) để truy cập ứng dụng của bạn. Không nên sử dụng địa chỉ IP trực tiếp vì AWS có thể thay đổi địa chỉ IP của Load Balancer theo thời gian.</p>
+<h4 id="kiểm-tra-hoạt-động-của-load-balancer">Kiểm tra hoạt động của Load Balancer</h4>
+<p>Để kiểm tra xem Load Balancer đã hoạt động chính xác hay chưa, hãy truy cập vào DNS name của Load Balancer:</p>
+<ol>
+<li>Sao chép DNS name từ tab <strong>Description</strong> của Load Balancer</li>
+<li>Mở trình duyệt web và dán DNS name vào thanh địa chỉ</li>
+</ol>
+<p><img alt="4.2.9" src="/images/4-setup-load-balancer/4.2.9.png"></p>
+<p><strong>⚠️ Warning</strong>: Nếu bạn không thể truy cập ứng dụng thông qua Load Balancer, hãy kiểm tra các điểm sau:</p>
+<ul>
+<li>Trạng thái của các EC2 instance trong Target Group (phải là &ldquo;healthy&rdquo;)</li>
+<li>Cấu hình Security Group của Load Balancer và EC2 instance</li>
+<li>Health check đã được cấu hình đúng trong Target Group</li>
+</ul>
+<h4 id="hiểu-về-cách-hoạt-động-của-application-load-balancer">Hiểu về cách hoạt động của Application Load Balancer</h4>
+<p>Application Load Balancer (ALB) hoạt động ở tầng 7 (Application Layer) của mô hình OSI, cho phép nó hiểu và xử lý các yêu cầu HTTP/HTTPS. Dưới đây là quy trình hoạt động cơ bản:</p>
+<ol>
+<li><strong>Tiếp nhận yêu cầu</strong>: ALB nhận các yêu cầu HTTP/HTTPS từ người dùng.</li>
+<li><strong>Đánh giá quy tắc</strong>: ALB đánh giá các quy tắc listener để xác định cách xử lý yêu cầu.</li>
+<li><strong>Định tuyến</strong>: Dựa trên quy tắc, ALB định tuyến yêu cầu đến target phù hợp trong Target Group.</li>
+<li><strong>Phân phối tải</strong>: ALB sử dụng thuật toán round robin để phân phối yêu cầu đến các target khỏe mạnh.</li>
+<li><strong>Duy trì phiên</strong>: Nếu được cấu hình, ALB có thể duy trì phiên người dùng với cùng một target.</li>
+</ol>
+<p><strong>💡 Pro Tip</strong>: ALB hỗ trợ path-based routing, cho phép bạn định tuyến các yêu cầu đến các dịch vụ backend khác nhau dựa trên URL path. Ví dụ: <code>/api/*</code> có thể được định tuyến đến API servers, trong khi <code>/static/*</code> có thể được định tuyến đến content delivery servers.</p>
+<h4 id="lợi-ích-của-việc-sử-dụng-application-load-balancer">Lợi ích của việc sử dụng Application Load Balancer</h4>
+<ol>
+<li><strong>Định tuyến nâng cao</strong>: ALB hỗ trợ định tuyến dựa trên path, host, HTTP header, và query string.</li>
+<li><strong>Hỗ trợ WebSocket</strong>: ALB hỗ trợ giao thức WebSocket cho các ứng dụng real-time.</li>
+<li><strong>Hỗ trợ HTTP/2</strong>: Cải thiện hiệu suất thông qua việc hỗ trợ HTTP/2.</li>
+<li><strong>Tích hợp với AWS WAF</strong>: Bảo vệ ứng dụng khỏi các cuộc tấn công web phổ biến.</li>
+<li><strong>Sticky Sessions</strong>: Duy trì phiên người dùng với cùng một target.</li>
+<li><strong>Xác thực người dùng</strong>: Tích hợp với Amazon Cognito để xác thực người dùng trước khi định tuyến yêu cầu.</li>
+</ol>
+<p><strong>🔒 Security Note</strong>: Để tăng cường bảo mật, bạn nên cấu hình HTTPS cho Load Balancer bằng cách sử dụng AWS Certificate Manager (ACM) để cung cấp và quản lý SSL/TLS certificates.</p>
+<h4 id="giám-sát-load-balancer">Giám sát Load Balancer</h4>
+<p>AWS cung cấp nhiều công cụ để giám sát hiệu suất của Load Balancer:</p>
+<ol>
+<li><strong>CloudWatch Metrics</strong>: Theo dõi các chỉ số như RequestCount, TargetResponseTime, và HTTPCode_ELB_5XX_Count.</li>
+<li><strong>Access Logs</strong>: Ghi lại thông tin chi tiết về các yêu cầu được gửi đến Load Balancer.</li>
+<li><strong>Request Tracing</strong>: Theo dõi các yêu cầu khi chúng đi qua Load Balancer đến các target.</li>
+</ol>
+<p><strong>💡 Pro Tip</strong>: Thiết lập CloudWatch Alarms để nhận thông báo khi các chỉ số hiệu suất vượt quá ngưỡng bạn đã xác định, giúp bạn phát hiện và giải quyết vấn đề trước khi chúng ảnh hưởng đến người dùng.</p>
+<h4 id="kết-luận">Kết luận</h4>
+<p>Chúng ta đã hoàn thành việc thiết lập Application Load Balancer cho ứng dụng FCJ-Management. Load Balancer này sẽ phân phối lưu lượng truy cập đến các EC2 instance trong Target Group, đảm bảo tính sẵn sàng cao và khả năng mở rộng cho ứng dụng của chúng ta.</p>
+<p>Trong phần tiếp theo, chúng ta sẽ tích hợp Load Balancer này với Auto Scaling Group để tạo một hệ thống hoàn chỉnh, có khả năng tự động mở rộng và thu hẹp dựa trên nhu cầu thực tế.</p>
 
 
 
@@ -1304,19 +1354,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

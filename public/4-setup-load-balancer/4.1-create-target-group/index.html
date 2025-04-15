@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create Target Group :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -841,61 +841,64 @@
 
 
 
-	<h4 id="create-target-group">Create Target Group</h4>
-<p>In the EC2 management interface, on the left side panel, scroll down to the <strong>Load Balancing</strong> section.</p>
+	<h4 id="creating-an-application-load-balancer-target-group">Creating an Application Load Balancer Target Group</h4>
+<p><strong>ℹ️ Information</strong>: Target groups route requests to individual registered targets such as EC2 instances. When creating a load balancer, you define at least one target group, then register targets to that group.</p>
+<p>Navigate to the Target Group creation interface:</p>
+<ol>
+<li>In the EC2 management console, locate the <strong>Load Balancing</strong> section in the left navigation pane</li>
+<li>Select <strong>Target Groups</strong></li>
+<li>Click <strong>Create target group</strong></li>
+</ol>
+<p><img alt="Target Group Creation Interface" src="/images/4-setup-load-balancer/4.1.1.png?featherlight=false&width=90pc"></p>
+<h4 id="configuring-target-group-details">Configuring Target Group Details</h4>
+<p>In the <strong>Specify group details</strong> section, configure the following settings:</p>
+<ol>
+<li>Basic configuration:
 <ul>
-<li>Select <strong>Target Group</strong></li>
-<li>Click on <strong>Create target group</strong></li>
-</ul>
-<p><img alt="4.1.1" src="/images/4-setup-load-balancer/4.1.1.png"></p>
-<p>The <strong>Specify group details</strong> dialog will appear. Configure it as follows:</p>
-<ul>
-<li>In the Basic configuration section:
-<ul>
-<li>Choose a target type: <strong>Instances</strong></li>
+<li>Target type: <strong>Instances</strong></li>
 <li>Target group name: <code>FCJ-Management-TG</code></li>
 </ul>
 </li>
-</ul>
-<p><img alt="4.1.2" src="/images/4-setup-load-balancer/4.1.2.png"></p>
+</ol>
+<p><img alt="Basic Target Group Configuration" src="/images/4-setup-load-balancer/4.1.2.png?featherlight=false&width=90pc"></p>
+<ol start="2">
+<li>Network settings:
 <ul>
-<li>Continue in the Basic configuration section:
-<ul>
-<li>Protocol: port <strong>HTTP</strong>, <strong>5000</strong></li>
-<li>IP address: <strong>IPv4</strong></li>
+<li>Protocol: <strong>HTTP</strong></li>
+<li>Port: <strong>5000</strong></li>
+<li>IP address type: <strong>IPv4</strong></li>
 <li>VPC: <strong>AutoScaling-Lab</strong></li>
 <li>Protocol version: <strong>HTTP1</strong></li>
 </ul>
 </li>
-</ul>
-<p><img alt="4.1.3" src="/images/4-setup-load-balancer/4.1.3.png"></p>
-<ul>
-<li>Click <strong>Next</strong></li>
-</ul>
-<p><img alt="4.1.4" src="/images/4-setup-load-balancer/4.1.4.png"></p>
-<p>Next, we proceed to <strong>Register target</strong>.</p>
-<ul>
-<li>In the Available instance section:
-<ul>
-<li>Select target group <strong>FCJ-Management-TG</strong></li>
-<li>Ports for the selected instances: <strong>5000</strong></li>
-<li>Choose <strong>Include as pending below</strong></li>
-</ul>
-</li>
-</ul>
-<p><img alt="4.1.5" src="/images/4-setup-load-balancer/4.1.5.png"></p>
-<ul>
-<li>In the Review targets section:
-<ul>
-<li>You will see the target group has been registered previously</li>
-<li>Click <strong>Create target group</strong></li>
-</ul>
-</li>
-</ul>
-<p><img alt="4.1.6" src="/images/4-setup-load-balancer/4.1.6.png"></p>
-<h4 id="result">Result</h4>
-<p>We have completed the creation of the Target Group. Select the Target Group <strong>FCJ-Management-TG</strong> that was just created to view its information.</p>
-<p><img alt="4.1.7" src="/images/4-setup-load-balancer/4.1.7.png"></p>
+</ol>
+<p><img alt="Network Settings Configuration" src="/images/4-setup-load-balancer/4.1.3.png?featherlight=false&width=90pc"></p>
+<ol start="3">
+<li>Click <strong>Next</strong> to proceed to target registration</li>
+</ol>
+<p><img alt="Proceed to Target Registration" src="/images/4-setup-load-balancer/4.1.4.png?featherlight=false&width=90pc"></p>
+<h4 id="registering-targets">Registering Targets</h4>
+<p>In the <strong>Register targets</strong> section:</p>
+<ol>
+<li>Select your instance from the Available instances list</li>
+<li>Verify port <strong>5000</strong> is specified for the selected instance</li>
+<li>Click <strong>Include as pending below</strong></li>
+</ol>
+<p><img alt="Registering Target Instances" src="/images/4-setup-load-balancer/4.1.5.png?featherlight=false&width=90pc"></p>
+<ol start="4">
+<li>Review the pending targets in the list</li>
+<li>Click <strong>Create target group</strong> to complete the process</li>
+</ol>
+<p><img alt="Finalizing Target Group Creation" src="/images/4-setup-load-balancer/4.1.6.png?featherlight=false&width=90pc"></p>
+<h4 id="verifying-target-group-creation">Verifying Target Group Creation</h4>
+<p>After successful creation, you can view and manage your new target group:</p>
+<ol>
+<li>Select the newly created <strong>FCJ-Management-TG</strong> from the target groups list</li>
+<li>Review the target group details, health status, and registered targets</li>
+</ol>
+<p><img alt="Target Group Verification" src="/images/4-setup-load-balancer/4.1.7.png?featherlight=false&width=90pc"></p>
+<p><strong>💡 Pro Tip</strong>: Target groups support health checks to ensure traffic is only routed to healthy instances. You can customize health check settings including path, port, threshold counts, and timeout values to match your application&rsquo;s specific requirements.</p>
+<p><strong>🔒 Security Note</strong>: When configuring target groups, consider using HTTPS protocol with proper certificate management for production workloads to ensure encrypted communication between clients and your load balancer.</p>
 
 
 
@@ -1287,19 +1290,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746189"></script>
-    <script src="/js/jquery.sticky.js?1733746189"></script>
-    <script src="/js/featherlight.min.js?1733746189"></script>
-    <script src="/js/highlight.pack.js?1733746189"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746189"></script>
-    <script src="/js/learn.js?1733746189"></script>
-    <script src="/js/hugo-learn.js?1733746189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746189" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746189"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

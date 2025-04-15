@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Preparation :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1733746189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746189" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746189" rel="stylesheet">
-    <link href="/css/theme.css?1733746189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746189" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703291" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703291" rel="stylesheet">
+    <link href="/css/theme.css?1744703291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746189" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746189"></script>
+<script type="text/javascript" src="/js/search.js?1744703291"></script>
 
     
   </div>
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" class="dd-item 
+    <li data-nav-id="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/2.1-setup-network/">
-          <strong>2.1. </strong>Setup network infrastructure
+          <strong>2.1. </strong>Setup Network Infrastructure
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -807,7 +807,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#content">Content</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -835,17 +835,21 @@
 
 
 
-	<p>In this exercise, we need to prepare some services to be able to deploy the FCJ Management application using Auto Scaling Group with Elastic Load Balancer. In general, we will deploy the ShareNote application according to the following architecture:
-<img alt="Create VPC" src="/images/2-preparation/diagram0006.png"></p>
-<h3 id="content">Content</h3>
+	<h4 id="overview">Overview</h4>
+<p><strong>ℹ️ Information</strong>: In this section, we will prepare the necessary AWS services to deploy the FCJ Management application using Amazon EC2 Auto Scaling and Elastic Load Balancing. This preparation ensures our application will be highly available, fault-tolerant, and capable of handling varying workloads efficiently.</p>
+<p>The architecture we&rsquo;ll implement follows AWS best practices for scalable web applications:</p>
+<p><img alt="Architecture Diagram" src="/images/2-preparation/diagram0006.png"></p>
+<p><strong>💡 Pro Tip</strong>: This multi-tier architecture separates the web tier from the database tier, allowing each component to scale independently based on its specific resource requirements.</p>
+<h4 id="workshop-modules">Workshop Modules</h4>
 <ol>
-<li><a href="/2-preparation/2.1-setup-network/">Setup network infrastructure</a></li>
-<li><a href="/2-preparation/2.2-launch-ec2-instance/">Launch EC2 instance</a></li>
-<li><a href="/2-preparation/2.3-launch-db-instance/">Launch Database instance with RDS</a></li>
-<li><a href="/2-preparation/2.4-add-data-to-db/">Setup data for database</a></li>
-<li><a href="/2-preparation/2.5-deploy-web-server/">Deploy web server</a></li>
-<li><a href="/2-preparation/2.6-prepare-metrics-for-predictive-scaling/">Prepare metric cho Predictive scaling</a></li>
+<li><a href="/2-preparation/2.1-setup-network/">Setup Network Infrastructure</a></li>
+<li><a href="/2-preparation/2.2-launch-ec2-instance/">Launch EC2 Instance</a></li>
+<li><a href="/2-preparation/2.3-launch-db-instance/">Deploy Database with Amazon RDS</a></li>
+<li><a href="/2-preparation/2.4-add-data-to-db/">Configure Database Data</a></li>
+<li><a href="/2-preparation/2.5-deploy-web-server/">Deploy Web Server</a></li>
+<li><a href="/2-preparation/2.6-prepare-metrics-for-predictive-scaling/">Prepare Metrics for Predictive Scaling</a></li>
 </ol>
+<p><strong>🔒 Security Note</strong>: Throughout this workshop, we&rsquo;ll implement security best practices including proper network segmentation, secure access controls, and encrypted data transmission to protect our application and its data.</p>
 
 
 
@@ -1226,7 +1230,7 @@
 			<a class="nav nav-prev" href="/1-introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2-preparation/2.1-setup-network/" title="Setup network infrastructure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2-preparation/2.1-setup-network/" title="Setup Network Infrastructure" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1236,19 +1240,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703291"></script>
+    <script src="/js/jquery.sticky.js?1744703291"></script>
+    <script src="/js/featherlight.min.js?1744703291"></script>
+    <script src="/js/highlight.pack.js?1744703291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703291"></script>
+    <script src="/js/learn.js?1744703291"></script>
+    <script src="/js/hugo-learn.js?1744703291"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

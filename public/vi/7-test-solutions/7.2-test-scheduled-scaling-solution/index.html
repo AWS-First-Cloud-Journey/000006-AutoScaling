@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm thử giải pháp scheduled scaling :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1733746190" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733746190" rel="stylesheet">
-    <link href="/css/hybrid.css?1733746190" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733746190" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733746190" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733746190" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733746190" rel="stylesheet">
-    <link href="/css/theme.css?1733746190" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733746190" rel="stylesheet">
+    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
+    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
+    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
+    <link href="/css/theme.css?1744703292" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733746190" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733746190"></script>
+    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733746190"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733746190"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733746190"></script>
+<script type="text/javascript" src="/js/search.js?1744703292"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduction/">
-          <strong>1. </strong>Giới thiệu
+          <strong>1. </strong>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với RDS" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-launch-db-instance/" title="Khởi tạo Database Instance với Amazon RDS" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-preparation/2.3-launch-db-instance/">
-          <strong>2.3. </strong>Khởi tạo Database Instance với RDS
+          <strong>2.3. </strong>Khởi tạo Database Instance với Amazon RDS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -745,7 +745,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>15-04-2025</font></i>
     </left>
     <left>
         <br>
@@ -813,7 +813,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#scheduled-scaling">Scheduled Scaling</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -841,52 +841,51 @@
 
 
 
-	<h3 id="scheduled-scaling">Scheduled Scaling</h3>
-<p>Scheduled Scaling là mình sẽ cho ASG biết là khi nào, khoảng thời gian nào là nó nên khởi tạo thêm các instance và thời điểm nào là nó nên xoá bớt đi các instance. Loại scale này phù hợp cho các lượng công việc mà trong đó nó sẽ biến động theo một khoảng thời gian nhất định, có tính chất lặp lại từng ngày và trong một khoảng thời gian dài.</p>
-<p>Vì ở phần trước thì chúng ta đã cài đặt phần kiểm thử rồi, nên giớ chúng ta sẽ không cần phải cài đặt lại nữa, tiếp tục dùng các thông số cài đặt đó.</p>
+	<h4 id="scheduled-scaling">Scheduled Scaling</h4>
+<p><strong>ℹ️ Information</strong>: Scheduled Scaling cho phép bạn cấu hình Auto Scaling Group (ASG) để tự động điều chỉnh số lượng instance theo lịch trình đã định sẵn. Giải pháp này phù hợp với các workload có tính chu kỳ, biến động theo thời gian cụ thể và lặp lại theo quy luật trong thời gian dài.</p>
+<p>Vì đã cài đặt phần kiểm thử ở phần trước, chúng ta sẽ tiếp tục sử dụng các thông số cài đặt đó mà không cần cấu hình lại.</p>
 <h4 id="tiến-hành-cấu-hình">Tiến hành cấu hình</h4>
-<p>Vào trong trang thông tin của ASG đã tạo, vào tab Automatic scaling, kéo xuống dưới cùng.</p>
+<p>Truy cập vào trang thông tin chi tiết của ASG đã tạo, chọn tab <strong>Automatic scaling</strong>, sau đó kéo xuống phần cuối trang:</p>
 <p><img alt="7.2.1" src="/images/7-test-solution/7.2.1.png"></p>
-<p>Ở dưới phần Scheduled actions, ấn <strong>Create scheduled action</strong></p>
+<p>Trong phần Scheduled actions, nhấn <strong>Create scheduled action</strong>:</p>
 <p><img alt="7.2.2" src="/images/7-test-solution/7.2.2.png"></p>
-<p>Một biểu mẫu sẽ hiện lên, điền các thông tin như sau</p>
+<p>Điền các thông tin vào biểu mẫu như sau:</p>
 <ul>
-<li>Name: <code>Rush hour</code>.</li>
-<li>Desired capacity: <strong>1</strong>.</li>
-<li>Min: <strong>1</strong> (các bạn nên để là 0).</li>
-<li>Max: <strong>3</strong>.</li>
-<li>Recurrence: <strong>Once</strong> (hoặc bất kì lựa chọn nào khác).</li>
-<li>Time zone: <strong>Asia/Ho_Chi_Minh</strong>.</li>
-<li>Specific start time: nên chỉnh thời gian gần nhất với lúc mà bạn đang cấu hình.</li>
-<li>Ấn <strong>Create</strong> để tạo.</li>
+<li>Name: <code>Rush hour</code></li>
+<li>Desired capacity: <strong>1</strong></li>
+<li>Min: <strong>1</strong> (<strong>💡 Pro Tip</strong>: Nên cấu hình là 0 trong môi trường thực tế để tối ưu chi phí)</li>
+<li>Max: <strong>3</strong></li>
+<li>Recurrence: <strong>Once</strong> (hoặc lựa chọn khác phù hợp với nhu cầu)</li>
+<li>Time zone: <strong>Asia/Ho_Chi_Minh</strong></li>
+<li>Specific start time: Chọn thời gian gần nhất với thời điểm hiện tại</li>
+<li>Nhấn <strong>Create</strong> để hoàn tất</li>
 </ul>
 <p><img alt="7.2.3" src="/images/7-test-solution/7.2.3.png"></p>
 
-<div class="notices note" ><p>Các thông số Desired capacity, Min hay Max nó đều sẽ ảnh hưởng tới các thông số tương ứng của ASG, nên trên thực tế thì chúng ta cũng sẽ cần phải kết hợp nhiều loại scaling và cân nhắc, xem xét kĩ lưỡng khi cấu hình các thông số này.</p>
+<div class="notices note" ><p>Các thông số Desired capacity, Min và Max sẽ ảnh hưởng trực tiếp đến cấu hình tương ứng của ASG. Trong môi trường sản xuất, cần kết hợp nhiều loại scaling và cân nhắc kỹ lưỡng khi thiết lập các thông số này.</p>
 </div>
 
-<p>Đã tạo thành công.</p>
+<p>Sau khi tạo thành công, bạn sẽ thấy scheduled action mới trong danh sách:</p>
 <p><img alt="7.2.4" src="/images/7-test-solution/7.2.4.png"></p>
 <h4 id="kiểm-thử">Kiểm thử</h4>
-<p>Trước khi ASG khởi tạo instance theo lịch khoảng 5 phút, thì chúng ta nên chạy chương trình test.</p>
+<p><strong>⚠️ Warning</strong>: Nên bắt đầu chạy chương trình kiểm thử khoảng 5 phút trước khi ASG dự kiến khởi tạo instance theo lịch trình để có thể quan sát đầy đủ hiệu quả của scheduled scaling.</p>
 <p><img alt="7.2.5" src="/images/7-test-solution/7.2.5.png"></p>
-<p>Sau một vài phút, thời điểm ASG khởi tạo instance mới đã tới. Lúc này vào trong tab <strong>Activity</strong> để xem các hoạt động của ASG. Có thể thấy là sự kiện <strong>Executing scheduled action Rush hour</strong> được khởi động vào đúng thời điểm và sau đó thì ASG khởi tạo instance mới.</p>
+<p>Sau vài phút, khi thời điểm đã đến, vào tab <strong>Activity</strong> để theo dõi các hoạt động của ASG. Bạn sẽ thấy sự kiện <strong>Executing scheduled action Rush hour</strong> được kích hoạt đúng thời điểm đã cấu hình, sau đó ASG sẽ khởi tạo instance mới:</p>
 <p><img alt="7.2.6" src="/images/7-test-solution/7.2.6.png"></p>
-<p>Trở lại với EC2 Console, các metrics sẽ được cập nhật vào mỗi 15 phút một lần, nên khi quay lại để quan sát các thông số này, tập chung vào biểu đồ CPU Utilization, thì chúng ta có thể thấy là từ khoảng 14:30 tới 14:40 thì có một đoạn bị gấp khúc và tăng cao, đó là khi mà chung ta mở chương trình test.</p>
+<p><strong>ℹ️ Information</strong>: Quay lại EC2 Console để quan sát các metrics. Lưu ý rằng các metrics được cập nhật 15 phút một lần. Khi xem biểu đồ CPU Utilization, bạn có thể thấy đoạn gấp khúc và tăng cao từ khoảng 14:30 đến 14:40, đây là thời điểm chúng ta chạy chương trình kiểm thử:</p>
 <p><img alt="7.2.7" src="/images/7-test-solution/7.2.7.png"></p>
-<p>Đợt tiếp thêm vài phút để các metric này được cập nhật, khi được cập nhật thì tích chọn thêm instance vừa mới được khởi tạo.</p>
+<p>Đợi thêm vài phút để các metrics được cập nhật đầy đủ, sau đó tích chọn thêm instance vừa được khởi tạo:</p>
 <p><img alt="7.2.8" src="/images/7-test-solution/7.2.8.png"></p>
-<p>Chúng ta có thể thấy là sau khúc 14:40 thì đường biểu đồ đã đi xuống.</p>
-<p>Phóng to biểu đồ này lên</p>
+<p><strong>💡 Pro Tip</strong>: Để quan sát chi tiết hơn, bạn có thể phóng to biểu đồ bằng cách:</p>
 <ul>
-<li>Chọn <strong>1h</strong></li>
-<li>Chọn <strong>1 second</strong></li>
+<li>Chọn <strong>1h</strong> cho khung thời gian</li>
+<li>Chọn <strong>1 second</strong> cho độ phân giải</li>
 </ul>
 <p><img alt="7.2.9" src="/images/7-test-solution/7.2.9.png"></p>
-<p>Chúng ta sẽ thấy rõ hơn về sự thay đổi.</p>
+<p>Với cài đặt này, bạn sẽ thấy rõ hơn sự thay đổi trong hiệu suất hệ thống trước và sau khi instance mới được thêm vào.</p>
 <h4 id="kết-luận">Kết luận</h4>
-<p>Trong thực tế thì các sàn giao dịch thường sẽ có các thời điểm mà lượng người dùng sẽ tăng cao. Và việc tăng cao này nó giống như giờ cao điểm ở giao thông, cứ vào một khoảng thời điểm nhất định nào đó thì lượng người tham gia giao thông / giao dịch sẽ tăng cao, việc này sẽ lặp lại vào mỗi ngày trong một thời gian dài. Khi đó thì mình sẽ cần lên lịch cho các instance mới để chịu tải.</p>
-<p>Nhưng trong thực tế thì chúng ta cần sẽ phải kết hợp với các loại scaling khác để tăng độ tin cậy của hệ thống.</p>
+<p><strong>ℹ️ Information</strong>: Trong môi trường thực tế, nhiều hệ thống như sàn giao dịch thường có các thời điểm lưu lượng người dùng tăng cao theo quy luật. Hiện tượng này tương tự như &ldquo;giờ cao điểm&rdquo; trong giao thông - vào những khoảng thời gian nhất định, lượng người tham gia giao dịch tăng đột biến và lặp lại hàng ngày trong thời gian dài. Scheduled Scaling giúp chuẩn bị trước các instance để đáp ứng nhu cầu tăng cao này.</p>
+<p><strong>🔒 Security Note</strong>: Mặc dù Scheduled Scaling rất hiệu quả cho các workload có tính chu kỳ, trong thực tế nên kết hợp với các loại scaling khác như Dynamic Scaling để tăng độ tin cậy và khả năng đáp ứng của hệ thống trước các biến động không lường trước được.</p>
 
 
 
@@ -1281,19 +1280,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733746190"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733746190"></script>
-    <script src="/js/jquery.sticky.js?1733746190"></script>
-    <script src="/js/featherlight.min.js?1733746190"></script>
-    <script src="/js/highlight.pack.js?1733746190"></script>
+    <script src="/js/clipboard.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
+    <script src="/js/jquery.sticky.js?1744703292"></script>
+    <script src="/js/featherlight.min.js?1744703292"></script>
+    <script src="/js/highlight.pack.js?1744703292"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733746190"></script>
-    <script src="/js/learn.js?1733746190"></script>
-    <script src="/js/hugo-learn.js?1733746190"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
+    <script src="/js/learn.js?1744703292"></script>
+    <script src="/js/hugo-learn.js?1744703292"></script>
 
-    <link href="/mermaid/mermaid.css?1733746190" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733746190"></script>
+    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1744703292"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
