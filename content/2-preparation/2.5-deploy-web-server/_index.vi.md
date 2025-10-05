@@ -14,6 +14,13 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.1.png?featherlight=false&width=90pc)
 
+Chạy ba dòng lệnh sau trong terminal của bạn để bắt đầu sử dụng nvm mà không cần phải đóng và mở lại terminal:
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+```
+
 Sử dụng nvm để cài đặt Node.js bằng cách nhập nội dung sau vào dòng lệnh.
 
 ```bash
