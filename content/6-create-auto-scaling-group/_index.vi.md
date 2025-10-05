@@ -68,12 +68,6 @@ Tiếp theo, ở phần Health checks:
 
 ![6.6](/images/6-create-auto-scaling-group/6.6.png)
 
-Trong phần Additional settings, ở mục Monitoring:
-- Tích chọn **Enable group metrics collection within CloudWatch**
-- Ấn **Next**
-
-![6.7](/images/6-create-auto-scaling-group/6.7.png)
-
 #### Thiết lập Size và Scaling Policies
 
 **ℹ️ Information**: Trong phần này, chúng ta xác định hành vi mở rộng của Group và số lượng Instance sẽ được khởi tạo trong quá trình Scale out (mở rộng) và Scale in (thu hẹp).
@@ -83,6 +77,12 @@ Trong phần Additional settings, ở mục Monitoring:
 - Trong phần Scaling limits:
   - Min desired capacity: **1**
   - Max desired capacity: **3**
+
+![6.7](/images/6-create-auto-scaling-group/6.7.png)
+
+Trong phần Additional settings, ở mục Monitoring:
+- Tích chọn **Enable group metrics collection within CloudWatch**
+- Ấn **Next**
 
 ![6.8](/images/6-create-auto-scaling-group/6.8.png)
 
