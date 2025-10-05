@@ -80,15 +80,6 @@ For additional configuration:
 
 ![Health Check Configuration](/images/6-create-auto-scaling-group/6.6.png?featherlight=false&width=90pc)
 
-Under Monitoring:
-
-1. Select **Enable group metrics collection within CloudWatch**
-2. Click **Next**
-
-![Monitoring Configuration](/images/6-create-auto-scaling-group/6.7.png?featherlight=false&width=90pc)
-
-**💡 Pro Tip**: CloudWatch metrics provide valuable insights into your Auto Scaling Group's performance, helping you fine-tune scaling policies and troubleshoot issues.
-
 #### Configuring Group Size and Scaling Policies
 
 Define the initial capacity and scaling boundaries:
@@ -99,7 +90,13 @@ Define the initial capacity and scaling boundaries:
    - Minimum capacity: **1**
    - Maximum capacity: **3**
 
-![Group Size Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
+![Group Size Configuration](/images/6-create-auto-scaling-group/6.7.png?featherlight=false&width=90pc)
+Under Monitoring:
+
+1. Select **Enable group metrics collection within CloudWatch**
+2. Click **Next**
+
+![Monitoring Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
 
 For scaling policies:
 
