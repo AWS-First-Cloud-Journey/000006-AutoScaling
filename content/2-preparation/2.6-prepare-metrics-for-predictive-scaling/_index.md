@@ -31,10 +31,13 @@ After downloading, modify the script slightly.
 ```bash
 vim prepare-metric-data.sh
 ```
-
+Edit the time variable to:
+```bash
+time=$(date -d "$((5*i)) minutes ago")
+```
 ![2.6.2.png](/images/2-preparation/2.6-prepare-metric-data/2.6.2.png)
 
-Once the script is edited, proceed to download the raw data, which is why we need to prepare this data processing script first. Start with metrics for the instances.
+Once the script is edited, proceed to download the raw data, which is why we need to prepare this data processing script first. Start with metrics for the CPU.
 
 ```bash
 curl -o metric-cpu.json https://raw.githubusercontent.com/awslabs/ec2-spot-workshops/master/workshops/efficient-and-resilient-ec2-auto-scaling/metric-cpu.json
@@ -42,10 +45,10 @@ curl -o metric-cpu.json https://raw.githubusercontent.com/awslabs/ec2-spot-works
 
 ![2.6.3.png](/images/2-preparation/2.6-prepare-metric-data/2.6.3.png)
 
-Next, download the data for CPU.
+Next, download the data for Instance.
 
 ```bash
-curl -o metric-cpu.json https://raw.githubusercontent.com/awslabs/ec2-spot-workshops/master/workshops/efficient-and-resilient-ec2-auto-scaling/metric-cpu.json
+curl -o metric-instances.json https://raw.githubusercontent.com/awslabs/ec2-spot-workshops/master/workshops/efficient-and-resilient-ec2-auto-scaling/metric-instances.json
 ```
 
 ![2.6.4.png](/images/2-preparation/2.6-prepare-metric-data/2.6.4.png)

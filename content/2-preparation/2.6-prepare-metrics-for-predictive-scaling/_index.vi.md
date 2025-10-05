@@ -27,9 +27,12 @@ curl -o prepare-metric-data.sh https://raw.githubusercontent.com/awslabs/ec2-spo
 ![2.6.1.png](/images/2-preparation/2.6-prepare-metric-data/2.6.1.png)
 
 Sau khi tải xong thì vào trong để thay đổi phần câu lệnh trong kịch bản này lại một xíu
-
 ```bash
 vim prepare-metric-data.sh
+```
+Chỉnh sửa biến thời gian thành:
+```bash
+time=$(date -d "$((5*i)) minutes ago")
 ```
 
 ![2.6.2.png](/images/2-preparation/2.6-prepare-metric-data/2.6.2.png)
