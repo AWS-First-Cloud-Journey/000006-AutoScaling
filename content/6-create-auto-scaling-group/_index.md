@@ -90,21 +90,17 @@ Define the initial capacity and scaling boundaries:
    - Minimum capacity: **1**
    - Maximum capacity: **3**
 3. Scaling policies: **No scaling policies** (we'll configure these in later sections)
+**ℹ️ Information**: We're deferring scaling policy configuration because we'll implement and compare multiple scaling strategies in subsequent sections.
 ![Group Size Configuration](/images/6-create-auto-scaling-group/6.7.png?featherlight=false&width=90pc)
-Under Monitoring:
 
+For instance maintenance: Select **No policy**
+
+![Instance Maintenance Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
+Under Monitoring:
 1. Select **Enable group metrics collection within CloudWatch**
 2. Click **Next**
 
 ![Monitoring Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
-
-For instance maintenance:
-
-1. Select **No policy**
-
-![Instance Maintenance Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
-
-**ℹ️ Information**: We're deferring scaling policy configuration because we'll implement and compare multiple scaling strategies in subsequent sections.
 
 #### Configuring Notifications
 
