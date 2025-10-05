@@ -46,6 +46,7 @@ NPM là viết tắt của Node package manager là một công cụ tạo và q
 ```bash
 npm init
 ```
+Bạn nên nhấn Enter liên tục để tạo giá trị mặc định
 
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc)
 
@@ -62,13 +63,17 @@ Tiếp theo, chúng ta định nghĩa lại câu script để chạy ứng dụn
 ```bash
 pm2 start app.js
 ```
-
+Nhập lệnh sau đây để truy cập vào nội dung file package.json
+```bash
+nano package.json
+```
+Chỉnh sửa nội dung file như ảnh bên dưới:
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc)
 
 Tiếp tục dùng vim để vào file .env, sau đó nhập vào nội dung sau để thiết lập kết nối tới database.
 
 ```bash
-DB_HOST='fcj-management-db-instance.cdysiiecu90g.ap-southeast-1.rds.amzonaws.com'
+DB_HOST='fcj-management-db-instance.c9yyuau4yxcz.eu-west-3.rds.amazonaws.com
 DB_NAME='awsfcjuser'
 DB_USER='admin'
 DB_PASS='123Vodanhphai'

@@ -46,6 +46,7 @@ NPM, short for Node Package Manager, is a vital tool for managing JavaScript lib
 ```bash
 npm init
 ```
+You should press Enter continuously to create the default value
 
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc)
 
@@ -57,15 +58,19 @@ npm install -g pm2
 
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.4.png?featherlight=false&width=90pc)
 
-Next, we redefine the script to run the application. We will use vim to open the package.json file and in the scripts section under the key start, assign it the following value. This will allow our application to run in the background:
+Next, we redefine the script to run the application. We will use vim or nano to open the package.json file and in the scripts section under the key start, assign it the following value. This will allow our application to run in the background:
 
 ```bash
 pm2 start app.js
 ```
-
+Enter the following command to access the content of the package.json file:
+```bash
+nano package.json
+```
+Edit the file content as below:
 ![Image](/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc)
 
-Continue using vim to access the .env file, then enter the following content to set up the connection to the database.
+Continue using vim or nano to access the .env file, then enter the following content to set up the connection to the database.
 
 ```bash
 DB_HOST='fcj-management-db-instance.cdysiiecu90g.ap-southeast-1.rds.amzonaws.com'
