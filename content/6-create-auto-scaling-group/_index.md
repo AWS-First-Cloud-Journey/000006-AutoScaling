@@ -95,12 +95,12 @@ Define the initial capacity and scaling boundaries:
 
 For instance maintenance: Select **No policy**
 
-![Instance Maintenance Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
+![Instance Maintenance Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
 Under Monitoring:
 1. Select **Enable group metrics collection within CloudWatch**
 2. Click **Next**
 
-![Monitoring Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
+![Monitoring Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
 
 #### Configuring Notifications
 
