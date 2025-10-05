@@ -89,7 +89,7 @@ Define the initial capacity and scaling boundaries:
 2. Scaling limits:
    - Minimum capacity: **1**
    - Maximum capacity: **3**
-
+3. Scaling policies: **No scaling policies** (we'll configure these in later sections)
 ![Group Size Configuration](/images/6-create-auto-scaling-group/6.7.png?featherlight=false&width=90pc)
 Under Monitoring:
 
@@ -97,12 +97,6 @@ Under Monitoring:
 2. Click **Next**
 
 ![Monitoring Configuration](/images/6-create-auto-scaling-group/6.8.png?featherlight=false&width=90pc)
-
-For scaling policies:
-
-1. Select **No scaling policies** (we'll configure these in later sections)
-
-![Scaling Policies Configuration](/images/6-create-auto-scaling-group/6.9.png?featherlight=false&width=90pc)
 
 For instance maintenance:
 
