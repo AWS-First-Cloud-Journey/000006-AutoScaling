@@ -11,7 +11,7 @@ pre: "<strong>2.3. </strong>"
 Truy cập vào **AWS Management Console**:
 
 - Tìm **RDS**
-- Chọn **RDS**
+- Chọn **Aurora and RDS**
 
 ![Image](/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc)
 

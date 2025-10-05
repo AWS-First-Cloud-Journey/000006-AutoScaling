@@ -12,11 +12,11 @@ pre: "<strong>2.3. </strong>"
 
 Access the AWS Management Console:
 
-- In the search bar, find and select **RDS**
+- In the search bar, find and select **Aurora and RDS**
 
 ![RDS Console Navigation](/images/2-preparation/2.3-rds/2.3.1.png?featherlight=false&width=90pc)
 
-In the RDS console:
+In the Aurora and RDS console:
 
 - Select **Subnet groups** from the left navigation panel
 - Click **Create DB subnet group**
