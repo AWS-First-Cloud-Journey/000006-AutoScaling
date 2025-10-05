@@ -77,24 +77,19 @@ Tiếp theo, ở phần Health checks:
 - Trong phần Scaling limits:
   - Min desired capacity: **1**
   - Max desired capacity: **3**
-
+- Trong Automatic scaling - optional: chọn **No scaling policies** (tạm thời chưa thiết lập chính sách scaling cho ASG)
+**💡 Pro Tip**: Chúng ta không thiết lập chính sách scaling ngay lúc này vì sẽ thực hiện 4 chiến lược scaling khác nhau trong các bước tiếp theo.
 ![6.7](/images/6-create-auto-scaling-group/6.7.png)
+
+Trong Instance maintenance policy: chọn **No policy**
+
+![6.8](/images/6-create-auto-scaling-group/6.8.png)
 
 Trong phần Additional settings, ở mục Monitoring:
 - Tích chọn **Enable group metrics collection within CloudWatch**
 - Ấn **Next**
 
-![6.8](/images/6-create-auto-scaling-group/6.8.png)
-
-Trong Automatic scaling - optional: chọn **No scaling policies** (tạm thời chưa thiết lập chính sách scaling cho ASG)
-
-![6.9](/images/6-create-auto-scaling-group/6.9.png)
-
-Trong Instance maintenance policy: chọn **No policy**
-
 ![6.10](/images/6-create-auto-scaling-group/6.10.png)
-
-**💡 Pro Tip**: Chúng ta không thiết lập chính sách scaling ngay lúc này vì sẽ thực hiện 4 chiến lược scaling khác nhau trong các bước tiếp theo.
 
 #### Thiết lập thông báo
 
