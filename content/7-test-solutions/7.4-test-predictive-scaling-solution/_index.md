@@ -159,7 +159,7 @@ In that policy, you will see two charts: **Load** and **Capacity**. These charts
 The chart is in UTC+0, and we are in UTC+7, so you'll need to add 7 hours when reading these charts.
 {{% /notice %}}
 
-First, focus on the chart on the left. At 15:00 UTC (which is 23:00 in Vietnam time), the total load was **219.21**.
+First, focus on the chart on the left. At 09:00 UTC (which is 16:00 in Vietnam time), the total load was **773.542**.
 
 ![7.4.10](/images/7-test-solution/7.4.10.png)
 
@@ -167,7 +167,7 @@ To understand what this number represents, look at the chart on the right.
 
 ![7.4.11](/images/7-test-solution/7.4.11.png)
 
-We can see that at that time, 5 instances were predicted to be launched, and the load correlates with these instances.
+We can see that at that time, 13 instances were predicted to be launched, and the load correlates with these instances.
 
 You can check other times as well.
 
@@ -175,7 +175,7 @@ You can check other times as well.
 
 ![7.4.13](/images/7-test-solution/7.4.13.png)
 
-If you wait for the predicted time, go to the ASG's Activity tab, and you'll see that ASG launches a new instance at 21:59, one minute before 22:00, as predicted above.
+If you wait for the predicted time, go to the ASG's Activity tab, and you'll see that ASG launches a new instance at 15:59, one minute before 16:00, as predicted above.
 
 ![7.4.14](/images/7-test-solution/7.4.14.png)
 

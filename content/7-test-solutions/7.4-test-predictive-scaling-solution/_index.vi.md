@@ -159,7 +159,7 @@ Vào trong chính sách đó, chúng ta sẽ đọc được 2 biểu đồ là 
 Biểu đồ được lấy theo giờ UTC + 0, và chúng ta đang ở múi giờ +7 nên chúng ta sẽ cần phải thêm 7 khi đọc các biểu đồ này.
 {{% /notice %}}
 
-Trước tiên, tập chung vào biểu đồ ở bên trái trước, vào thời điểm 15:00 (theo giờ của Việt Nam là 22:00) thì lượng chịu tải tổng là **164.546**.
+Trước tiên, tập chung vào biểu đồ ở bên trái trước, vào thời điểm 09:00 (theo giờ của Việt Nam là 26:00) thì lượng chịu tải tổng là **773.542**.
 
 ![7.4.10](/images/7-test-solution/7.4.10.png)
 
@@ -175,7 +175,7 @@ Chúng ta có thể xem các thời điểm khác.
 
 ![7.4.13](/images/7-test-solution/7.4.13.png)
 
-Nếu bạn có thể chờ được thời điểm được dự báo, thì vào trong phần tab Activity của ASG, chúng ta sẽ thấy được là ASG khởi tạo một instance mới vào lúc 21:59, 1 phút trước thời điểm 22:00 như đã dự đoán ở trên.
+Nếu bạn có thể chờ được thời điểm được dự báo, thì vào trong phần tab Activity của ASG, chúng ta sẽ thấy được là ASG khởi tạo một instance mới vào lúc 15:59, 1 phút trước thời điểm 16:00 như đã dự đoán ở trên.
 
 ![7.4.14](/images/7-test-solution/7.4.14.png)
 
