@@ -159,7 +159,7 @@ In that policy, you will see two charts: **Load** and **Capacity**. These charts
 The chart is in UTC+0, and we are in UTC+7, so you'll need to add 7 hours when reading these charts.
 {{% /notice %}}
 
-First, focus on the chart on the left. At 15:00 UTC (which is 22:00 in Vietnam time), the total load was **164.546**.
+First, focus on the chart on the left. At 15:00 UTC (which is 23:00 in Vietnam time), the total load was **219.21**.
 
 ![7.4.10](/images/7-test-solution/7.4.10.png)
 
