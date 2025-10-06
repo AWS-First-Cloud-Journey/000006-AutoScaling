@@ -20,7 +20,7 @@ Next, delete the automatic scaling policy to avoid affecting this test.
 
 ![7.4.2](/images/7-test-solution/7.4.2.png)
 
-Then, go to the **Activity** tab, scroll down to **Predictive scaling policies**, and click **Create predictive policy** to create a new one.
+Then, go to the **Automatic Scaling** tab, scroll down to **Predictive scaling policies**, and click **Create predictive policy** to create a new one.
 
 ![7.4.3](/images/7-test-solution/7.4.3.png)
 
