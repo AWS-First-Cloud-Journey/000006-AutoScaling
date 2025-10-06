@@ -167,7 +167,7 @@ To understand what this number represents, look at the chart on the right.
 
 ![7.4.11](/images/7-test-solution/7.4.11.png)
 
-We can see that at that time, 13 instances were predicted to be launched, and the load correlates with these instances.
+We can see that at that time, 5 instances were predicted to be launched, and the load correlates with these instances.
 
 You can check other times as well.
 
