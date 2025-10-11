@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tạo Launch Template on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
-    <link>/vi/3-create-launch-template/</link>
+    <link>//localhost:1313/vi/3-create-launch-template/</link>
     <description>Recent content in Tạo Launch Template on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="/vi/3-create-launch-template/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/vi/3-create-launch-template/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Create Load Balancer on DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
-    <link>/4-setup-load-balancer/4.2-create-load-balancer/</link>
+    <link>//localhost:1313/4-setup-load-balancer/4.2-create-load-balancer/</link>
     <description>Recent content in Create Load Balancer on DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="/4-setup-load-balancer/4.2-create-load-balancer/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/4-setup-load-balancer/4.2-create-load-balancer/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

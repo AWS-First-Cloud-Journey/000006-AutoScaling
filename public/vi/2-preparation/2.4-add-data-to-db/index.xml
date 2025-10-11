@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cài đặt dữ liệu cho Database on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
-    <link>/vi/2-preparation/2.4-add-data-to-db/</link>
+    <link>//localhost:1313/vi/2-preparation/2.4-add-data-to-db/</link>
     <description>Recent content in Cài đặt dữ liệu cho Database on TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="/vi/2-preparation/2.4-add-data-to-db/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/vi/2-preparation/2.4-add-data-to-db/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

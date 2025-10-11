@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Deploy Web Server :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1744703291" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1744703291" rel="stylesheet">
-    <link href="/css/hybrid.css?1744703291" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1744703291" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1744703291" rel="stylesheet">
-    <link href="/css/auto-complete.css?1744703291" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1744703291" rel="stylesheet">
-    <link href="/css/theme.css?1744703291" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1744703291" rel="stylesheet">
+    <link href="/css/nucleus.css?1760199307" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1760199307" rel="stylesheet">
+    <link href="/css/hybrid.css?1760199307" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1760199307" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1760199307" rel="stylesheet">
+    <link href="/css/auto-complete.css?1760199307" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1760199307" rel="stylesheet">
+    <link href="/css/theme.css?1760199307" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1760199307" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1744703291" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1760199307" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1744703291"></script>
+    <script src="/js/jquery-3.3.1.min.js?1760199307"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1744703291"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1744703291"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1760199307"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1760199307"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1744703291"></script>
+<script type="text/javascript" src="/js/search.js?1760199307"></script>
 
     
   </div>
@@ -693,7 +693,7 @@
                   
                     
                     
-                      <option id="en" value="/2-preparation/2.5-deploy-web-server/" selected>English</option>
+                      <option id="en" value="//localhost:1313/2-preparation/2.5-deploy-web-server/" selected>English</option>
                     
                   
               
@@ -707,7 +707,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/2-preparation/2.5-deploy-web-server/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/2-preparation/2.5-deploy-web-server/">Tiếng Việt</option>
                     
                   
               
@@ -836,7 +836,11 @@
 	<p>Install Node Version Manager (nvm) by entering the following command into the terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.1.png?featherlight=false&width=90pc"></p>
-<p>To install Node.js using nvm, enter the following command in the terminal.</p>
+<p>Run the following three lines of commands in your terminal exactly as they appear to immediately start using nvm without having to close and reopen the terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span>
+</span></span></code></pre></div><p>To install Node.js using nvm, enter the following command in the terminal.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install <span style="color:#ae81ff">20</span>
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.2.png?featherlight=false&width=90pc"></p>
 <p>Clone the application repository by running the following command in your terminal:</p>
@@ -845,14 +849,18 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd 000004-EC2
 </span></span></code></pre></div><p>NPM, short for Node Package Manager, is a vital tool for managing JavaScript libraries and dependencies in Node.js applications.When you run the command npm init, it initializes a new Node.js project and creates a package.json file. This file contains metadata about the project, such as its name, version, description, and a list of dependencies.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init
-</span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc"></p>
+</span></span></code></pre></div><p>You should press Enter continuously to create the default value</p>
+<p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc"></p>
 <p>Install pm2 globally; PM2 is used to manage and monitor running Node.js applications. It allows applications to run in the background.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g pm2
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.4.png?featherlight=false&width=90pc"></p>
-<p>Next, we redefine the script to run the application. We will use vim to open the package.json file and in the scripts section under the key start, assign it the following value. This will allow our application to run in the background:</p>
+<p>Next, we redefine the script to run the application. We will use vim or nano to open the package.json file and in the scripts section under the key start, assign it the following value. This will allow our application to run in the background:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start app.js
-</span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc"></p>
-<p>Continue using vim to access the .env file, then enter the following content to set up the connection to the database.</p>
+</span></span></code></pre></div><p>Enter the following command to access the content of the package.json file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano package.json
+</span></span></code></pre></div><p>Edit the file content as below:
+<img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc"></p>
+<p>Continue using vim or nano to access the .env file, then enter the following content to set up the connection to the database.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>DB_HOST<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;fcj-management-db-instance.cdysiiecu90g.ap-southeast-1.rds.amzonaws.com&#39;</span>
 </span></span><span style="display:flex;"><span>DB_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;awsfcjuser&#39;</span>
 </span></span><span style="display:flex;"><span>DB_USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;admin&#39;</span>
@@ -1265,19 +1273,19 @@ It will prompt you to set up a Startup Script. Please copy and paste that comman
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
-    <script src="/js/jquery.sticky.js?1744703292"></script>
-    <script src="/js/featherlight.min.js?1744703292"></script>
-    <script src="/js/highlight.pack.js?1744703292"></script>
+    <script src="/js/clipboard.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1760199307"></script>
+    <script src="/js/jquery.sticky.js?1760199307"></script>
+    <script src="/js/featherlight.min.js?1760199307"></script>
+    <script src="/js/highlight.pack.js?1760199307"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
-    <script src="/js/learn.js?1744703292"></script>
-    <script src="/js/hugo-learn.js?1744703292"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1760199307"></script>
+    <script src="/js/learn.js?1760199307"></script>
+    <script src="/js/hugo-learn.js?1760199307"></script>
 
-    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1744703292"></script>
+    <link href="/mermaid/mermaid.css?1760199307" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1760199307"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

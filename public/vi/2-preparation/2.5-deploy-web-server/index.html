@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai máy chủ web :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
-    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
-    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
-    <link href="/css/theme.css?1744703292" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
+    <link href="/css/nucleus.css?1760199307" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1760199307" rel="stylesheet">
+    <link href="/css/hybrid.css?1760199307" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1760199307" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1760199307" rel="stylesheet">
+    <link href="/css/auto-complete.css?1760199307" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1760199307" rel="stylesheet">
+    <link href="/css/theme.css?1760199307" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1760199307" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1760199307" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
+    <script src="/js/jquery-3.3.1.min.js?1760199307"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1760199307"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1760199307"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1744703292"></script>
+<script type="text/javascript" src="/js/search.js?1760199307"></script>
 
     
   </div>
@@ -693,7 +693,7 @@
                   
                     
                     
-                      <option id="en" value="/2-preparation/2.5-deploy-web-server/">English</option>
+                      <option id="en" value="//localhost:1313/2-preparation/2.5-deploy-web-server/">English</option>
                     
                   
               
@@ -707,7 +707,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/2-preparation/2.5-deploy-web-server/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/2-preparation/2.5-deploy-web-server/" selected>Tiếng Việt</option>
                     
                   
               
@@ -836,7 +836,11 @@
 	<p>Cài đặt node version manager (nvm) bằng cách nhập nội dung sau:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.1.png?featherlight=false&width=90pc"></p>
-<p>Sử dụng nvm để cài đặt Node.js bằng cách nhập nội dung sau vào dòng lệnh.</p>
+<p>Chạy ba dòng lệnh sau trong terminal của bạn để bắt đầu sử dụng nvm mà không cần phải đóng và mở lại terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span>
+</span></span></code></pre></div><p>Sử dụng nvm để cài đặt Node.js bằng cách nhập nội dung sau vào dòng lệnh.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install <span style="color:#ae81ff">20</span>
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.2.png?featherlight=false&width=90pc"></p>
 <p>Thực hiện clone repository code ứng dụng</p>
@@ -845,18 +849,22 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd 000004-EC2
 </span></span></code></pre></div><p>NPM là viết tắt của Node package manager là một công cụ tạo và quản lý các thư viện lập trình Javascript cho Node.js. Sử dụng npm init khởi tạo project sẽ tạo ra file package.json mẫu.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init
-</span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc"></p>
+</span></span></code></pre></div><p>Bạn nên nhấn Enter liên tục để tạo giá trị mặc định</p>
+<p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.3.png?featherlight=false&width=90pc"></p>
 <p>Cài đặt <strong>pm2</strong> trong Global, PM2 được sử dụng để quản lý và giám sát các ứng dụng Node.js đang chạy. Nó cho phép các ứng dụng chạy dưới nền.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g pm2
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.4.png?featherlight=false&width=90pc"></p>
 <p>Tiếp theo, chúng ta định nghĩa lại câu script để chạy ứng dụng, chúng ta sẽ dùng <strong>vim</strong> để mở file pakage.json, trong phần scripts ở key <strong>start</strong>, gán cho nó value sau, điều này sẽ giúp ứng dụng của chúng ta chạy nền:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start app.js
-</span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc"></p>
+</span></span></code></pre></div><p>Nhập lệnh sau đây để truy cập vào nội dung file package.json</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano package.json
+</span></span></code></pre></div><p>Chỉnh sửa nội dung file như ảnh bên dưới:
+<img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.5.png?featherlight=false&width=90pc"></p>
 <p>Tiếp tục dùng vim để vào file .env, sau đó nhập vào nội dung sau để thiết lập kết nối tới database.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>DB_HOST<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;fcj-management-db-instance.cdysiiecu90g.ap-southeast-1.rds.amzonaws.com&#39;</span>
-</span></span><span style="display:flex;"><span>DB_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;awsfcjuser&#39;</span>
-</span></span><span style="display:flex;"><span>DB_USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;admin&#39;</span>
-</span></span><span style="display:flex;"><span>DB_PASS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;123Vodanhphai&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>DB_HOST<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;fcj-management-db-instance.c9yyuau4yxcz.eu-west-3.rds.amazonaws.com
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DB_NAME=&#39;</span>awsfcjuser<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DB_USER=&#39;</span>admin<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DB_PASS=&#39;</span>123Vodanhphai<span style="color:#960050;background-color:#1e0010">&#39;</span>
 </span></span></code></pre></div><p><img alt="Image" src="/images/2-preparation/2.5-deploy-web-server/2.5.6.png?featherlight=false&width=90pc"></p>
 <p>Tiến hành khởi chạy ứng dụng:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm start
@@ -1265,19 +1273,19 @@ Nó sẽ yêu cầu thiết lập Startup Script, hãy copy/paste command đó v
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
-    <script src="/js/jquery.sticky.js?1744703292"></script>
-    <script src="/js/featherlight.min.js?1744703292"></script>
-    <script src="/js/highlight.pack.js?1744703292"></script>
+    <script src="/js/clipboard.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1760199307"></script>
+    <script src="/js/jquery.sticky.js?1760199307"></script>
+    <script src="/js/featherlight.min.js?1760199307"></script>
+    <script src="/js/highlight.pack.js?1760199307"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
-    <script src="/js/learn.js?1744703292"></script>
-    <script src="/js/hugo-learn.js?1744703292"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1760199307"></script>
+    <script src="/js/learn.js?1760199307"></script>
+    <script src="/js/hugo-learn.js?1760199307"></script>
 
-    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1744703292"></script>
+    <link href="/mermaid/mermaid.css?1760199307" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1760199307"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

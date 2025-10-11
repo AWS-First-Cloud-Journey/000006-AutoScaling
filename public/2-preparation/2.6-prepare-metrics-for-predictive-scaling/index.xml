@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prepare metric for Predictive scaling on DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
-    <link>/2-preparation/2.6-prepare-metrics-for-predictive-scaling/</link>
+    <link>//localhost:1313/2-preparation/2.6-prepare-metrics-for-predictive-scaling/</link>
     <description>Recent content in Prepare metric for Predictive scaling on DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="/2-preparation/2.6-prepare-metrics-for-predictive-scaling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/2-preparation/2.6-prepare-metrics-for-predictive-scaling/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

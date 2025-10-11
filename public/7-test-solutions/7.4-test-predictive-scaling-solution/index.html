@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Read metrics of predictive scaling solution :: DEPLOYING FCJ MANAGEMENT APPLICATION WITH AUTO SCALING GROUP.</title>
 
     
-    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
-    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
-    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
-    <link href="/css/theme.css?1744703292" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
+    <link href="/css/nucleus.css?1760199307" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1760199307" rel="stylesheet">
+    <link href="/css/hybrid.css?1760199307" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1760199307" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1760199307" rel="stylesheet">
+    <link href="/css/auto-complete.css?1760199307" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1760199307" rel="stylesheet">
+    <link href="/css/theme.css?1760199307" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1760199307" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1760199307" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
+    <script src="/js/jquery-3.3.1.min.js?1760199307"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1760199307"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1760199307"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1744703292"></script>
+<script type="text/javascript" src="/js/search.js?1760199307"></script>
 
     
   </div>
@@ -693,7 +693,7 @@
                   
                     
                     
-                      <option id="en" value="/7-test-solutions/7.4-test-predictive-scaling-solution/" selected>English</option>
+                      <option id="en" value="//localhost:1313/7-test-solutions/7.4-test-predictive-scaling-solution/" selected>English</option>
                     
                   
               
@@ -707,7 +707,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/7-test-solutions/7.4-test-predictive-scaling-solution/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/7-test-solutions/7.4-test-predictive-scaling-solution/">Tiếng Việt</option>
                     
                   
               
@@ -848,7 +848,7 @@
 <p><img alt="7.4.1" src="/images/7-test-solution/7.4.1.png"></p>
 <p>Next, delete the automatic scaling policy to avoid affecting this test.</p>
 <p><img alt="7.4.2" src="/images/7-test-solution/7.4.2.png"></p>
-<p>Then, go to the <strong>Activity</strong> tab, scroll down to <strong>Predictive scaling policies</strong>, and click <strong>Create predictive policy</strong> to create a new one.</p>
+<p>Then, go to the <strong>Automatic Scaling</strong> tab, scroll down to <strong>Predictive scaling policies</strong>, and click <strong>Create predictive policy</strong> to create a new one.</p>
 <p><img alt="7.4.3" src="/images/7-test-solution/7.4.3.png"></p>
 <p>In this form, we will configure as follows:</p>
 <ul>
@@ -968,7 +968,7 @@
 <div class="notices tip" ><p>The chart is in UTC+0, and we are in UTC+7, so you&rsquo;ll need to add 7 hours when reading these charts.</p>
 </div>
 
-<p>First, focus on the chart on the left. At 15:00 UTC (which is 22:00 in Vietnam time), the total load was <strong>164.546</strong>.</p>
+<p>First, focus on the chart on the left. At 09:00 UTC (which is 16:00 in Vietnam time), the total load was <strong>773.542</strong>.</p>
 <p><img alt="7.4.10" src="/images/7-test-solution/7.4.10.png"></p>
 <p>To understand what this number represents, look at the chart on the right.</p>
 <p><img alt="7.4.11" src="/images/7-test-solution/7.4.11.png"></p>
@@ -976,7 +976,7 @@
 <p>You can check other times as well.</p>
 <p><img alt="7.4.12" src="/images/7-test-solution/7.4.12.png"></p>
 <p><img alt="7.4.13" src="/images/7-test-solution/7.4.13.png"></p>
-<p>If you wait for the predicted time, go to the ASG&rsquo;s Activity tab, and you&rsquo;ll see that ASG launches a new instance at 21:59, one minute before 22:00, as predicted above.</p>
+<p>If you wait for the predicted time, go to the ASG&rsquo;s Activity tab, and you&rsquo;ll see that ASG launches a new instance at 15:59, one minute before 16:00, as predicted above.</p>
 <p><img alt="7.4.14" src="/images/7-test-solution/7.4.14.png"></p>
 <h4 id="conclusion">Conclusion</h4>
 <p>We can combine Predictive Scaling with Dynamic Scaling or other scaling types to increase ASG&rsquo;s flexibility and the system&rsquo;s reliability. For systems with consistent load over time, using predictive scaling is also a reasonable approach.</p>
@@ -1374,19 +1374,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
-    <script src="/js/jquery.sticky.js?1744703292"></script>
-    <script src="/js/featherlight.min.js?1744703292"></script>
-    <script src="/js/highlight.pack.js?1744703292"></script>
+    <script src="/js/clipboard.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1760199307"></script>
+    <script src="/js/jquery.sticky.js?1760199307"></script>
+    <script src="/js/featherlight.min.js?1760199307"></script>
+    <script src="/js/highlight.pack.js?1760199307"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
-    <script src="/js/learn.js?1744703292"></script>
-    <script src="/js/hugo-learn.js?1744703292"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1760199307"></script>
+    <script src="/js/learn.js?1760199307"></script>
+    <script src="/js/hugo-learn.js?1760199307"></script>
 
-    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1744703292"></script>
+    <link href="/mermaid/mermaid.css?1760199307" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1760199307"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

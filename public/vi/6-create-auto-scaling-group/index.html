@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Auto Scaling Group :: TRIỂN KHAI ỨNG DỤNG FCJ MANAGEMENT VỚI AUTO SCALING GROUP</title>
 
     
-    <link href="/css/nucleus.css?1744703292" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1744703292" rel="stylesheet">
-    <link href="/css/hybrid.css?1744703292" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1744703292" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1744703292" rel="stylesheet">
-    <link href="/css/auto-complete.css?1744703292" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1744703292" rel="stylesheet">
-    <link href="/css/theme.css?1744703292" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1744703292" rel="stylesheet">
+    <link href="/css/nucleus.css?1760199307" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1760199307" rel="stylesheet">
+    <link href="/css/hybrid.css?1760199307" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1760199307" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1760199307" rel="stylesheet">
+    <link href="/css/auto-complete.css?1760199307" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1760199307" rel="stylesheet">
+    <link href="/css/theme.css?1760199307" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1760199307" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1744703292" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1760199307" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1744703292"></script>
+    <script src="/js/jquery-3.3.1.min.js?1760199307"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1744703292"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1744703292"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1760199307"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1760199307"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1744703292"></script>
+<script type="text/javascript" src="/js/search.js?1760199307"></script>
 
     
   </div>
@@ -693,7 +693,7 @@
                   
                     
                     
-                      <option id="en" value="/6-create-auto-scaling-group/">English</option>
+                      <option id="en" value="//localhost:1313/6-create-auto-scaling-group/">English</option>
                     
                   
               
@@ -707,7 +707,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/6-create-auto-scaling-group/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/6-create-auto-scaling-group/" selected>Tiếng Việt</option>
                     
                   
               
@@ -884,12 +884,6 @@
 <li>Giữ các thiết lập còn lại theo mặc định</li>
 </ul>
 <p><img alt="6.6" src="/images/6-create-auto-scaling-group/6.6.png"></p>
-<p>Trong phần Additional settings, ở mục Monitoring:</p>
-<ul>
-<li>Tích chọn <strong>Enable group metrics collection within CloudWatch</strong></li>
-<li>Ấn <strong>Next</strong></li>
-</ul>
-<p><img alt="6.7" src="/images/6-create-auto-scaling-group/6.7.png"></p>
 <h4 id="thiết-lập-size-và-scaling-policies">Thiết lập Size và Scaling Policies</h4>
 <p><strong>ℹ️ Information</strong>: Trong phần này, chúng ta xác định hành vi mở rộng của Group và số lượng Instance sẽ được khởi tạo trong quá trình Scale out (mở rộng) và Scale in (thu hẹp).</p>
 <ul>
@@ -904,13 +898,18 @@
 <li>Max desired capacity: <strong>3</strong></li>
 </ul>
 </li>
+<li>Trong Automatic scaling - optional: chọn <strong>No scaling policies</strong> (tạm thời chưa thiết lập chính sách scaling cho ASG)
+<strong>💡 Pro Tip</strong>: Chúng ta không thiết lập chính sách scaling ngay lúc này vì sẽ thực hiện 4 chiến lược scaling khác nhau trong các bước tiếp theo.
+<img alt="6.7" src="/images/6-create-auto-scaling-group/6.7.png"></li>
 </ul>
-<p><img alt="6.8" src="/images/6-create-auto-scaling-group/6.8.png"></p>
-<p>Trong Automatic scaling - optional: chọn <strong>No scaling policies</strong> (tạm thời chưa thiết lập chính sách scaling cho ASG)</p>
-<p><img alt="6.9" src="/images/6-create-auto-scaling-group/6.9.png"></p>
 <p>Trong Instance maintenance policy: chọn <strong>No policy</strong></p>
-<p><img alt="6.10" src="/images/6-create-auto-scaling-group/6.10.png"></p>
-<p><strong>💡 Pro Tip</strong>: Chúng ta không thiết lập chính sách scaling ngay lúc này vì sẽ thực hiện 4 chiến lược scaling khác nhau trong các bước tiếp theo.</p>
+<p><img alt="6.8" src="/images/6-create-auto-scaling-group/6.8.png"></p>
+<p>Trong phần Additional settings, ở mục Monitoring:</p>
+<ul>
+<li>Tích chọn <strong>Enable group metrics collection within CloudWatch</strong></li>
+<li>Ấn <strong>Next</strong></li>
+</ul>
+<p><img alt="6.9" src="/images/6-create-auto-scaling-group/6.9.png"></p>
 <h4 id="thiết-lập-thông-báo">Thiết lập thông báo</h4>
 <p><strong>ℹ️ Information</strong>: Trong phần này, chúng ta thiết lập thông báo qua email (sử dụng Amazon SNS) khi ASG thực hiện các hành động như:</p>
 <ul>
@@ -926,18 +925,18 @@
 <li>Event types: chọn tất cả</li>
 <li>Ấn <strong>Next</strong></li>
 </ul>
-<p><img alt="6.11" src="/images/6-create-auto-scaling-group/6.11.png"></p>
-<p><img alt="6.12" src="/images/6-create-auto-scaling-group/6.12.png"></p>
+<p><img alt="6.11" src="/images/6-create-auto-scaling-group/6.10.png"></p>
+<p><img alt="6.12" src="/images/6-create-auto-scaling-group/6.11.png"></p>
 <p>Xác nhận lại các thông tin và ấn <strong>Create Auto Scaling group</strong></p>
-<p><img alt="6.13" src="/images/6-create-auto-scaling-group/6.13.png"></p>
+<p><img alt="6.13" src="/images/6-create-auto-scaling-group/6.12.png"></p>
 <h4 id="kết-quả">Kết quả</h4>
 <p><strong>⚠️ Warning</strong>: Trong quá trình tạo, bạn sẽ nhận được email xác nhận đăng ký từ SNS topic. Hãy kiểm tra và xác nhận đăng ký để nhận các thông báo tiếp theo.</p>
-<p><img alt="6.14" src="/images/6-create-auto-scaling-group/6.14.png"></p>
-<p><img alt="6.15" src="/images/6-create-auto-scaling-group/6.15.png"></p>
+<p><img alt="6.14" src="/images/6-create-auto-scaling-group/6.13.png"></p>
+<p><img alt="6.15" src="/images/6-create-auto-scaling-group/6.14.png"></p>
 <p>Vì chúng ta đã thiết lập <strong>Desired capacity = 1</strong>, ASG sẽ tự động tạo một Instance mới, và bạn sẽ nhận được email thông báo.</p>
-<p><img alt="6.16" src="/images/6-create-auto-scaling-group/6.16.png"></p>
+<p><img alt="6.16" src="/images/6-create-auto-scaling-group/6.15.png"></p>
 <p>Vào tab Activity của ASG FCJ-Management-ASG để kiểm tra:</p>
-<p><img alt="6.17" src="/images/6-create-auto-scaling-group/6.17.png"></p>
+<p><img alt="6.17" src="/images/6-create-auto-scaling-group/6.16.png"></p>
 <p><strong>💡 Pro Tip</strong>: Trong quá trình thực hiện các chiến lược scaling khác nhau, bạn có thể nhận được nhiều email thông báo. Đây là chủ đích khi chúng ta thiết lập SNS, giúp theo dõi và kiểm soát tốt hơn các hoạt động của Auto Scaling Group.</p>
 
 
@@ -1329,19 +1328,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.min.js?1744703292"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1744703292"></script>
-    <script src="/js/jquery.sticky.js?1744703292"></script>
-    <script src="/js/featherlight.min.js?1744703292"></script>
-    <script src="/js/highlight.pack.js?1744703292"></script>
+    <script src="/js/clipboard.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.min.js?1760199307"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1760199307"></script>
+    <script src="/js/jquery.sticky.js?1760199307"></script>
+    <script src="/js/featherlight.min.js?1760199307"></script>
+    <script src="/js/highlight.pack.js?1760199307"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1744703292"></script>
-    <script src="/js/learn.js?1744703292"></script>
-    <script src="/js/hugo-learn.js?1744703292"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1760199307"></script>
+    <script src="/js/learn.js?1760199307"></script>
+    <script src="/js/hugo-learn.js?1760199307"></script>
 
-    <link href="/mermaid/mermaid.css?1744703292" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1744703292"></script>
+    <link href="/mermaid/mermaid.css?1760199307" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1760199307"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
