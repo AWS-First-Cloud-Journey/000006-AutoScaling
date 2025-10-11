@@ -89,7 +89,7 @@ Trong phần Additional settings, ở mục Monitoring:
 - Tích chọn **Enable group metrics collection within CloudWatch**
 - Ấn **Next**
 
-![6.10](/images/6-create-auto-scaling-group/6.10.png)
+![6.9](/images/6-create-auto-scaling-group/6.9.png)
 
 #### Thiết lập thông báo
 
@@ -105,28 +105,28 @@ Cấu hình thông báo:
 - Event types: chọn tất cả
 - Ấn **Next**
 
-![6.11](/images/6-create-auto-scaling-group/6.11.png)
+![6.11](/images/6-create-auto-scaling-group/6.10.png)
 
-![6.12](/images/6-create-auto-scaling-group/6.12.png)
+![6.12](/images/6-create-auto-scaling-group/6.11.png)
 
 Xác nhận lại các thông tin và ấn **Create Auto Scaling group**
 
-![6.13](/images/6-create-auto-scaling-group/6.13.png)
+![6.13](/images/6-create-auto-scaling-group/6.12.png)
 
 #### Kết quả
 
 **⚠️ Warning**: Trong quá trình tạo, bạn sẽ nhận được email xác nhận đăng ký từ SNS topic. Hãy kiểm tra và xác nhận đăng ký để nhận các thông báo tiếp theo.
 
-![6.14](/images/6-create-auto-scaling-group/6.14.png)
+![6.14](/images/6-create-auto-scaling-group/6.13.png)
 
-![6.15](/images/6-create-auto-scaling-group/6.15.png)
+![6.15](/images/6-create-auto-scaling-group/6.14.png)
 
 Vì chúng ta đã thiết lập **Desired capacity = 1**, ASG sẽ tự động tạo một Instance mới, và bạn sẽ nhận được email thông báo.
 
-![6.16](/images/6-create-auto-scaling-group/6.16.png)
+![6.16](/images/6-create-auto-scaling-group/6.15.png)
 
 Vào tab Activity của ASG FCJ-Management-ASG để kiểm tra:
 
-![6.17](/images/6-create-auto-scaling-group/6.17.png)
+![6.17](/images/6-create-auto-scaling-group/6.16.png)
 
 **💡 Pro Tip**: Trong quá trình thực hiện các chiến lược scaling khác nhau, bạn có thể nhận được nhiều email thông báo. Đây là chủ đích khi chúng ta thiết lập SNS, giúp theo dõi và kiểm soát tốt hơn các hoạt động của Auto Scaling Group.

@@ -100,7 +100,7 @@ Under Monitoring:
 1. Select **Enable group metrics collection within CloudWatch**
 2. Click **Next**
 
-![Monitoring Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
+![Monitoring Configuration](/images/6-create-auto-scaling-group/6.9.png?featherlight=false&width=90pc)
 
 #### Configuring Notifications
 
@@ -112,13 +112,13 @@ Set up Amazon SNS notifications to monitor Auto Scaling events:
    - Event types: select all event types
 2. Click **Next**
 
-![Notification Configuration](/images/6-create-auto-scaling-group/6.11.png?featherlight=false&width=90pc)
+![Notification Configuration](/images/6-create-auto-scaling-group/6.10.png?featherlight=false&width=90pc)
 
-![Event Type Selection](/images/6-create-auto-scaling-group/6.12.png?featherlight=false&width=90pc)
+![Event Type Selection](/images/6-create-auto-scaling-group/6.11.png?featherlight=false&width=90pc)
 
 Review your configuration and click **Create Auto Scaling group**.
 
-![Review Configuration](/images/6-create-auto-scaling-group/6.13.png?featherlight=false&width=90pc)
+![Review Configuration](/images/6-create-auto-scaling-group/6.12.png?featherlight=false&width=90pc)
 
 **🔒 Security Note**: Notifications provide real-time awareness of scaling events, helping you monitor for unexpected behavior that could indicate security issues or application problems.
 
@@ -128,20 +128,20 @@ After creation, you'll receive confirmation emails:
 
 1. First, a subscription confirmation email (requires confirmation)
 
-![Subscription Confirmation](/images/6-create-auto-scaling-group/6.14.png?featherlight=false&width=90pc)
+![Subscription Confirmation](/images/6-create-auto-scaling-group/6.13.png?featherlight=false&width=90pc)
 
 2. Then, a notification when the first instance launches
 
-![Instance Launch Notification](/images/6-create-auto-scaling-group/6.15.png?featherlight=false&width=90pc)
+![Instance Launch Notification](/images/6-create-auto-scaling-group/6.14.png?featherlight=false&width=90pc)
 
-![Email Notification](/images/6-create-auto-scaling-group/6.16.png?featherlight=false&width=90pc)
+![Email Notification](/images/6-create-auto-scaling-group/6.15.png?featherlight=false&width=90pc)
 
 Verify the Auto Scaling activity in the AWS Management Console:
 
 1. Select your Auto Scaling Group
 2. Navigate to the **Activity** tab to view scaling events
 
-![Activity Verification](/images/6-create-auto-scaling-group/6.17.png?featherlight=false&width=90pc)
+![Activity Verification](/images/6-create-auto-scaling-group/6.16.png?featherlight=false&width=90pc)
 
 **⚠️ Warning**: As we implement different scaling strategies in subsequent sections, you may receive numerous notification emails. This is intentional to help you monitor scaling activities.
 
